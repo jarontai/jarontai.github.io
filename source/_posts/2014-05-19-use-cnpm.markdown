@@ -1,0 +1,39 @@
+---
+layout: post
+title: "使用cnpm镜像服务"
+date: 2014-05-19 12:38:39 +0800
+comments: false
+categories: nodejs js
+---
+  因为node/npm的服务器是在国外，而我大天朝的网络又是如此‘给力‘，所以在使用npm install安装依赖的过程中，经常会卡住；我不得不频繁的使用Ctrl+C中止下载，然后再尝试n次才能搞定。在google良久并尝试诸多方法之后，发现使用cnpm应该是应对此问题的最佳方案（当然能用VPN最好）。
+  
+  <!-- more -->
+  
+  [cnpm](http://cnpmjs.org/)的全称是Company npm，本意是指公司内部的npm，你可以使用它快速方便的搭建企业内部私有npm。此外，它还提供了一个公共的npm的镜像服务(http://r.cnpmjs.org)，你可以使用它来代替官方的npm。
+  
+  使用cnpm的镜像服务主要有两种方式，第一种是指定npm的registry参数，使npm去镜像地址下载依赖；第二种方式是使用cnpm提供的客户端来代替npm，即直接使用cnpm指令来安装/更新依赖。我个人更喜欢第二种方式，因为它不需要每次都写registry参数，也不用修改npm本身的配置，非常方便。
+  
+  第一种方式
+{% codeblock lang:sh %}
+// 添加registry参数指向镜像地址
+npm install -g cordova --registry=http://r.cnpmjs.org
+
+// 或者直接修改registry配置，默认的地址是https://registry.npmjs.org/（不推荐，修改了npm的配置）
+npm config set registry http://r.cnpmjs.org 
+{% endcodeblock %}
+	
+	
+  第二种方式
+{% codeblock lang:sh %}
+// 安装cnpm客户端
+npm install -g cnpm --registry=http://r.cnpmjs.org
+
+// 使用cnpm代替npm（npm依然可用）
+cnpm install -g lodash   
+cnpm update -g lodash
+cnpm uninstall -g lodash
+cnpm cache clean
+......
+{% endcodeblock %}
+  	
+ 使用cnpm安装依赖包，安装速度及成功率比以前使用npm时要高很多了，这可真要感谢cnpm的维护者们。
