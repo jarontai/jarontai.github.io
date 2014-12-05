@@ -5,11 +5,13 @@ date: 2014-11-28 09:46:58 +0800
 comments: true
 categories: 工具 Sublime
 ---
+### 引言
+  我喜欢使用SublimeText（以下将简称为Sublime）来写JavaScript，但有时候代码量一多，难免会犯些小错误，比如变量名写错，多了一个括号等等；而Sublime是编辑器，本身没有代码检查功能，只有当JS代码在浏览器里运行报错了，才发现问题，而这样就会浪费不少的时间。所以，我就想找找有没有这样的插件，使Sublime能够检测基本的JS语法错误。经过一番搜索后，终于找到了，而这也是今天要介绍的：JS错误检查工具 - JSHint与JSHint Gutter。
+
   注意：如果你是Windows用户，本文文字或图片中出现的某些指令如：which，是无法在windows命令行下运行的，你可以安装Git for windows, 其附带的Git Bash可以运行大多数的Bash命令。
+  <!-- more -->
 ___
 <br/>
-### 引言
-  我喜欢使用SublimeText（以下将简称为Sublime）来写JavaScript，但有时候代码量一多，难免会犯些小错误，比如变量名写错，多了一个括号等等；而Sublime是编辑器，本身没有代码检查功能，只有当JS代码在浏览器里运行报错了，才发现问题，而这样就会浪费不少的时间。所以，我就想找找有没有这样的插件，使Sublime能够检测基本的JS语法错误。经过一番搜索后，终于找到了，而这也是今天要介绍的：JS错误检查工具 - JSHint与JSHint Gutter。<!-- more -->
 
 ### 简介
   JSHint是一个JS代码质量(错误)检查工具，它不但能检查JS代码的语法错误，还能够监控代码质量，很多公司跟开源项目都在使用它，比如：Facebook、jQuery、Bootstrap等等。在Github上，使用JSHint的项目多如牛毛，如果你在某个项目里面，发现有.jshintrc文件，那它就使用了JSHint。JSHint是一个独立的工具，它不直接提供对Sublime的支持，它本身只提供命令行工具（基于NodeJS）。我们可以使用JSHint Gutter这个插件，它能够调用JSHint执行代码检查，然后将结果显示到Sublime界面上。
