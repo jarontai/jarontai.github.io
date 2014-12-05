@@ -10,8 +10,6 @@ categories: 工具 Sublime
 
   注意：如果你是Windows用户，本文文字或图片中出现的某些指令如：which，是无法在windows命令行下运行的，你可以安装Git for windows, 其附带的Git Bash可以运行大多数的Bash命令。
   <!-- more -->
-___
-<br/>
 
 ### 简介
   JSHint是一个JS代码质量(错误)检查工具，它不但能检查JS代码的语法错误，还能够监控代码质量，很多公司跟开源项目都在使用它，比如：Facebook、jQuery、Bootstrap等等。在Github上，使用JSHint的项目多如牛毛，如果你在某个项目里面，发现有.jshintrc文件，那它就使用了JSHint。JSHint是一个独立的工具，它不直接提供对Sublime的支持，它本身只提供命令行工具（基于NodeJS）。我们可以使用JSHint Gutter这个插件，它能够调用JSHint执行代码检查，然后将结果显示到Sublime界面上。
@@ -33,7 +31,7 @@ ___
   设置NodeJS执行文件所在的路径（node_path），并将lint_on_save（文件保存时检查）选项打开
   <img src="{{ root_url }}/images/custom/sublime-jshint-setting.png" />
 
-  请注意：不同的操作系统，不同的安装工具（我使用nvm安装node），node执行文件所在的路径都不一样，你可以使用 which node 来查看
+  注意：不同的操作系统，不同的安装工具（我使用nvm安装node），node执行文件所在的路径都不一样，你可以使用 which node 来查看
 
 ### 设置.jshintrc
   在项目根目录新建一个文件：.jshintrc（windows用户应该在文件管理器里面创建.jshintrc.文件，然后它会自动改名为.jshintrc），在此文件里填写你的检查规则，以下是一个典型的.jshintrc
