@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Html5 | Dynamic Static]]></title>
+  <link href="http://jarontai.github.io/blog/categories/html5/atom.xml" rel="self"/>
+  <link href="http://jarontai.github.io/"/>
+  <updated>2014-12-11T10:44:26+08:00</updated>
+  <id>http://jarontai.github.io/</id>
+  <author>
+    <name><![CDATA[戴虬]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[用iFrame Resizer解决iframe高度自适应问题]]></title>
+    <link href="http://jarontai.github.io/blog/2014/07/25/use-iframe-resizer/"/>
+    <updated>2014-07-25T20:45:39+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/07/25/use-iframe-resizer</id>
+    <content type="html"><![CDATA[<p>  最近工作中需要对一个旧项目进行改造，不得已使用了让人头疼的iframe，碰到的最大问题是没有好的方法使其高度自适应。Google一番之后，发现<a href="http://davidjbradshaw.github.io/iframe-resizer/">iframe-resizer</a>能够比较好的解决这个问题，而且还支持跨域访问（使用<a href="https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage">postMessage</a>）。</p>
+
+<p>  在使用它之前，必须明确iframe resizer要求IE8+（firefox，chrome等自然没有问题），如果你需要支持旧版本IE，请关掉本页然后再去google。其次，iframe resizer提供了原生JS与jQuery插件两种调用方式，<!-- more -->而原生方式需要<a href="http://davidjbradshaw.github.io/iframe-resizer/#browser-compatibility">额外的配置</a>，所以我推荐选择jQuery插件方式（毕竟jQuery几乎是标配了）。</p>
+
+<hr />
+
+<p>  OK，下载iframe resizer。</p>
+
+<p>  在iframe resizer压缩包的js文件夹中，有两个文件：
+  第一个js是：iframeResizer.min.js。这个js是要放在需要嵌入iframe的页面（parent）中，其调用方式如下（一般情况下你不需要传递任何参数即可实现高度自适应，详细参数请参考<a href="http://davidjbradshaw.github.io/iframe-resizer/#options">官网</a>）：</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">iframe</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">iFrameResize</span><span class="p">([{</span><span class="nx">log</span><span class="o">:</span> <span class="kc">true</span><span class="p">}]);</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>  第二个js是：iframeResizer.contentWindow.min.js，它需要放到你的iframe页面(child)中去，注意只要引人，不需要代码配置。</p>
+
+<hr />
+
+<p>  接下来是设置iframe，需要注意的是width必须是百分比，scrolling设置为no（为了兼容性）。</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">&quot;http://yourserver.com/index.html&quot;</span> <span class="na">width=</span><span class="s">&quot;100%&quot;</span> <span class="na">scrolling=</span><span class="s">&quot;no&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>  当然，你也可以使用document.createElement来动态创建它。
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">iframe</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">iframe</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
+</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">src</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;http://yourserver.com/index.html&quot;</span><span class="o">&gt;</span><span class="nx">http</span><span class="o">:</span><span class="c1">//yourserver.com/index.html&lt;/a&gt;&amp;rsquo;);</span>
+</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">width</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="mi">100</span><span class="o">%&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
+</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">scrolling</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">no</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
+</span><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">iframe</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<hr />
+
+<p>  按照以上步骤设置，基本上就能够解决iframe自适应问题，且iframe内容可跨域。</p>
+]]></content>
+  </entry>
+  
+</feed>

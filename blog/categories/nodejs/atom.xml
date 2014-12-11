@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Nodejs | Dynamic Static]]></title>
+  <link href="http://jarontai.github.io/blog/categories/nodejs/atom.xml" rel="self"/>
+  <link href="http://jarontai.github.io/"/>
+  <updated>2014-12-11T10:44:26+08:00</updated>
+  <id>http://jarontai.github.io/</id>
+  <author>
+    <name><![CDATA[戴虬]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[使用cnpm镜像服务]]></title>
+    <link href="http://jarontai.github.io/blog/2014/05/19/use-cnpm/"/>
+    <updated>2014-05-19T12:38:39+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/05/19/use-cnpm</id>
+    <content type="html"><![CDATA[<p>  因为node/npm的服务器是在国外，而我大天朝的网络又是如此‘给力‘，所以在使用npm install安装依赖的过程中，经常会卡住；我不得不频繁的使用Ctrl+C中止下载，然后再尝试n次才能搞定。在google良久并尝试诸多方法之后，发现使用cnpm应该是应对此问题的最佳方案（当然能用VPN最好）。</p>
+
+<p>  <!-- more --></p>
+
+<p>  <a href="http://cnpmjs.org/">cnpm</a>的全称是Company npm，本意是指公司内部的npm，你可以使用它快速方便的搭建企业内部私有npm。此外，它还提供了一个公共的npm的镜像服务(<a href="http://r.cnpmjs.org">http://r.cnpmjs.org</a>)，你可以使用它来代替官方的npm。</p>
+
+<p>  使用cnpm的镜像服务主要有两种方式，第一种是指定npm的registry参数，使npm去镜像地址下载依赖；第二种方式是使用cnpm提供的客户端来代替npm，即直接使用cnpm指令来安装/更新依赖。我个人更喜欢第二种方式，因为它不需要每次都写registry参数，也不用修改npm本身的配置，非常方便。</p>
+
+<p>  第一种方式
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>// 添加registry参数指向镜像地址
+</span><span class='line'>npm install -g cordova <span class="p">&amp;</span>ndash<span class="p">;</span><span class="nv">registry</span><span class="o">=</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://r.cnpmjs.org&quot;</span>&gt;http://r.cnpmjs.org&lt;/a&gt;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;// 或者直接修改registry配置，默认的地址是&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://registry.npmjs.org/%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%BA%86npm%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%89&quot;</span>&gt;https://registry.npmjs.org/%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%BA%86npm%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%89&lt;/a&gt;
+</span><span class='line'>npm config <span class="nb">set </span>registry &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://r.cnpmjs.org&quot;</span>&gt;http://r.cnpmjs.org&lt;/a&gt;
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>  第二种方式
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>// 安装cnpm客户端
+</span><span class='line'>npm install -g cnpm <span class="p">&amp;</span>ndash<span class="p">;</span><span class="nv">registry</span><span class="o">=</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://r.cnpmjs.org&quot;</span>&gt;http://r.cnpmjs.org&lt;/a&gt;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;// 使用cnpm代替npm（npm依然可用）
+</span><span class='line'>cnpm install -g lodash &lt;br/&gt;
+</span><span class='line'>cnpm update -g lodash
+</span><span class='line'>cnpm uninstall -g lodash
+</span><span class='line'>cnpm cache clean
+</span><span class='line'><span class="p">&amp;</span>hellip<span class="p">;&amp;</span>hellip<span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p> 使用cnpm安装依赖包，安装速度及成功率比以前使用npm时要高很多了，这可真要感谢cnpm的维护者们。</p>
+]]></content>
+  </entry>
+  
+</feed>

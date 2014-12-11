@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 其他 | Dynamic Static]]></title>
+  <link href="http://jarontai.github.io/blog/categories/qi-ta/atom.xml" rel="self"/>
+  <link href="http://jarontai.github.io/"/>
+  <updated>2014-12-11T10:44:26+08:00</updated>
+  <id>http://jarontai.github.io/</id>
+  <author>
+    <name><![CDATA[戴虬]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[近半年工作小结]]></title>
+    <link href="http://jarontai.github.io/blog/2014/10/02/half-year-job-review/"/>
+    <updated>2014-10-02T21:58:36+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/10/02/half-year-job-review</id>
+    <content type="html"><![CDATA[<p>进入新公司有近半年时间了，期间作为开发主力参与了几个项目，真的学到不少东西，现在做个小小回顾。</p>
+
+<hr />
+
+<p><br/></p>
+
+<h3>Linux/Mac OS</h3>
+
+<p>时间回退到三四年前，我可以说是一个Windows的忠实使用者与拥护者。但随着逐步接触Web开发及各类开源软件，特别是看到近两年前端工具、JavaScript框架的发展壮大以及Nodejs的流行，我越来越觉得基于linux/unix的开发机才是最适合我的。我的理由：1.各种开源软件首选开发平台大都是linux；2.各种新兴前端工具如bower, grunt等都是基于Nodejs的，而Nodejs在linux下开发相对更方便（注：Nodejs早期其实也只有linux版本）。</p>
+
+<!-- more -->
+
+
+<p>而进入新公司后，IT部门统一标配Mac mini，在经过一到两周的实际使用后，坚定了我告别Windows的决心，毫不犹豫的入手MacBookAir作为个人开发机。在基于unix的Mac上，从后端开发到前端，从数据库到各式开发语言，我都能够很容易的进行安装，开发及调试。特别是使用终端（Terminal/Shell），再配合<a href="http://brew.sh/">homebrew</a>，<a href="http://iterm2.com/">iTerm</a>，<a href="http://git-scm.com">Git</a>等，彻底颠覆了我以前在windows上那种开发体验。当然，在经过一段时间的使用后，我也认识到我对linux的使用还是比较基础的，后面应该花时间系统学习下它。</p>
+
+<hr />
+
+<p><br/></p>
+
+<h3>Magento</h3>
+
+<p><a href="http://magento.com/products/overview">Magento</a>是一个功能强大的，在国外非常流行，且已被ebay收购的电子商务系统。我在上一家公司开始接触它，开始只是做前端样式与布局修改，然后慢慢尝试修改简单的模板代码，到今年初进入新公司后，才有机会做后台模块（module）的开发。算下来，使用Magento的时间也不算少，但是我真的不敢说对它很熟悉，也没有办法喜欢上它。因为在我眼里，对比大部分的PHP框架，基于ZendFramework的Magento实在是个异类，它的开发工作异常繁琐，应该是我用过的最难开发的一个系统。</p>
+
+<p>经常在网上看到同道人抱怨Magento，配置多并且都是xml，文件多嵌套深，文档不齐全，服务器要求高等等，我表示不能赞同更多。我自己在开发的时候也经常被它搞得头疼，甚至郁闷到不想工作；但是后面又想到，如果magento不复杂，那它就不能拥有异常强大且全面的功能了。在可以预见的一到两年内，我都将继续使用它，所以我暂且只能把它理解为一个“甜蜜的负担”，我虽然不喜欢它但我会尽力掌握好它，不让它阻扰我的工作。</p>
+
+<hr />
+
+<p><br/></p>
+
+<h3>Laravel</h3>
+
+<p>应该是在一年多前就听说过<a href="http://laravel.com/">Laravel</a>的大名，但是直到最近才真正使用它。它非常全面，跟有名的RoR（<a href="http://rubyonrails.org/">RubyOnRails</a>）非常相似（Laravel的推出比Rails晚很多年，它应该借鉴了很多后者的设计），从MVC到ORM，从前端模板到数据库migration，开发的方方面面它都为你考虑到。而它的官方文档也比较详细，所以我上手也算比较快，用起来也觉得非常舒服，我打算以后将它作为我PHP开发的主力框架。</p>
+
+<p>此外，通过学习Laravel，也让我接触到了Composer，Namespace等PHP语言的新标准跟新特性，也让我认识到，对比其他语言（如Java，Nodejs），PHP可能有比较多的缺点，但不可否认，近两年它也在慢慢变好，Laravel就是其有力的支持者之一。真心希望有越来越多的人去认识使用Laravel，进而更好的推动PHP发展。</p>
+
+<hr />
+
+<p><br/></p>
+
+<h3>Commentics</h3>
+
+<p>在接到改造<a href="http://www.commentics.org/">Commentics</a>的任务时，心里有些没有底。因为commentics是一个在国内、国外都不太流行的，比较传（lao）统（tu）的留言系统。它没有用Composer，没有MVC，没有ORM，只是PHP加HTML，想要把它改造成一个异步刷新的现代型的留言系统恐怕有些难度。</p>
+
+<p>但是，在折腾它一番后，发现它的后台还是做得比较完善的，前台的功能界面也都是可配置的，除了不现代（ajax）之外，确实算得是一个比较好的留言系统。了解清楚commentics的优缺点，改造的工作思路就清晰了。我们将它后端简化整理成API，重做了前端HTML与样式使之兼容移动端，前端逻辑也使用jQuery重写，比较顺利的将commentics改造成一个功能外观类似于“<a href="http://duoshuo.com/">多说</a>”的、“现代化”的留言系统。同时，通过改造Commentics，我真正认识了什么叫“传统型”的PHP应用，以后再碰到类似的老旧系统时，应该会比较得心应手了。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://jarontai.github.io/blog/2014/05/05/hello-world/"/>
+    <updated>2014-05-05T14:47:04+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/05/05/hello-world</id>
+    <content type="html"><![CDATA[<p>这是我博客（基于github与octopress）的第一篇文章。</p>
+
+<p>摘抄部分Octopress指令：</p>
+
+<!-- more -->
+
+
+<p>Octopress 常用指令：</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake new_post<span class="o">[</span><span class="p">&amp;</span>ldquo<span class="p">;</span>title<span class="p">&amp;</span>rdquo<span class="p">;</span><span class="o">]</span>  <span class="c"># Generate a new post&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;rake generate   <span class="c"># Generates posts and pages into the public directory&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;rake watch      <span class="c"># Watches source/ and sass/ for changes and regenerates&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;rake preview    <span class="c"># Watches, and mounts a webserver at &lt;a href=&quot;http://localhost:4000&quot;&gt;http://localhost:4000&lt;/a&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;rake deploy     <span class="c"># Deploy to github&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;git add .  <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span>   git commit -m <span class="p">&amp;</span>lsquo<span class="p">;</span>your message<span class="p">&amp;</span>rsquo<span class="p">;</span>  <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span>  git push origin <span class="nb">source</span>
+</span></code></pre></td></tr></table></div></figure></p>
+]]></content>
+  </entry>
+  
+</feed>

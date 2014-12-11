@@ -1,1 +1,523 @@
-My Octopress Page is coming soon &hellip;
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Dynamic Static</title>
+  <meta name="author" content="戴虬">
+
+  
+  <meta name="description" content="引言 我喜欢使用SublimeText（以下将简称为Sublime）来写JavaScript，但有时候代码量一多，难免会犯些小错误，比如变量名写错，多了一个括号等等；而Sublime是编辑器，本身没有代码检查功能，只有当JS代码在浏览器里运行报错了，才发现问题，而这样就会浪费不少的时间。所以， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jarontai.github.io">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Dynamic Static" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.useso.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.useso.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.useso.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dynamic Static</a></h1>
+  
+    <h2>戴虬的博客 - 关于代码，游戏及其他</h2>
+  
+</hgroup>
+<!--[if IE]><p style="color: red;">你的浏览器过时了，请升级到最新版本或使用Chrome、FireFox等，以获得最佳阅读体验.</p><![endif]-->
+<a href="https://github.com/jarontai"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://xie.lu/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jarontai.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">文章</a></li>
+  <li><a href="/blog/archives">存档</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/11/28/sublime-jshint/">SublimeText插件推荐：JS错误检查工具 - JSHint与JSHint Gutter</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-28T09:46:58+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:46 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>引言</h3>
+
+<p>  我喜欢使用SublimeText（以下将简称为Sublime）来写JavaScript，但有时候代码量一多，难免会犯些小错误，比如变量名写错，多了一个括号等等；而Sublime是编辑器，本身没有代码检查功能，只有当JS代码在浏览器里运行报错了，才发现问题，而这样就会浪费不少的时间。所以，我就想找找有没有这样的插件，使Sublime能够检测基本的JS语法错误。经过一番搜索后，终于找到了，而这也是今天要介绍的：JS错误检查工具 - JSHint与JSHint Gutter。</p>
+
+<p>  注意：如果你是Windows用户，本文文字或图片中出现的某些指令如：which，是无法在windows命令行下运行的，你可以安装Git for windows, 其附带的Git Bash可以运行大多数的Bash命令。
+  </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/11/28/sublime-jshint/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/11/16/sublime-editorconfig/">SublimeText插件推荐：代码格式管家-EditorConfig</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-16T21:28:19+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:28 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>引言</h3>
+
+<p>  从大学毕业到现在，用过不少IDE与编辑器，记得起来的有：VisualStudio，Eclipse，NetBeans，SublimeText，Jetbrains家族（WebStorm，RubyMine），VIM等。在这么多小伙伴中，用的最顺手的还是<a href="http://www.sublimetext.com">SublimeText</a>（以下将简称为Sublime），它轻量，易用（对比VIM），跨平台，功能强大（对比其他编辑器，非IDE）。而Sublime丰富的第三方插件库，我认为是它优于其他编辑器的重要原因，所以接下来几篇博客，我将推荐一些我个人非常喜欢的插件。如果你还没有使用过SublimeText，你可以查看这篇<a href="http://www.iplaysoft.com/sublimetext.html">入门介绍</a>。</p>
+
+<h3>简介</h3>
+
+<p>  今天要推荐的Sublime插件是：代码格式管家-EditorConfig，它最主要的功能就是让你在不同项目、编辑器下，保持统一的代码风格（主要是缩进）。如果你想统一多个项目的代码风格，或者你需要在不同的编辑器下编辑同一个项目，又或者你不喜欢编辑器自带的缩进格式（如sublime默认缩进宽度是4），那么EditorConfig可以解救你。</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/11/16/sublime-editorconfig/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/10/02/half-year-job-review/">近半年工作小结</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-02T21:58:36+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>9:58 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>进入新公司有近半年时间了，期间作为开发主力参与了几个项目，真的学到不少东西，现在做个小小回顾。</p>
+
+<hr />
+
+<p><br/></p>
+
+<h3>Linux/Mac OS</h3>
+
+<p>时间回退到三四年前，我可以说是一个Windows的忠实使用者与拥护者。但随着逐步接触Web开发及各类开源软件，特别是看到近两年前端工具、JavaScript框架的发展壮大以及Nodejs的流行，我越来越觉得基于linux/unix的开发机才是最适合我的。我的理由：1.各种开源软件首选开发平台大都是linux；2.各种新兴前端工具如bower, grunt等都是基于Nodejs的，而Nodejs在linux下开发相对更方便（注：Nodejs早期其实也只有linux版本）。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/10/02/half-year-job-review/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/28/jquery-jsonp-error-process/">jQuery JSONP请求的错误处理</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-08-28T16:03:18+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:03 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>  jQuery的ajax方法封装的非常好，使用它你可以非常轻松的编写异步请求代码，但如果你是用它来做JSONP跨域请求，那你可要注意了，此处有坑！<br/></p>
+
+<p>  以下是常见的jqeury jsonp请求的代码:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://api.github.com/users/jarontai/repos&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">dataType</span><span class="o">:</span> <span class="s1">&#39;jsonp&#39;</span><span class="p">,</span> <span class="c1">// dataType为jsonp</span>
+</span><span class='line'>  <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">jqXHR</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;JSONP error!&#39;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上方法看似安全可行，但如果你把url参数改成某个不存在的地址，你会惊奇的发现：虽然浏览器终端报出错误(404或其他网络错误)，但你的error回调却没有被执行!?<br/></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/08/28/jquery-jsonp-error-process/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/22/manage-multiple-ajax/">管理多个ajax请求(jQuery)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-08-22T21:30:18+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>9:30 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>  在web应用的开发中，我们可能会碰到需要发起多个ajax请求的情况。<br/></p>
+
+<p>  以下应该是最常见的写法:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// Get html</span>
+</span><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/test&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// Get json data</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="s1">&#39;/api/test.json&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Get the JS</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s1">&#39;/assets/test.js&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>       <span class="c1">// display result</span>
+</span><span class='line'>       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>       <span class="c1">// Add html to page</span>
+</span><span class='line'>       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上方法虽然可行，但是如果请求很多，就会产生不易维护的多层嵌套代码，而且请求是一个完了才执行下一个，效率不高。<br/></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/08/22/manage-multiple-ajax/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/25/use-iframe-resizer/">用iFrame Resizer解决iframe高度自适应问题</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-07-25T20:45:39+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>8:45 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>  最近工作中需要对一个旧项目进行改造，不得已使用了让人头疼的iframe，碰到的最大问题是没有好的方法使其高度自适应。Google一番之后，发现<a href="http://davidjbradshaw.github.io/iframe-resizer/">iframe-resizer</a>能够比较好的解决这个问题，而且还支持跨域访问（使用<a href="https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage">postMessage</a>）。</p>
+
+<p>  在使用它之前，必须明确iframe resizer要求IE8+（firefox，chrome等自然没有问题），如果你需要支持旧版本IE，请关掉本页然后再去google。其次，iframe resizer提供了原生JS与jQuery插件两种调用方式，</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/25/use-iframe-resizer/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/19/use-cnpm/">使用cnpm镜像服务</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-05-19T12:38:39+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:38 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>  因为node/npm的服务器是在国外，而我大天朝的网络又是如此‘给力‘，所以在使用npm install安装依赖的过程中，经常会卡住；我不得不频繁的使用Ctrl+C中止下载，然后再尝试n次才能搞定。在google良久并尝试诸多方法之后，发现使用cnpm应该是应对此问题的最佳方案（当然能用VPN最好）。</p>
+
+<p>  </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/05/19/use-cnpm/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/05/hello-world/">Hello World</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-05-05T14:47:04+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>2:47 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>这是我博客（基于github与octopress）的第一篇文章。</p>
+
+<p>摘抄部分Octopress指令：</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/05/05/hello-world/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">文章存档</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>最近的文章</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/11/28/sublime-jshint/">SublimeText插件推荐：JS错误检查工具 - JSHint与JSHint Gutter</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/16/sublime-editorconfig/">SublimeText插件推荐：代码格式管家-EditorConfig</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/02/half-year-job-review/">近半年工作小结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/28/jquery-jsonp-error-process/">jQuery JSONP请求的错误处理</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/22/manage-multiple-ajax/">管理多个ajax请求(jQuery)</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub 开源代码</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/jarontai">@jarontai</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jarontai',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - 戴虬 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

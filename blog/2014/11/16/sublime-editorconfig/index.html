@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>SublimeText插件推荐：代码格式管家-EditorConfig - Dynamic Static</title>
+  <meta name="author" content="戴虬">
+
+  
+  <meta name="description" content="引言 从大学毕业到现在，用过不少IDE与编辑器，记得起来的有：VisualStudio，Eclipse，NetBeans，SublimeText，Jetbrains家族（WebStorm，RubyMine），VIM等。在这么多小伙伴中，用的最顺手的还是SublimeText（ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jarontai.github.io/blog/2014/11/16/sublime-editorconfig">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Dynamic Static" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.useso.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.useso.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.useso.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dynamic Static</a></h1>
+  
+    <h2>戴虬的博客 - 关于代码，游戏及其他</h2>
+  
+</hgroup>
+<!--[if IE]><p style="color: red;">你的浏览器过时了，请升级到最新版本或使用Chrome、FireFox等，以获得最佳阅读体验.</p><![endif]-->
+<a href="https://github.com/jarontai"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://xie.lu/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jarontai.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">文章</a></li>
+  <li><a href="/blog/archives">存档</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">SublimeText插件推荐：代码格式管家-EditorConfig</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-16T21:28:19+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:28 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>引言</h3>
+
+<p>  从大学毕业到现在，用过不少IDE与编辑器，记得起来的有：VisualStudio，Eclipse，NetBeans，SublimeText，Jetbrains家族（WebStorm，RubyMine），VIM等。在这么多小伙伴中，用的最顺手的还是<a href="http://www.sublimetext.com">SublimeText</a>（以下将简称为Sublime），它轻量，易用（对比VIM），跨平台，功能强大（对比其他编辑器，非IDE）。而Sublime丰富的第三方插件库，我认为是它优于其他编辑器的重要原因，所以接下来几篇博客，我将推荐一些我个人非常喜欢的插件。如果你还没有使用过SublimeText，你可以查看这篇<a href="http://www.iplaysoft.com/sublimetext.html">入门介绍</a>。</p>
+
+<h3>简介</h3>
+
+<p>  今天要推荐的Sublime插件是：代码格式管家-EditorConfig，它最主要的功能就是让你在不同项目、编辑器下，保持统一的代码风格（主要是缩进）。如果你想统一多个项目的代码风格，或者你需要在不同的编辑器下编辑同一个项目，又或者你不喜欢编辑器自带的缩进格式（如sublime默认缩进宽度是4），那么EditorConfig可以解救你。<!-- more --></p>
+
+<p>  注意：EditorConfig支持除Sublime之外的很多主流编辑器与IDE，如前面提到的VisualStudio, Eclipse, VIM, WebStorm等，这些插件的下载链接在EditorConfig主页可以找到：<a href="http://editorconfig.org/">http://editorconfig.org/</a>。</p>
+
+<h3>插件的安装</h3>
+
+<p>  插件安装非常简单，使用Sublime命令面板的PackageControl:Install Package，搜索EditorConfig安装即可。
+  <img src="/images/custom/sublime-install.png" /></p>
+
+<h3>插件的使用</h3>
+
+<p>  在项目根目录新建一个文件：.editorconfig（windows用户应该在文件管理器里面创建.editorconfig.文件，然后它会自动改名为.editorconfig），在此文件里填写你需要的格式规则，以下是一个典型的.editorconfig</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="err">#</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//editorconfig.org</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">root</span> <span class="o">=</span> <span class="kc">true</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+</span><span class='line'><span class="err">#</span> <span class="nx">Change</span> <span class="nx">these</span> <span class="nx">settings</span> <span class="nx">to</span> <span class="nx">your</span> <span class="nx">own</span> <span class="nx">preference</span>
+</span><span class='line'><span class="nx">indent_style</span> <span class="o">=</span> <span class="nx">space</span>
+</span><span class='line'><span class="nx">indent_size</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">#</span> <span class="nx">We</span> <span class="nx">recommend</span> <span class="nx">you</span> <span class="nx">to</span> <span class="nx">keep</span> <span class="nx">these</span> <span class="nx">unchanged</span>
+</span><span class='line'><span class="nx">end_of_line</span> <span class="o">=</span> <span class="nx">lf</span>
+</span><span class='line'><span class="nx">charset</span> <span class="o">=</span> <span class="nx">utf</span><span class="o">-</span><span class="mi">8</span>
+</span><span class='line'><span class="nx">trim_trailing_whitespace</span> <span class="o">=</span> <span class="kc">true</span>
+</span><span class='line'><span class="nx">insert_final_newline</span> <span class="o">=</span> <span class="kc">true</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">[</span><span class="o">*</span><span class="p">.</span><span class="nx">md</span><span class="p">]</span>
+</span><span class='line'><span class="nx">trim_trailing_whitespace</span> <span class="o">=</span> <span class="kc">false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>配置讲解：</p>
+
+<ul>
+<li>第一行：是注释，所有的注释要以#或者;开头，且注释都要另起一行，即它们不能写在配置项的后面</li>
+<li>第三行：root = true 是特殊配置项，必须放在本文件的开头（！？暂时没有理解官方网站的解释）</li>
+<li>第五行：[*]是配置区域的开始标记，它下面的每一行配置项都属于此区域；括号里的字符表明此区域的作用范围，这里使用了星号通配符，表示以下配置将作用于所有文件；你可以使用通配符、路径及文件名等来指定范围，如：*，*.js，lib/*.php</li>
+<li>第七行：indent_style 表示缩进的方式，可选项有：space - 每次输入tab会被空格代替；tab - 直接输入tab，不替换</li>
+<li>第八行：indent_size 表示缩进的宽度（个数），可以自由设定你喜欢的宽度</li>
+<li>第十一行：end_of_line 设置使用的换行符，有lf，cr，以及crlf，建议使用lf</li>
+<li>第十二行：charset 设置文件的编码</li>
+<li>第十三行：trim_trailing_whitespace 是否去除每行代码后的多余空格</li>
+<li>第十四行：insert_final_newline 是否在每个文件尾部添加一个换行</li>
+<li>第十六行：又一个配置区域，它的范围是所有后缀为md的文件</li>
+<li>第十七行：跟十四行一样的配置项，此配置项会覆盖十四行（作用范围为所有的md文件）</li>
+</ul>
+
+
+<p>以上配置项目，对风格影响最大的应该是indent_style跟indent_size，我个人目前遵循的是大多数js/node项目的风格：style为space，size为2。</p>
+
+<p>更多详细的配置，请查看EditorConfig官网：<a href="http://editorconfig.org/">http://editorconfig.org/</a></p>
+
+<p>以上。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">戴虬</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-11-16T21:28:19+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:28 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/sublime/'>sublime</a>, <a class='category' href='/blog/categories/gong-ju/'>工具</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/10/02/half-year-job-review/" title="Previous Post: 近半年工作小结">&laquo; 近半年工作小结</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/11/28/sublime-jshint/" title="Next Post: SublimeText插件推荐：JS错误检查工具 - JSHint与JSHint Gutter">SublimeText插件推荐：JS错误检查工具 - JSHint与JSHint Gutter &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>最近的文章</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/11/28/sublime-jshint/">SublimeText插件推荐：JS错误检查工具 - JSHint与JSHint Gutter</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/16/sublime-editorconfig/">SublimeText插件推荐：代码格式管家-EditorConfig</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/02/half-year-job-review/">近半年工作小结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/28/jquery-jsonp-error-process/">jQuery JSONP请求的错误处理</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/22/manage-multiple-ajax/">管理多个ajax请求(jQuery)</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub 开源代码</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/jarontai">@jarontai</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jarontai',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - 戴虬 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

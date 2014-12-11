@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Dynamic Static]]></title>
+  <link href="http://jarontai.github.io/atom.xml" rel="self"/>
+  <link href="http://jarontai.github.io/"/>
+  <updated>2014-12-11T10:44:26+08:00</updated>
+  <id>http://jarontai.github.io/</id>
+  <author>
+    <name><![CDATA[戴虬]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SublimeText插件推荐：JS错误检查工具 - JSHint与JSHint Gutter]]></title>
+    <link href="http://jarontai.github.io/blog/2014/11/28/sublime-jshint/"/>
+    <updated>2014-11-28T09:46:58+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/11/28/sublime-jshint</id>
+    <content type="html"><![CDATA[<h3>引言</h3>
+
+<p>  我喜欢使用SublimeText（以下将简称为Sublime）来写JavaScript，但有时候代码量一多，难免会犯些小错误，比如变量名写错，多了一个括号等等；而Sublime是编辑器，本身没有代码检查功能，只有当JS代码在浏览器里运行报错了，才发现问题，而这样就会浪费不少的时间。所以，我就想找找有没有这样的插件，使Sublime能够检测基本的JS语法错误。经过一番搜索后，终于找到了，而这也是今天要介绍的：JS错误检查工具 - JSHint与JSHint Gutter。</p>
+
+<p>  注意：如果你是Windows用户，本文文字或图片中出现的某些指令如：which，是无法在windows命令行下运行的，你可以安装Git for windows, 其附带的Git Bash可以运行大多数的Bash命令。
+  <!-- more --></p>
+
+<h3>简介</h3>
+
+<p>  JSHint是一个JS代码质量(错误)检查工具，它不但能检查JS代码的语法错误，还能够监控代码质量，很多公司跟开源项目都在使用它，比如：Facebook、jQuery、Bootstrap等等。在Github上，使用JSHint的项目多如牛毛，如果你在某个项目里面，发现有.jshintrc文件，那它就使用了JSHint。JSHint是一个独立的工具，它不直接提供对Sublime的支持，它本身只提供命令行工具（基于NodeJS）。我们可以使用JSHint Gutter这个插件，它能够调用JSHint执行代码检查，然后将结果显示到Sublime界面上。</p>
+
+<p>  注意：除Sublime之外的很多编辑器与IDE，也都有配套的JSHint插件，它们的下载链接请查看 <a href="http://www.jshint.com/install/">http://www.jshint.com/install/</a>。</p>
+
+<h3>安装JSHint</h3>
+
+<p>  请先安装好<a href="http://nodejs.org/">NodeJS</a>，然后在终端/命令行中输入 npm install -g jshint</p>
+
+<p>  安装过程类似下图
+  <img src="http://jarontai.github.io/images/custom/jshint-m.png" /></p>
+
+<h3>安装与配置JSHint Gutter</h3>
+
+<p>  JSHint Gutter安装更加非常简单，使用Sublime命令面板的PackageControl:Install Package，搜索安装即可。</p>
+
+<p>  安装完成后，在Sublime的Package Settings里找到JSHint Gutter，选择Set Plugin Options：
+  <img src="http://jarontai.github.io/images/custom/sublime-jshint-menu.png" /></p>
+
+<p>  设置NodeJS执行文件所在的路径（node_path），并将lint_on_save（文件保存时检查）选项打开
+  <img src="http://jarontai.github.io/images/custom/sublime-jshint-setting.png" /></p>
+
+<p>  注意：不同的操作系统，不同的安装工具（我使用nvm安装node），node执行文件所在的路径都不一样，你可以使用 which node 来查看</p>
+
+<h3>设置.jshintrc</h3>
+
+<p>  在项目根目录新建一个文件：.jshintrc（windows用户应该在文件管理器里面创建.jshintrc.文件，然后它会自动改名为.jshintrc），在此文件里填写你的检查规则，以下是一个典型的.jshintrc</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;curly&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;eqeqeq&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;immed&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;noarg&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;noempty&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;quotmark&quot;</span><span class="o">:</span> <span class="s2">&quot;single&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;undef&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;unused&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;node&quot;</span><span class="o">:</span> <span class="kc">true</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>配置讲解(配置选项 true表示打开，false表示关闭)：</p>
+
+<ul>
+<li>第二行：curly 表示所有的代码块必须使用大括号</li>
+<li>第三行：eqeqeq 表示判断相等时，必须使用 ===</li>
+<li>第四行：immed 表示立即执行函数必须用括号包起来 `(function () { } ());`</li>
+<li>第五行：noarg 表示禁止使用 `arguments.caller` 和 `arguments.callee`</li>
+<li>第六行：noempty 表示禁止出现空的代码块 `{ }`</li>
+<li>第七行：quotmark 是引号的使用规则，有以下四个选项
+<ul>
+<li>      false : 不检查</li>
+<li>      true : 检查一致性（要么都是单引号，要么都是双引号）</li>
+<li>      single : 必须都是单引号</li>
+<li>      double : 必须都是双引号</li>
+</ul>
+</li>
+<br>
+<li>第八行：undef 表示所有的局部变量都必须先声明再使用</li>
+<li>第九行：unused 表示禁止变量已经声明，但却不使用</li>
+<li>第十行：node 表明你的项目是NodeJS项目，require等node特有的全局函数将通过检查</li>
+</ul>
+
+
+<p>以上只是少数常见的配置项目，请到官网查看完整项目列表：<a href="http://www.jshint.com/docs/options/">JSHint Options</a></p>
+
+<h3>使用效果</h3>
+
+<p>  我故意在代码里多添加了一个括号，然后保存文件，错误提示马上出现了，点击红色的错误标记，在底部信息栏会出现提示信息。
+  <img src="http://jarontai.github.io/images/custom/sublime-jshint-action.png" /></p>
+
+<p>  哈哈，以后用Sublime写JavaScript会更加顺手了。Sweet！</p>
+
+<p>以上。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SublimeText插件推荐：代码格式管家-EditorConfig]]></title>
+    <link href="http://jarontai.github.io/blog/2014/11/16/sublime-editorconfig/"/>
+    <updated>2014-11-16T21:28:19+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/11/16/sublime-editorconfig</id>
+    <content type="html"><![CDATA[<h3>引言</h3>
+
+<p>  从大学毕业到现在，用过不少IDE与编辑器，记得起来的有：VisualStudio，Eclipse，NetBeans，SublimeText，Jetbrains家族（WebStorm，RubyMine），VIM等。在这么多小伙伴中，用的最顺手的还是<a href="http://www.sublimetext.com">SublimeText</a>（以下将简称为Sublime），它轻量，易用（对比VIM），跨平台，功能强大（对比其他编辑器，非IDE）。而Sublime丰富的第三方插件库，我认为是它优于其他编辑器的重要原因，所以接下来几篇博客，我将推荐一些我个人非常喜欢的插件。如果你还没有使用过SublimeText，你可以查看这篇<a href="http://www.iplaysoft.com/sublimetext.html">入门介绍</a>。</p>
+
+<h3>简介</h3>
+
+<p>  今天要推荐的Sublime插件是：代码格式管家-EditorConfig，它最主要的功能就是让你在不同项目、编辑器下，保持统一的代码风格（主要是缩进）。如果你想统一多个项目的代码风格，或者你需要在不同的编辑器下编辑同一个项目，又或者你不喜欢编辑器自带的缩进格式（如sublime默认缩进宽度是4），那么EditorConfig可以解救你。<!-- more --></p>
+
+<p>  注意：EditorConfig支持除Sublime之外的很多主流编辑器与IDE，如前面提到的VisualStudio, Eclipse, VIM, WebStorm等，这些插件的下载链接在EditorConfig主页可以找到：<a href="http://editorconfig.org/">http://editorconfig.org/</a>。</p>
+
+<h3>插件的安装</h3>
+
+<p>  插件安装非常简单，使用Sublime命令面板的PackageControl:Install Package，搜索EditorConfig安装即可。
+  <img src="http://jarontai.github.io/images/custom/sublime-install.png" /></p>
+
+<h3>插件的使用</h3>
+
+<p>  在项目根目录新建一个文件：.editorconfig（windows用户应该在文件管理器里面创建.editorconfig.文件，然后它会自动改名为.editorconfig），在此文件里填写你需要的格式规则，以下是一个典型的.editorconfig</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="err">#</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//editorconfig.org</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">root</span> <span class="o">=</span> <span class="kc">true</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">[</span><span class="o">*</span><span class="p">]</span>
+</span><span class='line'><span class="err">#</span> <span class="nx">Change</span> <span class="nx">these</span> <span class="nx">settings</span> <span class="nx">to</span> <span class="nx">your</span> <span class="nx">own</span> <span class="nx">preference</span>
+</span><span class='line'><span class="nx">indent_style</span> <span class="o">=</span> <span class="nx">space</span>
+</span><span class='line'><span class="nx">indent_size</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">#</span> <span class="nx">We</span> <span class="nx">recommend</span> <span class="nx">you</span> <span class="nx">to</span> <span class="nx">keep</span> <span class="nx">these</span> <span class="nx">unchanged</span>
+</span><span class='line'><span class="nx">end_of_line</span> <span class="o">=</span> <span class="nx">lf</span>
+</span><span class='line'><span class="nx">charset</span> <span class="o">=</span> <span class="nx">utf</span><span class="o">-</span><span class="mi">8</span>
+</span><span class='line'><span class="nx">trim_trailing_whitespace</span> <span class="o">=</span> <span class="kc">true</span>
+</span><span class='line'><span class="nx">insert_final_newline</span> <span class="o">=</span> <span class="kc">true</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">[</span><span class="o">*</span><span class="p">.</span><span class="nx">md</span><span class="p">]</span>
+</span><span class='line'><span class="nx">trim_trailing_whitespace</span> <span class="o">=</span> <span class="kc">false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>配置讲解：</p>
+
+<ul>
+<li>第一行：是注释，所有的注释要以#或者;开头，且注释都要另起一行，即它们不能写在配置项的后面</li>
+<li>第三行：root = true 是特殊配置项，必须放在本文件的开头（！？暂时没有理解官方网站的解释）</li>
+<li>第五行：[*]是配置区域的开始标记，它下面的每一行配置项都属于此区域；括号里的字符表明此区域的作用范围，这里使用了星号通配符，表示以下配置将作用于所有文件；你可以使用通配符、路径及文件名等来指定范围，如：*，*.js，lib/*.php</li>
+<li>第七行：indent_style 表示缩进的方式，可选项有：space - 每次输入tab会被空格代替；tab - 直接输入tab，不替换</li>
+<li>第八行：indent_size 表示缩进的宽度（个数），可以自由设定你喜欢的宽度</li>
+<li>第十一行：end_of_line 设置使用的换行符，有lf，cr，以及crlf，建议使用lf</li>
+<li>第十二行：charset 设置文件的编码</li>
+<li>第十三行：trim_trailing_whitespace 是否去除每行代码后的多余空格</li>
+<li>第十四行：insert_final_newline 是否在每个文件尾部添加一个换行</li>
+<li>第十六行：又一个配置区域，它的范围是所有后缀为md的文件</li>
+<li>第十七行：跟十四行一样的配置项，此配置项会覆盖十四行（作用范围为所有的md文件）</li>
+</ul>
+
+
+<p>以上配置项目，对风格影响最大的应该是indent_style跟indent_size，我个人目前遵循的是大多数js/node项目的风格：style为space，size为2。</p>
+
+<p>更多详细的配置，请查看EditorConfig官网：<a href="http://editorconfig.org/">http://editorconfig.org/</a></p>
+
+<p>以上。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[近半年工作小结]]></title>
+    <link href="http://jarontai.github.io/blog/2014/10/02/half-year-job-review/"/>
+    <updated>2014-10-02T21:58:36+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/10/02/half-year-job-review</id>
+    <content type="html"><![CDATA[<p>进入新公司有近半年时间了，期间作为开发主力参与了几个项目，真的学到不少东西，现在做个小小回顾。</p>
+
+<hr />
+
+<p><br/></p>
+
+<h3>Linux/Mac OS</h3>
+
+<p>时间回退到三四年前，我可以说是一个Windows的忠实使用者与拥护者。但随着逐步接触Web开发及各类开源软件，特别是看到近两年前端工具、JavaScript框架的发展壮大以及Nodejs的流行，我越来越觉得基于linux/unix的开发机才是最适合我的。我的理由：1.各种开源软件首选开发平台大都是linux；2.各种新兴前端工具如bower, grunt等都是基于Nodejs的，而Nodejs在linux下开发相对更方便（注：Nodejs早期其实也只有linux版本）。</p>
+
+<!-- more -->
+
+
+<p>而进入新公司后，IT部门统一标配Mac mini，在经过一到两周的实际使用后，坚定了我告别Windows的决心，毫不犹豫的入手MacBookAir作为个人开发机。在基于unix的Mac上，从后端开发到前端，从数据库到各式开发语言，我都能够很容易的进行安装，开发及调试。特别是使用终端（Terminal/Shell），再配合<a href="http://brew.sh/">homebrew</a>，<a href="http://iterm2.com/">iTerm</a>，<a href="http://git-scm.com">Git</a>等，彻底颠覆了我以前在windows上那种开发体验。当然，在经过一段时间的使用后，我也认识到我对linux的使用还是比较基础的，后面应该花时间系统学习下它。</p>
+
+<hr />
+
+<p><br/></p>
+
+<h3>Magento</h3>
+
+<p><a href="http://magento.com/products/overview">Magento</a>是一个功能强大的，在国外非常流行，且已被ebay收购的电子商务系统。我在上一家公司开始接触它，开始只是做前端样式与布局修改，然后慢慢尝试修改简单的模板代码，到今年初进入新公司后，才有机会做后台模块（module）的开发。算下来，使用Magento的时间也不算少，但是我真的不敢说对它很熟悉，也没有办法喜欢上它。因为在我眼里，对比大部分的PHP框架，基于ZendFramework的Magento实在是个异类，它的开发工作异常繁琐，应该是我用过的最难开发的一个系统。</p>
+
+<p>经常在网上看到同道人抱怨Magento，配置多并且都是xml，文件多嵌套深，文档不齐全，服务器要求高等等，我表示不能赞同更多。我自己在开发的时候也经常被它搞得头疼，甚至郁闷到不想工作；但是后面又想到，如果magento不复杂，那它就不能拥有异常强大且全面的功能了。在可以预见的一到两年内，我都将继续使用它，所以我暂且只能把它理解为一个“甜蜜的负担”，我虽然不喜欢它但我会尽力掌握好它，不让它阻扰我的工作。</p>
+
+<hr />
+
+<p><br/></p>
+
+<h3>Laravel</h3>
+
+<p>应该是在一年多前就听说过<a href="http://laravel.com/">Laravel</a>的大名，但是直到最近才真正使用它。它非常全面，跟有名的RoR（<a href="http://rubyonrails.org/">RubyOnRails</a>）非常相似（Laravel的推出比Rails晚很多年，它应该借鉴了很多后者的设计），从MVC到ORM，从前端模板到数据库migration，开发的方方面面它都为你考虑到。而它的官方文档也比较详细，所以我上手也算比较快，用起来也觉得非常舒服，我打算以后将它作为我PHP开发的主力框架。</p>
+
+<p>此外，通过学习Laravel，也让我接触到了Composer，Namespace等PHP语言的新标准跟新特性，也让我认识到，对比其他语言（如Java，Nodejs），PHP可能有比较多的缺点，但不可否认，近两年它也在慢慢变好，Laravel就是其有力的支持者之一。真心希望有越来越多的人去认识使用Laravel，进而更好的推动PHP发展。</p>
+
+<hr />
+
+<p><br/></p>
+
+<h3>Commentics</h3>
+
+<p>在接到改造<a href="http://www.commentics.org/">Commentics</a>的任务时，心里有些没有底。因为commentics是一个在国内、国外都不太流行的，比较传（lao）统（tu）的留言系统。它没有用Composer，没有MVC，没有ORM，只是PHP加HTML，想要把它改造成一个异步刷新的现代型的留言系统恐怕有些难度。</p>
+
+<p>但是，在折腾它一番后，发现它的后台还是做得比较完善的，前台的功能界面也都是可配置的，除了不现代（ajax）之外，确实算得是一个比较好的留言系统。了解清楚commentics的优缺点，改造的工作思路就清晰了。我们将它后端简化整理成API，重做了前端HTML与样式使之兼容移动端，前端逻辑也使用jQuery重写，比较顺利的将commentics改造成一个功能外观类似于“<a href="http://duoshuo.com/">多说</a>”的、“现代化”的留言系统。同时，通过改造Commentics，我真正认识了什么叫“传统型”的PHP应用，以后再碰到类似的老旧系统时，应该会比较得心应手了。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[jQuery JSONP请求的错误处理]]></title>
+    <link href="http://jarontai.github.io/blog/2014/08/28/jquery-jsonp-error-process/"/>
+    <updated>2014-08-28T16:03:18+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/08/28/jquery-jsonp-error-process</id>
+    <content type="html"><![CDATA[<p>  jQuery的ajax方法封装的非常好，使用它你可以非常轻松的编写异步请求代码，但如果你是用它来做JSONP跨域请求，那你可要注意了，此处有坑！<br/></p>
+
+<p>  以下是常见的jqeury jsonp请求的代码:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://api.github.com/users/jarontai/repos&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">dataType</span><span class="o">:</span> <span class="s1">&#39;jsonp&#39;</span><span class="p">,</span> <span class="c1">// dataType为jsonp</span>
+</span><span class='line'>  <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">jqXHR</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;JSONP error!&#39;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上方法看似安全可行，但如果你把url参数改成某个不存在的地址，你会惊奇的发现：虽然浏览器终端报出错误(404或其他网络错误)，但你的error回调却没有被执行!?<br/><!-- more --></p>
+
+<hr />
+
+<p><br/></p>
+
+<p>这是为什么呢？我们仔细看看<a href="http://api.jquery.com/jquery.ajax/">ajax</a>方法的文档，在它error回调说明的最后有一句话：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>Note: This handler is not called for cross-domain script and cross-domain JSONP requests. This is an Ajax Event.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这句话的意思是在调用跨域的脚本及JSONP请求时，这个错误回调将不会被执行，并强调指出这个error是一个 Ajax Event.</p>
+
+<p>什么意思？难道说jsonp不是ajax?<br></p>
+
+<p>是的，严格意义上来说jsonp不是ajax，ajax是通过XMLHttpRequest对象发送异步请求，而jsonp则是利用js标签天生具备的跨域能力来实现跨越资源访问。也就是说，虽然它的名字叫JSONP（JSON with Padding），但它底层是通过js标签实现的，它跟json以及普通异步请求关系都不大，jquery之所以把jsonp请求放到ajax方法里面，只是为了让api更方便调用而已。 （JSONP的详细描述可以查看<a href="http://zh.wikipedia.org/zh/JSONP">WIKI</a>，或者google）</p>
+
+<hr />
+
+<p><br/></p>
+
+<p>那怎么做才能使JSONP的error回调被执行呢？<br/></p>
+
+<p>有两个方法，方法一：添加timeout参数。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://api.github.com/users/jarontai/repos&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">dataType</span><span class="o">:</span> <span class="s1">&#39;jsonp&#39;</span><span class="p">,</span> <span class="c1">// dataType为jsonp</span>
+</span><span class='line'>  <span class="nx">timeout</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="c1">// 添加timeout参数        </span>
+</span><span class='line'>  <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">jqXHR</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 此时textStatus为‘timeout’</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;JSONP error!&#39;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>添加timeout参数后，虽然JSONP请求本身的错误没有被捕获，但是最终会因为超时而执行error回调。</p>
+
+<hr />
+
+<p><br/></p>
+
+<p>那还有没有方法使error回调在JSONP错误发生时就执行呢？<br/></p>
+
+<p>方法二出场：使用jquery jsonp插件 - <a href="https://github.com/jaubourg/jquery-jsonp">https://github.com/jaubourg/jquery-jsonp</a></p>
+
+<p>以下为常见的jqeury jsonp插件调用代码:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">jsonp</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://api.github.com/users/jarontai/repos&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">callbackParameter</span><span class="o">:</span> <span class="s2">&quot;callback&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">timeout</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">xOptions</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 错误发生时，立即执行</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;JSONP error!&#39;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用jsonp插件，能够在错误发生时立即执行error回调，并且还附带如&#8217;数据过滤&#8217;等功能，更多详细介绍请查看它的主页。</p>
+
+<p>以上。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[管理多个ajax请求(jQuery)]]></title>
+    <link href="http://jarontai.github.io/blog/2014/08/22/manage-multiple-ajax/"/>
+    <updated>2014-08-22T21:30:18+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/08/22/manage-multiple-ajax</id>
+    <content type="html"><![CDATA[<p>  在web应用的开发中，我们可能会碰到需要发起多个ajax请求的情况。<br/></p>
+
+<p>  以下应该是最常见的写法:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// Get html</span>
+</span><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/test&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// Get json data</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="s1">&#39;/api/test.json&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Get the JS</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s1">&#39;/assets/test.js&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>       <span class="c1">// display result</span>
+</span><span class='line'>       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>       <span class="c1">// Add html to page</span>
+</span><span class='line'>       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上方法虽然可行，但是如果请求很多，就会产生不易维护的多层嵌套代码，而且请求是一个完了才执行下一个，效率不高。<br/><!-- more --></p>
+
+<hr />
+
+<p><br/></p>
+
+<p>jQuery的ajax方法返回的对象都是<a href="http://api.jquery.com/category/deferred-object/">Deferred Object</a>, 可以使用<a href="http://api.jquery.com/jQuery.when/">when</a>方法来处理它们。在when方法中，多个异步请求是并行处理的，且它返回的是promise对象，可以使用then或者done/fail方法来处理返回结果。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span>
+</span><span class='line'>  <span class="c1">// Get html</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/test&#39;</span><span class="p">),</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// Get json data</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/test.json&#39;</span><span class="p">),</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// Get JS</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s1">&#39;/assets/test.js&#39;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data1</span><span class="p">,</span> <span class="nx">data2</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 成功回调，所有请求正确返回时被调用</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// All done</span>
+</span><span class='line'>  <span class="c1">// display result</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">result</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// Add html to page</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">data1</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">},</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// 错误回调，任意一个请求失败后将被立即执行</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">alert</span><span class="p">(</span> <span class="s1">&#39;$.when failed!&#39;</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果所有请求正确返回，then方法的第一个回调将执行，如果有任意一个请求出错，第二个回调将被立即执行。需要注意的是每个请求的返回结果（如上所示的data1,data2），它们的类型是数组，里面的数据依次是: [ data, statusText, jqXHR ]。</p>
+
+<hr />
+
+<p><br/>
+还有一种情况，如果请求个数是不确定的，那前面的做法就不太好处理了。而解决方法也很简单：利用js function的apply方法，将请求放在数组里面处理即可。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">reqs</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'><span class="nx">reqs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/test&#39;</span><span class="p">));</span>
+</span><span class='line'><span class="nx">reqs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;api/test.json&#39;</span><span class="p">));</span>
+</span><span class='line'><span class="c1">// 继续添加多个请求</span>
+</span><span class='line'><span class="p">...</span>
+</span><span class='line'><span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">$</span><span class="p">,</span> <span class="nx">reqs</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data1</span><span class="p">,</span> <span class="nx">data2</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 成功回调，所有请求正确返回时被调用</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// All done</span>
+</span><span class='line'>  <span class="c1">// display result</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">result</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// Add html to page</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">data1</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">},</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// 错误回调，任意一个请求失败后将被立即执行</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">alert</span><span class="p">(</span> <span class="s1">&#39;$.when failed!&#39;</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[用iFrame Resizer解决iframe高度自适应问题]]></title>
+    <link href="http://jarontai.github.io/blog/2014/07/25/use-iframe-resizer/"/>
+    <updated>2014-07-25T20:45:39+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/07/25/use-iframe-resizer</id>
+    <content type="html"><![CDATA[<p>  最近工作中需要对一个旧项目进行改造，不得已使用了让人头疼的iframe，碰到的最大问题是没有好的方法使其高度自适应。Google一番之后，发现<a href="http://davidjbradshaw.github.io/iframe-resizer/">iframe-resizer</a>能够比较好的解决这个问题，而且还支持跨域访问（使用<a href="https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage">postMessage</a>）。</p>
+
+<p>  在使用它之前，必须明确iframe resizer要求IE8+（firefox，chrome等自然没有问题），如果你需要支持旧版本IE，请关掉本页然后再去google。其次，iframe resizer提供了原生JS与jQuery插件两种调用方式，<!-- more -->而原生方式需要<a href="http://davidjbradshaw.github.io/iframe-resizer/#browser-compatibility">额外的配置</a>，所以我推荐选择jQuery插件方式（毕竟jQuery几乎是标配了）。</p>
+
+<hr />
+
+<p>  OK，下载iframe resizer。</p>
+
+<p>  在iframe resizer压缩包的js文件夹中，有两个文件：
+  第一个js是：iframeResizer.min.js。这个js是要放在需要嵌入iframe的页面（parent）中，其调用方式如下（一般情况下你不需要传递任何参数即可实现高度自适应，详细参数请参考<a href="http://davidjbradshaw.github.io/iframe-resizer/#options">官网</a>）：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;iframe&#39;</span><span class="p">).</span><span class="nx">iFrameResize</span><span class="p">([{</span><span class="nx">log</span><span class="o">:</span> <span class="kc">true</span><span class="p">}]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  第二个js是：iframeResizer.contentWindow.min.js，它需要放到你的iframe页面(child)中去，注意只要引人，不需要代码配置。</p>
+
+<hr />
+
+<p>  接下来是设置iframe，需要注意的是width必须是百分比，scrolling设置为no（为了兼容性）。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">&quot;http://yourserver.com/index.html&quot;</span> <span class="na">width=</span><span class="s">&quot;100%&quot;</span> <span class="na">scrolling=</span><span class="s">&quot;no&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  当然，你也可以使用document.createElement来动态创建它。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">iframe</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;iframe&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;http://yourserver.com/index.html&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;100%&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;scrolling&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">iframe</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<p>  按照以上步骤设置，基本上就能够解决iframe自适应问题，且iframe内容可跨域。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[使用cnpm镜像服务]]></title>
+    <link href="http://jarontai.github.io/blog/2014/05/19/use-cnpm/"/>
+    <updated>2014-05-19T12:38:39+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/05/19/use-cnpm</id>
+    <content type="html"><![CDATA[<p>  因为node/npm的服务器是在国外，而我大天朝的网络又是如此‘给力‘，所以在使用npm install安装依赖的过程中，经常会卡住；我不得不频繁的使用Ctrl+C中止下载，然后再尝试n次才能搞定。在google良久并尝试诸多方法之后，发现使用cnpm应该是应对此问题的最佳方案（当然能用VPN最好）。</p>
+
+<p>  <!-- more --></p>
+
+<p>  <a href="http://cnpmjs.org/">cnpm</a>的全称是Company npm，本意是指公司内部的npm，你可以使用它快速方便的搭建企业内部私有npm。此外，它还提供了一个公共的npm的镜像服务(<a href="http://r.cnpmjs.org">http://r.cnpmjs.org</a>)，你可以使用它来代替官方的npm。</p>
+
+<p>  使用cnpm的镜像服务主要有两种方式，第一种是指定npm的registry参数，使npm去镜像地址下载依赖；第二种方式是使用cnpm提供的客户端来代替npm，即直接使用cnpm指令来安装/更新依赖。我个人更喜欢第二种方式，因为它不需要每次都写registry参数，也不用修改npm本身的配置，非常方便。</p>
+
+<p>  第一种方式</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>// 添加registry参数指向镜像地址
+</span><span class='line'>npm install -g cordova --registry<span class="o">=</span>http://r.cnpmjs.org
+</span><span class='line'>
+</span><span class='line'>// 或者直接修改registry配置，默认的地址是https://registry.npmjs.org/（不推荐，修改了npm的配置）
+</span><span class='line'>npm config <span class="nb">set </span>registry http://r.cnpmjs.org
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  第二种方式</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>// 安装cnpm客户端
+</span><span class='line'>npm install -g cnpm --registry<span class="o">=</span>http://r.cnpmjs.org
+</span><span class='line'>
+</span><span class='line'>// 使用cnpm代替npm（npm依然可用）
+</span><span class='line'>cnpm install -g lodash
+</span><span class='line'>cnpm update -g lodash
+</span><span class='line'>cnpm uninstall -g lodash
+</span><span class='line'>cnpm cache clean
+</span><span class='line'>......
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> 使用cnpm安装依赖包，安装速度及成功率比以前使用npm时要高很多了，这可真要感谢cnpm的维护者们。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://jarontai.github.io/blog/2014/05/05/hello-world/"/>
+    <updated>2014-05-05T14:47:04+08:00</updated>
+    <id>http://jarontai.github.io/blog/2014/05/05/hello-world</id>
+    <content type="html"><![CDATA[<p>这是我博客（基于github与octopress）的第一篇文章。</p>
+
+<p>摘抄部分Octopress指令：</p>
+
+<!-- more -->
+
+
+<p>Octopress 常用指令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake new_post<span class="o">[</span><span class="s2">&quot;title&quot;</span><span class="o">]</span>     <span class="c"># Generate a new post</span>
+</span><span class='line'>
+</span><span class='line'>rake generate   <span class="c"># Generates posts and pages into the public directory</span>
+</span><span class='line'>
+</span><span class='line'>rake watch      <span class="c"># Watches source/ and sass/ for changes and regenerates</span>
+</span><span class='line'>
+</span><span class='line'>rake preview    <span class="c"># Watches, and mounts a webserver at http://localhost:4000</span>
+</span><span class='line'>
+</span><span class='line'>rake deploy     <span class="c"># Deploy to github</span>
+</span><span class='line'>
+</span><span class='line'>git add .  <span class="o">&amp;&amp;</span>   git commit -m <span class="s1">&#39;your message&#39;</span>  <span class="o">&amp;&amp;</span>  git push origin <span class="nb">source</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+</feed>
