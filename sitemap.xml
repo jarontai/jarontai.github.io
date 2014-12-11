@@ -42,21 +42,13 @@
   </url>
   <url>
     <loc>http://jarontai.github.io/blog/archives/</loc>
-<<<<<<< HEAD
-    <lastmod>2014-12-11T10:44:26+08:00</lastmod>
-=======
-    <lastmod>2014-12-10T21:21:28+08:00</lastmod>
->>>>>>> be2151ab3badeadbd01f2559c0ebb3e64796c601
+    <lastmod>2014-12-11T10:48:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://jarontai.github.io/</loc>
-<<<<<<< HEAD
-    <lastmod>2014-12-11T10:44:26+08:00</lastmod>
-=======
-    <lastmod>2014-12-10T21:21:28+08:00</lastmod>
->>>>>>> be2151ab3badeadbd01f2559c0ebb3e64796c601
+    <lastmod>2014-12-11T10:48:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
