@@ -127,6 +127,7 @@ main() {
 1. 点击新建应用按钮<img src="{{ root_url }}/images/custom/dart/app_new_button.png" />（它位于Dart Editor的左上角），或者是选择**File > New Application**菜单项，又或者是点击**Welcome**选项卡里面的**Create an Application...**按钮。一个对话框将会弹出（参见下图）。
 2. 填写应用的名称，比如：hello_world。如果你不喜欢默认保存路径，请填写一个新的路径或者选择一个新的目录。
 3. 请确保**Generate sample content**与**Command-line application**是被选中的。然后点击**Finish**，完成新建过程。
+
   <img src="{{ root_url }}/images/custom/dart/app_new_dialog.png" />
 
   默认创建的Dart文件将在编辑区被打开，它所在文件夹也显示在文件视图区。此时，你的Dart Editor应该类似于下图：
