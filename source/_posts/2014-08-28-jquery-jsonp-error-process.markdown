@@ -37,7 +37,7 @@ Note: This handler is not called for cross-domain script and cross-domain JSONP 
 
 什么意思？难道说jsonp不是ajax?<br>
 
-是的，严格意义上来说jsonp不是ajax，ajax是通过XMLHttpRequest对象发送异步请求，而jsonp则是利用js标签天生具备的跨域能力来实现跨越资源访问。也就是说，虽然它的名字叫JSONP（JSON with Padding），但它底层是通过js标签实现的，它跟json以及普通异步请求关系都不大，jquery之所以把jsonp请求放到ajax方法里面，只是为了让api更方便调用而已。 （JSONP的详细描述可以查看[WIKI](http://zh.wikipedia.org/zh/JSONP)，或者google）
+是的，严格意义上来说jsonp不是ajax，ajax是通过XMLHttpRequest对象发送异步请求，而jsonp则是利用js标签天生具备的跨域能力来实现跨域资源访问。也就是说，虽然它的名字叫JSONP（JSON with Padding），但它底层是通过js标签实现的，它跟json以及普通异步请求关系都不大，jquery之所以把jsonp请求放到ajax方法里面，只是为了让api更方便调用而已。 （JSONP的详细描述可以查看[WIKI](http://zh.wikipedia.org/zh/JSONP)，或者google）
 ___
 <br/>
 
