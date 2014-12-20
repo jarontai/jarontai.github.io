@@ -2,7 +2,7 @@
 layout: post
 title: "Dartlang译文：Dart快速入门"
 date: 2014-12-18 12:07:36 +0800
-comments: false
+comments: true
 categories: 翻译 Dart
 ---
   译注：本文是博主的原创翻译，转载请添加本文链接并标明出处。本文翻译的是Google Dart项目组撰写的《Dart：Up and Running》的第一章。部分新近出现的、暂无标准翻译的技术向词语，都用星号做了标注，在文章尾部的附注可以查看它们的原文。水平有限，本文仅作参考。

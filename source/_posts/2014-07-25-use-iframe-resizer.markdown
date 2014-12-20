@@ -2,7 +2,7 @@
 layout: post
 title: "用iFrame Resizer解决iframe高度自适应问题"
 date: 2014-07-25 20:45:39 +0800
-comments: false 
+comments: true 
 categories: js HTML5
 ---
   最近工作中需要对一个旧项目进行改造，不得已使用了让人头疼的iframe，碰到的最大问题是没有好的方法使其高度自适应。Google一番之后，发现[iframe-resizer](http://davidjbradshaw.github.io/iframe-resizer/)能够比较好的解决这个问题，而且还支持跨域访问（使用[postMessage](https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage)）。

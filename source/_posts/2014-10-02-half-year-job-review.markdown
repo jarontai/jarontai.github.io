@@ -2,7 +2,7 @@
 layout: post
 title: "近半年工作小结"
 date: 2014-10-02 21:58:36 +0800
-comments: false
+comments: true
 categories: 其他
 ---
 进入新公司有近半年时间了，期间作为开发主力参与了几个项目，真的学到不少东西，现在做个小小回顾。

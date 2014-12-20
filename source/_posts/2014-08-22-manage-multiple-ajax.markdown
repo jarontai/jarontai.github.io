@@ -2,7 +2,7 @@
 layout: post
 title: "管理多个ajax请求(jQuery)"
 date: 2014-08-22 21:30:18 +0800
-comments: false
+comments: true
 categories: js jQuery
 ---
   在web应用的开发中，我们可能会碰到需要发起多个ajax请求的情况。<br/>

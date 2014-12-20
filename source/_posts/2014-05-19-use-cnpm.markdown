@@ -2,7 +2,7 @@
 layout: post
 title: "使用cnpm镜像服务"
 date: 2014-05-19 12:38:39 +0800
-comments: false
+comments: true
 categories: nodejs js
 ---
   因为node/npm的服务器是在国外，而我大天朝的网络又是如此‘给力‘，所以在使用npm install安装依赖的过程中，经常会卡住；我不得不频繁的使用Ctrl+C中止下载，然后再尝试n次才能搞定。在google良久并尝试诸多方法之后，发现使用cnpm应该是应对此问题的最佳方案（当然能用VPN最好）。

@@ -2,7 +2,7 @@
 layout: post
 title: "jQuery JSONP请求的错误处理"
 date: 2014-08-28 16:03:18 +0800
-comments: false
+comments: true
 categories: js jQuery
 ---
   jQuery的ajax方法封装的非常好，使用它你可以非常轻松的编写异步请求代码，但如果你是用它来做JSONP跨域请求，那你可要注意了，此处有坑！<br/>
