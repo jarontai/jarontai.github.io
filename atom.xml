@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2014-12-20T13:11:50+08:00</updated>
+  <updated>2014-12-20T13:15:53+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -182,10 +182,11 @@
 <ol>
 <li>点击新建应用按钮<img src="http://jarontai.github.io/images/custom/dart/app_new_button.png" />（它位于Dart Editor的左上角），或者是选择<strong>File > New Application</strong>菜单项，又或者是点击<strong>Welcome</strong>选项卡里面的<strong>Create an Application&hellip;</strong>按钮。一个对话框将会弹出（参见下图）。</li>
 <li>填写应用的名称，比如：hello_world。如果你不喜欢默认保存路径，请填写一个新的路径或者选择一个新的目录。</li>
-<li>请确保<strong>Generate sample content</strong>与<strong>Command-line application</strong>是被选中的。然后点击<strong>Finish</strong>，完成新建过程。
-<img src="http://jarontai.github.io/images/custom/dart/app_new_dialog.png" /></li>
+<li>请确保<strong>Generate sample content</strong>与<strong>Command-line application</strong>是被选中的。然后点击<strong>Finish</strong>，完成新建过程。</li>
 </ol>
 
+
+<p>  <img src="http://jarontai.github.io/images/custom/dart/app_new_dialog.png" /></p>
 
 <p>  默认创建的Dart文件将在编辑区被打开，它所在文件夹也显示在文件视图区。此时，你的Dart Editor应该类似于下图：</p>
 
