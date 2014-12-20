@@ -150,4 +150,4 @@ ___
 ---
 <br/>
 本文地址：http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start/<br/>
-译文地址：https://www.dartlang.org/docs/dart-up-and-running/ch01.html
+原文地址：https://www.dartlang.org/docs/dart-up-and-running/ch01.html
