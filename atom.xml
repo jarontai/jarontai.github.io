@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2014-12-21T15:52:36+08:00</updated>
+  <updated>2014-12-22T09:27:36+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -18,14 +18,14 @@
     <link href="http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start/"/>
     <updated>2014-12-18T12:07:36+08:00</updated>
     <id>http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start</id>
-    <content type="html"><![CDATA[<p>  译注：本文是博主的原创翻译，转载请添加本文链接并标明出处。本文翻译的是Google Dart项目组撰写的《Dart：Up and Running》的第一章。文中存在一些新近出现、暂无标准翻译的技术向词语，已使用星号做了标注，在文章尾部的附注可以查看它们的原文。水平有限，本文仅作参考。</p>
+    <content type="html"><![CDATA[<p>  译注：本文是博主的原创翻译，转载请添加本文链接并标明出处。本文翻译的是Google Dart项目组撰写的《Dart：Up and Running》的第一章。文中存在一些新近出现、暂无标准翻译的技术向词语，已使用星号做了标注，在文章尾部的附注可以查看它们的原文。博主的语文跟英语都是学渣级别，如有翻译不妥或错误之处请多见谅。水平有限，本文仅作参考。</p>
 
 <hr />
 
 <p><br/>
   欢迎来学习Dart！Dart是一个开源、高效的（*1），用于构建HTML5 web应用的开发平台。本文将告诉你为什么Google要创造Dart，Dart有哪些酷炫的特性，以及如何编写、运行你的第一个Dart应用。</p>
 
-<p>  Dart不仅是一门新的语言，它还有标准库（*2）、编辑器、虚拟机（VM）、能直接运行Dart的浏览器以及一个将其编译为JavaScript的编译器。Dart立志成为一个更加高效的开发工具，用于开发满足用户需求的高性能现代应用。</p>
+<p>  Dart不仅是一门新的语言，它还有内置标准库（*2）、编辑器、虚拟机（VM）、能直接运行Dart的浏览器以及一个将其编译为JavaScript的编译器。Dart立志成为一个更加高效的开发工具，用于开发满足用户需求的高性能现代应用。</p>
 
 <h3>为什么Google要创造Dart</h3>
 
@@ -134,7 +134,7 @@
 
 <p>  Dart使用isolates（*3）来支持安全而简便的并发编程。传统的线程是共享内存的，它们难于调试并可能导致死锁。而Dart的isolates，受Erlang的启发，使用了一个更简单易懂的模式来运行并发且被隔离的代码。isolates的创建过程低耗、快速，而且没有状态信息被共享。</p>
 
-<p>  Dart支持代码共享与复用。传统的web开发流程不能方便的整合第三方代码。使用Dart的包管理器（pub）和库等特性，你可以轻松的搜索、安装、集成来自互联网及其他公司的代码。</p>
+<p>  Dart支持代码共享与复用。传统的web开发不能方便的整合第三方代码。使用Dart的包管理器（pub）和库等特性，你可以轻松的搜索、安装、集成来自互联网及其他公司的代码。</p>
 
 <p>  Dart是开源的。Dart是为web而生的，它使用类似BSD的协议。你可以在线查看Dart项目的<a href="https://code.google.com/p/dart/">源码以及Bug</a>。或许你下次可以提交一个补丁呢？</p>
 
