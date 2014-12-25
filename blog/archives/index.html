@@ -49,12 +49,25 @@ Nov 28 2014 posted in sublime, 工具 &hellip;">
   
 </ul>
   
-<form action="https://xie.lu/search" method="get">
+<form id="search-form" action="https://xie.lu/" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:jarontai.github.io" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
+<script type="text/javascript">
+  var siteStr = $('#search-form input').first().val();
+  jQuery(function($) {
+    var searchAction = $('#search-form').attr('action');
+    if (searchAction && (searchAction.indexOf('xie.lu') >= 0)) {
+      $('#search-form').submit(function(event) {
+        var form = $(this)[0];
+        window.location.href = 'https://xie.lu/' + '?#q=' + siteStr + ' ' + form.q[1].value;
+        event.preventDefault();
+      });
+    }
+  });
+</script>
   
 <ul class="main-navigation">
   <li><a href="/">文章</a></li>
