@@ -5,11 +5,24 @@
   {% endif %}
 </ul>
   {% if site.simple_search %}
-<form action="{{ site.simple_search }}" method="get">
+<form id="search-form" action="{{ site.simple_search }}" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
+<script type="text/javascript">
+  var siteStr = $('#search-form input').first().val();
+  jQuery(function($) {
+    var searchAction = $('#search-form').attr('action');
+    if (searchAction && (searchAction.indexOf('xie.lu') >= 0)) {
+      $('#search-form').submit(function(event) {
+        var form = $(this)[0];
+        window.location.href = '{{site.simple_search}}' + '?#q=' + siteStr + ' ' + form.q[1].value;
+        event.preventDefault();
+      });
+    }
+  });
+</script>
   {% endif %}
 {% include custom/navigation.html %}
