@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 翻译 | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/fan-yi/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-01-07T15:08:47+08:00</updated>
+  <updated>2015-01-09T20:38:42+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -18,33 +18,33 @@
     <link href="http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start/"/>
     <updated>2014-12-18T12:07:36+08:00</updated>
     <id>http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start</id>
-    <content type="html"><![CDATA[<p>  译注：本文是博主的原创翻译，转载请添加本文链接并标明出处。本文翻译的是Google Dart项目组撰写的《Dart：Up and Running》的第一章。文中存在一些新近出现、暂无标准翻译的技术向词语，已使用星号做了标注，在文章尾部的附注可以查看它们的原文。博主的语文跟英语都是学渣级别，如有翻译不妥或错误之处请多见谅。水平有限，本文仅作参考。</p>
+    <content type="html"><![CDATA[<p>  译注：本文是博主的原创翻译，转载请添加本文链接并标明出处。本文翻译的是Google Dart项目组撰写的《Dart：Up and Running》的第一章。文中存在一些新近出现、暂无标准翻译的技术向词语，已使用星号做了标注，在文章尾部附注可以查看它们的原文。博主的语文跟英语都是学渣级别，如有翻译不妥或错误之处请多见谅。水平有限，本文仅作参考。</p>
 
 <hr />
 
 <p><br/>
-  欢迎来学习Dart！Dart是一个开源、高效的（*1），用于构建HTML5 web应用的开发平台。本文将告诉你为什么Google要创造Dart，Dart有哪些酷炫的特性，以及如何编写、运行你的第一个Dart应用。</p>
+  欢迎你来学习Dart！Dart是一个开源、高效的（*1），用于构建HTML5 web应用的开发平台。本文将告诉你为什么Google要创造Dart，Dart有哪些酷炫的特性，以及如何编写、运行你的第一个Dart应用。</p>
 
-<p>  Dart不仅是一门新的语言，它还有内置标准库（*2）、编辑器、虚拟机（VM）、能直接运行Dart的浏览器以及一个将其编译为JavaScript的编译器。Dart立志成为一个更加高效的开发工具，用于开发满足用户需求的高性能现代应用。</p>
+<p>  Dart不仅是一门新的语言，它还有内置标准库（*2）、编辑器、虚拟机（VM）、能直接运行Dart的浏览器以及一个将其编译为JavaScript的编译器。Dart立志成为一个更加高效的web开发工具，用于开发满足用户需求的高性能现代应用。</p>
 
 <h3>为什么Google要创造Dart</h3>
 
-<p>  Google关注于如何使Web变得更好。我们（译者注：指Google，下同）编写了很多web应用，它们大都异常复杂，如：Gmail，Google Calendar，Google+等。我们希望web应用能加载迅速、运行流畅、有趣而富有吸引力。我们想让不同知识背景的开发者都能够在浏览器上创建高质量的应用。<!-- more --></p>
+<p>  Google始终致力于使Web变得更好。我们（译者注：指Google，下同）编写了很多web应用，它们大都异常复杂，如：Gmail，Google Calendar，Google+等。我们希望web应用能快速加载、运行流畅、有趣而富有吸引力。我们想让不同知识背景的开发者都能够在浏览器上创建高质量的应用。<!-- more --></p>
 
-<p>  Google Chrome，作为Google对web的贡献之一，是Google在web平台停滞不前的时期创造的。它成功了！如下图所示，从2008年Chrome诞生开始，浏览器的速度得到了极大的提升。</p>
+<p>  Google Chrome - 作为Google对web的贡献之一，是Google在web平台停滞不前的时期创造的。它成功了！如下图所示，从2008年Chrome诞生开始，浏览器的速度得到了极大的提升。</p>
 
-<p>  注意：Chrome之所以速度快，大都归功于JavaScript引擎 - V8。如今，许多V8的工程师都投入到了Dart项目中。
+<p>  注意：Chrome之所以能提供高速的web浏览体验，大都归功于它的JavaScript引擎 - V8。而现在，许多V8的工程师都投入到了Dart项目中。
   <img src="/images/custom/dart/chrome_browser_speed.png" /></p>
 
 <p>  浏览器的新特性也在不断增加，比如：WebGL，FileSystem，Webworkers以及WebSockets等。浏览器已经具备自动更新能力，能够及时地向用户推送新的特性跟补丁。移动设备如平板电脑跟手机，也拥有了支持大部分HTML5特性的现代浏览器。</p>
 
-<p>  虽然web平台有着上述非常多的改进，但开发者的体验却没有随之而改善。我们认为构建大型、复杂的web应用，不应该像现在那么麻烦的。趁手的web开发工具来的实在太慢，并且它们还是落后于其他开发平台。其实，你不应该非得熟练掌握web编程，才可以为现代web创建应用的。还应该注意的是，虽然JavaScript引擎变得越来越快，但web应用的启动还是很慢。</p>
+<p>  虽然web平台有着上述非常多的改进，但开发者的体验却没有随之而改善。我们认为，构建大型、复杂的web应用，本不应该像现在那么麻烦的。趁手的web开发工具来的太慢，并且它们还远落后于其他开发平台。其实，你不应该非得熟练掌握web编程，才能开始为现代web开发应用的。还有就是，虽然JavaScript引擎变得越来越快，但web应用的启动还是很慢。</p>
 
-<p>  我们希望Dart通过以下两种方式改善web：</p>
+<p>  我们希望Dart能在以下两个方面改善web开发：</p>
 
-<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 更好的性能：作为虚拟机工程师，Dart的设计者知道怎样构建一门高效的语言。一个结构严密的语言更容易优化，一个全新的虚拟机使得许多改进成为可能，例如：更快的启动速度。</p>
+<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 更好的性能：作为虚拟机工程师，Dart的设计者知道怎样构建一门高性能的语言。一个结构更严密的语言，更容易进行优化；而一个全新的虚拟机，也使得许多改进成为可能，比如：更快的启动速度。</p>
 
-<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 更好的效率：对库及包的支持，使你更容易与他人协作，更容易在不同项目共享代码。类型使得API更加清晰与易用。配套的工具也能帮助你检索、重构、调试代码。</p>
+<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 更好的效率：对库及包的支持，使开发人员更容易与他人协作，更容易在不同项目共享代码。类型使得API更加清晰与易用。配套的工具也能帮助你检索、重构、调试代码。</p>
 
 <h3>Dart初探</h3>
 
@@ -114,11 +114,11 @@
 
 <h3>Dart的酷炫特性</h3>
 
-<p>  Dart看起来似曾相识，但请不要被迷惑了。Dart提供了许多新特性，使你更加高效的、充满乐趣的去构建下一代web应用。</p>
+<p>  Dart的代码看起来似曾相识，但请不要被迷惑。Dart提供了许多新的特性，使你能更加高效的、充满乐趣的去构建下一代web应用。</p>
 
 <p>  Dart简单易学，大批的开发者都可以快速学习它。它不仅有着熟悉的语法，还是一门拥有类、单继承、词法作用域、顶层函数等诸多特性的面向对象语言。大部分开发者在数小时内就可以上手。</p>
 
-<p>  Dart会被编译成JavaScript。Dart在最开始就被设计成能够编译为JavaScript，只有这样才能使Dart应用兼容种类繁多的现代浏览器。Dart的每个特性，在被加入之前，都经过慎重考虑，因为必须确保它们能被编译成高效的、符合逻辑的JavaScript代码。Dart也有自己的底线，它不支持老土、过时的浏览器。</p>
+<p>  Dart会被编译成JavaScript。为了使Dart兼容种类繁多的现代浏览器，Dart在最开始就被设计成能够编译为JavaScript的。Dart的每个特性，在被加入之前，都经过慎重考虑，因为必须确保它们能被编译成高效的、符合逻辑的JavaScript代码。当然，Dart也有自己的底线，它不支持老土、过时的浏览器。</p>
 
 <p>  Dart可以运行在客户端和服务器上。Dart虚拟机不仅能集成在浏览器中，还能够独立运行在命令行之上。Dart内置的标准库覆盖了文件、文件夹、套接字甚至web服务器等各个方面，你完全可以使用Dart来开发完全端到端（*2）的应用。</p>
 
@@ -190,7 +190,7 @@
 
 <p>  <img src="/images/custom/dart/app_init.png" /></p>
 
-<p>4.点击Run按钮<img src="/images/custom/dart/run_button.png" />运行你新编写的应用。对命令行应用来说，print()函数产生的输出将会展现在Dart Editor的底部右侧，位于<strong>Problems</strong>选项卡旁边的某个选项卡中。</p>
+<p>4.点击Run按钮<img src="/images/custom/dart/run_button.png" />运行你新编写的应用。对命令行应用来说，print()函数产生的输出将展现在Dart Editor的底部右侧，位于<strong>Problems</strong>选项卡旁边的某个选项卡中。</p>
 
 <p>译文结束。</p>
 
