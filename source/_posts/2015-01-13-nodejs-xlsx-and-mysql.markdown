@@ -7,7 +7,7 @@ categories: nodejs
 ---
   注意：本文假设你对JavaScript异步编程，Node.js，MySQL数据库等有基本的了解。本文中大部分操作都是基于Mac OS的终端（Windows环境推荐使用Git附带的[Git Bash](https://msysgit.github.io/)）。
 ### 需求
-  假设有一个小需求：有一个包含用户数据的Excel文件（xlsx格式），你需要查询MySQL数据库，把其中没有验证邮箱的用户给筛选出来。
+  假设有个小需求：提供一个Excel文件（xlsx格式），其中含了用户数据，你需要查询MySQL数据库，把其中没有验证邮箱的用户给筛选出来。
 
   Excel数据格式如下（第一行为标题）：<br>
   <img src="{{ root_url }}/images/custom/20150113/excel-data.png" />
