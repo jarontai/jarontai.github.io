@@ -84,8 +84,8 @@ async.eachSeries(userAarray, function(obj, callback) {
 <ul>
 <li>第7~10行：先获取workbook的第一个sheetName，然后通过sheetName获取到worksheet，然后通过xlsx的utils.sheet_to_json方法将worksheet转换成JSON对象数组</li>
 <li>第13~19行：将数据库的连接配置传入mysql提供的createConnection方法，创建数据库连接</li>
-<li>第26~44行：通过async.eachSeries方法遍历用户JSON数组，通过mysql连接提供的query方法异步查询数据库</li>
-<li>第74~80行：在async.eachSeries遍历结束后，打印错误信息并关闭MySQL连接</li>
+<li>第22~44行：通过async.eachSeries方法遍历用户JSON数组，通过mysql连接提供的query方法异步查询数据库</li>
+<li>第45~51行：在async.eachSeries遍历结束后，打印错误信息并关闭MySQL连接</li>
 </ul>
 
 ### 运行效果
