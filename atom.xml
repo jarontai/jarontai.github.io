@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-01-13T11:59:46+08:00</updated>
+  <updated>2015-01-13T12:04:23+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -22,7 +22,7 @@
 
 <h3>需求</h3>
 
-<p>  假设有一个小需求：有一个包含用户数据的Excel文件（xlsx格式），你需要查询MySQL数据库，把其中没有验证邮箱的用户给筛选出来。</p>
+<p>  假设有个小需求：提供一个Excel文件（xlsx格式），其中含了用户数据，你需要查询MySQL数据库，把其中没有验证邮箱的用户给筛选出来。</p>
 
 <p>  Excel数据格式如下（第一行为标题）：<br>
   <img src="http://jarontai.github.io/images/custom/20150113/excel-data.png" /></p>
