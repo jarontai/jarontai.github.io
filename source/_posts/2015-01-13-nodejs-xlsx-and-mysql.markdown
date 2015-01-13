@@ -12,7 +12,8 @@ categories: nodejs
   Excel数据格式如下（第一行为标题）：<br>
   <img src="{{ root_url }}/images/custom/20150113/excel-data.png" />
 
-  数据库用户表（users）关键字段：username, email_activation（0表示未激活，1表示已激活）；
+  数据库用户表（users）关键字段：username, email_activation（0表示未激活，1表示已激活）
+  <img src="{{ root_url }}/images/custom/20150113/database.png" />
 
 ### 准备
   为了应对这个任务，我们使用了三个package，分别是：[xlsx](https://www.npmjs.com/package/xlsx), [mysql](https://www.npmjs.com/package/mysql), [async](https://www.npmjs.com/package/async)。从它们的名字可以看出它们各自的功能，xlsx负责读写xlsx文件，mysql负责连接查询数据库，async则用来简化异步代码。
