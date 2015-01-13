@@ -61,7 +61,7 @@ async.eachSeries(userAarray, function(obj, callback) {
       if (err) {
         callback(err);
       } else {
-        // 如果rows对象为空，则表示当前查询为空即email未激活
+        // 如果rows对象为空，则表示当前查询结果为空即email未激活
         if (!rows || !rows[0]) {
           counter++;
           console.log(''+counter, username);
