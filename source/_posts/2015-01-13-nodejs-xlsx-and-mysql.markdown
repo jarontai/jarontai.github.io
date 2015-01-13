@@ -36,7 +36,7 @@ var mysql = require('mysql');
 var workbook = XLSX.readFile('test.xlsx');
 var sheetNameList = workbook.SheetNames;
 var worksheet = workbook.Sheets[sheetNameList[0]];
-var userAarray = XLSX.utils.sheet_to_json(worksheet);
+var userAarray = XLSX.utils.sheet_to_json(worksheet); // 转换为JSON对象数组，第一行数据默认作为对象的key值
 
 // 连接MySQL
 var connection = mysql.createConnection({
