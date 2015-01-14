@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Nodejs | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/nodejs/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-01-13T14:25:02+08:00</updated>
+  <updated>2015-01-14T10:03:25+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -128,7 +128,7 @@
 </span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>        <span class="nx">callback</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
 </span><span class='line'>      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// 如果rows对象为空，则表示当前查询为空即email未激活</span>
+</span><span class='line'>        <span class="c1">// 如果rows对象为空，则表示当前查询结果为空即email未激活</span>
 </span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">rows</span> <span class="o">||</span> <span class="o">!</span><span class="nx">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
 </span><span class='line'>          <span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
 </span><span class='line'>          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span><span class="o">+</span><span class="nx">counter</span><span class="p">,</span> <span class="nx">username</span><span class="p">);</span>
