@@ -37,7 +37,7 @@ var mysql = require('mysql');
 var workbook = xlsx.readFile('test.xlsx');
 var sheetNameList = workbook.SheetNames;
 var worksheet = workbook.Sheets[sheetNameList[0]];
-var userAarray = xlsx.utils.sheet_to_json(worksheet); // 转换为JSON对象数组，第一行数据默认作为对象的key值
+var userArray = xlsx.utils.sheet_to_json(worksheet); // 转换为JSON对象数组，第一行数据默认作为对象的key值
 
 // 连接MySQL
 var connection = mysql.createConnection({
@@ -53,7 +53,7 @@ var sql1 = 'SELECT 1 FROM users WHERE username = ';
 var sql2 = ' AND email_activation = 1';
 var counter = 0;
 var key = '账号';
-async.eachSeries(userAarray, function(obj, callback) {
+async.eachSeries(userArray, function(obj, callback) {
   var username = obj[key];
   if (username) {
     var selectSql = sql1 + '\'' + username + '\'' + sql2; // 拼接查询语句
