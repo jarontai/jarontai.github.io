@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-01-14T10:03:25+08:00</updated>
+  <updated>2015-01-15T15:19:55+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -96,15 +96,15 @@
 <span class='line-number'>50</span>
 <span class='line-number'>51</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// 导入依赖</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">XLSX</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;xlsx&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">xlsx</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;xlsx&#39;</span><span class="p">);</span>
 </span><span class='line'><span class="kd">var</span> <span class="nx">async</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;async&#39;</span><span class="p">);</span>
 </span><span class='line'><span class="kd">var</span> <span class="nx">mysql</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mysql&#39;</span><span class="p">);</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// 读取xlsx文件，将第一个worksheet转换成json对象</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">workbook</span> <span class="o">=</span> <span class="nx">XLSX</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;test.xlsx&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">workbook</span> <span class="o">=</span> <span class="nx">xlsx</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;test.xlsx&#39;</span><span class="p">);</span>
 </span><span class='line'><span class="kd">var</span> <span class="nx">sheetNameList</span> <span class="o">=</span> <span class="nx">workbook</span><span class="p">.</span><span class="nx">SheetNames</span><span class="p">;</span>
 </span><span class='line'><span class="kd">var</span> <span class="nx">worksheet</span> <span class="o">=</span> <span class="nx">workbook</span><span class="p">.</span><span class="nx">Sheets</span><span class="p">[</span><span class="nx">sheetNameList</span><span class="p">[</span><span class="mi">0</span><span class="p">]];</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">userAarray</span> <span class="o">=</span> <span class="nx">XLSX</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">sheet_to_json</span><span class="p">(</span><span class="nx">worksheet</span><span class="p">);</span> <span class="c1">// 转换为JSON对象数组，第一行数据默认作为对象的key值</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">userAarray</span> <span class="o">=</span> <span class="nx">xlsx</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">sheet_to_json</span><span class="p">(</span><span class="nx">worksheet</span><span class="p">);</span> <span class="c1">// 转换为JSON对象数组，第一行数据默认作为对象的key值</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// 连接MySQL</span>
 </span><span class='line'><span class="kd">var</span> <span class="nx">connection</span> <span class="o">=</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">({</span>
