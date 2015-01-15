@@ -29,15 +29,15 @@ categories: nodejs
 
 {% codeblock lang:js %}
 // 导入依赖
-var XLSX = require('xlsx');
+var xlsx = require('xlsx');
 var async = require('async');
 var mysql = require('mysql');
 
 // 读取xlsx文件，将第一个worksheet转换成json对象
-var workbook = XLSX.readFile('test.xlsx');
+var workbook = xlsx.readFile('test.xlsx');
 var sheetNameList = workbook.SheetNames;
 var worksheet = workbook.Sheets[sheetNameList[0]];
-var userAarray = XLSX.utils.sheet_to_json(worksheet); // 转换为JSON对象数组，第一行数据默认作为对象的key值
+var userAarray = xlsx.utils.sheet_to_json(worksheet); // 转换为JSON对象数组，第一行数据默认作为对象的key值
 
 // 连接MySQL
 var connection = mysql.createConnection({
