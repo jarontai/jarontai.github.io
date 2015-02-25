@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 翻译 | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/fan-yi/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-02-25T17:15:04+08:00</updated>
+  <updated>2015-02-25T17:23:01+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -138,7 +138,7 @@
 
 <h3>走起（*4）</h3>
 
-<p>  现在你应该对Dart有了大概的了解，是时候写代码了。以下的操作都是使用开源的编辑器Dart Editor。当你下载Dart时，你不仅拥有了Dart Editor，还获得了Dart转JavaScript编译器，以及一个内置了Dart虚拟机的定制版Chromium（昵称为Dartium）。</p>
+<p>  现在你应该对Dart有了大概的了解，是时候写代码了。以下的操作都是使用开源的编辑器Dart Editor。在你下载完Dart后，你不仅拥有了Dart Editor，还获得了Dart转JavaScript编译器，以及一个内置了Dart虚拟机的定制版Chromium（昵称为Dartium）。</p>
 
 <p>  注意：如果在安装使用Dart Editor时碰到问题，请查看<a href="https://www.dartlang.org/tools/editor/troubleshoot.html">Dart Editor故障排查</a>。</p>
 
