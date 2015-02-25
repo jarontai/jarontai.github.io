@@ -102,7 +102,7 @@ main() {
 #### 步骤1：下载安装软件包
   在此步骤中，你将安装Dart Editor。如果你没有安装Java，就还要安装Java运行环境。（如果你不想修改环境变量，你可以把JRE直接放到你的Dart安装目录下，注意文件夹名称必须是jre）
 
-1. [下载Dart与Dart Editor](https://www.dartlang.org/tools/download.html)
+1. 下载[Dart与Dart Editor](https://www.dartlang.org/tools/download.html)
 2. 将你下载的文件解压，得到一个文件夹，我们把它称为Dart的安装目录。这个文件夹里面包含了Dart Editor执行文件以及其他子文件夹。
 3. 如果你没有安装Java，请去下载并安装它。Dart Editor需要Java 6或以上的版本才能运行。
 
