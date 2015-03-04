@@ -12,7 +12,7 @@ ___
 	
   Dart不仅是一门新的语言，它还有标准库（*2）、编辑器、虚拟机（VM）、能直接运行Dart的浏览器以及一个将其编译为JavaScript的编译器。Dart立志成为一个更加高效的web开发工具，用于开发满足用户需求的高性能现代应用。
 
-### 为什么Google要创造Dart
+### Google为什么要创造Dart
   Google始终致力于使Web变得更好。我们（译者注：指Google，下同）编写了很多web应用，它们大都异常复杂，如：Gmail，Google Calendar，Google+等。我们希望web应用能快速加载、运行流畅、有趣而富有吸引力。我们想让不同知识背景的开发者都能够在浏览器上创建高质量的应用。<!-- more -->
 
   Google Chrome - 作为Google对web的贡献之一，是Google在web平台停滞不前的时期创造的。它成功了！如下图所示，从2008年Chrome诞生开始，浏览器的速度得到了极大的提升。
