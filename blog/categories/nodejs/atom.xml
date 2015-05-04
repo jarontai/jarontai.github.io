@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Nodejs | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/nodejs/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-03-04T10:45:09+08:00</updated>
+  <updated>2015-05-04T13:12:25+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -25,10 +25,10 @@
 <p>  假设有个小需求：提供一个Excel文件（xlsx格式），其中含了用户数据，你需要查询MySQL数据库，把其中没有验证邮箱的用户给筛选出来。</p>
 
 <p>  Excel数据格式如下（第一行为标题）：<br>
-  <img src="/images/custom/20150113/excel-data.png" /></p>
+  <img src="{{ root_url }}/images/custom/20150113/excel-data.png" /></p>
 
 <p>  数据库用户表（users）关键字段：username, email_activation（0表示未激活，1表示已激活）
-  <img src="/images/custom/20150113/database.png" /></p>
+  <img src="{{ root_url }}/images/custom/20150113/database.png" /></p>
 
 <h3>准备</h3>
 
@@ -37,116 +37,66 @@
 
 <p>  新建一个项目文件夹member_filter，进入后执行npm init，简单填写项目信息，然后安装我们需要的三个依赖：npm install xlsx mysql async &ndash;save</p>
 
-<p>  <img src="/images/custom/20150113/setup1.png" />
-  <img src="/images/custom/20150113/setup2.png" /></p>
+<p>  <img src="{{ root_url }}/images/custom/20150113/setup1.png" />
+  <img src="{{ root_url }}/images/custom/20150113/setup2.png" /></p>
 
 <h3>编码</h3>
 
 <p>  代码的思路：读取xlsx文件里面的用户数据，对其进行适当的转换处理，然后再用这些数据去MySQL数据库查询，得到邮箱没有被激活的用户并将它们打印出来。</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// 导入依赖</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">xlsx</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">xlsx</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">async</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">async</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">mysql</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">mysql</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">// 读取xlsx文件，将第一个worksheet转换成json对象</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">workbook</span> <span class="o">=</span> <span class="nx">xlsx</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">test</span><span class="p">.</span><span class="nx">xlsx</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">sheetNameList</span> <span class="o">=</span> <span class="nx">workbook</span><span class="p">.</span><span class="nx">SheetNames</span><span class="p">;</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">worksheet</span> <span class="o">=</span> <span class="nx">workbook</span><span class="p">.</span><span class="nx">Sheets</span><span class="p">[</span><span class="nx">sheetNameList</span><span class="p">[</span><span class="mi">0</span><span class="p">]];</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">userArray</span> <span class="o">=</span> <span class="nx">xlsx</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">sheet_to_json</span><span class="p">(</span><span class="nx">worksheet</span><span class="p">);</span> <span class="c1">// 转换为JSON对象数组，第一行数据默认作为对象的key值&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">// 连接MySQL</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">connection</span> <span class="o">=</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">host</span>     <span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">localhost</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span>
-</span><span class='line'>  <span class="nx">user</span>     <span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">root</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span>
-</span><span class='line'>  <span class="nx">password</span> <span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">root</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span>
-</span><span class='line'>  <span class="nx">database</span> <span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">test</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="nx">connection</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">// 通过async遍历用户对象数组，循环异步查询MySQL，检查email是否激活</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">sql1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">SELECT</span> <span class="mi">1</span> <span class="nx">FROM</span> <span class="nx">users</span> <span class="nx">WHERE</span> <span class="nx">username</span> <span class="o">=</span> <span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;;</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">sql2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span> <span class="nx">AND</span> <span class="nx">email_activation</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;;</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">账号</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;;</span>
-</span><span class='line'><span class="nx">async</span><span class="p">.</span><span class="nx">eachSeries</span><span class="p">(</span><span class="nx">userArray</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">username</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
-</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">username</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">selectSql</span> <span class="o">=</span> <span class="nx">sql1</span> <span class="o">+</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">\</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span> <span class="o">+</span> <span class="nx">username</span> <span class="o">+</span> <span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span><span class="err">\</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">+</span> <span class="nx">sql2</span><span class="p">;</span> <span class="c1">// 拼接查询语句</span>
-</span><span class='line'>    <span class="nx">connection</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="nx">selectSql</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">rows</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">callback</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// 如果rows对象为空，则表示当前查询结果为空即email未激活</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">rows</span> <span class="o">||</span> <span class="o">!</span><span class="nx">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
-</span><span class='line'>          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span><span class="o">+</span><span class="nx">counter</span><span class="p">,</span> <span class="nx">username</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="nx">callback</span><span class="p">();</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">callback</span><span class="p">();</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="c1">// 打印错误，关闭数据库连接</span>
-</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nb">Error</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>  <span class="o">&lt;</span><span class="nx">br</span><span class="o">/&gt;</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>  <span class="nx">connection</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:js %}
+// 导入依赖
+var xlsx = require(&lsquo;xlsx&rsquo;);
+var async = require(&lsquo;async&rsquo;);
+var mysql = require(&lsquo;mysql&rsquo;);</p>
+
+<p>// 读取xlsx文件，将第一个worksheet转换成json对象
+var workbook = xlsx.readFile(&lsquo;test.xlsx&rsquo;);
+var sheetNameList = workbook.SheetNames;
+var worksheet = workbook.Sheets[sheetNameList[0]];
+var userArray = xlsx.utils.sheet_to_json(worksheet); // 转换为JSON对象数组，第一行数据默认作为对象的key值</p>
+
+<p>// 连接MySQL
+var connection = mysql.createConnection({
+  host     : &lsquo;localhost&rsquo;,
+  user     : &lsquo;root&rsquo;,
+  password : &lsquo;root&rsquo;,
+  database : &lsquo;test&rsquo;
+});
+connection.connect();</p>
+
+<p>// 通过async遍历用户对象数组，循环异步查询MySQL，检查email是否激活
+var sql1 = &lsquo;SELECT 1 FROM users WHERE username = &rsquo;;
+var sql2 = &lsquo; AND email_activation = 1&rsquo;;
+var counter = 0;
+var key = &lsquo;账号&rsquo;;
+async.eachSeries(userArray, function(obj, callback) {
+  var username = obj[key];
+  if (username) {
+    var selectSql = sql1 + &lsquo;\&rsquo;&lsquo; + username + &rsquo;\&lsquo;&rsquo; + sql2; // 拼接查询语句
+    connection.query(selectSql, function(err, rows) {
+      if (err) {
+        callback(err);
+      } else {
+        // 如果rows对象为空，则表示当前查询结果为空即email未激活
+        if (!rows || !rows[0]) {
+          counter++;
+          console.log(&lsquo;&rsquo;+counter, username);
+        }
+        callback();
+      }
+    });
+  } else {
+    callback();
+  }
+}, function(err) {
+  // 打印错误，关闭数据库连接
+  if (err) {
+    console.log(&lsquo;Error: &rsquo;, JSON.stringify(err));  <br/>
+  }
+  connection.end();
+});
+{% endcodeblock %}</p>
 
 <p>关键代码讲解：</p>
 
@@ -160,7 +110,7 @@
 
 <h3>运行效果</h3>
 
-<p>  <img src="/images/custom/20150113/result.png" /></p>
+<p>  <img src="{{ root_url }}/images/custom/20150113/result.png" /></p>
 
 <p>关于xlsx，mysql以及async的详细用法，请到npmjs网站上去搜索查看：<a href="https://www.npmjs.com/">npmjs</a></p>
 
@@ -182,38 +132,26 @@
 <p>  使用cnpm的镜像服务主要有两种方式，第一种是指定npm的registry参数，使npm去镜像地址下载依赖；第二种方式是使用cnpm提供的客户端来代替npm，即直接使用cnpm指令来安装/更新依赖。我个人更喜欢第二种方式，因为它不需要每次都写registry参数，也不用修改npm本身的配置，非常方便。</p>
 
 <p>  第一种方式
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>// 添加registry参数指向镜像地址
-</span><span class='line'>npm install -g cordova <span class="p">&amp;</span>ndash<span class="p">;</span><span class="nv">registry</span><span class="o">=</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://r.cnpmjs.org&quot;</span>&gt;http://r.cnpmjs.org&lt;/a&gt;&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;// 或者直接修改registry配置，默认的地址是&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://registry.npmjs.org/%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%BA%86npm%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%89&quot;</span>&gt;https://registry.npmjs.org/%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%BA%86npm%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%89&lt;/a&gt;
-</span><span class='line'>npm config <span class="nb">set </span>registry &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://r.cnpmjs.org&quot;</span>&gt;http://r.cnpmjs.org&lt;/a&gt;
-</span></code></pre></td></tr></table></div></figure></p>
+{% codeblock lang:sh %}
+// 添加registry参数指向镜像地址
+npm install -g cordova &ndash;registry=<a href="http://r.cnpmjs.org">http://r.cnpmjs.org</a></p>
+
+<p>// 或者直接修改registry配置，默认的地址是<a href="https://registry.npmjs.org/%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%BA%86npm%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%89">https://registry.npmjs.org/%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%BA%86npm%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%89</a>
+npm config set registry <a href="http://r.cnpmjs.org">http://r.cnpmjs.org</a>
+{% endcodeblock %}</p>
 
 <p>  第二种方式
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>// 安装cnpm客户端
-</span><span class='line'>npm install -g cnpm <span class="p">&amp;</span>ndash<span class="p">;</span><span class="nv">registry</span><span class="o">=</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://r.cnpmjs.org&quot;</span>&gt;http://r.cnpmjs.org&lt;/a&gt;&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;// 使用cnpm代替npm（npm依然可用）
-</span><span class='line'>cnpm install -g lodash &lt;br/&gt;
-</span><span class='line'>cnpm update -g lodash
-</span><span class='line'>cnpm uninstall -g lodash
-</span><span class='line'>cnpm cache clean
-</span><span class='line'><span class="p">&amp;</span>hellip<span class="p">;&amp;</span>hellip<span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></p>
+{% codeblock lang:sh %}
+// 安装cnpm客户端
+npm install -g cnpm &ndash;registry=<a href="http://r.cnpmjs.org">http://r.cnpmjs.org</a></p>
+
+<p>// 使用cnpm代替npm（npm依然可用）
+cnpm install -g lodash <br/>
+cnpm update -g lodash
+cnpm uninstall -g lodash
+cnpm cache clean
+&hellip;&hellip;
+{% endcodeblock %}</p>
 
 <p> 使用cnpm安装依赖包，安装速度及成功率比以前使用npm时要高很多了，这可真要感谢cnpm的维护者们。</p>
 ]]></content>

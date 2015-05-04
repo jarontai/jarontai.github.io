@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 其他 | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/qi-ta/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-03-04T10:45:09+08:00</updated>
+  <updated>2015-05-04T13:12:25+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -79,29 +79,19 @@
 
 <p>Octopress 常用指令：</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake new_post<span class="o">[</span><span class="p">&amp;</span>ldquo<span class="p">;</span>title<span class="p">&amp;</span>rdquo<span class="p">;</span><span class="o">]</span>  <span class="c"># Generate a new post&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;rake generate   <span class="c"># Generates posts and pages into the public directory&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;rake watch      <span class="c"># Watches source/ and sass/ for changes and regenerates&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;rake preview    <span class="c"># Watches, and mounts a webserver at &lt;a href=&quot;http://localhost:4000&quot;&gt;http://localhost:4000&lt;/a&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;rake deploy     <span class="c"># Deploy to github&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;git add .  <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span>   git commit -m <span class="p">&amp;</span>lsquo<span class="p">;</span>your message<span class="p">&amp;</span>rsquo<span class="p">;</span>  <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span>  git push origin <span class="nb">source</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:sh %}
+rake new_post[&ldquo;title&rdquo;]  # Generate a new post</p>
+
+<p>rake generate   # Generates posts and pages into the public directory</p>
+
+<p>rake watch      # Watches source/ and sass/ for changes and regenerates</p>
+
+<p>rake preview    # Watches, and mounts a webserver at <a href="http://localhost:4000">http://localhost:4000</a></p>
+
+<p>rake deploy     # Deploy to github</p>
+
+<p>git add .  &amp;&amp;   git commit -m &lsquo;your message&rsquo;  &amp;&amp;  git push origin source
+{% endcodeblock %}</p>
 ]]></content>
   </entry>
   

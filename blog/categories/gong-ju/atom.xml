@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 工具 | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/gong-ju/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-03-04T10:45:09+08:00</updated>
+  <updated>2015-05-04T13:12:25+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -36,17 +36,17 @@
 <p>  请先安装好<a href="http://nodejs.org/">NodeJS</a>，然后在终端/命令行中输入 npm install -g jshint</p>
 
 <p>  安装过程类似下图
-  <img src="/images/custom/jshint-m.png" /></p>
+  <img src="{{ root_url }}/images/custom/jshint-m.png" /></p>
 
 <h3>安装与配置JSHint Gutter</h3>
 
 <p>  JSHint Gutter安装更加非常简单，使用Sublime命令面板的PackageControl:Install Package，搜索安装即可。</p>
 
 <p>  安装完成后，在Sublime的Package Settings里找到JSHint Gutter，选择Set Plugin Options：
-  <img src="/images/custom/sublime-jshint-menu.png" /></p>
+  <img src="{{ root_url }}/images/custom/sublime-jshint-menu.png" /></p>
 
 <p>  设置NodeJS执行文件所在的路径（node_path），并将lint_on_save（文件保存时检查）选项打开
-  <img src="/images/custom/sublime-jshint-setting.png" /></p>
+  <img src="{{ root_url }}/images/custom/sublime-jshint-setting.png" /></p>
 
 <p>  注意：不同的操作系统，不同的安装工具（我使用nvm安装node），node执行文件所在的路径都不一样，你可以使用 which node 来查看</p>
 
@@ -54,29 +54,19 @@
 
 <p>  在项目根目录新建一个文件：.jshintrc（windows用户应该在文件管理器里面创建.jshintrc.文件，然后它会自动改名为.jshintrc），在此文件里填写你的检查规则，以下是一个典型的.jshintrc</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">curly</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-</span><span class='line'>  <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">eqeqeq</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-</span><span class='line'>  <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">immed</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-</span><span class='line'>  <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">noarg</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-</span><span class='line'>  <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">noempty</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-</span><span class='line'>  <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">quotmark</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">single</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;,</span>
-</span><span class='line'>  <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">undef</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-</span><span class='line'>  <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">unused</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-</span><span class='line'>  <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">node</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">:</span> <span class="kc">true</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:js %}
+{
+  &ldquo;curly&rdquo;: true,
+  &ldquo;eqeqeq&rdquo;: true,
+  &ldquo;immed&rdquo;: true,
+  &ldquo;noarg&rdquo;: true,
+  &ldquo;noempty&rdquo;: true,
+  &ldquo;quotmark&rdquo;: &ldquo;single&rdquo;,
+  &ldquo;undef&rdquo;: true,
+  &ldquo;unused&rdquo;: true,
+  &ldquo;node&rdquo;: true
+}
+{% endcodeblock %}</p>
 
 <p>配置讲解(配置选项 true表示打开，false表示关闭)：</p>
 
@@ -106,7 +96,7 @@
 <h3>使用效果</h3>
 
 <p>  我故意在代码里多添加了一个括号，然后保存文件，错误提示马上出现了，点击红色的错误标记，在底部信息栏会出现提示信息。
-  <img src="/images/custom/sublime-jshint-action.png" /></p>
+  <img src="{{ root_url }}/images/custom/sublime-jshint-action.png" /></p>
 
 <p>  哈哈，以后用Sublime写JavaScript会更加顺手了。Sweet！</p>
 
@@ -132,57 +122,35 @@
 <h3>插件的安装</h3>
 
 <p>  插件安装非常简单，使用Sublime命令面板的PackageControl:Install Package，搜索EditorConfig安装即可。
-  <img src="/images/custom/sublime-install.png" /></p>
+  <img src="{{ root_url }}/images/custom/sublime-install.png" /></p>
 
 <h3>插件的使用</h3>
 
 <p>  在项目根目录新建一个文件：.editorconfig（windows用户应该在文件管理器里面创建.editorconfig.文件，然后它会自动改名为.editorconfig），在此文件里填写你需要的格式规则，以下是一个典型的.editorconfig</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;http://editorconfig.org&quot;</span><span class="o">&gt;</span><span class="nx">http</span><span class="o">:</span><span class="c1">//editorconfig.org&lt;/a&gt;&lt;/h1&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">root</span> <span class="o">=</span> <span class="kc">true</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Change</span> <span class="nx">these</span> <span class="nx">settings</span> <span class="nx">to</span> <span class="nx">your</span> <span class="nx">own</span> <span class="nx">preference</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">indent_style</span> <span class="o">=</span> <span class="nx">space</span>
-</span><span class='line'><span class="nx">indent_size</span> <span class="o">=</span> <span class="mi">2</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">We</span> <span class="nx">recommend</span> <span class="nx">you</span> <span class="nx">to</span> <span class="nx">keep</span> <span class="nx">these</span> <span class="nx">unchanged</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">end_of_line</span> <span class="o">=</span> <span class="nx">lf</span>
-</span><span class='line'><span class="nx">charset</span> <span class="o">=</span> <span class="nx">utf</span><span class="o">-</span><span class="mi">8</span>
-</span><span class='line'><span class="nx">trim_trailing_whitespace</span> <span class="o">=</span> <span class="kc">true</span>
-</span><span class='line'><span class="nx">insert_final_newline</span> <span class="o">=</span> <span class="kc">true</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">[</span><span class="o">*</span><span class="p">.</span><span class="nx">md</span><span class="p">]</span>
-</span><span class='line'><span class="nx">trim_trailing_whitespace</span> <span class="o">=</span> <span class="kc">false</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:js %}</p>
+
+<h1><a href="http://editorconfig.org">http://editorconfig.org</a></h1>
+
+<p>root = true</p>
+
+<p>[*]</p>
+
+<h1>Change these settings to your own preference</h1>
+
+<p>indent_style = space
+indent_size = 2</p>
+
+<h1>We recommend you to keep these unchanged</h1>
+
+<p>end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true</p>
+
+<p>[*.md]
+trim_trailing_whitespace = false
+{% endcodeblock %}</p>
 
 <p>配置讲解：</p>
 
