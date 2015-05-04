@@ -95,7 +95,7 @@ main() {
 
   Dart是开源的。Dart是为web而生的，它使用类似BSD的协议。你可以在线查看Dart项目的[源码以及Bug](https://code.google.com/p/dart/)。或许你下次可以提交一个补丁呢？
 
-### 走起（*4）
+### <a name="up-and-running"></a>走起（*4）
   现在你应该对Dart有了大概的了解，是时候写代码了。以下的操作都是使用开源的编辑器Dart Editor。在你下载完Dart后，你不仅拥有了Dart Editor，还获得了Dart转JavaScript编译器，以及一个内置了Dart虚拟机的定制版Chromium（昵称为Dartium）。
 
   注意：如果在安装使用Dart Editor时碰到问题，请查看[Dart Editor故障排查](https://www.dartlang.org/tools/editor/troubleshoot.html)。
