@@ -3,14 +3,14 @@ layout: post
 title: "Dartlang译文：Dart快速入门"
 date: 2014-12-18 12:07:36 +0800
 comments: true
-categories: 翻译 Dart
+categories: 翻译 Dart Dart-Up-and-Running
 ---
   译注：本文是博主的原创翻译，转载请添加本文链接并标明出处。本文翻译的是Google Dart项目组撰写的《Dart：Up and Running》的第一章。文中存在一些新近出现、暂无标准翻译的技术向词语，已使用星号做了标注，在文章尾部附注可以查看它们的原文。博主的语文跟英语都很菜，如有翻译不妥或错误之处请多见谅。水平有限，本文仅作参考。
 ___
 <br/>
-  欢迎你来学习Dart！Dart是一个开源、高效的（*1），用于构建HTML5 web应用的开发平台。本文将告诉你为什么Google要创造Dart，Dart有哪些酷炫的特性，以及如何编写、运行你的第一个Dart应用。
+  欢迎你来学习Dart！Dart是一个用于构建HTML5 web应用的，开源、开箱即用的（*1）的开发平台。本文将告诉你Google为什么要创造Dart，Dart具有哪些酷炫的特性，以及如何编写、运行你的第一个Dart应用。
 	
-  Dart不仅是一门新的语言，它还有标准库（*2）、编辑器、虚拟机（VM）、能直接运行Dart的浏览器以及一个将其编译为JavaScript的编译器。Dart立志成为一个更加高效的web开发工具，用于开发满足用户需求的高性能现代应用。
+  Dart不仅是一门新的语言，它还提供了标准库、编辑器、虚拟机（VM）、一个能直接运行Dart的浏览器，以及将Dart代码编译为JavaScript的编译器。Dart立志成为一个更加高效的开发工具，能够开发出满足用户需求的，高性能的现代应用。
 
 ### Google为什么要创造Dart
   Google始终致力于使Web变得更好。我们（译者注：指Google，下同）编写了很多web应用，它们大都异常复杂，如：Gmail，Google Calendar，Google+等。我们希望web应用能快速加载、运行流畅、有趣而富有吸引力。我们想让不同知识背景的开发者都能够在浏览器上创建高质量的应用。<!-- more -->
@@ -141,11 +141,10 @@ main() {
 ___
 <br/>
 附注：<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*1 batteries-included <-> 高效的 (无奈翻译)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*2 libraries <-> 标准库 (根据上下文，此处应该不是泛指，而是特指Dart自带的标准库)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*3 full end-to-end <-> 完全端到端 (无知翻译)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*4 isolates (未翻译)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*5 up and running <-> 走起 (逗比翻译)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*1 batteries-included <-> 开箱即用 (参考了知乎 - http://www.zhihu.com/question/24710451)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*2 full end-to-end <-> 完全端到端 (无知翻译)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*3 isolates (未翻译)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*4 up and running <-> 走起 (逗比翻译)
 
 ---
 <br/>
