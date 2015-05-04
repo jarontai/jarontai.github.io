@@ -137,6 +137,7 @@ main() {
 4.点击Run按钮<img src="{{ root_url }}/images/custom/dart/run_button.png" />运行你新编写的应用。对命令行应用来说，print()函数产生的输出将展现在Dart Editor的底部右侧，位于**Problems**选项卡旁边的某个选项卡中。
 
 译文结束。
+更新于：2015-05-04
 
 ___
 <br/>
