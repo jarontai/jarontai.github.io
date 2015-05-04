@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dart | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dart/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-05-04T13:59:36+08:00</updated>
+  <updated>2015-05-04T14:02:51+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -23,7 +23,7 @@
 <hr />
 
 <p><br/>
-  欢迎你来学习Dart！Dart是一个用于构建HTML5 web应用的，开源、开箱即用的（*1）的开发平台。本文将告诉你Google为什么要创造Dart，Dart具有哪些酷炫的特性，以及如何编写、运行你的第一个Dart应用。</p>
+  欢迎你来学习Dart！Dart是一个开源、开箱即用的（*1）的，专注于构建HTML5 web应用的开发平台。本文将告诉你Google为什么要创造Dart，Dart具有哪些酷炫的特性，以及如何编写、运行你的第一个Dart应用。</p>
 
 <p>  Dart不仅是一门新的语言，它还提供了标准库、编辑器、虚拟机（VM）、一个能直接运行Dart的浏览器，以及将Dart代码编译为JavaScript的编译器。Dart立志成为一个更加高效的开发工具，能够开发出满足用户需求的，高性能的现代应用。</p>
 
