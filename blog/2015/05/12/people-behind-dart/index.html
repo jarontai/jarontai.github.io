@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>用iFrame Resizer解决iframe高度自适应问题 - Dynamic Static</title>
+  <title>Dartlang背后的那些大牛们 - Dynamic Static</title>
   <meta name="author" content="戴虬">
 
   
-  <meta name="description" content="最近工作中需要对一个旧项目进行改造，不得已使用了让人头疼的iframe，碰到的最大问题是没有好的方法使其高度自适应。Google一番之后，发现iframe-resizer能够比较好的解决这个问题，而且还支持跨域访问（使用postMessage）。 在使用它之前，必须明确iframe &hellip;">
+  <meta name="description" content="最开始尝试Dart，是因为想尝试一下除JavaScript外的浏览器编程语言。在学习跟使用过Dart一段时间后，发现它确实有很多优秀的语言特性，对它也越发喜欢了。而最近，在好奇心驱使下，我开始搜索Dart项目组即Dartlang背后的大牛们的相关资料。不查不知道， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jarontai.github.io/blog/2014/07/25/use-iframe-resizer">
+  <link rel="canonical" href="http://jarontai.github.io/blog/2015/05/12/people-behind-dart">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Dynamic Static" type="application/atom+xml">
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">用iFrame Resizer解决iframe高度自适应问题</h1>
+      <h1 class="entry-title">Dartlang背后的那些大牛们</h1>
     
     
       <p class="meta">
@@ -89,58 +89,46 @@
 
 
 
-<time class='entry-date' datetime='2014-07-25T20:45:39+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>8:45 pm</span></time>
+<time class='entry-date' datetime='2015-05-12T11:23:39+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:23 am</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>  最近工作中需要对一个旧项目进行改造，不得已使用了让人头疼的iframe，碰到的最大问题是没有好的方法使其高度自适应。Google一番之后，发现<a href="http://davidjbradshaw.github.io/iframe-resizer/">iframe-resizer</a>能够比较好的解决这个问题，而且还支持跨域访问（使用<a href="https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage">postMessage</a>）。</p>
+<div class="entry-content"><p>最开始尝试Dart，是因为想尝试一下除JavaScript外的浏览器编程语言。在学习跟使用过Dart一段时间后，发现它确实有很多优秀的语言特性，对它也越发喜欢了。而最近，在好奇心驱使下，我开始搜索Dart项目组即Dartlang背后的大牛们的相关资料。不查不知道，原来Dart项目组真是藏龙卧虎之地啊。下面，我们就来介绍一下Dart项目组的主要成员：</p>
 
-<p>  在使用它之前，必须明确iframe resizer要求IE8+（firefox，chrome等自然没有问题），如果你需要支持旧版本IE，请关掉本页然后再去google。其次，iframe resizer提供了原生JS与jQuery插件两种调用方式，<!-- more -->而原生方式需要<a href="http://davidjbradshaw.github.io/iframe-resizer/#browser-compatibility">额外的配置</a>，所以我推荐选择jQuery插件方式（毕竟jQuery几乎是标配了）。</p>
+<p>你可能需要注意（也算是比较有趣）的一点：以下多位成员都有Java/JVM研发背景。</p>
 
-<hr />
+<h3>Gilad Bracha</h3>
 
-<p>  OK，下载iframe resizer。</p>
+<p>Gilad Bracha是编程语言Newspeak的创造者，也是Java语言规范第二、三版的合著者（co-author）， 而且还是JVM规范第二版的主要贡献者。在进入Google后，他加入了Dart项目组，他的主要工作应该是Dart语言规范的编写。</p>
 
-<p>  在iframe resizer压缩包的js文件夹中，有两个文件：
-  第一个js是：iframeResizer.min.js。这个js是要放在需要嵌入iframe的页面（parent）中，其调用方式如下（一般情况下你不需要传递任何参数即可实现高度自适应，详细参数请参考<a href="http://davidjbradshaw.github.io/iframe-resizer/#options">官网</a>）：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;iframe&#39;</span><span class="p">).</span><span class="nx">iFrameResize</span><span class="p">([{</span><span class="nx">log</span><span class="o">:</span> <span class="kc">true</span><span class="p">}]);</span>
-</span></code></pre></td></tr></table></div></figure>
+<!-- more -->
 
 
-<p>  第二个js是：iframeResizer.contentWindow.min.js，它需要放到你的iframe页面(child)中去，注意只要引人，不需要代码配置。</p>
+<h3>Lars Bak</h3>
 
-<hr />
+<p>Lars Bak是Dart的联合创始人之一，他是一个来自丹麦的计算机天才，是一个虚拟机专家。他在近年主导开发的一个项目对互联网产生了深远影响，这就是Chrome的JavaScript虚拟机 - V8。而在更早以前，他从事Smalltalk与Java的虚拟机开发，他曾在<a href="http://zh.wikipedia.org/wiki/%E6%98%87%E9%99%BD%E9%9B%BB%E8%85%A6">Sun</a>的HotSpot项目担任工程与技术主管，专职开发高性能的虚拟机 - JVM。Lars Bak在虚拟机领域获得的成就是惊人的，现在他不仅要主导开发一个新的虚拟机，还要开发一门新的编程语言 - Dart。</p>
 
-<p>  接下来是设置iframe，需要注意的是width必须是百分比，scrolling设置为no（为了兼容性）。</p>
+<h3>Kasper Lund</h3>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">&quot;http://yourserver.com/index.html&quot;</span> <span class="na">width=</span><span class="s">&quot;100%&quot;</span> <span class="na">scrolling=</span><span class="s">&quot;no&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>Kasper Lund也是Dart的联合创始人之一，他也来自丹麦。他早年跟Lars Bak都就职于Sun，一起从事JVM的开发。后来他跟Lars Bak一起加入Google，从事V8引擎开发。他主导开发V8引擎的Crankshaft项目，极大的提升了Chrome的JavaScript运行效率。最近，Kasper Lund开始主导开发<a href="https://github.com/dart-lang/fletch">Fletch</a>，该项目可能是Dart在移动端发展的重要基础项目。</p>
 
+<h3>Bob Nystrom</h3>
 
-<p>  当然，你也可以使用document.createElement来动态创建它。</p>
+<p>Bob曾经是EA（艺电）公司的一名游戏开发工程师，而且写过一本关于游戏编程模式的畅销书<a href="http://gameprogrammingpatterns.com/">Game Programming Patterns</a>。在加入Dart项目组后，他主导开发了Dart的包管理器 <a href="https://pub.dartlang.org/">pub</a>，而且也写了很多关于Dart的文章，其中包括深受开发者欢迎的<a href="https://www.dartlang.org/articles/style-guide/">Dart编程风格指南</a>。而在最近，Bob开始帮助Dart建立DEP - <a href="https://github.com/dart-lang/dart_enhancement_proposals">Dart Enhancement Proposals</a>（Dart增强建议书）项目，这将使Dart能够更好的接收、吸纳来自开发者的建议。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">iframe</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;iframe&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;http://yourserver.com/index.html&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;100%&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;scrolling&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">iframe</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
+<h3>Peter von der Ahé</h3>
 
+<p>Peter是一个编译器专家，跟Lars Bak、Kasper Lund一样，早年也就职于Sun，他担任的职位是javac（Java的编译器）的技术主管。现在，他正专注于Dart增量编译的研发工作，同时他也在从事<a href="https://github.com/dart-lang/fletch">Fletch</a>的开发。</p>
 
-<hr />
+<h3>Kathy Walrath</h3>
 
-<p>  按照以上步骤设置，基本上就能够解决iframe自适应问题，且iframe内容可跨域。</p>
+<p>Kathy Walrath是一位阅历丰富的技术写手，她曾就职于Sun、NeXT、HP等公司，她专注于Java文档编写长达11年。在加入Google后，她开始从事Chrome相关技术文档的编写。在web刚刚起步的那些年，她编写过Java applets的开发文档，而且她还是<a href="https://docs.oracle.com/javase/tutorial/">The Java Tutorial</a>的合著者，并对其进行了多年的维护。如今，Kathy在Dart项目组从事各种技术文档的编写工作，她还和Seth Ladd合著了一本书：<a href="https://www.dartlang.org/docs/dart-up-and-running/">Dart: Up and Running</a>。</p>
+
+<p>*Dart项目组还有很多优秀的工程师，希望后面可以再补充。<br>
+**以上信息大都收集整理自互联网，准确性有待商榷；如有错误之处，欢迎指正。</p>
 </div>
 
 
@@ -156,12 +144,12 @@
 
 
 
-<time class='entry-date' datetime='2014-07-25T20:45:39+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>8:45 pm</span></time>
+<time class='entry-date' datetime='2015-05-12T11:23:39+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:23 am</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/html5/'>html5</a>, <a class='category' href='/blog/categories/js/'>js</a>
+    <a class='category' href='/blog/categories/dart/'>dart</a>, <a class='category' href='/blog/categories/qi-ta/'>其他</a>
   
 </span>
 
@@ -177,10 +165,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/05/19/use-cnpm/" title="Previous Post: 使用cnpm镜像服务">&laquo; 使用cnpm镜像服务</a>
+        <a class="basic-alignment left" href="/blog/2015/05/04/translation-dart-language-tour/" title="Previous Post: Dartlang译文：Dart语言概述">&laquo; Dartlang译文：Dart语言概述</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/08/22/manage-multiple-ajax/" title="Next Post: 管理多个ajax请求(jQuery)">管理多个ajax请求(jQuery) &raquo;</a>
       
     </p>
   </footer>
@@ -189,7 +175,7 @@
   <section>
     <h1>评论</h1>
     <div id="duoshuo_thread" aria-live="polite"><!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="/blog/2014/07/25/use-iframe-resizer" data-title="用iFrame Resizer解决iframe高度自适应问题" data-url="http://jarontai.github.io/blog/2014/07/25/use-iframe-resizer/"></div>
+<div class="ds-thread" data-thread-key="/blog/2015/05/12/people-behind-dart" data-title="Dartlang背后的那些大牛们" data-url="http://jarontai.github.io/blog/2015/05/12/people-behind-dart/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

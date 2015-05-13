@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-05-04T14:10:08+08:00</updated>
+  <updated>2015-05-13T22:22:52+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -12,6 +12,125 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dartlang背后的那些大牛们]]></title>
+    <link href="http://jarontai.github.io/blog/2015/05/12/people-behind-dart/"/>
+    <updated>2015-05-12T11:23:39+08:00</updated>
+    <id>http://jarontai.github.io/blog/2015/05/12/people-behind-dart</id>
+    <content type="html"><![CDATA[<p>最开始尝试Dart，是因为想尝试一下除JavaScript外的浏览器编程语言。在学习跟使用过Dart一段时间后，发现它确实有很多优秀的语言特性，对它也越发喜欢了。而最近，在好奇心驱使下，我开始搜索Dart项目组即Dartlang背后的大牛们的相关资料。不查不知道，原来Dart项目组真是藏龙卧虎之地啊。下面，我们就来介绍一下Dart项目组的主要成员：</p>
+
+<p>你可能需要注意（也算是比较有趣）的一点：以下多位成员都有Java/JVM研发背景。</p>
+
+<h3>Gilad Bracha</h3>
+
+<p>Gilad Bracha是编程语言Newspeak的创造者，也是Java语言规范第二、三版的合著者（co-author）， 而且还是JVM规范第二版的主要贡献者。在进入Google后，他加入了Dart项目组，他的主要工作应该是Dart语言规范的编写。</p>
+
+<!-- more -->
+
+
+<h3>Lars Bak</h3>
+
+<p>Lars Bak是Dart的联合创始人之一，他是一个来自丹麦的计算机天才，是一个虚拟机专家。他在近年主导开发的一个项目对互联网产生了深远影响，这就是Chrome的JavaScript虚拟机 - V8。而在更早以前，他从事Smalltalk与Java的虚拟机开发，他曾在<a href="http://zh.wikipedia.org/wiki/%E6%98%87%E9%99%BD%E9%9B%BB%E8%85%A6">Sun</a>的HotSpot项目担任工程与技术主管，专职开发高性能的虚拟机 - JVM。Lars Bak在虚拟机领域获得的成就是惊人的，现在他不仅要主导开发一个新的虚拟机，还要开发一门新的编程语言 - Dart。</p>
+
+<h3>Kasper Lund</h3>
+
+<p>Kasper Lund也是Dart的联合创始人之一，他也来自丹麦。他早年跟Lars Bak都就职于Sun，一起从事JVM的开发。后来他跟Lars Bak一起加入Google，从事V8引擎开发。他主导开发V8引擎的Crankshaft项目，极大的提升了Chrome的JavaScript运行效率。最近，Kasper Lund开始主导开发<a href="https://github.com/dart-lang/fletch">Fletch</a>，该项目可能是Dart在移动端发展的重要基础项目。</p>
+
+<h3>Bob Nystrom</h3>
+
+<p>Bob曾经是EA（艺电）公司的一名游戏开发工程师，而且写过一本关于游戏编程模式的畅销书<a href="http://gameprogrammingpatterns.com/">Game Programming Patterns</a>。在加入Dart项目组后，他主导开发了Dart的包管理器 <a href="https://pub.dartlang.org/">pub</a>，而且也写了很多关于Dart的文章，其中包括深受开发者欢迎的<a href="https://www.dartlang.org/articles/style-guide/">Dart编程风格指南</a>。而在最近，Bob开始帮助Dart建立DEP - <a href="https://github.com/dart-lang/dart_enhancement_proposals">Dart Enhancement Proposals</a>（Dart增强建议书）项目，这将使Dart能够更好的接收、吸纳来自开发者的建议。</p>
+
+<h3>Peter von der Ahé</h3>
+
+<p>Peter是一个编译器专家，跟Lars Bak、Kasper Lund一样，早年也就职于Sun，他担任的职位是javac（Java的编译器）的技术主管。现在，他正专注于Dart增量编译的研发工作，同时他也在从事<a href="https://github.com/dart-lang/fletch">Fletch</a>的开发。</p>
+
+<h3>Kathy Walrath</h3>
+
+<p>Kathy Walrath是一位阅历丰富的技术写手，她曾就职于Sun、NeXT、HP等公司，她专注于Java文档编写长达11年。在加入Google后，她开始从事Chrome相关技术文档的编写。在web刚刚起步的那些年，她编写过Java applets的开发文档，而且她还是<a href="https://docs.oracle.com/javase/tutorial/">The Java Tutorial</a>的合著者，并对其进行了多年的维护。如今，Kathy在Dart项目组从事各种技术文档的编写工作，她还和Seth Ladd合著了一本书：<a href="https://www.dartlang.org/docs/dart-up-and-running/">Dart: Up and Running</a>。</p>
+
+<p>*Dart项目组还有很多优秀的工程师，希望后面可以再补充。<br>
+**以上信息大都收集整理自互联网，准确性有待商榷；如有错误之处，欢迎指正。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dartlang译文：Dart语言概述]]></title>
+    <link href="http://jarontai.github.io/blog/2015/05/04/translation-dart-language-tour/"/>
+    <updated>2015-05-04T17:34:20+08:00</updated>
+    <id>http://jarontai.github.io/blog/2015/05/04/translation-dart-language-tour</id>
+    <content type="html"><![CDATA[<p>  译注：本文是博主的原创翻译，转载请添加本文链接并标明出处。本文翻译的是Google Dart项目组撰写的《Dart：Up and Running》的第二章。文中存在一些新近出现、暂无标准翻译的技术向词语，已使用星号做了标注，在文章尾部附注可以查看它们的原文。博主的语文跟英语都很菜，如有翻译不妥或错误之处请多见谅。水平有限，本文仅作参考。</p>
+
+<hr />
+
+<p><br/>
+  本章将向你展示如何使用Dart的各种特性，从变量、操作符到类、库等都会一一介绍。为了你能更好的学习本章，请确保你已经具备其他编程语言的使用经验。</p>
+
+<p>  <em>注意</em>：为了尝试Dart的各种特性，请先在Dart Editor中创建一个命令行应用，具体步骤请参考上一章的<a href="http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start#up-and-running">“走起”</a>。</p>
+
+<p>  如果你需要更详尽的了解某个语言特性，请查阅<a href="https://www.dartlang.org/docs/spec/">Dart语言规范</a>。</p>
+
+<h3>一个基本的Dart程序</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// 定义一个函数</span>
+</span><span class='line'><span class="nx">printNumber</span><span class="p">(</span><span class="nx">num</span> <span class="nx">aNumber</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">print</span><span class="p">(</span><span class="s1">&#39;The number is $aNumber.&#39;</span><span class="p">);</span> <span class="c1">// 在终端中打印（输出）信息</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 程序从这里开始启动</span>
+</span><span class='line'><span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="c1">// 声明并初始化一个变量</span>
+</span><span class='line'>  <span class="nx">printNumber</span><span class="p">(</span><span class="nx">number</span><span class="p">);</span> <span class="c1">// 调用一个函数</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上代码使用的语言特性，在绝大部分Dart程序中都会用到，现在对它们逐一进行讲解：<!-- more --></p>
+
+<p>// 这是一个注释<br/>
+使用 // 来表明本行接下来的文字都属于注释，或者，你也可以使用 /<em> &hellip; </em>/。更多详情，请查看<a href="#Comments">注释</a>。</p>
+
+<p>num<br/>
+一个类型。Dart的部分内置类型：String，int以及bool。</p>
+
+<p>42<br/>
+一个数字字面量。字面量是一种编译时常量。</p>
+
+<p>print()<br/>
+一个打印输出信息的工具函数。</p>
+
+<p>&lsquo;&hellip;&#8217;（或者&#8221;&hellip;&ldquo;）<br/>
+一个字符串字面量。</p>
+
+<p>$变量名（或者${表达式}）<br/>
+字符串插值：在字符串字面量中包含一个变量或表达式，最终该变量或表达式的值将被替换显示（插入）到字符串常量中。更多详情，请查看<a href="#Strings">字符串</a>。</p>
+
+<p>main()<br/>
+特殊的，必须的顶层函数，所有Dart程序都是从此函数开始运行。更多详情，请查看<a href="#main-function">main函数</a>。</p>
+
+<p>var<br/>
+一种声明变量的方式，没有指定变量的类型。（译者注：类似于JavaScript的var）</p>
+
+<p>  <em>注意</em>：我们的代码风格遵循<a href="https://www.dartlang.org/articles/style-guide/">Dart风格指南</a>。例如：我们使用两个空格的代码缩进。</p>
+
+<h3>重要概念</h3>
+
+<p>在你学习Dart的时候，请牢记以下概念：
+*   每个变量存储的都是对象，而每一个对象都是一个类的实例。就算是数字，函数以及null等，也都是对象。而所有的对象，都继承于<a href="http://api.dartlang.org/dart_core/Object.html">Object</a>。
+*   使用类型（比如上例中printNumber函数的参数aNumber的类型是num）不仅能够让他人更好的理解你的代码，而且还能使工具能够对你的代码进行静态类型检查。但是，类型是可选的。（当你调试代码时，你可能会发现那些没有指定类型的变量被赋予了一个特殊的类型：dynamic）
+*   在运行之前，Dart会解析所有的代码。你可以给Dart提供一些提示，比如使用类型或者编译时常量，这能使你的代码更容易捕获错误或者让你的代码跑的更快。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Node.js实践：读取Excel，查询MySQL]]></title>
@@ -295,7 +414,7 @@
 
 <p>  Dart是开源的。Dart是为web而生的，它使用类似BSD的协议。你可以在线查看Dart项目的<a href="https://code.google.com/p/dart/">源码以及Bug</a>。或许你下次可以提交一个补丁呢？</p>
 
-<h3>走起（*4）</h3>
+<h3><a name="up-and-running"></a>走起（*4）</h3>
 
 <p>  现在你应该对Dart有了大概的了解，是时候写代码了。以下的操作都是使用开源的编辑器Dart Editor。在你下载完Dart后，你不仅拥有了Dart Editor，还获得了Dart转JavaScript编译器，以及一个内置了Dart虚拟机的定制版Chromium（昵称为Dartium）。</p>
 
