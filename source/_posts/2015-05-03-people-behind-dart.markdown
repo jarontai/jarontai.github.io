@@ -1,0 +1,44 @@
+---
+layout: post
+title: "Dartlang背后的那些大牛们"
+date: 2015-05-12 11:23:39 +0800
+comments: true
+categories: dart 其他
+---
+最开始尝试Dart，是因为想尝试一下除JavaScript外的浏览器编程语言。在学习跟使用过Dart一段时间后，发现它确实有很多优秀的语言特性，对它也越发喜欢了。而最近，在好奇心驱使下，我开始搜索Dart项目组即Dartlang背后的大牛们的相关资料。不查不知道，原来Dart项目组真是藏龙卧虎之地啊。下面，我们就来介绍一下Dart项目组的主要成员：
+
+你可能需要注意（也算是比较有趣）的一点：以下多位成员都有Java/JVM研发背景。
+
+###Gilad Bracha 
+Gilad Bracha是编程语言Newspeak的创造者，也是Java语言规范第二、三版的合著者（co-author）， 而且还是JVM规范第二版的主要贡献者。在进入Google后，他加入了Dart项目组，他的主要工作应该是Dart语言规范的编写。
+<!-- more -->
+###Lars Bak
+Lars Bak是Dart的联合创始人之一，他是一个来自丹麦的计算机天才，是一个虚拟机专家。他在近年主导开发的一个项目对互联网产生了深远影响，这就是Chrome的JavaScript虚拟机 - V8。而在更早以前，他从事Smalltalk与Java的虚拟机开发，他曾在[Sun][1]的HotSpot项目担任工程与技术主管，专职开发高性能的虚拟机 - JVM。Lars Bak在虚拟机领域获得的成就是惊人的，现在他不仅要主导开发一个新的虚拟机，还要开发一门新的编程语言 - Dart。
+
+###Kasper Lund
+Kasper Lund也是Dart的联合创始人之一，他也来自丹麦。他早年跟Lars Bak都就职于Sun，一起从事JVM的开发。后来他跟Lars Bak一起加入Google，从事V8引擎开发。他主导开发V8引擎的Crankshaft项目，极大的提升了Chrome的JavaScript运行效率。最近，Kasper Lund开始主导开发[Fletch][2]，该项目可能是Dart在移动端发展的重要基础项目。
+
+###Bob Nystrom
+Bob曾经是EA（艺电）公司的一名游戏开发工程师，而且写过一本关于游戏编程模式的畅销书[Game Programming Patterns][3]。在加入Dart项目组后，他主导开发了Dart的包管理器 [pub][4]，而且也写了很多关于Dart的文章，其中包括深受开发者欢迎的[Dart编程风格指南][5]。而在最近，Bob开始帮助Dart建立DEP - [Dart Enhancement Proposals][6]（Dart增强建议书）项目，这将使Dart能够更好的接收、吸纳来自开发者的建议。
+
+###Peter von der Ahé
+Peter是一个编译器专家，跟Lars Bak、Kasper Lund一样，早年也就职于Sun，他担任的职位是javac（Java的编译器）的技术主管。现在，他正专注于Dart增量编译的研发工作，同时他也在从事[Fletch][7]的开发。
+
+###Kathy Walrath
+Kathy Walrath是一位阅历丰富的技术写手，她曾就职于Sun、NeXT、HP等公司，她专注于Java文档编写长达11年。在加入Google后，她开始从事Chrome相关技术文档的编写。在web刚刚起步的那些年，她编写过Java applets的开发文档，而且她还是[The Java Tutorial][8]的合著者，并对其进行了多年的维护。如今，Kathy在Dart项目组从事各种技术文档的编写工作，她还和Seth Ladd合著了一本书：[Dart: Up and Running][9]。
+
+
+
+*Dart项目组还有很多优秀的工程师，希望后面可以再补充。<br>
+**以上信息大都收集整理自互联网，准确性有待商榷；如有错误之处，欢迎指正。
+
+
+  [1]: http://zh.wikipedia.org/wiki/%E6%98%87%E9%99%BD%E9%9B%BB%E8%85%A6
+  [2]: https://github.com/dart-lang/fletch
+  [3]: http://gameprogrammingpatterns.com/
+  [4]: https://pub.dartlang.org/
+  [5]: https://www.dartlang.org/articles/style-guide/
+  [6]: https://github.com/dart-lang/dart_enhancement_proposals
+  [7]: https://github.com/dart-lang/fletch
+  [8]: https://docs.oracle.com/javase/tutorial/
+  [9]: https://www.dartlang.org/docs/dart-up-and-running/
