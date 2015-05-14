@@ -123,74 +123,6 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/05/04/translation-dart-language-tour/">Dartlang译文：Dart语言概述</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-05-04T17:34:20+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:34 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>  译注：本文是博主的原创翻译，转载请添加本文链接并标明出处。本文翻译的是Google Dart项目组撰写的《Dart：Up and Running》的第二章。文中存在一些新近出现、暂无标准翻译的技术向词语，已使用星号做了标注，在文章尾部附注可以查看它们的原文。博主的语文跟英语都很菜，如有翻译不妥或错误之处请多见谅。水平有限，本文仅作参考。</p>
-
-<hr />
-
-<p><br/>
-  本章将向你展示如何使用Dart的各种特性，从变量、操作符到类、库等都会一一介绍。为了你能更好的学习本章，请确保你已经具备其他编程语言的使用经验。</p>
-
-<p>  <em>注意</em>：为了尝试Dart的各种特性，请先在Dart Editor中创建一个命令行应用，具体步骤请参考上一章的<a href="http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start#up-and-running">“走起”</a>。</p>
-
-<p>  如果你需要更详尽的了解某个语言特性，请查阅<a href="https://www.dartlang.org/docs/spec/">Dart语言规范</a>。</p>
-
-<h3>一个基本的Dart程序</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// 定义一个函数</span>
-</span><span class='line'><span class="nx">printNumber</span><span class="p">(</span><span class="nx">num</span> <span class="nx">aNumber</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">print</span><span class="p">(</span><span class="s1">&#39;The number is $aNumber.&#39;</span><span class="p">);</span> <span class="c1">// 在终端中打印（输出）信息</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// 程序从这里开始启动</span>
-</span><span class='line'><span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="c1">// 声明并初始化一个变量</span>
-</span><span class='line'>  <span class="nx">printNumber</span><span class="p">(</span><span class="nx">number</span><span class="p">);</span> <span class="c1">// 调用一个函数</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>以上代码使用的语言特性，在绝大部分Dart程序中都会用到，现在对它们逐一进行讲解：</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/05/04/translation-dart-language-tour/">继续阅读 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/blog/2015/01/13/nodejs-xlsx-and-mysql/">Node.js实践：读取Excel，查询MySQL</a></h1>
     
     
@@ -569,6 +501,40 @@
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/19/use-cnpm/">使用cnpm镜像服务</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-05-19T12:38:39+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:38 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>  因为node/npm的服务器是在国外，而我大天朝的网络又是如此‘给力‘，所以在使用npm install安装依赖的过程中，经常会卡住；我不得不频繁的使用Ctrl+C中止下载，然后再尝试n次才能搞定。在google良久并尝试诸多方法之后，发现使用cnpm应该是应对此问题的最佳方案（当然能用VPN最好）。</p>
+
+<p>  </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/05/19/use-cnpm/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; 旧的文章</a>
@@ -588,10 +554,6 @@
       </li>
     
       <li class="post">
-        <a href="/blog/2015/05/04/translation-dart-language-tour/">Dartlang译文：Dart语言概述</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2015/01/13/nodejs-xlsx-and-mysql/">Node.js实践：读取Excel，查询MySQL</a>
       </li>
     
@@ -601,6 +563,10 @@
     
       <li class="post">
         <a href="/blog/2014/11/28/sublime-jshint/">SublimeText插件推荐：JS错误检查工具 - JSHint与JSHint Gutter</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/16/sublime-editorconfig/">SublimeText插件推荐：代码格式管家-EditorConfig</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dart | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dart/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-05-13T22:32:05+08:00</updated>
+  <updated>2015-05-14T09:18:39+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -51,83 +51,6 @@
 
 <p>*Dart项目组还有很多优秀的工程师，希望后面可以再补充。<br>
 **以上信息大都收集整理自互联网，准确性有待商榷；如有错误之处，欢迎指正。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Dartlang译文：Dart语言概述]]></title>
-    <link href="http://jarontai.github.io/blog/2015/05/04/translation-dart-language-tour/"/>
-    <updated>2015-05-04T17:34:20+08:00</updated>
-    <id>http://jarontai.github.io/blog/2015/05/04/translation-dart-language-tour</id>
-    <content type="html"><![CDATA[<p>  译注：本文是博主的原创翻译，转载请添加本文链接并标明出处。本文翻译的是Google Dart项目组撰写的《Dart：Up and Running》的第二章。文中存在一些新近出现、暂无标准翻译的技术向词语，已使用星号做了标注，在文章尾部附注可以查看它们的原文。博主的语文跟英语都很菜，如有翻译不妥或错误之处请多见谅。水平有限，本文仅作参考。</p>
-
-<hr />
-
-<p><br/>
-  本章将向你展示如何使用Dart的各种特性，从变量、操作符到类、库等都会一一介绍。为了你能更好的学习本章，请确保你已经具备其他编程语言的使用经验。</p>
-
-<p>  <em>注意</em>：为了尝试Dart的各种特性，请先在Dart Editor中创建一个命令行应用，具体步骤请参考上一章的<a href="http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start#up-and-running">“走起”</a>。</p>
-
-<p>  如果你需要更详尽的了解某个语言特性，请查阅<a href="https://www.dartlang.org/docs/spec/">Dart语言规范</a>。</p>
-
-<h3>一个基本的Dart程序</h3>
-
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// 定义一个函数</span>
-</span><span class='line'><span class="nx">printNumber</span><span class="p">(</span><span class="nx">num</span> <span class="nx">aNumber</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">print</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">The</span> <span class="nx">number</span> <span class="nx">is</span> <span class="nx">$aNumber</span><span class="p">.</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span> <span class="c1">// 在终端中打印（输出）信息</span>
-</span><span class='line'><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">// 程序从这里开始启动</span>
-</span><span class='line'><span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="c1">// 声明并初始化一个变量</span>
-</span><span class='line'>  <span class="nx">printNumber</span><span class="p">(</span><span class="nx">number</span><span class="p">);</span> <span class="c1">// 调用一个函数</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></p>
-
-<p>以上代码使用的语言特性，在绝大部分Dart程序中都会用到，现在对它们逐一进行讲解：<!-- more --></p>
-
-<p>// 这是一个注释<br/>
-使用 // 来表明本行接下来的文字都属于注释，或者，你也可以使用 /<em> &hellip; </em>/。更多详情，请查看<a href="#Comments">注释</a>。</p>
-
-<p>num<br/>
-一个类型。Dart的部分内置类型：String，int以及bool。</p>
-
-<p>42<br/>
-一个数字字面量。字面量是一种编译时常量。</p>
-
-<p>print()<br/>
-一个打印输出信息的工具函数。</p>
-
-<p>&lsquo;&hellip;&#8217;（或者&#8221;&hellip;&ldquo;）<br/>
-一个字符串字面量。</p>
-
-<p>$变量名（或者${表达式}）<br/>
-字符串插值：在字符串字面量中包含一个变量或表达式，最终该变量或表达式的值将被替换显示（插入）到字符串常量中。更多详情，请查看<a href="#Strings">字符串</a>。</p>
-
-<p>main()<br/>
-特殊的，必须的顶层函数，所有Dart程序都是从此函数开始运行。更多详情，请查看<a href="#main-function">main函数</a>。</p>
-
-<p>var<br/>
-一种声明变量的方式，没有指定变量的类型。（译者注：类似于JavaScript的var）</p>
-
-<p>  <em>注意</em>：我们的代码风格遵循<a href="https://www.dartlang.org/articles/style-guide/">Dart风格指南</a>。例如：我们使用两个空格的代码缩进。</p>
-
-<h3>重要概念</h3>
-
-<p>在你学习Dart的时候，请牢记以下概念：
-*   每个变量存储的都是对象，而每一个对象都是一个类的实例。就算是数字，函数以及null等，也都是对象。而所有的对象，都继承于<a href="http://api.dartlang.org/dart_core/Object.html">Object</a>。
-*   使用类型（比如上例中printNumber函数的参数aNumber的类型是num）不仅能够让他人更好的理解你的代码，而且还能使工具能够对你的代码进行静态类型检查。但是，类型是可选的。（当你调试代码时，你可能会发现那些没有指定类型的变量被赋予了一个特殊的类型：dynamic）
-*   在运行之前，Dart会解析所有的代码。你可以给Dart提供一些提示，比如使用类型或者编译时常量，这能使你的代码更容易捕获错误或者让你的代码跑的更快。</p>
 ]]></content>
   </entry>
   
