@@ -10,7 +10,7 @@ categories: dart 其他
 你可能需要注意（也算是比较有趣）的一点：以下多位成员都有Java/JVM研发背景。
 
 ###Gilad Bracha 
-Gilad Bracha是一位经验丰富的面向对象语言专家，他曾主导创造了编程语言 Newspeak。他曾经就职于[Sun][1]，专门从事Java/JVM规范的定制与实现工作。他不仅是Java语言规范第二、三版的合著者（co-author），也是JVM规范第二版的主要贡献者。在进入Google后，他加入了Dart项目组，他的主要工作就是Dart语言规范的编写。
+Gilad Bracha是一位经验丰富的，专注于面向对象语言研究的专家。他曾经就职于[Sun][1]，专门从事Java/JVM规范的定制与实现工作。他不仅是Java语言规范第二、三版的合著者（co-author），也是JVM规范第二版的主要贡献者。在进入Google后，他加入了Dart项目组，他的主要工作就是Dart语言规范的编写。
 
 ###Lars Bak
 Lars Bak是Dart的联合创始人之一，他是一个来自丹麦的计算机天才，是一个虚拟机专家。<!-- more -->他在近年主导开发的一个项目对互联网产生了深远影响，这就是Chrome的JavaScript虚拟机 - V8。而在更早以前，他从事Smalltalk与Java的虚拟机开发，他曾在[Sun][1]的HotSpot项目担任工程与技术主管，专职开发高性能的虚拟机 - JVM。Lars Bak在虚拟机领域获得的成就是惊人的，现在他不仅要主导开发一个新的虚拟机，还要开发一门新的编程语言 - Dart。
