@@ -5,15 +5,15 @@ date: 2015-05-12 11:23:39 +0800
 comments: true
 categories: dart 其他
 ---
-最开始接触Dart，是想尝试一下除JavaScript外的浏览器编程语言。在学习使用过Dart一段时间后，发现它确实有很多优秀的语言特性，对它也越发喜欢了。最近，在好奇心驱使下，我开始搜索Dart项目组即Dartlang背后的大牛们的相关资料。不查不知道，原来Dart项目组真是藏龙卧虎之地啊。下面，我们就来介绍几位Dart项目组的主要成员：
+最开始接触Dart，是想尝试一下除JavaScript外的浏览器编程语言（确切的说是以JavaScript为编译目标的语言，除Dart外，还有CoffeScript、TypeScript等）。在学习使用Dart一段时间后，发现它确实有很多优秀的语言特性，对它也越发喜欢了。最近，在好奇心驱使下，我开始搜索Dart项目组成员的相关资料。不查不知道，一查吓一跳，Dart项目组真算的上是藏龙卧虎。下面，我们就来介绍几位Dart项目组的主要成员：
 
 你可能需要注意（也算是比较有趣）的一点：以下多位成员都有Java/JVM研发背景。
 
-###Gilad Bracha 
-Gilad Bracha是一位经验丰富的，专注于面向对象语言研究的专家。他曾经就职于[Sun][1]，专门从事Java/JVM规范的定制与实现工作。他不仅是Java语言规范第二、三版的合著者（co-author），也是JVM规范第二版的主要贡献者。在进入Google后，他加入了Dart项目组，他的主要工作就是Dart语言规范的编写。
+###Gilad Bracha
+Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家。他曾经就职于[Sun][1]，专门从事Java/JVM规范的定制与实现工作。他不仅是Java语言规范第二、三版的合著者（co-author），也是JVM规范第二版的主要贡献者。在进入Google后，他加入了Dart项目组，他的主要工作就是Dart语言规范的编写。
 
 ###Lars Bak
-Lars Bak是Dart的联合创始人之一，他是一个来自丹麦的计算机天才，是一个虚拟机专家。<!-- more -->他在近年主导开发的一个项目对互联网产生了深远影响，这就是Chrome的JavaScript虚拟机 - V8。而在更早以前，他从事Smalltalk与Java的虚拟机开发，他曾在[Sun][1]的HotSpot项目担任工程与技术主管，专职开发高性能的虚拟机 - JVM。Lars Bak在虚拟机领域获得的成就是惊人的，现在他不仅要主导开发一个新的虚拟机，还要开发一门新的编程语言 - Dart。
+Lars Bak是Dart的联合创始人之一，他是一个来自丹麦的计算机天才，是一个虚拟机专家。<!-- more -->他在近年主导开发的一个项目对互联网产生了深远影响，这就是Chrome的JavaScript虚拟机 - V8。而在更早以前，他从事Smalltalk与Java的虚拟机开发，他曾在[Sun][1]的HotSpot项目担任工程与技术主管，专职开发高性能的Java虚拟机。Lars Bak在虚拟机开发领域获得的成就是惊人的，现在，他不仅要主导开发一个新的虚拟机，还要开发一门新的编程语言 - Dart。
 
 ###Kasper Lund
 Kasper Lund也是Dart的联合创始人之一，他也来自丹麦。他早年跟Lars Bak都就职于Sun，一起从事JVM的开发。后来他跟Lars Bak一起加入Google，从事V8引擎开发。他主导开发V8引擎的Crankshaft项目，极大的提升了Chrome的JavaScript运行效率。最近，Kasper Lund开始主导开发[Fletch][2]，该项目可能是Dart在移动端发展的重要基础项目。
