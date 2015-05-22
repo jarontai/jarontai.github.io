@@ -19,7 +19,7 @@ Lars Bak是Dart的联合创始人之一，他是一个来自丹麦的计算机�
 Kasper Lund也是Dart的联合创始人之一，他也来自丹麦。他早年跟Lars Bak都就职于Sun，一起从事JVM的开发。后来他跟Lars Bak一起加入Google，从事V8引擎开发。他主导开发V8引擎的Crankshaft项目，极大的提升了Chrome的JavaScript运行效率。最近，Kasper Lund开始主导开发[Fletch][2]，该项目可能是Dart在移动端发展的重要基础项目。
 
 ###Bob Nystrom
-Bob曾经是EA（艺电）公司的一名游戏开发工程师，而且写过一本关于游戏编程模式的畅销书[Game Programming Patterns][3]。在加入Dart项目组后，他主导开发了Dart的包管理器 [pub][4]，而且也写了很多关于Dart的文章，其中包括深受开发者欢迎的[Dart编程风格指南][5]。而在最近，Bob开始帮助Dart建立DEP - [Dart Enhancement Proposals][6]（Dart增强建议书）项目，这将使Dart能够更好的接收、吸纳来自开发者的建议。
+Bob曾经是EA（艺电）公司的一名游戏开发工程师，而且写过一本关于游戏编程模式的畅销书[Game Programming Patterns][3]。在加入Dart项目组后，他主导开发了Dart的包管理器 [pub][4]，而且也写了很多关于Dart的文章，其中包括深受开发者欢迎的[Dart编程风格指南][5]。而在最近，Bob开始帮助Dart建立DEP - [Dart Enhancement Proposals][6]（Dart增强建议书）项目，这将使Dart项目组能更好的接收、吸纳来自社区与开发者的建议。
 
 ###Peter von der Ahé
 Peter是一个编译器专家，跟Lars Bak、Kasper Lund一样，早年也就职于Sun，他担任的职位是javac（Java的编译器）的技术主管。现在，他正专注于Dart增量编译的研发工作，同时他也在从事[Fletch][7]的开发。
