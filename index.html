@@ -9,7 +9,7 @@
   <meta name="author" content="戴虬">
 
   
-  <meta name="description" content="最开始接触Dart，是想尝试一下除JavaScript外的浏览器编程语言（确切的说是以JavaScript为编译目标的语言，除Dart外，还有CoffeScript、TypeScript等）。在学习使用Dart一段时间后，发现它确实有很多优秀的语言特性，对它也越发喜欢了。最近，在好奇心驱使下， &hellip;">
+  <meta name="description" content="因为工作也算比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里拿使用Java与JavaScript来作比较）。 &ldquo;真正的面向对象&rdquo; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/06/06/dart-notes-1/">Dart学习笔记：Dartlang的重要概念</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-06-06T10:50:39+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:50 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>  因为工作也算比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里拿使用Java与JavaScript来作比较）。</p>
+
+<h3>&ldquo;真正的面向对象&rdquo;</h3>
+
+<p>  在谈到面向对象的编程语言时，Java经常被人提起，但其实Java并非“真正的面向对象”，因为它的基本数据类型都不是对象。而在Dart中，“一切皆对象”。Dart的类都继承自Object类，所有的变量都指向一个对象，数字、函数甚至null本身也是一个对象，所有未被初始化的变量也都被赋予null，可以说Dart才是一门“真正面向对象”的编程语言。示例如下：</p>
+
+<p>  <img src="/images/custom/dart_notes/everything_is_object.png" /></p>
+
+<h3>类型是可选的</h3>
+
+<p>  Dart的类型，似乎是Java跟JavaScript类型系统的结合。你不想使用类型时，可以用var声明变量，这样，你就可以像写JavaScript一样自由的书写代码。</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/06/06/dart-notes-1/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -503,40 +545,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/05/19/use-cnpm/">使用cnpm镜像服务</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-05-19T12:38:39+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:38 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>  因为node/npm的服务器是在国外，而我大天朝的网络又是如此‘给力‘，所以在使用npm install安装依赖的过程中，经常会卡住；我不得不频繁的使用Ctrl+C中止下载，然后再尝试n次才能搞定。在google良久并尝试诸多方法之后，发现使用cnpm应该是应对此问题的最佳方案（当然能用VPN最好）。</p>
-
-<p>  </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/05/19/use-cnpm/">继续阅读 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; 旧的文章</a>
@@ -552,6 +560,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/06/06/dart-notes-1/">Dart学习笔记：Dartlang的重要概念</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/05/12/people-behind-dart/">Dartlang背后的那些大牛们</a>
       </li>
     
@@ -565,10 +577,6 @@
     
       <li class="post">
         <a href="/blog/2014/11/28/sublime-jshint/">SublimeText插件推荐：JS错误检查工具 - JSHint与JSHint Gutter</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/11/16/sublime-editorconfig/">SublimeText插件推荐：代码格式管家-EditorConfig</a>
       </li>
     
   </ul>
