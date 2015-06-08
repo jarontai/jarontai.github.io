@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-06-08T22:56:55+08:00</updated>
+  <updated>2015-06-08T23:04:29+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -22,7 +22,7 @@
 
 <h3>Dart能在前/后端运行</h3>
 
-<p>  Dart标准库包含了dart:hmtl库，而且也有Polymer.dart、AngularDart这样的web应用框架（Angular2也将支持Dart），通过它们，你可以方便的编写web应用。而在服务端（通过DartVM），Dart可能不太引人注目，但凭借易用的标准库以及逐渐丰富的第三方库，用Dart来开发中小型命令行应用还是绰绰有余的。</p>
+<p>  Dart本身无法在浏览器中直接运行（在Dartium中是可以的），它是通过Dart2JS编译成JavaScript的。Dart标准库包含了dart:hmtl库，而且也有Polymer.dart、AngularDart这样的web应用框架（Angular2也将支持Dart），通过它们，你可以方便的编写web应用。Dart也能运行在服务端（通过DartVM），虽然这样使用的人可能不多，但凭借其易用的标准库以及逐渐丰富的第三方库，用Dart来开发中小型命令行应用还是绰绰有余的。</p>
 
 <h3>&ldquo;真正的面向对象&rdquo;</h3>
 
