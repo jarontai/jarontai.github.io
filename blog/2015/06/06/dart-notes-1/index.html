@@ -9,7 +9,7 @@
   <meta name="author" content="戴虬">
 
   
-  <meta name="description" content="因为工作也算比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里拿使用Java与JavaScript来作比较）。 &ldquo;真正的面向对象&rdquo; &hellip;">
+  <meta name="description" content="因为工作也算比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里拿使用Java与JavaScript来作比较）。 Dart能在前/后端运行 Dart标准库包含了dart: &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,7 +89,7 @@
 
 
 
-<time class='entry-date' datetime='2015-06-06T10:50:39+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:50 am</span></time>
+<time class='entry-date' datetime='2015-06-06T20:50:39+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:50 pm</span></time>
         
       </p>
     
@@ -98,23 +98,27 @@
 
 <div class="entry-content"><p>  因为工作也算比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里拿使用Java与JavaScript来作比较）。</p>
 
+<h3>Dart能在前/后端运行</h3>
+
+<p>  Dart标准库包含了dart:hmtl库，而且也有Polymer.dart、AngularDart这样的web应用框架（Angular2也将支持Dart），通过它们，你可以方便的编写web应用。而在服务端（通过DartVM），Dart可能不太引人注目，但凭借易用的标准库以及逐渐丰富的第三方库，用Dart来开发中小型命令行应用还是绰绰有余的。</p>
+
 <h3>&ldquo;真正的面向对象&rdquo;</h3>
 
-<p>  在谈到面向对象的编程语言时，Java经常被人提起，但其实Java并非“真正的面向对象”，因为它的基本数据类型都不是对象。而在Dart中，“一切皆对象”。Dart的类都继承自Object类，所有的变量都指向一个对象，数字、函数甚至null本身也是一个对象，所有未被初始化的变量也都被赋予null，可以说Dart才是一门“真正面向对象”的编程语言。示例如下：</p>
+<p>  在谈到面向对象的编程语言时，Java经常被人提起，但其实Java并非“真正的面向对象”，因为它的基本数据类型都不是对象。而在Dart中，“一切皆对象”。Dart的类都继承自Object类，所有的变量都指向一个对象，数字、函数甚至null本身也是一个对象，所有未被初始化的变量也都被赋予null，可以说Dart才是一门“真正面向对象”的编程语言。示例如下：<!-- more --></p>
 
 <p>  <img src="/images/custom/dart_notes/everything_is_object.png" /></p>
-
-<h3>类型是可选的</h3>
-
-<p>  Dart的类型，似乎是Java跟JavaScript类型系统的结合。你不想使用类型时，可以用var声明变量，这样，你就可以像写JavaScript一样自由的书写代码。<!-- more --> 反过来，你也可以像Java一样，为每个变量都指定类型。而这就使得编辑器等工具能对代码进行静态检查，如果你把数字赋给了一个String类型的变量，那编辑器会有警告信息提示你。示例如下：</p>
-
-<p>  <img src="/images/custom/dart_notes/optional_types.png" /></p>
 
 <h3>函数是一等公民</h3>
 
 <p>  跟JavaScript类似，Dart的函数是对象，你可以定义顶层函数，或是把函数存放到变量里面，又或是通过函数来实现闭包。示例如下：</p>
 
 <p>  <img src="/images/custom/dart_notes/function_is_good.png" /></p>
+
+<h3>类型是可选的</h3>
+
+<p>  Dart的类型，似乎是Java跟JavaScript类型系统的结合。你不想使用类型时，可以用var声明变量，这样，你就可以像写JavaScript一样自由的书写代码。反过来，你也可以像Java一样，为每个变量都指定类型。而这就使得编辑器等工具能对代码进行静态检查，如果你把数字赋给了一个String类型的变量，那编辑器会有警告信息提示你。示例如下：</p>
+
+<p>  <img src="/images/custom/dart_notes/optional_types.png" /></p>
 
 <h3>库与可见性</h3>
 
@@ -124,7 +128,7 @@
 
 <p>  Dart运行时（runtime）有两种模式：production与checked。Production模式是默认模式，它对程序速度进行了优化，但是也关闭了类型检查以及断言（assert）。Checked模式则相反，打开了断言与类型检查，但是运行速度就比不过production。具体来说，如果你把数字赋给了一个String类型的变量，在checked模式下运行会抛出异常，但是在production模式下则不会。所以，开发时建议一直使用checked模式，在生产环境下才使用production模式。</p>
 
-<p>未完待续&hellip;</p>
+<p>以上。</p>
 </div>
 
 
@@ -140,7 +144,7 @@
 
 
 
-<time class='entry-date' datetime='2015-06-06T10:50:39+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:50 am</span></time>
+<time class='entry-date' datetime='2015-06-06T20:50:39+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:50 pm</span></time>
       
 
 <span class="categories">
