@@ -8,7 +8,7 @@ categories: dart
   因为工作也算比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里拿使用Java与JavaScript来作比较）。
 
 ### Dart能在前/后端运行
-  Dart标准库包含了dart:hmtl库，而且也有Polymer.dart、AngularDart这样的web应用框架（Angular2也将支持Dart），通过它们，你可以方便的编写web应用。而在服务端（通过DartVM），Dart可能不太引人注目，但凭借易用的标准库以及逐渐丰富的第三方库，用Dart来开发中小型命令行应用还是绰绰有余的。
+  Dart本身无法在浏览器中直接运行（在Dartium中是可以的），它是通过Dart2JS编译成JavaScript的。Dart标准库包含了dart:hmtl库，而且也有Polymer.dart、AngularDart这样的web应用框架（Angular2也将支持Dart），通过它们，你可以方便的编写web应用。Dart也能运行在服务端（通过DartVM），虽然这样使用的人可能不多，但凭借其易用的标准库以及逐渐丰富的第三方库，用Dart来开发中小型命令行应用还是绰绰有余的。
 
 ### "真正的面向对象"
   在谈到面向对象的编程语言时，Java经常被人提起，但其实Java并非“真正的面向对象”，因为它的基本数据类型都不是对象。而在Dart中，“一切皆对象”。Dart的类都继承自Object类，所有的变量都指向一个对象，数字、函数甚至null本身也是一个对象，所有未被初始化的变量也都被赋予null，可以说Dart才是一门“真正面向对象”的编程语言。示例如下：<!-- more --> 
