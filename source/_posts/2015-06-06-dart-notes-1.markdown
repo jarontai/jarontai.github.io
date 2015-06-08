@@ -5,91 +5,23 @@ date: 2015-06-06 10:50:39 +0800
 comments: true
 categories: dart
 ---
-  因为本身工作还算是比较忙，对Dart的学习也是断断续续，感觉积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的重要特性）。
+  因为工作也算比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里主要使用Java与JavaScript来作比较）。
 
-### 完全面向对象
-  Dart的所有变量都指向一个对象，所有的Class都继承自Object类，包括null本身。
-  相对于Java等面向对象语言，Dart应该更有资格被称为“完全面向对象”。
+### "真正的面向对象"
+  在Dart中，所有的类都继承自Object类，所有的变量都指向一个对象；数字，函数甚至null本身也是一个对象，所有未被初始化的变量都被赋予null。
+  Java的基本数据类型都不是对象，所以，我们经常听人说Java是一门面向对象的编程语言，那Dart应该有资格被称为“真正面向对象”的编程语言。
 
+### 类型是可选的
+  Dart的类型，似乎是Java跟JavaScript类型系统的结合。你不想使用类型时，可以用var声明变量，这样，你就可以像写JavaScript一样自由的书写代码。反过来，你也可以像Java一样，为每个变量都指定类型。而这就使得编辑器等工具能对代码进行静态检查，如果你把数字赋给了一个String类型的变量，那编辑器会有警告信息提示你。<!-- more --> 示例如下：
 
+  <img src="{{ root_url }}/images/custom/dart_notes/optional_types.png" />
 
 ### 函数是一等公民
-  为了应对这个任务，我们使用了三个package，分别是：[xlsx](https://www.npmjs.com/package/xlsx), [mysql](https://www.npmjs.com/package/mysql), [async](https://www.npmjs.com/package/async)。从它们的名字可以看出它们各自的功能，xlsx负责读写xlsx文件，mysql负责连接查询数据库，async则用来简化异步代码。
-  <!-- more -->
+  跟JavaScript类似，Dart的函数是对象，你可以定义顶层函数，或是把函数存放到变量里面，又或是通过函数来实现闭包。示例如下：
 
-  新建一个项目文件夹member_filter，进入后执行npm init，简单填写项目信息，然后安装我们需要的三个依赖：npm install xlsx mysql async --save
+  <img src="{{ root_url }}/images/custom/dart_notes/function_is_good.png" />
 
-  <img src="{{ root_url }}/images/custom/20150113/setup1.png" />
-  <img src="{{ root_url }}/images/custom/20150113/setup2.png" />
-
-### 库 - library
-  代码的思路：读取xlsx文件里面的用户数据，对其进行适当的转换处理，然后再用这些数据去MySQL数据库查询，得到邮箱没有被激活的用户并将它们打印出来。
-
-{% codeblock lang:js %}
-// 导入依赖
-var xlsx = require('xlsx');
-var async = require('async');
-var mysql = require('mysql');
-
-// 读取xlsx文件，将第一个worksheet转换成json对象
-var workbook = xlsx.readFile('test.xlsx');
-var sheetNameList = workbook.SheetNames;
-var worksheet = workbook.Sheets[sheetNameList[0]];
-var userArray = xlsx.utils.sheet_to_json(worksheet); // 转换为JSON对象数组，第一行数据默认作为对象的key值
-
-// 连接MySQL
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'root',
-  database : 'test'
-});
-connection.connect();
-
-// 通过async遍历用户对象数组，循环异步查询MySQL，检查email是否激活
-var sql1 = 'SELECT 1 FROM users WHERE username = ';
-var sql2 = ' AND email_activation = 1';
-var counter = 0;
-var key = '账号';
-async.eachSeries(userArray, function(obj, callback) {
-  var username = obj[key];
-  if (username) {
-    var selectSql = sql1 + '\'' + username + '\'' + sql2; // 拼接查询语句
-    connection.query(selectSql, function(err, rows) {
-      if (err) {
-        callback(err);
-      } else {
-        // 如果rows对象为空，则表示当前查询结果为空即email未激活
-        if (!rows || !rows[0]) {
-          counter++;
-          console.log(''+counter, username);
-        }
-        callback();
-      }
-    });
-  } else {
-    callback();
-  }
-}, function(err) {
-  // 打印错误，关闭数据库连接
-  if (err) {
-    console.log('Error: ', JSON.stringify(err));    
-  }
-  connection.end(); 
-});
-{% endcodeblock %}
-
-关键代码讲解：
-<ul>
-<li>第7~10行：先获取workbook的第一个sheetName，然后通过sheetName获取到worksheet，然后通过xlsx的utils.sheet_to_json方法将worksheet转换成JSON对象数组（第一行的标题将作为对象的key值）</li>
-<li>第13~19行：将数据库的连接配置传入mysql提供的createConnection方法，创建数据库连接</li>
-<li>第22~44行：通过async.eachSeries方法遍历用户JSON数组，通过mysql连接提供的query方法异步查询数据库</li>
-<li>第45~51行：在async.eachSeries遍历结束后，打印错误信息并关闭MySQL连接</li>
-</ul>
-
-### 运行效果
-  <img src="{{ root_url }}/images/custom/20150113/result.png" />
-
-关于xlsx，mysql以及async的详细用法，请到npmjs网站上去搜索查看：[npmjs](https://www.npmjs.com/)
+### 库与可见性
+  Dart的库（library）初看可能有点像Java的包（package），但其实它们非常不同。Dart的library是一个或多个dart文件，一个dart文件内可以包含多个函数与类。而Java的包是一个文件夹，文件夹里面包含多个java文件，一个文件对应一个类。Dart的库没有public、protected、private等访问控制符，只要某个标志符（如：顶层函数，类的属性等）是以下划线开头，那它就是库私有的，对外不可见。
 
 以上。
