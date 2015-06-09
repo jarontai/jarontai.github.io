@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-06-09T08:58:30+08:00</updated>
+  <updated>2015-06-09T09:01:37+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -30,17 +30,17 @@
 
 <p>  <img src="http://jarontai.github.io/images/custom/dart_notes/everything_is_object.png" /></p>
 
-<h3>函数是一等公民</h3>
-
-<p>  跟JavaScript类似，Dart的函数是对象，你可以定义顶层函数，或是把函数存放到变量里面，又或是通过函数来实现闭包。示例如下：</p>
-
-<p>  <img src="http://jarontai.github.io/images/custom/dart_notes/function_is_good.png" /></p>
-
 <h3>类型是可选的</h3>
 
 <p>  Dart的类型，似乎是Java跟JavaScript类型系统的结合。你不想使用类型时，可以用var声明变量，这样，你就可以像写JavaScript一样自由的书写代码。反过来，你也可以像Java一样，为每个变量都指定类型。而这就使得编辑器等工具能对代码进行静态检查，如果你把数字赋给了一个String类型的变量，那编辑器会有警告信息提示你。示例如下：</p>
 
 <p>  <img src="http://jarontai.github.io/images/custom/dart_notes/optional_types.png" /></p>
+
+<h3>函数是一等公民</h3>
+
+<p>  跟JavaScript类似，Dart的函数是对象，你可以定义顶层函数，或是把函数存放到变量里面，又或是通过函数来实现闭包。示例如下：</p>
+
+<p>  <img src="http://jarontai.github.io/images/custom/dart_notes/function_is_good.png" /></p>
 
 <h3>库与可见性</h3>
 
