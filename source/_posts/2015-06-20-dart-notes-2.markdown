@@ -1,0 +1,16 @@
+---
+layout: post
+title: "Dart学习笔记：变量、内置类型和函数"
+date: 2015-06-20 10:53:00 +0800
+comments: true
+categories: dart dart学习笔记
+---
+  这是Dart学习笔记的第二篇，主要记录变量、内置类型和函数的一些重要知识点。
+
+## Dart的变量
+  Dart的变量都是引用（reference），它们都指向一个对象，如果没有对它们进行初始化，它们将被赋予null。变量可以指定类型，也可以不要类型（使用var）。如果某个变量的值不会被更改，请用final或者const来修饰它。需要注意的是final与const的区别：被final修饰的变量只能被初始化一次，但其所指的对象还是可以被修改；而const表示当前变量是“编译时常量”，它所指的对象在创建后不能再修改。示例如下：<!-- more --> 
+
+  <img src="{{ root_url }}/images/custom/dart_notes/note2/variables.png" />
+
+
+以上。
