@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-06-22T10:04:43+08:00</updated>
+  <updated>2015-06-23T10:33:14+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -18,11 +18,11 @@
     <link href="http://jarontai.github.io/blog/2015/06/06/dart-notes-1/"/>
     <updated>2015-06-06T20:50:39+08:00</updated>
     <id>http://jarontai.github.io/blog/2015/06/06/dart-notes-1</id>
-    <content type="html"><![CDATA[<p>  因为工作也算比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里主要使用Java与JavaScript来作比较）。</p>
+    <content type="html"><![CDATA[<p>  因为最近工作比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里主要使用Java与JavaScript来作些对比）。</p>
 
-<h3>Dart能在前/后端运行</h3>
+<h3>Dart能在前端/后端运行</h3>
 
-<p>  Dart代码通过dart2js编译成JavaScript在浏览器上面运行，它的标准库包含了dart:hmtl库，而且也有Polymer.dart、AngularDart这样的web应用框架（Angular2也将支持Dart），通过它们，你可以方便的编写web应用。Dart也能运行在服务端（通过DartVM），虽然这样使用的人可能不多，但凭借其易用的标准库以及逐渐丰富的第三方库，用Dart来开发中小型命令行应用还是绰绰有余的。</p>
+<p>  Dart代码是通过dart2js编译成JavaScript在浏览器上运行的，它的标准库包含专门处理HTML的dart:hmtl库，而且也有Polymer.dart、AngularDart这样的web应用框架（Angular2也将支持Dart），通过它们，你可以方便的编写web应用。另一方面，通过DartVM，Dart也能运行在服务端，虽然这样使用的人可能不多，但凭借易用的标准库以及逐渐丰富的第三方库，用Dart来开发中小型命令行应用还是绰绰有余的。</p>
 
 <h3>&ldquo;真正的面向对象&rdquo;</h3>
 
