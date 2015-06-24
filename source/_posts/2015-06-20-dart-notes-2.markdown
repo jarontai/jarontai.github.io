@@ -6,11 +6,29 @@ comments: true
 categories: dart dart学习笔记
 ---
   这是Dart学习笔记的第二篇，主要记录变量、内置类型和函数的一些重要知识点。
+## 变量
+  Dart的变量都是引用（reference），它们都指向一个对象，如果没有对它们进行初始化，它们将被赋予null。变量可以指定类型，也可以不要类型（使用var）。
 
-## Dart的变量
-  Dart的变量都是引用（reference），它们都指向一个对象，如果没有对它们进行初始化，它们将被赋予null。变量可以指定类型，也可以不要类型（使用var）。如果某个变量的值不会被更改，请用final或者const来修饰它。需要注意的是final与const的区别：被final修饰的变量只能被初始化一次，但其所指的对象还是可以被修改；而const表示当前变量是“编译时常量”，它所指的对象在创建后不能再修改。示例如下：<!-- more --> 
+  如果某个变量的值不会被更改，请用final或者const来修饰它。Final与const的区别：被final修饰的变量只能被初始化一次，但其所指的对象还是可以被修改；而const表示当前变量是“编译时常量”，它所指的对象在创建后不能再修改。示例如下：<!-- more --> 
 
   <img src="{{ root_url }}/images/custom/dart_notes/note2/variables.png" />
 
+## 内置类型
+  Dart的内置类型包括：number，string，boolean，list，map，symbol。内置类型的变量，都可以用字面量来初始化，或使用特有的构造函数来构造（如：Map）。
+
+  Number类型其实有两种：int（整形）跟double（双精度浮点数），它们都是num（数字）的子类型。
+
+  String（字符串）在Dart中是一串不可变的UTF-16的编码单元，你可以使用单引号或双引号来创建它。像JavaScript一样，你可以用+号来连接它，并且也支持字符串插值。
+
+  Boolean类型在Dart里面是用bool表示，它有两个值：true跟false。需要注意的是，在JavaScript等语言中，非空字符串、非零数字等能被转换为true；而在Dart中，true就是true，其他任何值都视为false！
+
+  List类型，在其他语言中常被称为array（数组），是最常见最常用的一种集合类型，它提供了很多易用的方法来处理数组数据。
+
+  Map类型，可以看成是由键值对组成的对象，它的字面量表示方式以及操作方法都跟JavaScript的json对象类似。
+
+  Symbol类型比较特殊，日常编码很少用到它。它是一种标识符，它在Dart代码被最小化（minification）时不会被修改，它的表示方式就是在普通标识符前面加上一个#。
+
+  示例如下：
+  <img src="{{ root_url }}/images/custom/dart_notes/note2/types.png" />
 
 以上。
