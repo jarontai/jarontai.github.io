@@ -9,7 +9,7 @@
   <meta name="author" content="戴虬">
 
   
-  <meta name="description" content="因为node/npm的服务器是在国外，而我大天朝的网络又是如此‘给力‘，所以在使用npm install安装依赖的过程中，经常会卡住；我不得不频繁的使用Ctrl+C中止下载，然后再尝试n次才能搞定。在google良久并尝试诸多方法之后，发现使用cnpm应该是应对此问题的最佳方案（ &hellip;">
+  <meta name="description" content="最近工作中需要对一个旧项目进行改造，不得已使用了让人头疼的iframe，碰到的最大问题是没有好的方法使其高度自适应。Google一番之后，发现iframe-resizer能够比较好的解决这个问题，而且还支持跨域访问（使用postMessage）。 在使用它之前，必须明确iframe &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,40 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/25/use-iframe-resizer/">用iFrame Resizer解决iframe高度自适应问题</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-07-25T20:45:39+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>8:45 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>  最近工作中需要对一个旧项目进行改造，不得已使用了让人头疼的iframe，碰到的最大问题是没有好的方法使其高度自适应。Google一番之后，发现<a href="http://davidjbradshaw.github.io/iframe-resizer/">iframe-resizer</a>能够比较好的解决这个问题，而且还支持跨域访问（使用<a href="https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage">postMessage</a>）。</p>
+
+<p>  在使用它之前，必须明确iframe resizer要求IE8+（firefox，chrome等自然没有问题），如果你需要支持旧版本IE，请关掉本页然后再去google。其次，iframe resizer提供了原生JS与jQuery插件两种调用方式，</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/25/use-iframe-resizer/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -163,7 +197,11 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/06/06/dart-notes-1/">Dart学习笔记：Dartlang的重要概念</a>
+        <a href="/blog/2015/06/20/dart-notes-2/">Dartlang学习笔记：变量、内置类型、函数和操作符</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/06/dart-notes-1/">Dartlang学习笔记：Dartlang的重要概念</a>
       </li>
     
       <li class="post">
@@ -176,10 +214,6 @@
     
       <li class="post">
         <a href="/blog/2014/12/18/translation-dart-quick-start/">Dartlang译文：Dart快速入门</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/11/28/sublime-jshint/">SublimeText插件推荐：JS错误检查工具 - JSHint与JSHint Gutter</a>
       </li>
     
   </ul>

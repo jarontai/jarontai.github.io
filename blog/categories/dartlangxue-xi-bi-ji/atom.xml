@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Dartlang学习笔记 | Dynamic Static]]></title>
+  <link href="http://jarontai.github.io/blog/categories/dartlangxue-xi-bi-ji/atom.xml" rel="self"/>
+  <link href="http://jarontai.github.io/"/>
+  <updated>2015-06-24T16:45:53+08:00</updated>
+  <id>http://jarontai.github.io/</id>
+  <author>
+    <name><![CDATA[戴虬]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Dartlang学习笔记：变量、内置类型、函数和操作符]]></title>
+    <link href="http://jarontai.github.io/blog/2015/06/20/dart-notes-2/"/>
+    <updated>2015-06-20T10:53:00+08:00</updated>
+    <id>http://jarontai.github.io/blog/2015/06/20/dart-notes-2</id>
+    <content type="html"><![CDATA[<p>  这是Dart学习笔记的第二篇，主要记录变量、内置类型和函数的一些重要知识点。</p>
+
+<h2>变量</h2>
+
+<p>  Dart的变量都是引用（reference），它们都指向一个对象，如果没有对它们进行初始化，它们将被赋予null。变量可以指定类型，也可以不要类型（使用var）。</p>
+
+<p>  如果某个变量的值不会被更改，请用final或者const来修饰它。Final与const的区别：被final修饰的变量只能被初始化一次，但其所指的对象还是可以被修改的；而const表示当前变量是“编译时常量”，它所指的对象在创建后就不能再修改。示例如下：
+  <img src="/images/custom/dart_notes/note2/variables.png" /><!-- more --></p>
+
+<h2>内置类型</h2>
+
+<p>  Dart的内置类型包括：number，string，boolean，list，map，symbol。内置类型的变量，都可以用字面量来初始化，或使用特有的构造函数来构造（如：Map）。</p>
+
+<p>  Number类型其实有两种：int（整形）跟double（双精度浮点数），它们都是num（数字）的子类型。</p>
+
+<p>  String（字符串）在Dart中是一串不可变的，以UTF-16编码的字符序列。你可以使用单引号或双引号来创建字符串，你也可以用+号来连接它们，并且支持字符串插值。</p>
+
+<p>  Boolean类型在Dart里面是用bool表示，它有两个值：true跟false。需要注意的是，在JavaScript等语言中，非空字符串、非零数字等能被转换为true；而在Dart中，true就是true，其他任何值都视为false！</p>
+
+<p>  List类型，在其他语言中常被称为array（数组），是最常见最常用的一种集合类型，它提供了很多易用的方法来处理数组数据。</p>
+
+<p>  Map类型，可以看成是由键值对组成的对象，它的字面量表示方式以及操作方法都跟JavaScript的json对象类似。</p>
+
+<p>  Symbol类型比较特殊，日常编码很少用到它。它是一种标识符，它在Dart代码被最小化（minification）时不会被修改，它的表示方式就是在普通标识符前面加上一个#。</p>
+
+<p>  示例如下：
+  <img src="/images/custom/dart_notes/note2/types.png" /></p>
+
+<h2>函数</h2>
+
+<p>  Dart的函数是对象，跟变量一样，可以指定函数返回类型，也可以不指定。Dart的函数也支持两种形式的可选参数：可选命名参数跟可选位置参数。它还支持 => 简写方式，前提是函数的body只包含一个表达式（注意语句与表达式的区别）。</p>
+
+<p>  所有Dart应用都应该有一个顶层main函数，它用来作为程序执行的入口。Main函数的返回值是void，它的参数是可选的位置参数 ‘List&lt;String&gt;’。</p>
+
+<p>  Dart的函数是一等公民，它可以作为变量在代码间到处传递，也可以像JavaScript样通过嵌套来实现闭包。每一个函数都有返回值，如果没有显式的返回语句，则默认在函数body结束前添加 ‘return null;’。</p>
+
+<p>  示例如下：
+  <img src="/images/custom/dart_notes/note2/function.png" /></p>
+
+<h2>操作符</h2>
+
+<p>  Dart的操作符大部分跟JavaScript的是一样的，并且大部分是可以被重载（override）。</p>
+
+<p>  Dart也提供了一类特殊的操作符-类型检测操作符，它们是：as，is，is!。其中，as用来进行类型转换，is与is!用来判断对象的类型。</p>
+
+<p>  示例如下：
+  <img src="/images/custom/dart_notes/note2/operators.png" /></p>
+
+<p>以上。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dartlang学习笔记：Dartlang的重要概念]]></title>
+    <link href="http://jarontai.github.io/blog/2015/06/06/dart-notes-1/"/>
+    <updated>2015-06-06T20:50:39+08:00</updated>
+    <id>http://jarontai.github.io/blog/2015/06/06/dart-notes-1</id>
+    <content type="html"><![CDATA[<p>  因为最近工作比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里主要使用Java与JavaScript来作些对比）。</p>
+
+<h3>Dart能在前端/后端运行</h3>
+
+<p>  Dart代码是通过dart2js编译成JavaScript在浏览器上运行的，它的标准库包含专门处理HTML的dart:hmtl库，而且也有Polymer.dart、AngularDart这样的web应用框架（Angular2也将支持Dart），通过它们，你可以方便的编写web应用。另一方面，通过DartVM，Dart也能运行在服务端，虽然这样使用的人可能不多，但凭借易用的标准库以及逐渐丰富的第三方库，用Dart来开发中小型命令行应用还是绰绰有余的。</p>
+
+<h3>&ldquo;真正的面向对象&rdquo;</h3>
+
+<p>  在谈到面向对象的编程语言时，Java经常被人提起，但其实Java并非“真正的面向对象”，因为它的基本数据类型都不是对象。而在Dart中，“一切皆对象”。Dart的类都继承自Object类，所有的变量都指向一个对象，数字、函数甚至null本身也是一个对象，所有未被初始化的变量也都被赋予null，可以说Dart才是一门“真正面向对象”的编程语言。示例如下：<!-- more --></p>
+
+<p>  <img src="/images/custom/dart_notes/note1/everything_is_object.png" /></p>
+
+<h3>类型是可选的</h3>
+
+<p>  Dart的类型，似乎是Java跟JavaScript类型系统的结合。你不想使用类型时，可以用var声明变量，这样，你就可以像写JavaScript一样自由的书写代码。反过来，你也可以像Java一样，为每个变量都指定类型，这就使得编辑器能对代码进行静态检查，如果你把数字赋给了一个String类型的变量，那编辑器会有警告信息提示你。示例如下：</p>
+
+<p>  <img src="/images/custom/dart_notes/note1/optional_types.png" /></p>
+
+<h3>函数是一等公民</h3>
+
+<p>  跟JavaScript类似，Dart的函数是对象，你可以定义顶层函数，或是把函数存放到变量里面，又或是通过函数来实现闭包。示例如下：</p>
+
+<p>  <img src="/images/custom/dart_notes/note1/function_is_good.png" /></p>
+
+<h3>库与可见性</h3>
+
+<p>  Dart的库（library）初看可能有点像Java的包（package），但其实它们非常不同。Dart的library是一个或多个dart文件，一个dart文件内可以包含多个变量、函数与类。而Java的包是一个文件夹，其中包含多个java文件，一个java文件只对应一个类。在可见性方面，Dart不像Java那样拥有public、private等访问控制符，它的设计非常简洁：以library为单位，其所有变量、函数、类等对外默认都是可见的，只有在它们的标志符以下划线开头的情况下，它们才变为私有的，对外不可见。</p>
+
+<h3>运行模式</h3>
+
+<p>  Dart运行时（runtime）有两种运行模式：production与checked。Production是默认模式，它对运行速度进行了优化，但是也关闭了类型检查以及断言（assert）。Checked模式则相反，它打开了断言与类型检查，但运行速度就比不过production。具体来说，如果你把数字赋给了一个String类型的变量，在checked模式下运行会抛出异常，但是在production模式下则不会。所以，开发时建议使用checked模式，在生产环境下才使用production模式。</p>
+
+<p>以上。</p>
+]]></content>
+  </entry>
+  
+</feed>

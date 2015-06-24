@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dart | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dart/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-06-23T10:33:14+08:00</updated>
+  <updated>2015-06-24T16:45:53+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -14,7 +14,64 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Dart学习笔记：Dartlang的重要概念]]></title>
+    <title type="html"><![CDATA[Dartlang学习笔记：变量、内置类型、函数和操作符]]></title>
+    <link href="http://jarontai.github.io/blog/2015/06/20/dart-notes-2/"/>
+    <updated>2015-06-20T10:53:00+08:00</updated>
+    <id>http://jarontai.github.io/blog/2015/06/20/dart-notes-2</id>
+    <content type="html"><![CDATA[<p>  这是Dart学习笔记的第二篇，主要记录变量、内置类型和函数的一些重要知识点。</p>
+
+<h2>变量</h2>
+
+<p>  Dart的变量都是引用（reference），它们都指向一个对象，如果没有对它们进行初始化，它们将被赋予null。变量可以指定类型，也可以不要类型（使用var）。</p>
+
+<p>  如果某个变量的值不会被更改，请用final或者const来修饰它。Final与const的区别：被final修饰的变量只能被初始化一次，但其所指的对象还是可以被修改的；而const表示当前变量是“编译时常量”，它所指的对象在创建后就不能再修改。示例如下：
+  <img src="/images/custom/dart_notes/note2/variables.png" /><!-- more --></p>
+
+<h2>内置类型</h2>
+
+<p>  Dart的内置类型包括：number，string，boolean，list，map，symbol。内置类型的变量，都可以用字面量来初始化，或使用特有的构造函数来构造（如：Map）。</p>
+
+<p>  Number类型其实有两种：int（整形）跟double（双精度浮点数），它们都是num（数字）的子类型。</p>
+
+<p>  String（字符串）在Dart中是一串不可变的，以UTF-16编码的字符序列。你可以使用单引号或双引号来创建字符串，你也可以用+号来连接它们，并且支持字符串插值。</p>
+
+<p>  Boolean类型在Dart里面是用bool表示，它有两个值：true跟false。需要注意的是，在JavaScript等语言中，非空字符串、非零数字等能被转换为true；而在Dart中，true就是true，其他任何值都视为false！</p>
+
+<p>  List类型，在其他语言中常被称为array（数组），是最常见最常用的一种集合类型，它提供了很多易用的方法来处理数组数据。</p>
+
+<p>  Map类型，可以看成是由键值对组成的对象，它的字面量表示方式以及操作方法都跟JavaScript的json对象类似。</p>
+
+<p>  Symbol类型比较特殊，日常编码很少用到它。它是一种标识符，它在Dart代码被最小化（minification）时不会被修改，它的表示方式就是在普通标识符前面加上一个#。</p>
+
+<p>  示例如下：
+  <img src="/images/custom/dart_notes/note2/types.png" /></p>
+
+<h2>函数</h2>
+
+<p>  Dart的函数是对象，跟变量一样，可以指定函数返回类型，也可以不指定。Dart的函数也支持两种形式的可选参数：可选命名参数跟可选位置参数。它还支持 => 简写方式，前提是函数的body只包含一个表达式（注意语句与表达式的区别）。</p>
+
+<p>  所有Dart应用都应该有一个顶层main函数，它用来作为程序执行的入口。Main函数的返回值是void，它的参数是可选的位置参数 ‘List&lt;String&gt;’。</p>
+
+<p>  Dart的函数是一等公民，它可以作为变量在代码间到处传递，也可以像JavaScript样通过嵌套来实现闭包。每一个函数都有返回值，如果没有显式的返回语句，则默认在函数body结束前添加 ‘return null;’。</p>
+
+<p>  示例如下：
+  <img src="/images/custom/dart_notes/note2/function.png" /></p>
+
+<h2>操作符</h2>
+
+<p>  Dart的操作符大部分跟JavaScript的是一样的，并且大部分是可以被重载（override）。</p>
+
+<p>  Dart也提供了一类特殊的操作符-类型检测操作符，它们是：as，is，is!。其中，as用来进行类型转换，is与is!用来判断对象的类型。</p>
+
+<p>  示例如下：
+  <img src="/images/custom/dart_notes/note2/operators.png" /></p>
+
+<p>以上。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dartlang学习笔记：Dartlang的重要概念]]></title>
     <link href="http://jarontai.github.io/blog/2015/06/06/dart-notes-1/"/>
     <updated>2015-06-06T20:50:39+08:00</updated>
     <id>http://jarontai.github.io/blog/2015/06/06/dart-notes-1</id>

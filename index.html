@@ -9,7 +9,7 @@
   <meta name="author" content="戴虬">
 
   
-  <meta name="description" content="因为最近工作比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里主要使用Java与JavaScript来作些对比）。 Dart能在前端/后端运行 &hellip;">
+  <meta name="description" content="这是Dart学习笔记的第二篇，主要记录变量、内置类型和函数的一些重要知识点。 变量 Dart的变量都是引用（reference），它们都指向一个对象，如果没有对它们进行初始化，它们将被赋予null。变量可以指定类型，也可以不要类型（使用var）。 如果某个变量的值不会被更改， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,7 +83,46 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/06/06/dart-notes-1/">Dart学习笔记：Dartlang的重要概念</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/06/20/dart-notes-2/">Dartlang学习笔记：变量、内置类型、函数和操作符</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-06-20T10:53:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:53 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>  这是Dart学习笔记的第二篇，主要记录变量、内置类型和函数的一些重要知识点。</p>
+
+<h2>变量</h2>
+
+<p>  Dart的变量都是引用（reference），它们都指向一个对象，如果没有对它们进行初始化，它们将被赋予null。变量可以指定类型，也可以不要类型（使用var）。</p>
+
+<p>  如果某个变量的值不会被更改，请用final或者const来修饰它。Final与const的区别：被final修饰的变量只能被初始化一次，但其所指的对象还是可以被修改的；而const表示当前变量是“编译时常量”，它所指的对象在创建后就不能再修改。示例如下：
+  <img src="/images/custom/dart_notes/note2/variables.png" /></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/06/20/dart-notes-2/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/06/06/dart-notes-1/">Dartlang学习笔记：Dartlang的重要概念</a></h1>
     
     
       <p class="meta">
@@ -509,40 +548,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/07/25/use-iframe-resizer/">用iFrame Resizer解决iframe高度自适应问题</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-07-25T20:45:39+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>8:45 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>  最近工作中需要对一个旧项目进行改造，不得已使用了让人头疼的iframe，碰到的最大问题是没有好的方法使其高度自适应。Google一番之后，发现<a href="http://davidjbradshaw.github.io/iframe-resizer/">iframe-resizer</a>能够比较好的解决这个问题，而且还支持跨域访问（使用<a href="https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage">postMessage</a>）。</p>
-
-<p>  在使用它之前，必须明确iframe resizer要求IE8+（firefox，chrome等自然没有问题），如果你需要支持旧版本IE，请关掉本页然后再去google。其次，iframe resizer提供了原生JS与jQuery插件两种调用方式，</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/07/25/use-iframe-resizer/">继续阅读 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; 旧的文章</a>
@@ -558,7 +563,11 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/06/06/dart-notes-1/">Dart学习笔记：Dartlang的重要概念</a>
+        <a href="/blog/2015/06/20/dart-notes-2/">Dartlang学习笔记：变量、内置类型、函数和操作符</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/06/dart-notes-1/">Dartlang学习笔记：Dartlang的重要概念</a>
       </li>
     
       <li class="post">
@@ -571,10 +580,6 @@
     
       <li class="post">
         <a href="/blog/2014/12/18/translation-dart-quick-start/">Dartlang译文：Dart快速入门</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/11/28/sublime-jshint/">SublimeText插件推荐：JS错误检查工具 - JSHint与JSHint Gutter</a>
       </li>
     
   </ul>
