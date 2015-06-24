@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Dartlang学习笔记：变量、内置类型和函数"
+title: "Dartlang学习笔记：变量、内置类型、函数和操作符"
 date: 2015-06-20 10:53:00 +0800
 comments: true
 categories: dart dartlang学习笔记
@@ -10,9 +10,8 @@ categories: dart dartlang学习笔记
 ## 变量
   Dart的变量都是引用（reference），它们都指向一个对象，如果没有对它们进行初始化，它们将被赋予null。变量可以指定类型，也可以不要类型（使用var）。
 
-  如果某个变量的值不会被更改，请用final或者const来修饰它。Final与const的区别：被final修饰的变量只能被初始化一次，但其所指的对象还是可以被修改的；而const表示当前变量是“编译时常量”，它所指的对象在创建后就不能再修改。示例如下：<!-- more --> 
-
-  <img src="{{ root_url }}/images/custom/dart_notes/note2/variables.png" />
+  如果某个变量的值不会被更改，请用final或者const来修饰它。Final与const的区别：被final修饰的变量只能被初始化一次，但其所指的对象还是可以被修改的；而const表示当前变量是“编译时常量”，它所指的对象在创建后就不能再修改。示例如下：
+  <img src="{{ root_url }}/images/custom/dart_notes/note2/variables.png" /><!-- more -->
 
 ## 内置类型
   Dart的内置类型包括：number，string，boolean，list，map，symbol。内置类型的变量，都可以用字面量来初始化，或使用特有的构造函数来构造（如：Map）。
@@ -31,5 +30,23 @@ categories: dart dartlang学习笔记
 
   示例如下：
   <img src="{{ root_url }}/images/custom/dart_notes/note2/types.png" />
+
+## 函数
+  Dart的函数是对象，跟变量一样，可以指定函数返回类型，也可以不指定。Dart的函数也支持两种形式的可选参数：可选命名参数跟可选位置参数。它还支持 => 简写方式，前提是函数的body只包含一个表达式（注意语句与表达式的区别）。
+
+  所有Dart应用都应该有一个顶层main函数，它用来作为程序执行的入口。Main函数的返回值是void，它的参数是可选的位置参数 ‘List&lt;String&gt;’。
+
+  Dart的函数是一等公民，它可以作为变量在代码间到处传递，也可以像JavaScript样通过嵌套来实现闭包。每一个函数都有返回值，如果没有显式的返回语句，则默认在函数body结束前添加 ‘return null;’。
+
+  示例如下：
+  <img src="{{ root_url }}/images/custom/dart_notes/note2/function.png" />
+
+## 操作符
+  Dart的操作符大部分跟JavaScript的是一样的，并且大部分是可以被重载（override）。
+
+  Dart也提供了一类特殊的操作符-类型检测操作符，它们是：as，is，is!。其中，as用来进行类型转换，is与is!用来判断对象的类型。
+
+  示例如下：
+  <img src="{{ root_url }}/images/custom/dart_notes/note2/operators.png" />
 
 以上。
