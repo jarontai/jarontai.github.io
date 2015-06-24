@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Dart学习笔记：Dartlang的重要概念"
+title: "Dartlang学习笔记：Dartlang的重要概念"
 date: 2015-06-06 20:50:39 +0800
 comments: true
-categories: dart dart学习笔记
+categories: dart dartlang学习笔记
 ---
   因为最近工作比较忙，对Dart的学习也是断断续续，积累下来的东西不多，还是写点学习笔记吧。今天先来第一篇，记录一下Dartlang的一些重要概念（或者说区别于其他编程语言的一些特性，这里主要使用Java与JavaScript来作些对比）。
 
