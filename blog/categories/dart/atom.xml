@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dart | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dart/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-06-25T09:41:15+08:00</updated>
+  <updated>2015-06-25T09:47:30+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -24,7 +24,7 @@
 
 <p>  Dart的变量都是引用（reference），它们都指向一个对象。变量可以指定类型，也可以不指定（使用var）。不管任何类型的变量，只要没有对它进行初始化，它都将被赋予null。</p>
 
-<p>  如果某个变量的值不会被更改，请用final或者const来修饰它。Final与const的区别：被final修饰的变量只能被初始化一次，但其所指的对象还是可以被修改的；而const表示当前变量是“编译时常量”，它所指的对象在创建后就不能再修改。</p>
+<p>  如果某个变量的值不会被更改，请用final或者const来修饰它。Final与const的区别：被final修饰的变量只能被初始化一次，但其所指对象还可以被修改；而const表示当前变量是“编译时常量”，它所指的对象在创建后不能再修改。</p>
 
 <p>  示例如下：
   <img src="/images/custom/dart_notes/note2/variables.png" /><!-- more --></p>
@@ -35,7 +35,7 @@
 
 <p>  Number类型其实有两种：int（整形）跟double（双精度浮点数），它们都是num（数字）的子类型。</p>
 
-<p>  String（字符串）在Dart中是一串不可变的，以UTF-16编码的字符序列。你可以使用单引号或双引号来创建字符串，你也可以用+号来连接它们，并且支持字符串插值。</p>
+<p>  String（字符串）在Dart中是一串不可变的，以UTF-16编码的字符序列。一般使用单引号或双引号来创建字符串，也可以用+号来连接它们，还能使用字符串插值来避免过多的字符串连接操作。</p>
 
 <p>  Boolean类型在Dart里面是用bool表示，它有两个值：true跟false。需要注意的是，在JavaScript等语言中，非空字符串、非零数字等能被转换为true；而在Dart中，true就是true，其他任何值都视为false！</p>
 
