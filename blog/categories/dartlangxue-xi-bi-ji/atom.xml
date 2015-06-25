@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dartlang学习笔记 | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dartlangxue-xi-bi-ji/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-06-24T16:45:53+08:00</updated>
+  <updated>2015-06-25T09:33:06+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -79,7 +79,7 @@
 
 <h3>Dart能在前端/后端运行</h3>
 
-<p>  Dart代码是通过dart2js编译成JavaScript在浏览器上运行的，它的标准库包含专门处理HTML的dart:hmtl库，而且也有Polymer.dart、AngularDart这样的web应用框架（Angular2也将支持Dart），通过它们，你可以方便的编写web应用。另一方面，通过DartVM，Dart也能运行在服务端，虽然这样使用的人可能不多，但凭借易用的标准库以及逐渐丰富的第三方库，用Dart来开发中小型命令行应用还是绰绰有余的。</p>
+<p>  Dart代码是通过dart2js编译成JavaScript在浏览器上运行的，它的标准库包含专门处理HTML的dart:hmtl库，在应用层也有Polymer.dart、AngularDart这样的web框架（Angular2也将支持Dart），通过它们，你可以方便的编写web应用。另一方面，通过DartVM，Dart也能运行在服务端，虽然这样使用的人可能不多，但凭借易用的标准库以及逐渐丰富的第三方库，用Dart来开发中小型命令行应用还是绰绰有余的。</p>
 
 <h3>&ldquo;真正的面向对象&rdquo;</h3>
 
@@ -89,19 +89,19 @@
 
 <h3>类型是可选的</h3>
 
-<p>  Dart的类型，似乎是Java跟JavaScript类型系统的结合。你不想使用类型时，可以用var声明变量，这样，你就可以像写JavaScript一样自由的书写代码。反过来，你也可以像Java一样，为每个变量都指定类型，这就使得编辑器能对代码进行静态检查，如果你把数字赋给了一个String类型的变量，那编辑器会有警告信息提示你。示例如下：</p>
+<p>  Dart的类型，似乎是Java跟JavaScript类型系统的结合。你不想使用类型时，可以用var声明变量，这样你就可以像写JavaScript一样自由的书写代码。反过来，你也可以像Java一样，为每个变量都指定类型，这就使得编辑器能对代码进行静态检查，如果你把数字赋给了一个String类型的变量，编辑器就会有警告信息提示你。示例如下：</p>
 
 <p>  <img src="/images/custom/dart_notes/note1/optional_types.png" /></p>
 
 <h3>函数是一等公民</h3>
 
-<p>  跟JavaScript类似，Dart的函数是对象，你可以定义顶层函数，或是把函数存放到变量里面，又或是通过函数来实现闭包。示例如下：</p>
+<p>  跟JavaScript类似，Dart的函数是对象，你可以定义顶层函数，或是把函数存放到变量里面，又或是通过函数嵌套来实现闭包。示例如下：</p>
 
 <p>  <img src="/images/custom/dart_notes/note1/function_is_good.png" /></p>
 
 <h3>库与可见性</h3>
 
-<p>  Dart的库（library）初看可能有点像Java的包（package），但其实它们非常不同。Dart的library是一个或多个dart文件，一个dart文件内可以包含多个变量、函数与类。而Java的包是一个文件夹，其中包含多个java文件，一个java文件只对应一个类。在可见性方面，Dart不像Java那样拥有public、private等访问控制符，它的设计非常简洁：以library为单位，其所有变量、函数、类等对外默认都是可见的，只有在它们的标志符以下划线开头的情况下，它们才变为私有的，对外不可见。</p>
+<p>  Dart的库（library）初看可能有点像Java的包（package），但其实它们非常不同。Dart的library是一个或多个dart文件，一个dart文件内可以包含多个变量、函数与类。而Java的包是一个文件夹，其中包含多个java文件，一个java文件只对应一个类。在可见性方面，Dart不像Java那样拥有public、private等访问控制符，它的设计非常简洁：以library为单位，所有变量、函数、类等对外默认都是可见的，只有在它们的标志符以下划线开头的情况下，它们才变为私有的，对外不可见。</p>
 
 <h3>运行模式</h3>
 
