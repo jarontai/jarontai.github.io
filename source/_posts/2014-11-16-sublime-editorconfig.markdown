@@ -9,7 +9,7 @@ categories: 工具 Sublime
   从大学毕业到现在，用过不少IDE与编辑器，记得起来的有：VisualStudio，Eclipse，NetBeans，SublimeText，Jetbrains家族（WebStorm，PhpStorm），VIM等。在这么多小伙伴中，用的最顺手的还是[SublimeText](http://www.sublimetext.com)（以下将简称为Sublime），它轻量，易用（对比VIM），跨平台，功能强大（对比其他编辑器，非IDE）。而Sublime丰富的第三方插件库，我认为是它优于其他编辑器的重要原因。接下来几篇博客，我将推荐一些我个人非常喜欢的插件。如果你还没有使用过SublimeText，你可以查看这篇[入门介绍](http://www.iplaysoft.com/sublimetext.html)。
 
 ### 简介
-  今天要推荐的Sublime插件是：代码格式管家-EditorConfig，它最主要的功能是：同一项目代码在不同编辑器下能够保持统一的代码风格（主要是缩进）。此外，如果你不喜欢编辑器自带的默认风格（如sublime默认缩进宽度是4），那EditorConfig也可以帮到你。<!-- more -->
+  今天要推荐的Sublime插件是：“代码格式管家”-EditorConfig，它最主要的功能是，同一项目代码在不同编辑器下能够保持统一的代码风格（主要是缩进）。此外，如果你不喜欢编辑器自带的默认风格（如sublime默认缩进宽度是4），那EditorConfig也可以帮到你。<!-- more -->
   
   注意：EditorConfig支持除Sublime之外的很多主流编辑器与IDE，如前面提到的VisualStudio, Eclipse, VIM, WebStorm等，它们都有对应的插件，插件的下载地址在EditorConfig主页可以找到：[http://editorconfig.org/](http://editorconfig.org/)。
 
