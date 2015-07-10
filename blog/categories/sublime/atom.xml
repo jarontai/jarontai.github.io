@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sublime | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/sublime/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-06-25T09:47:30+08:00</updated>
+  <updated>2015-07-10T15:58:33+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -20,16 +20,16 @@
     <id>http://jarontai.github.io/blog/2014/11/28/sublime-jshint</id>
     <content type="html"><![CDATA[<h3>引言</h3>
 
-<p>  我喜欢使用SublimeText（以下将简称为Sublime）来写JavaScript，但有时候代码量一多，难免会犯些小错误，比如变量名写错，多了一个括号等等；而Sublime是编辑器，本身没有代码检查功能，只有当JS代码在浏览器里运行报错了，才发现问题，而这样就会浪费不少的时间。所以，我就想有没有这样的插件，使Sublime能够检测基本的JS语法错误。经过一番搜索后，终于找到了，而这也是今天要介绍的：JS错误检查工具 - JSHint与JSHint Gutter。</p>
+<p>  我喜欢使用SublimeText（以下将简称为Sublime）来写JavaScript，但有时候代码量一多，难免会犯些小错误，比如变量名写错，多了一个括号等等；而Sublime是编辑器，本身没有代码检查功能，只有当JS代码在浏览器里运行报错了，才发现问题，而这样就会浪费不少的时间。所以，我就想有没有这样的插件，能使Sublime具备检测基本的JS语法错误。经过一番搜索后，终于找到，而这也是今天要介绍的：JS错误检查工具 - JSHint与JSHint Gutter。</p>
 
-<p>  注意：如果你是Windows用户，本文文字或图片中出现的某些指令如：which，是无法在windows命令行下运行的，你可以安装Git for windows, 其附带的Git Bash可以运行大多数的Bash命令。
+<p>  注意：如果你是Windows用户，本文文字或图片中出现的某些指令如：which，是无法在windows命令行下运行的，你可以安装Git for windows, 其附带的Git Bash可以运行大多数的linux命令。
   <!-- more --></p>
 
 <h3>简介</h3>
 
-<p>  JSHint是一个JS代码质量(错误)检查工具，它不但能检查JS代码的语法错误，还能够监控代码质量，很多公司跟开源项目都在使用它，比如：Facebook、jQuery、Bootstrap等等。在Github上，使用JSHint的项目多如牛毛，如果你在某个项目里面，发现有.jshintrc文件，那它就使用了JSHint。JSHint是一个独立的工具，它不直接提供对Sublime的支持，它本身只提供命令行工具（基于NodeJS）。我们可以使用JSHint Gutter这个插件，它能够调用JSHint执行代码检查，然后将结果显示到Sublime界面上。</p>
+<p>  JSHint不但能检查JS代码的语法错误，还能够监控代码质量（风格），很多公司跟开源项目都在使用它，比如：Facebook、jQuery、Bootstrap等等。在Github上，使用JSHint的项目多如牛毛，如果你在某个项目里面，发现有.jshintrc文件，那它就使用了JSHint。JSHint是一个独立的工具，它不直接提供对Sublime的支持，它本身只提供基于NodeJS的命令行工具。而JSHint Gutter这个插件，它能够调用JSHint的命令行工具，执行代码检查并将结果显示到Sublime界面上。</p>
 
-<p>  注意：除Sublime之外的很多编辑器与IDE，也都有配套的JSHint插件，它们的下载链接请查看 <a href="http://www.jshint.com/install/">http://www.jshint.com/install/</a>。</p>
+<p>  注意：除Sublime之外，JSHint也支持其他很多编辑器与IDE，相关插件请查看 <a href="http://www.jshint.com/install/">http://www.jshint.com/install/</a>。</p>
 
 <h3>安装JSHint</h3>
 
@@ -121,13 +121,13 @@
     <id>http://jarontai.github.io/blog/2014/11/16/sublime-editorconfig</id>
     <content type="html"><![CDATA[<h3>引言</h3>
 
-<p>  从大学毕业到现在，用过不少IDE与编辑器，记得起来的有：VisualStudio，Eclipse，NetBeans，SublimeText，Jetbrains家族（WebStorm，RubyMine），VIM等。在这么多小伙伴中，用的最顺手的还是<a href="http://www.sublimetext.com">SublimeText</a>（以下将简称为Sublime），它轻量，易用（对比VIM），跨平台，功能强大（对比其他编辑器，非IDE）。而Sublime丰富的第三方插件库，我认为是它优于其他编辑器的重要原因，所以接下来几篇博客，我将推荐一些我个人非常喜欢的插件。如果你还没有使用过SublimeText，你可以查看这篇<a href="http://www.iplaysoft.com/sublimetext.html">入门介绍</a>。</p>
+<p>  从大学毕业到现在，用过不少IDE与编辑器，记得起来的有：VisualStudio，Eclipse，NetBeans，SublimeText，Jetbrains家族（WebStorm，PhpStorm），VIM等。在这么多小伙伴中，用的最顺手的还是<a href="http://www.sublimetext.com">SublimeText</a>（以下将简称为Sublime），它轻量，易用（对比VIM），跨平台，功能强大（对比其他编辑器，非IDE）。而Sublime丰富的第三方插件库，我认为是它优于其他编辑器的重要原因。接下来几篇博客，我将推荐一些我个人非常喜欢的插件。如果你还没有使用过SublimeText，你可以查看这篇<a href="http://www.iplaysoft.com/sublimetext.html">入门介绍</a>。</p>
 
 <h3>简介</h3>
 
-<p>  今天要推荐的Sublime插件是：代码格式管家-EditorConfig，它最主要的功能就是让你在不同项目、编辑器下，保持统一的代码风格（主要是缩进）。如果你想统一多个项目的代码风格，或者你需要在不同的编辑器下编辑同一个项目，又或者你不喜欢编辑器自带的缩进格式（如sublime默认缩进宽度是4），那么EditorConfig可以解救你。<!-- more --></p>
+<p>  今天要推荐的Sublime插件是：代码格式管家-EditorConfig，它最主要的功能是：同一项目代码在不同编辑器下能够保持统一的代码风格（主要是缩进）。此外，如果你不喜欢编辑器自带的默认风格（如sublime默认缩进宽度是4），那EditorConfig也可以帮到你。<!-- more --></p>
 
-<p>  注意：EditorConfig支持除Sublime之外的很多主流编辑器与IDE，如前面提到的VisualStudio, Eclipse, VIM, WebStorm等，这些插件的下载链接在EditorConfig主页可以找到：<a href="http://editorconfig.org/">http://editorconfig.org/</a>。</p>
+<p>  注意：EditorConfig支持除Sublime之外的很多主流编辑器与IDE，如前面提到的VisualStudio, Eclipse, VIM, WebStorm等，它们都有对应的插件，插件的下载地址在EditorConfig主页可以找到：<a href="http://editorconfig.org/">http://editorconfig.org/</a>。</p>
 
 <h3>插件的安装</h3>
 
