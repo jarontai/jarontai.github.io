@@ -11,7 +11,7 @@ categories: dart 其他
 
 ###Gilad Bracha
 <img src="{{ root_url }}/images/custom/dart/people/Gilad.jpg" /><br/>
-Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家。他曾经就职于[Sun][1]，专门从事Java/JVM规范的定制与实现工作。他不仅是Java语言规范第二、三版的合著者（co-author），也是JVM规范第二版的主要贡献者。在进入Google后，他加入了Dart项目组，他的主要工作就是Dart语言规范的编写。
+Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家。他曾经就职于[Sun][1]，专门从事Java/JVM规范的定制与实现工作。他不仅是Java语言规范第二、三版的合著者（co-author），也是JVM规范第二版的主要贡献者。在进入Google后，他加入了Dart项目组，他的主要工作就是Dart语言规范的编写。目前，Gilad正在编写一本全面介绍dart的书 - [The Dart Programming Language][10]。
 
 <!-- more -->
 ###Lars Bak
@@ -48,3 +48,4 @@ Bob曾是EA（艺电）公司的一名游戏开发工程师，而且写过一本
   [7]: https://github.com/dart-lang/fletch
   [8]: https://docs.oracle.com/javase/tutorial/
   [9]: https://www.dartlang.org/docs/dart-up-and-running/
+  [10]: http://www.amazon.com/Dart-Programming-Language-Gilad-Bracha/dp/0321927702
