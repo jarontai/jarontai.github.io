@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dart | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dart/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-08-21T17:47:11+08:00</updated>
+  <updated>2015-08-21T21:40:25+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -92,13 +92,20 @@ Please note the path to the Dart SDK:
 
 <p>Windows下有一个类似于homebrew的包管理器 - <a href="https://chocolatey.org/">chocolatey</a>，通过它来安装Dart SDK也很简单。</p>
 
-<p>在安装好chocolatey后，你只要运行一条指令即可完成安装；以下例子安装了1.11.0版本的Dart SDK与Dartium：</p>
+<p>在安装好chocolatey后，只要运行一条指令即可完成安装。以下指令将安装最新版本的Dart SDK与Dartium：</p>
 
-<pre><code>choco install dart-sdk -version 1.11.0
-choco install dartium  -version 1.11.0
+<pre><code>choco install dart-sdk
+choco install dartium
 </code></pre>
 
-<p>请访问chocolatey的<a href="https://chocolatey.org/packages/dart-sdk/">dart-sdk</a>与<a href="https://chocolatey.org/packages/dartium/">dartium</a>包页面以获取更多的信息。</p>
+<p>更新也是一条指令：</p>
+
+<pre><code>choco upgrade dart-sdk
+choco upgrade dartium
+</code></pre>
+
+<p>请访问chocolatey的<a href="https://chocolatey.org/packages/dart-sdk/">dart-sdk</a>与<a href="https://chocolatey.org/packages/dartium/">dartium</a>包页面以获取更多的信息。
+更多的chocolatey命令行指令，请查看：[<a href="https://github.com/chocolatey/choco/wiki/CommandsReference">https://github.com/chocolatey/choco/wiki/CommandsReference</a>][2]</p>
 
 <h2>Linux</h2>
 
