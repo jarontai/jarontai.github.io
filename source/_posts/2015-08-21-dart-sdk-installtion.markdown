@@ -65,12 +65,18 @@ categories: dart
 ## Windows
 Windows下有一个类似于homebrew的包管理器 - [chocolatey](https://chocolatey.org/)，通过它来安装Dart SDK也很简单。
 
-在安装好chocolatey后，你只要运行一条指令即可完成安装；以下例子安装了1.11.0版本的Dart SDK与Dartium：
+在安装好chocolatey后，只要运行一条指令即可完成安装。以下指令将安装最新版本的Dart SDK与Dartium：
 
-    choco install dart-sdk -version 1.11.0
-    choco install dartium  -version 1.11.0
+    choco install dart-sdk
+    choco install dartium
+
+更新也是一条指令：
+
+    choco upgrade dart-sdk
+    choco upgrade dartium
 
 请访问chocolatey的[dart-sdk](https://chocolatey.org/packages/dart-sdk/)与[dartium](https://chocolatey.org/packages/dartium/)包页面以获取更多的信息。
+更多的chocolatey命令行指令，请查看：[https://github.com/chocolatey/choco/wiki/CommandsReference][2]
 
 ## Linux
 如果你使用的是Ubuntu/Debian，通过apt-get可以很方便的安装Dart SDK。
