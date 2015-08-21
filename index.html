@@ -9,7 +9,7 @@
   <meta name="author" content="戴虬">
 
   
-  <meta name="description" content="这是Dart学习笔记的第二篇，主要记录变量、内置类型和函数的一些重要知识点。 变量 Dart的变量都是引用（reference），它们都指向一个对象。变量可以指定类型，也可以不指定（使用var）。不管任何类型的变量，只要没有对它进行初始化，它都将被赋予null。 如果某个变量的值不会被更改， &hellip;">
+  <meta name="description" content="本文讲解了如何在不同平台上利用工具自动（非手动）安装Dart SDK，适合初次接触dartlang的开发者。 注意：因为安装过程中需要访问google的资源站点，请确保你能够访问google（科学上网）。 Mac 个人认为Mac是从事dartlang开发的最佳平台， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/08/21/dart-sdk-installtion/">Dartlang实践：Dart SDK安装指南</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-08-21T14:24:01+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>2:24 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>本文讲解了如何在不同平台上利用工具自动（非手动）安装Dart SDK，适合初次接触dartlang的开发者。</p>
+
+<p>注意：因为安装过程中需要访问google的资源站点，请确保你能够访问google（科学上网）。</p>
+
+<h2>Mac</h2>
+
+<p>个人认为Mac是从事dartlang开发的最佳平台，mac上的<a href="http://brew.sh/">homebrew</a>又几乎是开发人员的标配，所以我们这里使用homebrew来安装Dart SDK。</p>
+
+<h3>安装</h3>
+
+<p>用homebrew安装Dart SDK是小菜一碟，你只要在终端中运行以下指令：</p>
+
+<pre><code>$ brew tap dart-lang/dart
+$ brew install dart
+</code></pre>
+
+<p>如果是web开发者，你可能需要dartium（可以直接运行Dart的Chromium）, 那你可以这样：</p>
+
+<pre><code>$ brew tap dart-lang/dart
+$ brew install dart --with-dartium
+</code></pre>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/08/21/dart-sdk-installtion/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -470,85 +524,6 @@ Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/08/22/manage-multiple-ajax/">管理多个ajax请求(jQuery)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-08-22T21:30:18+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>9:30 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>  在web应用的开发中，我们可能会碰到需要发起多个ajax请求的情况。<br/></p>
-
-<p>  以下应该是最常见的写法:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// Get html</span>
-</span><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/test&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1">// Get json data</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="s1">&#39;/api/test.json&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// Get the JS</span>
-</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s1">&#39;/assets/test.js&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>
-</span><span class='line'>       <span class="c1">// display result</span>
-</span><span class='line'>       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>       <span class="c1">// Add html to page</span>
-</span><span class='line'>       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>以上方法虽然可行，但是如果请求很多，就会产生不易维护的多层嵌套代码，而且请求是一个完了才执行下一个，效率不高。<br/></div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/08/22/manage-multiple-ajax/">继续阅读 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; 旧的文章</a>
@@ -564,6 +539,10 @@ Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/08/21/dart-sdk-installtion/">Dartlang实践：Dart SDK安装指南</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/06/20/dart-notes-2/">Dartlang学习笔记：变量、内置类型、函数和操作符</a>
       </li>
     
@@ -577,10 +556,6 @@ Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家�
     
       <li class="post">
         <a href="/blog/2015/01/13/nodejs-xlsx-and-mysql/">Node.js实践：读取Excel，查询MySQL</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/12/18/translation-dart-quick-start/">Dartlang译文：Dart快速入门</a>
       </li>
     
   </ul>

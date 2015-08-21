@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-07-24T08:57:49+08:00</updated>
+  <updated>2015-08-21T17:33:03+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -12,6 +12,140 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dartlang实践：Dart SDK安装指南]]></title>
+    <link href="http://jarontai.github.io/blog/2015/08/21/dart-sdk-installtion/"/>
+    <updated>2015-08-21T14:24:01+08:00</updated>
+    <id>http://jarontai.github.io/blog/2015/08/21/dart-sdk-installtion</id>
+    <content type="html"><![CDATA[<p>本文讲解了如何在不同平台上利用工具自动（非手动）安装Dart SDK，适合初次接触dartlang的开发者。</p>
+
+<p>注意：因为安装过程中需要访问google的资源站点，请确保你能够访问google（科学上网）。</p>
+
+<h2>Mac</h2>
+
+<p>个人认为Mac是从事dartlang开发的最佳平台，mac上的<a href="http://brew.sh/">homebrew</a>又几乎是开发人员的标配，所以我们这里使用homebrew来安装Dart SDK。</p>
+
+<h3>安装</h3>
+
+<p>用homebrew安装Dart SDK是小菜一碟，你只要在终端中运行以下指令：</p>
+
+<pre><code>$ brew tap dart-lang/dart
+$ brew install dart
+</code></pre>
+
+<p>如果是web开发者，你可能需要dartium（可以直接运行Dart的Chromium）, 那你可以这样：</p>
+
+<pre><code>$ brew tap dart-lang/dart
+$ brew install dart --with-dartium
+</code></pre>
+
+<!-- more -->
+
+
+<p>如果你想安装开发版本（dev channel）的Dart SDK，请添加 &ndash;devel</p>
+
+<pre><code>$ brew install dart --devel
+</code></pre>
+
+<h3>升级</h3>
+
+<p>使用homebrew安装了Dart SDK后，更新升级也变得非常简单：</p>
+
+<pre><code>$ brew update
+$ brew upgrade dart
+</code></pre>
+
+<h3>注意</h3>
+
+<p>在使用WebStorm或其他编辑器时，你可能需要知道Dart SDK的确切地址，你可以使用以下指令来查看相关信息：</p>
+
+<pre><code>$ brew info dart
+</code></pre>
+
+<p>信息如下：</p>
+
+<pre><code>dart-lang/dart/dart: stable 1.11.3, devel 1.12.0-dev.5.8
+https://www.dartlang.org/
+/usr/local/Cellar/dart/1.12.0-dev.5.0 (228 files, 34M)
+  Built from source
+/usr/local/Cellar/dart/1.12.0-dev.5.8 (267 files, 37M) *
+  Built from source
+From: https://github.com/dart-lang/homebrew-dart/blob/master/dart.rb
+==&gt; Options
+--with-content-shell
+    Download and install content_shell -- headless Dartium for testing
+--with-dartium
+    Download and install Dartium -- Chromium with Dart
+--devel
+    Install development version 1.12.0-dev.5.8
+==&gt; Caveats
+Please note the path to the Dart SDK:
+  /usr/local/opt/dart/libexec
+
+--with-dartium:
+  To use with IntelliJ, set the Dartium execute home to:
+    /usr/local/opt/dart/Chromium.app
+</code></pre>
+
+<h2>Windows</h2>
+
+<p>Windows下有一个类似于homebrew的包管理器 - <a href="https://chocolatey.org/">chocolatey</a>，通过它也可以便的安装Dart SDK。</p>
+
+<p>在安装好chocolatey后，你只要运行一条指令即可完成安装；以下例子安装了1.11.0版本的Dart SDK与Dartium：</p>
+
+<pre><code>choco install dart-sdk -version 1.11.0
+choco install dartium  -version 1.11.0
+</code></pre>
+
+<p>请访问chocolatey的<a href="https://chocolatey.org/packages/dart-sdk/">dart-sdk</a>与<a href="https://chocolatey.org/packages/dartium/">dartium</a>包页面以获取更多的信息。</p>
+
+<h2>Linux</h2>
+
+<p>如果你使用的是Ubuntu/Debian，通过apt-get可以很方便的安装Dart SDK。</p>
+
+<h3>设置源</h3>
+
+<p>稳定版本</p>
+
+<pre><code>$ sudo apt-get update
+$ sudo apt-get install apt-transport-https
+$ sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+$ sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list &gt; /etc/apt/sources.list.d/dart_stable.list'
+$ sudo apt-get update
+</code></pre>
+
+<p>开发版本（替换前面的第四步）</p>
+
+<pre><code>$ sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_unstable.list &gt; /etc/apt/sources.list.d/dart_unstable.list'
+</code></pre>
+
+<h3>安装</h3>
+
+<p>以下指令将安装当前可获取的最高版本的Dart SDK：</p>
+
+<pre><code>$ sudo apt-get install dart
+</code></pre>
+
+<p>如果你同时设置了稳定版本跟开发版本，那以上指令将一直安装开发版本，因为开发版本的版本号肯定高于稳定版本。</p>
+
+<h3>安装特定版本</h3>
+
+<p>如果你同时设置了稳定版本跟开发版本，但是又想安装稳定版本，那你需要执行：</p>
+
+<pre><code>$ sudo apt-get install dart/stable
+</code></pre>
+
+<p>如果你想安装某个特定版本，那你可以这样：</p>
+
+<pre><code>$ sudo apt-get install dart=1.5.8-1
+$ sudo apt-get install dart=1.6.*
+$ sudo apt-get install dart=1.7.0-dev.0.1.*
+</code></pre>
+
+<p>以上。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Dartlang学习笔记：变量、内置类型、函数和操作符]]></title>
