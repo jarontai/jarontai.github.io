@@ -63,7 +63,7 @@ categories: dart
         /usr/local/opt/dart/Chromium.app
 
 ## Windows
-Windows下有一个类似于homebrew的包管理器 - [chocolatey](https://chocolatey.org/)，通过它也可以便的安装Dart SDK。
+Windows下有一个类似于homebrew的包管理器 - [chocolatey](https://chocolatey.org/)，通过它来安装Dart SDK也很简单。
 
 在安装好chocolatey后，你只要运行一条指令即可完成安装；以下例子安装了1.11.0版本的Dart SDK与Dartium：
 
