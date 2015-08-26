@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dart | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dart/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-08-21T21:40:25+08:00</updated>
+  <updated>2015-08-26T09:30:21+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Dartlang实践：Dart SDK安装指南]]></title>
-    <link href="http://jarontai.github.io/blog/2015/08/21/dart-sdk-installtion/"/>
+    <link href="http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/"/>
     <updated>2015-08-21T14:24:01+08:00</updated>
-    <id>http://jarontai.github.io/blog/2015/08/21/dart-sdk-installtion</id>
+    <id>http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion</id>
     <content type="html"><![CDATA[<p>本文讲解了如何在不同平台上利用工具自动（非手动）安装Dart SDK，适合初次接触dartlang的开发者。</p>
 
 <p>注意：因为安装过程中需要访问google的资源站点，请确保你能够访问google（科学上网）。</p>
@@ -54,6 +54,7 @@ $ brew install dart --with-dartium
 
 <pre><code>$ brew update
 $ brew upgrade dart
+$ brew upgrade dart --devel
 </code></pre>
 
 <h3>注意</h3>
@@ -104,8 +105,8 @@ choco install dartium
 choco upgrade dartium
 </code></pre>
 
-<p>请访问chocolatey的<a href="https://chocolatey.org/packages/dart-sdk/">dart-sdk</a>与<a href="https://chocolatey.org/packages/dartium/">dartium</a>包页面以获取更多的信息。
-更多的chocolatey命令行指令，请查看：[<a href="https://github.com/chocolatey/choco/wiki/CommandsReference">https://github.com/chocolatey/choco/wiki/CommandsReference</a>][2]</p>
+<p>请访问chocolatey的<a href="https://chocolatey.org/packages/dart-sdk/">dart-sdk</a>与<a href="https://chocolatey.org/packages/dartium/">dartium</a>包页面以获取更多的信息，
+更多的chocolatey指令，请查看：<a href="https://github.com/chocolatey/choco/wiki/CommandsReference">https://github.com/chocolatey/choco/wiki/CommandsReference</a></p>
 
 <h2>Linux</h2>
 
