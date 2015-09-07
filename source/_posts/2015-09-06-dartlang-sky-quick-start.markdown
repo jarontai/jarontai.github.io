@@ -59,7 +59,10 @@ import 'package:sky/widgets.dart';
 
 class HelloWorldApp extends App {
   Widget build() {
-    return new Center(child: new Text('Hello, world!'));
+    return new Center(
+        child: new Text('Hello, world!',
+            style: new TextStyle(
+                color: new Color(0xff38e6c1), fontSize: 25.0)));
   }
 }
 
