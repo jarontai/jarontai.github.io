@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://jarontai.github.io/blog/2015/09/06/dartlang-sky-quick-start/</loc>
+    <lastmod>2015-09-06T17:05:16+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/</loc>
     <lastmod>2015-08-21T14:24:01+08:00</lastmod>
     <priority>0.8</priority>
@@ -72,13 +77,13 @@
   </url>
   <url>
     <loc>http://jarontai.github.io/blog/archives/</loc>
-    <lastmod>2015-08-26T09:30:21+08:00</lastmod>
+    <lastmod>2015-09-08T11:31:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://jarontai.github.io/</loc>
-    <lastmod>2015-08-26T09:30:21+08:00</lastmod>
+    <lastmod>2015-09-08T11:31:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

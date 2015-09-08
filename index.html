@@ -9,7 +9,7 @@
   <meta name="author" content="戴虬">
 
   
-  <meta name="description" content="本文讲解了如何在不同平台上利用工具自动（非手动）安装Dart SDK，适合初次接触dartlang的开发者。 注意：因为安装过程中需要访问google的资源站点，请确保你能够访问google（科学上网）。 Mac 个人认为Mac是从事dartlang开发的最佳平台， &hellip;">
+  <meta name="description" content="引言 Sky是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky_engine依赖chromium的mojo），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以用它写点简单的东西了。本文将带你了解如何配置sky的开发环境，并编写一个简单的Hello World &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/09/06/dartlang-sky-quick-start/">Dart移动开发框架SKY快速上手指南</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-06T17:05:16+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:05 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>引言</h3>
+
+<p><a href="https://github.com/domokit/sky_engine">Sky</a>是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky_engine依赖chromium的<a href="https://github.com/domokit/mojo">mojo</a>），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以用它写点简单的东西了。本文将带你了解如何配置sky的开发环境，并编写一个简单的Hello World。</p>
+
+<h4>注意:</h4>
+
+<ul>
+<li>Sky现在对ios开发的支持还不完善，所以本文将只会以android开发来进行讲解。</li>
+<li>Sky的应用打包功能也还没有完善，所以本文将不会对此进行讲解（现有代码都是在Sky Shell中运行）。</li>
+<li>Sky目前要求Android 5.1或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（不确定）。</li>
+<li>虽然本文的操作都是在Mac下进行的，但大致的流程应该也适用于Linux，Windows。</li>
+</ul>
+
+
+<h2>开发环境配置</h2>
+
+<h3>安装 Dart SDK</h3>
+
+<p>在Mac下用<a href="http://brew.sh/">Homebrew</a>，Linux（Debian和Ubuntu）下通过apt-get，都可以方便的安装、升级Dart SDK，具体可以参考我写的文章 - <a href="http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/">Dartlang实践：Dart SDK安装指南</a>。安装完成后，先确保在命令行下可以执行dart跟pub这两个指令，然后新建一个环境变量$DART_SDK，并将其指向Dart SDK的安装路径（通过homebrew安装的路径应该是：/usr/local/opt/dart/libexec/）。</p>
+
+<h3>安装 android-platform-tools</h3>
+
+<p>因为是进行android开发，自然需要安装adb（android debug bridge），你可以通过以下指令进行安装（只需要安装adb就可以，不需要完整的Android SDK）：</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/09/06/dartlang-sky-quick-start/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -461,69 +517,6 @@ Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/08/28/jquery-jsonp-error-process/">jQuery JSONP请求的错误处理</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-08-28T16:03:18+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:03 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>  jQuery的ajax方法封装的非常好，使用它你可以非常轻松的编写异步请求代码，但如果你是用它来做JSONP跨域请求，那你可要注意了，此处有坑！<br/></p>
-
-<p>  以下是常见的jqeury jsonp请求的代码:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://api.github.com/users/jarontai/repos&#39;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">dataType</span><span class="o">:</span> <span class="s1">&#39;jsonp&#39;</span><span class="p">,</span> <span class="c1">// dataType为jsonp</span>
-</span><span class='line'>  <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
-</span><span class='line'>  <span class="p">},</span>
-</span><span class='line'>  <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">jqXHR</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
-</span><span class='line'>      <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;JSONP error!&#39;</span><span class="p">);</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>以上方法看似安全可行，但如果你把url参数改成某个不存在的地址，你会惊奇的发现：虽然浏览器终端报出错误(404或其他网络错误)，但你的error回调却没有被执行!?<br/></div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/08/28/jquery-jsonp-error-process/">继续阅读 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; 旧的文章</a>
@@ -539,6 +532,10 @@ Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/09/06/dartlang-sky-quick-start/">Dart移动开发框架SKY快速上手指南</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/08/21/dart-sdk-auto-installtion/">Dartlang实践：Dart SDK安装指南</a>
       </li>
     
@@ -552,10 +549,6 @@ Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家�
     
       <li class="post">
         <a href="/blog/2015/05/12/people-behind-dart/">Dartlang背后的那些大牛们</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/01/13/nodejs-xlsx-and-mysql/">Node.js实践：读取Excel，查询MySQL</a>
       </li>
     
   </ul>

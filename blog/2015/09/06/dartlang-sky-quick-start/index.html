@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Dart移动开发框架SKY快速上手指南 - Dynamic Static</title>
+  <meta name="author" content="戴虬">
+
+  
+  <meta name="description" content="引言 Sky是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky_engine依赖chromium的mojo），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以用它写点简单的东西了。本文将带你了解如何配置sky的开发环境，并编写一个简单的Hello World &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jarontai.github.io/blog/2015/09/06/dartlang-sky-quick-start">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Dynamic Static" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.useso.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.useso.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.useso.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dynamic Static</a></h1>
+  
+    <h2>戴虬的博客 - 关于代码及其他</h2>
+  
+</hgroup>
+<!--[if IE]><p style="color: red;">你的浏览器过时了，请升级到最新版本或使用Chrome、FireFox等，以获得最佳阅读体验.</p><![endif]-->
+<a href="https://github.com/jarontai"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form id="search-form" action="https://xie.lu/" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jarontai.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<script type="text/javascript">
+  var siteStr = $('#search-form input').first().val();
+  jQuery(function($) {
+    var searchAction = $('#search-form').attr('action');
+    if (searchAction && (searchAction.indexOf('xie.lu') >= 0)) {
+      $('#search-form').submit(function(event) {
+        var form = $(this)[0];
+        window.location.href = 'https://xie.lu/' + '?#q=' + siteStr + ' ' + form.q[1].value;
+        event.preventDefault();
+      });
+    }
+  });
+</script>
+  
+<ul class="main-navigation">
+  <li><a href="/">文章</a></li>
+  <li><a href="/blog/archives">存档</a></li>
+</ul>
+<p style="display: inline-block; margin: 0; padding: 0; float: right;"><a style="float: right;" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=25126f523bb03ebf58046e7665bbfbc13d4cb6162aecb93e494f13187b5694b4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Dart语言学习交流群" title="Dart语言学习交流群"></a>Dart语言学习交流群：</p>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Dart移动开发框架SKY快速上手指南</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-06T17:05:16+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:05 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>引言</h3>
+
+<p><a href="https://github.com/domokit/sky_engine">Sky</a>是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky_engine依赖chromium的<a href="https://github.com/domokit/mojo">mojo</a>），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以用它写点简单的东西了。本文将带你了解如何配置sky的开发环境，并编写一个简单的Hello World。</p>
+
+<h4>注意:</h4>
+
+<ul>
+<li>Sky现在对ios开发的支持还不完善，所以本文将只会以android开发来进行讲解。</li>
+<li>Sky的应用打包功能也还没有完善，所以本文将不会对此进行讲解（现有代码都是在Sky Shell中运行）。</li>
+<li>Sky目前要求Android 5.1或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（不确定）。</li>
+<li>虽然本文的操作都是在Mac下进行的，但大致的流程应该也适用于Linux，Windows。</li>
+</ul>
+
+
+<h2>开发环境配置</h2>
+
+<h3>安装 Dart SDK</h3>
+
+<p>在Mac下用<a href="http://brew.sh/">Homebrew</a>，Linux（Debian和Ubuntu）下通过apt-get，都可以方便的安装、升级Dart SDK，具体可以参考我写的文章 - <a href="http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/">Dartlang实践：Dart SDK安装指南</a>。安装完成后，先确保在命令行下可以执行dart跟pub这两个指令，然后新建一个环境变量$DART_SDK，并将其指向Dart SDK的安装路径（通过homebrew安装的路径应该是：/usr/local/opt/dart/libexec/）。</p>
+
+<h3>安装 android-platform-tools</h3>
+
+<p>因为是进行android开发，自然需要安装adb（android debug bridge），你可以通过以下指令进行安装（只需要安装adb就可以，不需要完整的Android SDK）：</p>
+
+<!-- more -->
+
+
+<p>在Mac下使用homebrew安装：</p>
+
+<pre><code>brew install android-platform-tools
+</code></pre>
+
+<p>Linux下使用apt-get：</p>
+
+<pre><code>sudo apt-get install android-tools-adb
+</code></pre>
+
+<p>安装完成后，必须确保在命令行下可以顺利的访问adb指令。</p>
+
+<h3>准备安卓设备</h3>
+
+<p>准备一台系统版本是5.1或以上的android设备，按照以下指示进行操作：</p>
+
+<ul>
+<li>开启开发者选项：进入“设置” > “关于手机”，连续点击“版本号”五次或以上</li>
+<li>开启调试：进入“设置” > “开发者选项”，开启“USB调试”</li>
+<li>连接电脑：用USB线将设备连接到电脑，手机弹出是否允许电脑调试对话框，选择允许</li>
+</ul>
+
+
+<h2>Hello World</h2>
+
+<p>准备工作完成，现在正式开始编写代码。新建一个hello_world文件夹，并在其下创建一个文件pubspec.yaml，它的内容如下：</p>
+
+<pre><code>name: hello_world
+dependencies:
+  sky: any
+  sky_tools: any
+</code></pre>
+
+<p>在项目根目录下创建一个lib文件夹，然后在终端中运行pub get，并等待pub下载sky、sky_tools等依赖，完成之后，你的项目结构应该是类似于这样的：</p>
+
+<pre><code>hello_world
+  .pub
+  .packages
+  packages
+  lib
+  pubspec.lock
+  pubspec.yaml
+</code></pre>
+
+<p>Sky默认将lib/main.dart作为应用的入口文件，所以我们在lib文件夹下新建一个main.dart，并敲入以下代码：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='dart'><span class='line'><span class="k">import</span> <span class="s1">&#39;package:sky/widgets.dart&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">class</span> <span class="nc">HelloWorldApp</span> <span class="kd">extends</span> <span class="n">App</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">Widget</span> <span class="n">build</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="n">Center</span><span class="p">(</span>
+</span><span class='line'>        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nl">style:</span> <span class="k">new</span> <span class="n">TextStyle</span><span class="p">(</span>
+</span><span class='line'>                <span class="nl">color:</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mh">0xff38e6c1</span><span class="p">),</span> <span class="nl">fontSize:</span> <span class="m">25.0</span><span class="p">)));</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">runApp</span><span class="p">(</span><span class="k">new</span> <span class="n">HelloWorldApp</span><span class="p">());</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp被实例化并被运行。HelloWorldApp本身很简单，它构建了一个在屏幕中央显示的，指定了色彩跟文字大小的HelloWorld文本。</p>
+
+<h2>运行</h2>
+
+<p>因为目前应用打包功能还不完善，sky提供了一个容器应用SkyShell.apk来运行我们编写的代码，而sky的package里附带了一个sky_tool脚本，它可以帮助我们来执行这项操作。</p>
+
+<p>在命令行下进入项目根目录，执行以下指令：</p>
+
+<pre><code>./packages/sky/sky_tool start
+</code></pre>
+
+<p>这个指令执行的操作是：启动dev server，并自动在设备上安装SkyShell.apk，然后把代码上传到SkyShell中运行。</p>
+
+<p>如果你想让dart代码运行在checked模式，你也可以这样：</p>
+
+<pre><code>./packages/sky/sky_tool start --checked
+</code></pre>
+
+<p>如果你想查看错误日志以及print函数所打印的信息，你可以另开一个终端执行：</p>
+
+<pre><code>./packages/sky/sky_tool logs
+</code></pre>
+
+<p>当然，也可以把指令合并起来执行：</p>
+
+<pre><code>./packages/sky/sky_tool start --checked &amp;&amp; ./packages/sky/sky_tool logs
+</code></pre>
+
+<p>另外，如果不想一次次手动执行start指令，你可以这样（类似于web开发里面的livereload，只要文件一被修改，应用自动重新加载）：</p>
+
+<pre><code>./packages/sky/sky_tool listen
+</code></pre>
+
+<h2>效果</h2>
+
+<p>检验成果的时候到了，运行效果如下：</p>
+
+<p>  <img src="/images/custom/dart/sky/hello_world.png" /></p>
+
+<p>运行效果没有什么惊喜，毕竟只是一个HelloWorld，希望以后可以写点更复杂的应用吧。</p>
+
+<h2>结语</h2>
+
+<p>虽然整个过程稍显麻烦，但毕竟sky是处于初期阶段，各方面的不完善是情有可原的。单纯从开发的流程上来讲，我个人认为，sky比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉。最后，希望sky能够快速的成长起来，成为未来移动开发的中坚力量。</p>
+
+<p>以上。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">戴虬</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-09-06T17:05:16+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>5:05 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/dart/'>dart</a>, <a class='category' href='/blog/categories/sky/'>sky</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/08/21/dart-sdk-auto-installtion/" title="Previous Post: Dartlang实践：Dart SDK安装指南">&laquo; Dartlang实践：Dart SDK安装指南</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>评论</h1>
+    <div id="duoshuo_thread" aria-live="polite"><!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="/blog/2015/09/06/dartlang-sky-quick-start" data-title="Dart移动开发框架SKY快速上手指南" data-url="http://jarontai.github.io/blog/2015/09/06/dartlang-sky-quick-start/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"jarontaigithubio"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end --></div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>最近的文章</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/09/06/dartlang-sky-quick-start/">Dart移动开发框架SKY快速上手指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/21/dart-sdk-auto-installtion/">Dartlang实践：Dart SDK安装指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/20/dart-notes-2/">Dartlang学习笔记：变量、内置类型、函数和操作符</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/06/dart-notes-1/">Dartlang学习笔记：Dartlang的重要概念</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/12/people-behind-dart/">Dartlang背后的那些大牛们</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub 开源代码</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/jarontai">@jarontai</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jarontai',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 戴虬 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

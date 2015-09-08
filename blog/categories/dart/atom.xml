@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dart | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dart/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-08-26T09:30:21+08:00</updated>
+  <updated>2015-09-08T11:31:42+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -12,6 +12,163 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dart移动开发框架SKY快速上手指南]]></title>
+    <link href="http://jarontai.github.io/blog/2015/09/06/dartlang-sky-quick-start/"/>
+    <updated>2015-09-06T17:05:16+08:00</updated>
+    <id>http://jarontai.github.io/blog/2015/09/06/dartlang-sky-quick-start</id>
+    <content type="html"><![CDATA[<h3>引言</h3>
+
+<p><a href="https://github.com/domokit/sky_engine">Sky</a>是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky_engine依赖chromium的<a href="https://github.com/domokit/mojo">mojo</a>），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以用它写点简单的东西了。本文将带你了解如何配置sky的开发环境，并编写一个简单的Hello World。</p>
+
+<h4>注意:</h4>
+
+<ul>
+<li>Sky现在对ios开发的支持还不完善，所以本文将只会以android开发来进行讲解。</li>
+<li>Sky的应用打包功能也还没有完善，所以本文将不会对此进行讲解（现有代码都是在Sky Shell中运行）。</li>
+<li>Sky目前要求Android 5.1或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（不确定）。</li>
+<li>虽然本文的操作都是在Mac下进行的，但大致的流程应该也适用于Linux，Windows。</li>
+</ul>
+
+
+<h2>开发环境配置</h2>
+
+<h3>安装 Dart SDK</h3>
+
+<p>在Mac下用<a href="http://brew.sh/">Homebrew</a>，Linux（Debian和Ubuntu）下通过apt-get，都可以方便的安装、升级Dart SDK，具体可以参考我写的文章 - <a href="http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/">Dartlang实践：Dart SDK安装指南</a>。安装完成后，先确保在命令行下可以执行dart跟pub这两个指令，然后新建一个环境变量$DART_SDK，并将其指向Dart SDK的安装路径（通过homebrew安装的路径应该是：/usr/local/opt/dart/libexec/）。</p>
+
+<h3>安装 android-platform-tools</h3>
+
+<p>因为是进行android开发，自然需要安装adb（android debug bridge），你可以通过以下指令进行安装（只需要安装adb就可以，不需要完整的Android SDK）：</p>
+
+<!-- more -->
+
+
+<p>在Mac下使用homebrew安装：</p>
+
+<pre><code>brew install android-platform-tools
+</code></pre>
+
+<p>Linux下使用apt-get：</p>
+
+<pre><code>sudo apt-get install android-tools-adb
+</code></pre>
+
+<p>安装完成后，必须确保在命令行下可以顺利的访问adb指令。</p>
+
+<h3>准备安卓设备</h3>
+
+<p>准备一台系统版本是5.1或以上的android设备，按照以下指示进行操作：</p>
+
+<ul>
+<li>开启开发者选项：进入“设置” > “关于手机”，连续点击“版本号”五次或以上</li>
+<li>开启调试：进入“设置” > “开发者选项”，开启“USB调试”</li>
+<li>连接电脑：用USB线将设备连接到电脑，手机弹出是否允许电脑调试对话框，选择允许</li>
+</ul>
+
+
+<h2>Hello World</h2>
+
+<p>准备工作完成，现在正式开始编写代码。新建一个hello_world文件夹，并在其下创建一个文件pubspec.yaml，它的内容如下：</p>
+
+<pre><code>name: hello_world
+dependencies:
+  sky: any
+  sky_tools: any
+</code></pre>
+
+<p>在项目根目录下创建一个lib文件夹，然后在终端中运行pub get，并等待pub下载sky、sky_tools等依赖，完成之后，你的项目结构应该是类似于这样的：</p>
+
+<pre><code>hello_world
+  .pub
+  .packages
+  packages
+  lib
+  pubspec.lock
+  pubspec.yaml
+</code></pre>
+
+<p>Sky默认将lib/main.dart作为应用的入口文件，所以我们在lib文件夹下新建一个main.dart，并敲入以下代码：</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='dart'><span class='line'><span class="k">import</span> <span class="err">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="nl">package:</span><span class="n">sky</span><span class="o">/</span><span class="n">widgets</span><span class="p">.</span><span class="n">dart</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kd">class</span> <span class="nc">HelloWorldApp</span> <span class="kd">extends</span> <span class="n">App</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">Widget</span> <span class="n">build</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="n">Center</span><span class="p">(</span>
+</span><span class='line'>        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">Hello</span><span class="p">,</span> <span class="n">world</span><span class="o">!&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'>            <span class="nl">style:</span> <span class="k">new</span> <span class="n">TextStyle</span><span class="p">(</span>
+</span><span class='line'>                <span class="nl">color:</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mh">0xff38e6c1</span><span class="p">),</span> <span class="nl">fontSize:</span> <span class="m">25.0</span><span class="p">)));</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">runApp</span><span class="p">(</span><span class="k">new</span> <span class="n">HelloWorldApp</span><span class="p">());</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp被实例化并被运行。HelloWorldApp本身很简单，它构建了一个在屏幕中央显示的，指定了色彩跟文字大小的HelloWorld文本。</p>
+
+<h2>运行</h2>
+
+<p>因为目前应用打包功能还不完善，sky提供了一个容器应用SkyShell.apk来运行我们编写的代码，而sky的package里附带了一个sky_tool脚本，它可以帮助我们来执行这项操作。</p>
+
+<p>在命令行下进入项目根目录，执行以下指令：</p>
+
+<pre><code>./packages/sky/sky_tool start
+</code></pre>
+
+<p>这个指令执行的操作是：启动dev server，并自动在设备上安装SkyShell.apk，然后把代码上传到SkyShell中运行。</p>
+
+<p>如果你想让dart代码运行在checked模式，你也可以这样：</p>
+
+<pre><code>./packages/sky/sky_tool start --checked
+</code></pre>
+
+<p>如果你想查看错误日志以及print函数所打印的信息，你可以另开一个终端执行：</p>
+
+<pre><code>./packages/sky/sky_tool logs
+</code></pre>
+
+<p>当然，也可以把指令合并起来执行：</p>
+
+<pre><code>./packages/sky/sky_tool start --checked &amp;&amp; ./packages/sky/sky_tool logs
+</code></pre>
+
+<p>另外，如果不想一次次手动执行start指令，你可以这样（类似于web开发里面的livereload，只要文件一被修改，应用自动重新加载）：</p>
+
+<pre><code>./packages/sky/sky_tool listen
+</code></pre>
+
+<h2>效果</h2>
+
+<p>检验成果的时候到了，运行效果如下：</p>
+
+<p>  <img src="/images/custom/dart/sky/hello_world.png" /></p>
+
+<p>运行效果没有什么惊喜，毕竟只是一个HelloWorld，希望以后可以写点更复杂的应用吧。</p>
+
+<h2>结语</h2>
+
+<p>虽然整个过程稍显麻烦，但毕竟sky是处于初期阶段，各方面的不完善是情有可原的。单纯从开发的流程上来讲，我个人认为，sky比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉。最后，希望sky能够快速的成长起来，成为未来移动开发的中坚力量。</p>
+
+<p>以上。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Dartlang实践：Dart SDK安装指南]]></title>
@@ -299,206 +456,6 @@ Bob曾是EA（艺电）公司的一名游戏开发工程师，而且写过一本
 
 <p>*Dart项目组还有很多优秀的工程师，希望后面可以再补充。<br>
 **以上信息大都收集整理自互联网，准确性有待商榷，如有错误之处，欢迎指正。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Dartlang译文：Dart快速入门]]></title>
-    <link href="http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start/"/>
-    <updated>2014-12-18T12:07:36+08:00</updated>
-    <id>http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start</id>
-    <content type="html"><![CDATA[<p>  译注：本文是博主的原创翻译，转载请添加本文链接并标明出处。本文翻译的是Google Dart项目组撰写的《Dart：Up and Running》的第一章。文中存在一些新近出现、暂无标准翻译的技术向词语，已使用星号做了标注，在文章尾部附注可以查看它们的原文。博主的语文跟英语都很菜，如有翻译不妥或错误之处请多见谅。水平有限，本文仅作参考。</p>
-
-<hr />
-
-<p><br/>
-  欢迎你来学习Dart！Dart是一个开源、开箱即用的（*1），专注于构建HTML5 web应用的开发平台。本文将告诉你Google为什么要创造Dart，Dart具有哪些酷炫的特性，以及如何编写、运行你的第一个Dart应用。</p>
-
-<p>  Dart不仅是一门新的语言，它还提供了标准库、编辑器、虚拟机（VM）、一个能直接运行Dart的浏览器，以及将Dart代码编译为JavaScript的编译器。Dart立志成为一个更加高效的开发工具，能够开发出满足用户需求的，高性能的现代应用。</p>
-
-<h3>Google为什么要创造Dart</h3>
-
-<p>  Google始终致力于使Web变得更好。我们（译者注：指Google，下同）编写了很多web应用，它们大都异常复杂，如：Gmail，Google Calendar，Google+等。我们希望web应用能快速加载、运行流畅、有趣而富有吸引力。我们想让不同知识背景的开发者都能够在浏览器上创建高质量的应用。<!-- more --></p>
-
-<p>  Google Chrome - 作为Google对推动web发展的贡献之一，是Google在web平台停滞不前的时期所创造的，它成功了！如下图所示，从2008年Chrome诞生开始，各家浏览器的速度都得到了极大的提升。</p>
-
-<p>  注意：Chrome之所以能提供高速的web浏览体验，大都归功于它的JavaScript引擎 - V8。而现在，许多V8的工程师都投入到了Dart项目中。</p>
-
-<p>  <img src="/images/custom/dart/chrome_browser_speed.png" /></p>
-
-<p>  浏览器的新特性也在不断增加，比如：WebGL，FileSystem，Webworkers以及WebSockets等。浏览器也具备了自动更新能力，能够及时地向用户推送新的特性跟补丁。移动设备如平板电脑跟手机，也拥有了支持大部分HTML5特性的现代浏览器。</p>
-
-<p>  虽然web平台有着上述非常多的改进，但开发者的体验却没有随之而改善。我们认为，在当前的web平台下，构建大型、复杂的web应用，还是非常麻烦的。趁手的web开发工具来的太慢，并且还远落后于其他开发平台。换个说法，也就是你需要熟知web开发的方方面面，才能为现代web开发应用。另外，虽然JavaScript引擎变得越来越快，但web应用的启动还是很慢。</p>
-
-<p>  我们希望Dart能在以下两个方面改善web：</p>
-
-<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 更好的性能：作为虚拟机工程师，Dart的设计者知道怎样构建一门高性能的语言。一个结构更缜密的语言，更容易进行优化；而一个全新的虚拟机，也使得许多改进成为可能，比如：更快的启动速度。</p>
-
-<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 更好的效率：对库及包的支持，使开发人员更容易与他人协作，更容易在不同项目共享代码。类型使得API更加清晰与易用。配套的工具也能帮助你检索、重构、调试代码。</p>
-
-<h3>Dart初探</h3>
-
-<p>  闻名不如见面，以下是一小段Dart代码：</p>
-
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kr">import</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">dart</span><span class="o">:</span><span class="nx">math</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;;</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="kr">class</span> <span class="nx">Point</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">num</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">;</span>
-</span><span class='line'>  <span class="nx">Point</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
-</span><span class='line'>  <span class="nx">num</span> <span class="nx">distanceTo</span><span class="p">(</span><span class="nx">Point</span> <span class="nx">other</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">dx</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">-</span> <span class="nx">other</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">dy</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">-</span> <span class="nx">other</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">return</span> <span class="nx">sqrt</span><span class="p">(</span><span class="nx">dx</span> <span class="o">*</span> <span class="nx">dx</span> <span class="o">+</span> <span class="nx">dy</span> <span class="o">*</span> <span class="nx">dy</span><span class="p">);</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">q</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-</span><span class='line'>  <span class="nx">print</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">distance</span> <span class="nx">from</span> <span class="nx">p</span> <span class="nx">to</span> <span class="nx">q</span> <span class="o">=</span> <span class="nx">$</span><span class="p">{</span><span class="nx">p</span><span class="p">.</span><span class="nx">distanceTo</span><span class="p">(</span><span class="nx">q</span><span class="p">)}</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></p>
-
-<p>  当然，Dart的主要使用场景是编写现代web应用，为浏览器编程其实也很简单：</p>
-
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kr">import</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">dart</span><span class="o">:</span><span class="nx">html</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;;</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ButtonElement</span><span class="p">();</span>
-</span><span class='line'>  <span class="nx">button</span><span class="p">..</span><span class="nx">id</span> <span class="o">=</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">confirm</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">..</span><span class="nx">text</span> <span class="o">=</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">Click</span> <span class="nx">to</span> <span class="nx">Confirm</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">..</span><span class="nx">classes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">important</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;)</span>
-</span><span class='line'>        <span class="p">..</span><span class="nx">onClick</span><span class="p">.</span><span class="nx">listen</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">Confirmed</span><span class="o">!&amp;</span><span class="nx">rsquo</span><span class="p">;));</span>
-</span><span class='line'>  <span class="nx">querySelector</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">#</span><span class="nx">registration</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">children</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">button</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></p>
-
-<p>  你将在第二章及第三章，更详细的学习Dart语言及它的标准库。（译者注：这里是指《Dart：Up and Running》的第二、三章）</p>
-
-<h3>Dart的酷炫特性</h3>
-
-<p>  Dart的代码看起来似曾相识，但请不要被迷惑。Dart提供了许多新的特性，使你能更加高效的、充满乐趣的去构建下一代web应用。</p>
-
-<p>  Dart简单易学，大部分开发者都可以快速学习它。它不仅有着熟悉的语法，还是一门拥有类、单继承、词法作用域、顶层函数等诸多特性的面向对象语言。许多开发者在数小时内就可以上手。</p>
-
-<p>  Dart会被编译成JavaScript。为了使Dart兼容种类繁多的现代浏览器，Dart在最开始就被设计成能够编译为JavaScript的。Dart的每个特性，在被加入之前，都经过慎重考虑，因为必须确保它们能被编译成高效、符合逻辑的JavaScript代码。当然，Dart也有自己的底线，它不支持老土、过时的浏览器。</p>
-
-<p>  Dart可以运行在客户端和服务器上。Dart虚拟机不仅能集成在浏览器中，还能够独立运行在命令行之上。Dart内置的标准库覆盖了文件、文件夹、套接字甚至web服务器等各个方面，你完全可以使用Dart来开发完全端到端（*2）的应用。</p>
-
-<p>  Dart提供一个轻量的编辑器 - Dart Editor。你可以使用它来编写、运行以及调试Dart应用。Dart Editor提供代码自动完成、检测隐藏Bug、调试命令行及web应用，乃至重构等诸多功能。Dart Editor并不是编写Dart应用的必需品，它只是让你能更快更好的进行编码。（译者注：WebStorm、Sublime Text等都有Dart插件）</p>
-
-<p>  Dart支持类型，但不强制使用。当你想进行快速开发，或者代码的结构还没有确定，又或者你觉得现有类型无法满足你的需求，你都可以省略类型。当你的应用开始成形，代码的结构变得清晰，其他开发者也慢慢加入时，你就可以给代码添加类型了。Dart的可选类型是静态的注解，能够作为代码的文档，清晰的表达你的意图。使用类型意味着你能节省不少代码注释，而开发工具也能提供更好的警告与错误信息。</p>
-
-<p>  Dart能胜任小至简单脚本，大到复杂应用。Web开发其实是一个迭代的过程。有浏览器的重新加载按钮充当编译器，编写web应用原型只需要你编写几个函数就搞定了，这在某种程度上成了一种乐趣。当你的想法更加成熟时，就可以添加更多的代码与逻辑。得益于Dart对顶层函数、可选类型、类与库的支持，你的应用可以不断成长。代码不断进化，而Dart Editor这样的工具，可以帮助你对它们进行检查、重构。</p>
-
-<p>  Dart有非常多的内置标致库。核心库支持内置类型以及其他基础特性，如：集合、日期及正则表达式等。HTML库则用来编写web应用，它像我们熟悉的DOM编程，只是为Dart做了优化。命令行应用可以使用I/O库来操作文件、文件夹、套接字、服务器等等。其他库还包括了URI、UTF、Crypto、Math以及Unit test等。</p>
-
-<p>  Dart使用isolates（*3）来支持安全而简便的并发编程。传统的线程是共享内存的，它们难于调试并可能导致死锁。而Dart的isolates，受Erlang的启发，使用了一个更简单易懂的模式来运行并发且被隔离的代码。isolates的创建过程低耗、快速，而且没有状态信息被共享。</p>
-
-<p>  Dart支持代码共享与复用。传统的web开发不能方便的整合第三方代码。使用Dart的包管理器（pub）和库等特性，你可以轻松的搜索、安装、集成来自互联网及其他公司的代码。</p>
-
-<p>  Dart是开源的。Dart是为web而生的，它使用类似BSD的协议。你可以在线查看Dart项目的<a href="https://code.google.com/p/dart/">源码以及Bug</a>。或许你下次可以提交一个补丁呢？</p>
-
-<h3><a name="up-and-running"></a>走起（*4）</h3>
-
-<p>  现在你应该对Dart有了大概的了解，是时候写代码了。以下的操作都是使用开源的编辑器Dart Editor。在你下载完Dart后，你不仅拥有了Dart Editor，还获得了Dart转JavaScript编译器，以及一个内置了Dart虚拟机的定制版Chromium（昵称为Dartium）。</p>
-
-<p>  注意：如果在安装使用Dart Editor时碰到问题，请查看<a href="https://www.dartlang.org/tools/editor/troubleshoot.html">Dart Editor故障排查</a>。</p>
-
-<h4>步骤1：下载安装软件包</h4>
-
-<p>  在此步骤中，你将安装Dart Editor。如果你没有安装Java，就还要安装Java运行环境。（如果你不想修改环境变量，你可以把JRE直接放到你的Dart安装目录下，注意文件夹名称必须是jre）</p>
-
-<ol>
-<li>下载<a href="https://www.dartlang.org/tools/download.html">Dart与Dart Editor</a></li>
-<li>将你下载的文件解压，得到一个文件夹，我们把它称为Dart的安装目录。这个文件夹里面包含了Dart Editor执行文件以及其他子文件夹。</li>
-<li>如果你没有安装Java，请去下载并安装它。Dart Editor需要Java 6或以上的版本才能运行。</li>
-</ol>
-
-
-<h4>步骤2：启动编辑器</h4>
-
-<p>  进入Dart安装目录，双击DartEditor执行文件<img src="/images/custom/dart/dart_logo.png" />。</p>
-
-<p>  你应该会看到Dart Editor的应用窗口被打开，就像下面这张图一样：
-  <img src="/images/custom/dart/dart_editor_open.png" /></p>
-
-<h4>步骤3：运行demo</h4>
-
-<p>  Dart Editor附带了不少demo。在此步骤中，你将打开一个web应用，并让它在Dartium中运行。</p>
-
-<ol>
-<li>点击<strong>Welcome</strong>选项卡，或是从<strong>Tools</strong>菜单中选择<strong>Welcome Page</strong>。</li>
-<li>进入Welecome选项卡，点击标题为<strong>Sunflower</strong>的图片。Dart Editor将会创建一份<a href="https://github.com/dart-lang/sample-sunflower">Sunflower app</a>的拷贝，编辑区则会显示web/sunflower.dart文件的内容。</li>
-<li>点击Run按钮<img src="/images/custom/dart/run_button.png" />。Dart Editor会打开Dartium，并使其加载sunflower.html文件。（<strong>注意</strong>：Dartium还处于技术预览期，它在安全性与稳定性方面，存在一定的问题，所以请不要使用Dartium作为你的主要浏览器。）</li>
-<li>使用页面上的滑块来改变太阳花的形状，如下图：
-<img src="/images/custom/dart/slider_sunflower.png" /></li>
-</ol>
-
-
-<h4>步骤4：创建并运行一个应用</h4>
-
-<p>  从头开始创建一个简单的web或命令行应用是非常简单的。以下步骤将带你创建运行一个命令行应用：</p>
-
-<ol>
-<li>点击新建应用按钮<img src="/images/custom/dart/app_new_button.png" />（它位于Dart Editor的左上角），或者是选择<strong>File > New Application</strong>菜单项，又或者是点击<strong>Welcome</strong>选项卡里面的<strong>Create an Application&hellip;</strong>按钮。一个对话框将会弹出（参见下图）。</li>
-<li>填写应用的名称，比如：hello_world。如果你不喜欢默认保存路径，请填写一个新的路径或者选择一个新的目录。</li>
-<li>请确保<strong>Generate sample content</strong>与<strong>Command-line application</strong>是被选中的。然后点击<strong>Finish</strong>，完成新建过程。</li>
-</ol>
-
-
-<p>  <img src="/images/custom/dart/app_new_dialog.png" /></p>
-
-<p>  默认创建的Dart文件将在编辑区被打开，它所在文件夹也显示在文件视图区。此时，你的Dart Editor应该类似于下图：</p>
-
-<p>  <img src="/images/custom/dart/app_init.png" /></p>
-
-<p>4.点击Run按钮<img src="/images/custom/dart/run_button.png" />运行你新编写的应用。对命令行应用来说，print()函数产生的输出将展现在Dart Editor的底部右侧，位于<strong>Problems</strong>选项卡旁边的某个选项卡中。</p>
-
-<p>译文结束。
-更新于：2015-05-04</p>
-
-<hr />
-
-<p><br/>
-附注：<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*1 batteries-included <-> 开箱即用 (参考了知乎 - <a href="http://www.zhihu.com/question/24710451">http://www.zhihu.com/question/24710451</a>)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*2 full end-to-end <-> 完全端到端 (无知翻译)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*3 isolates (未翻译)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*4 up and running <-> 走起 (逗比翻译)</p>
-
-<hr />
-
-<p><br/>
-本文地址：<a href="http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start/">http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start/</a><br/>
-原文地址：<a href="https://www.dartlang.org/docs/dart-up-and-running/ch01.html">https://www.dartlang.org/docs/dart-up-and-running/ch01.html</a></p>
 ]]></content>
   </entry>
   
