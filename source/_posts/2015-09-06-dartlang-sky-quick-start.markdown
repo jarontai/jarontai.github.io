@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Dart移动开发框架SKY快速上手指南"
+title: "Dart移动开发框架Sky快速上手指南"
 date: 2015-09-06 17:05:16 +0800
 comments: true
 categories: dart sky
