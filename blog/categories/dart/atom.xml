@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dart | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dart/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-09-08T14:33:39+08:00</updated>
+  <updated>2015-09-08T14:51:11+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -20,7 +20,7 @@
     <id>http://jarontai.github.io/blog/2015/09/06/dartlang-sky-quick-start</id>
     <content type="html"><![CDATA[<h3>引言</h3>
 
-<p><a href="https://github.com/domokit/sky_engine">Sky</a>是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky_engine依赖chromium的<a href="https://github.com/domokit/mojo">mojo</a>），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以用它写点简单的东西了。本文将带你了解如何配置sky的开发环境，并编写一个简单的Hello World。</p>
+<p><a href="https://github.com/domokit/sky_engine">Sky</a>是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky_engine依赖chromium的<a href="https://github.com/domokit/mojo">mojo</a>），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以拿来写点简单的东西了。本文的内容就是让你了解如何配置sky的开发环境，并编写一个简单的Hello World。</p>
 
 <h4>注意:</h4>
 
