@@ -6,7 +6,7 @@ comments: true
 categories: dart sky
 ---
 ### 引言
-[Sky](https://github.com/domokit/sky_engine)是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky_engine依赖chromium的[mojo](https://github.com/domokit/mojo)），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以用它写点简单的东西了。本文将带你了解如何配置sky的开发环境，并编写一个简单的Hello World。
+[Sky](https://github.com/domokit/sky_engine)是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky_engine依赖chromium的[mojo](https://github.com/domokit/mojo)），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以拿来写点简单的东西了。本文的内容就是让你了解如何配置sky的开发环境，并编写一个简单的Hello World。
 
 #### 注意:
 * Sky现在对ios开发的支持还不完善，所以本文将只会以android开发来进行讲解。
