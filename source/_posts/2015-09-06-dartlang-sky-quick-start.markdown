@@ -69,7 +69,7 @@ class HelloWorldApp extends App {
     return new Center(
         child: new Text('Hello, world!',
             style: new TextStyle(
-                color: new Color(0xff38e6c1), fontSize: 25.0)));
+                color: new Color(0xFF01FFFF), fontSize: 25.0)));
   }
 }
 
