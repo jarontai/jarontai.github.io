@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sky | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/sky/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-09-08T11:46:35+08:00</updated>
+  <updated>2015-09-08T12:20:14+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -121,7 +121,7 @@ dependencies:
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p>应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp被实例化并被运行。HelloWorldApp本身很简单，它构建了一个在屏幕中央显示的，指定了色彩跟文字大小的HelloWorld文本。</p>
+<p>应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp被实例化并被运行。HelloWorldApp本身很简单，它构建了一个在屏幕中央显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看这个<a href="https://github.com/domokit/sky_engine/blob/master/sky/packages/sky/lib/src/widgets/README.md">widget tutorial</a>。</p>
 
 <h2>运行</h2>
 
