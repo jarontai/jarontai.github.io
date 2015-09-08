@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sky | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/sky/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-09-08T12:20:14+08:00</updated>
+  <updated>2015-09-08T14:28:00+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -112,7 +112,7 @@ dependencies:
 </span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="n">Center</span><span class="p">(</span>
 </span><span class='line'>        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">Hello</span><span class="p">,</span> <span class="n">world</span><span class="o">!&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
 </span><span class='line'>            <span class="nl">style:</span> <span class="k">new</span> <span class="n">TextStyle</span><span class="p">(</span>
-</span><span class='line'>                <span class="nl">color:</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mh">0xff38e6c1</span><span class="p">),</span> <span class="nl">fontSize:</span> <span class="m">25.0</span><span class="p">)));</span>
+</span><span class='line'>                <span class="nl">color:</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mh">0xFF01FFFF</span><span class="p">),</span> <span class="nl">fontSize:</span> <span class="m">25.0</span><span class="p">)));</span>
 </span><span class='line'>  <span class="p">}</span>
 </span><span class='line'><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
