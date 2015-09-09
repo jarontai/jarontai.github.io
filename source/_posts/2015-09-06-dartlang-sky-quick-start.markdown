@@ -109,8 +109,9 @@ void main() {
 检验成果的时候到了，运行效果如下：
 
   <img src="{{ root_url }}/images/custom/dart/sky/hello_world.png" />
+  <img src="{{ root_url }}/images/custom/dart/sky/hello_world_landscape.png" />
 
-运行效果没有什么惊喜，毕竟只是一个HelloWorld，希望以后可以写点更复杂的应用吧。
+运行效果没有什么惊喜（但是支持横屏竖屏自适应布局？！），毕竟只是一个HelloWorld，希望以后可以写点更复杂的应用吧。
 
 ## 结语
 虽然整个过程稍显麻烦，但毕竟sky是处于初期阶段，各方面的不完善是情有可原的。单纯从开发的流程上来讲，我个人认为，sky比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉。最后，希望sky能够快速的成长起来，成为未来移动开发的中坚力量。
