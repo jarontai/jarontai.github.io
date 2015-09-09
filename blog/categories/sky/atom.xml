@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sky | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/sky/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-09-08T20:08:11+08:00</updated>
+  <updated>2015-09-09T10:15:33+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -158,9 +158,10 @@ dependencies:
 
 <p>检验成果的时候到了，运行效果如下：</p>
 
-<p>  <img src="/images/custom/dart/sky/hello_world.png" /></p>
+<p>  <img src="/images/custom/dart/sky/hello_world.png" />
+  <img src="/images/custom/dart/sky/hello_world_landscape.png" /></p>
 
-<p>运行效果没有什么惊喜，毕竟只是一个HelloWorld，等以后再写点更复杂的应用吧。</p>
+<p>运行效果没有什么惊喜（但是支持横屏竖屏自适应布局？！），毕竟只是一个HelloWorld，等以后再写点更复杂的应用吧。</p>
 
 <h2>结语</h2>
 
