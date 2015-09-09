@@ -1,18 +1,18 @@
 ---
 layout: post
-title: "Dart移动开发框架SKY快速上手指南"
+title: "Dart移动开发框架Sky快速上手指南"
 date: 2015-09-06 17:05:16 +0800
 comments: true
 categories: dart sky
 ---
 ### 引言
-[Sky](https://github.com/domokit/sky_engine)是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky_engine依赖chromium的[mojo](https://github.com/domokit/mojo)），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以拿来写点简单的东西了。本文的内容就是让你了解如何配置sky的开发环境，并编写一个简单的Hello World。
+[Sky](https://github.com/domokit/sky_engine)是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky底层框架依赖chromium的[mojo](https://github.com/domokit/mojo)），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以拿来写点简单的东西了。本文的内容就是让你了解如何配置sky的开发环境，并编写一个简单的Hello World。
 
 #### 注意:
 * Sky现在对ios开发的支持还不完善，所以本文将只会以android开发来进行讲解。
 * Sky的应用打包功能也还没有完善，所以本文将不会对此进行讲解（现有代码都是在Sky Shell中运行）。
 * Sky目前要求Android 5.1或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（不确定）。
-* 虽然本文的操作都是在Mac下进行的，但大致的流程应该也适用于Linux，Windows。
+* 虽然本文的操作都是在Mac下进行的，但大致的流程应该也适用于Linux、Windows。
 
 ## 开发环境配置
 
@@ -78,7 +78,7 @@ void main() {
 }
 {% endcodeblock %}
 
-应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp被实例化并被运行。HelloWorldApp本身很简单，它构建了一个在屏幕中央显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看这个[widget tutorial](https://github.com/domokit/sky_engine/blob/master/sky/packages/sky/lib/src/widgets/README.md)。
+应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp被实例化并被运行。HelloWorldApp本身很简单，它构建了一个在屏幕中央显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的[widget tutorial](https://github.com/domokit/sky_engine/blob/master/sky/packages/sky/lib/src/widgets/README.md)。
 
 ## 运行
 因为目前应用打包功能还不完善，sky提供了一个容器应用SkyShell.apk来运行我们编写的代码，而sky的package里附带了一个sky_tool脚本，它可以帮助我们来执行这项操作。
@@ -111,9 +111,9 @@ void main() {
   <img src="{{ root_url }}/images/custom/dart/sky/hello_world.png" />
   <img src="{{ root_url }}/images/custom/dart/sky/hello_world_landscape.png" />
 
-运行效果没有什么惊喜（但是支持横屏竖屏自适应布局？！），毕竟只是一个HelloWorld，希望以后可以写点更复杂的应用吧。
+运行效果没有什么惊喜（但是支持横屏竖屏自适应布局？！），毕竟只是一个HelloWorld，等以后再写点更复杂的应用吧。
 
 ## 结语
-虽然整个过程稍显麻烦，但毕竟sky是处于初期阶段，各方面的不完善是情有可原的。单纯从开发的流程上来讲，我个人认为，sky比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉。最后，希望sky能够快速的成长起来，成为未来移动开发的中坚力量。
+虽然还有很多有待完善的地方，但单从开发流程上来讲，我个人认为，sky比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉，希望sky能够快速的成长起来，成为未来移动开发的中坚力量。
 
 以上。
