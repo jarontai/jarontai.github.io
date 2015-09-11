@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sky | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/sky/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-09-09T21:24:52+08:00</updated>
+  <updated>2015-09-11T20:01:17+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -27,7 +27,7 @@
 <ul>
 <li>Sky现在对ios开发的支持还不完善，所以本文将只会以android开发来进行讲解。</li>
 <li>Sky的应用打包功能也还没有完善，所以本文将不会对此进行讲解（现有代码都是在Sky Shell中运行）。</li>
-<li>Sky目前要求Android 5.1或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（不确定）。</li>
+<li>Sky目前要求Android 5.0或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（不确定）。</li>
 <li>虽然本文的操作都是在Mac下进行的，但大致的流程应该也适用于Linux、Windows。</li>
 </ul>
 
@@ -59,7 +59,7 @@
 
 <h3>准备安卓设备</h3>
 
-<p>准备一台系统版本是5.1或以上的android设备，按照以下指示进行操作：</p>
+<p>准备一台系统版本是5.0或以上的android设备，按照以下指示进行操作：</p>
 
 <ul>
 <li>开启开发者选项：进入“设置” > “关于手机”，连续点击“版本号”五次或以上</li>
