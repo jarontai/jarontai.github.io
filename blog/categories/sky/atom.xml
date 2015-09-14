@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sky | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/sky/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-09-12T14:45:31+08:00</updated>
+  <updated>2015-09-14T09:59:16+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -121,7 +121,7 @@ dependencies:
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p>应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp被实例化并被运行。HelloWorldApp本身很简单，它构建了一个在屏幕中央显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的<a href="https://github.com/domokit/sky_engine/blob/master/sky/packages/sky/lib/src/widgets/README.md">widget tutorial</a>。</p>
+<p>应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp被实例化并被运行。HelloWorldApp本身很简单，它构建了一个在屏幕中央显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的<a href="https://flutter.github.io/tutorial/">widget tutorial</a>。</p>
 
 <h2>运行</h2>
 
@@ -168,6 +168,15 @@ dependencies:
 <p>虽然各个方面都还有待完善，但单从开发流程上来讲，我个人认为，sky比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉，希望sky能够快速的成长起来，成为未来移动开发的中坚力量。</p>
 
 <p>以上。</p>
+
+<hr />
+
+<h3>更新记录</h3>
+
+<ol>
+<li>2015.09.14 更改部分文字，更新官方的widget tutorial</li>
+</ol>
+
 ]]></content>
   </entry>
   
