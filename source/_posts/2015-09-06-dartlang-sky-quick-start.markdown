@@ -78,7 +78,7 @@ void main() {
 }
 {% endcodeblock %}
 
-应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp被实例化并被运行。HelloWorldApp本身很简单，它构建了一个在屏幕中央显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的[widget tutorial](https://github.com/domokit/sky_engine/blob/master/sky/packages/sky/lib/src/widgets/README.md)。
+应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp被实例化并被运行。HelloWorldApp本身很简单，它构建了一个在屏幕中央显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的[widget tutorial](https://flutter.github.io/tutorial/)。
 
 ## 运行
 因为目前应用打包功能还不完善，sky提供了一个容器应用SkyShell.apk来运行我们编写的代码，而sky的package里附带了一个sky_tool脚本，它可以帮助我们来执行这项操作。
@@ -117,3 +117,7 @@ void main() {
 虽然各个方面都还有待完善，但单从开发流程上来讲，我个人认为，sky比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉，希望sky能够快速的成长起来，成为未来移动开发的中坚力量。
 
 以上。
+
+---
+###更新记录
+1. 2015.09.14 更改部分文字，更新官方的widget tutorial
