@@ -101,7 +101,7 @@ void main() {
 
     ./packages/sky/sky_tool start --checked && ./packages/sky/sky_tool logs
 
-另外，如果不想一次次手动执行start指令，你可以这样（类似于web开发里面的livereload，只要文件一被修改，应用自动重新加载）：
+另外，如果不想一次次手动执行start指令，你可以这样（类似于web前端开发里面的livereload，只要文件一被修改，应用自动重新加载）：
 
     ./packages/sky/sky_tool listen
 
@@ -111,10 +111,10 @@ void main() {
   <img src="{{ root_url }}/images/custom/dart/sky/hello_world.png" />
   <img src="{{ root_url }}/images/custom/dart/sky/hello_world_landscape.png" />
 
-运行效果没有什么惊喜（但是支持横屏竖屏自适应布局？！），毕竟只是一个HelloWorld，等以后再写点更复杂的应用吧。
+运行效果没有什么惊喜，毕竟只是一个HelloWorld，等以后再写点更复杂的应用吧。
 
 ## 结语
-虽然各个方面都还有待完善，但单从开发流程上来讲，我个人认为，sky比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉，希望sky能够快速的成长起来，成为未来移动开发的中坚力量。
+虽然很多方面都还有待完善，但从整个Hello World的开发体验来讲，我个人认为，Sky比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉，希望sky能够快速的成长起来，成为未来移动开发的中坚力量。
 
 以上。
 
