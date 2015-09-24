@@ -9,6 +9,7 @@ categories: dart sky
 [Sky](https://github.com/domokit/sky_engine)是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky底层框架依赖chromium的[mojo](https://github.com/domokit/mojo)），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以拿来写点简单的东西了。本文的内容就是让你了解如何配置sky的开发环境，并编写一个简单的Hello World。
 
 #### 注意:
+* 笔者当前使用的Sky的版本为0.0.47，但因为Sky的API变化很快，所以不能保证本文的指令跟代码能够适用于后续更新的版本。
 * Sky目前对ios开发的支持还不完善，所以本文将只会以android开发来进行讲解。
 * Sky的应用打包功能也还没有完善，所以本文将不会对此进行讲解（Sky应用目前是在SkyShell中运行的）。
 * Sky目前要求Android 5.0或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（不确定）。
@@ -121,3 +122,4 @@ void main() {
 ---
 ###更新记录
 1. 2015.09.14 更改部分文字，更新官方的widget tutorial
+2. 2015.09.24 注明Sky的版本
