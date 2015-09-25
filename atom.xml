@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-09-24T10:03:34+08:00</updated>
+  <updated>2015-09-25T16:28:10+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -188,7 +188,7 @@ dependencies:
     <link href="http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/"/>
     <updated>2015-08-21T14:24:01+08:00</updated>
     <id>http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion</id>
-    <content type="html"><![CDATA[<p>本文讲解了如何在不同平台上利用工具自动（非手动）安装Dart SDK，适合初次接触dartlang的开发者。</p>
+    <content type="html"><![CDATA[<p>本文讲解了如何在Mac/Windows/Linux上自动化安装Dart SDK，适合初次接触dartlang的开发者。如果你需要手动下载安装，请访问 - <a href="https://www.dartlang.org/downloads/archive/">https://www.dartlang.org/downloads/archive/</a> 。</p>
 
 <p>注意：因为安装过程中需要访问google的资源站点，请确保你能够访问google（科学上网）。</p>
 
