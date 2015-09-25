@@ -5,7 +5,7 @@ date: 2015-08-21 14:24:01 +0800
 comments: true
 categories: dart
 ---
-本文讲解了如何在不同平台上利用工具自动（非手动）安装Dart SDK，适合初次接触dartlang的开发者。
+本文讲解了如何在Mac/Windows/Linux上自动化安装Dart SDK，适合初次接触dartlang的开发者。如果你需要手动下载安装，请访问 - https://www.dartlang.org/downloads/archive/ 。
 
 注意：因为安装过程中需要访问google的资源站点，请确保你能够访问google（科学上网）。
 
