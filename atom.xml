@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-10-14T11:46:12+08:00</updated>
+  <updated>2015-10-19T12:18:02+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -14,22 +14,21 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Dart移动开发框架Sky快速上手指南]]></title>
-    <link href="http://jarontai.github.io/blog/2015/09/06/dartlang-sky-quick-start/"/>
+    <title type="html"><![CDATA[Dart移动开发框架Flutter快速上手指南]]></title>
+    <link href="http://jarontai.github.io/blog/2015/09/06/dartlang-flutter-quick-start/"/>
     <updated>2015-09-06T17:05:16+08:00</updated>
-    <id>http://jarontai.github.io/blog/2015/09/06/dartlang-sky-quick-start</id>
+    <id>http://jarontai.github.io/blog/2015/09/06/dartlang-flutter-quick-start</id>
     <content type="html"><![CDATA[<h3>引言</h3>
 
-<p><a href="https://github.com/domokit/sky_engine">Sky</a>是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架（sky底层框架依赖chromium的<a href="https://github.com/domokit/mojo">mojo</a>），虽然还处于初级阶段（版本号还处于0.0.X），但已经可以拿来写点简单的东西了。本文的内容就是让你了解如何配置sky的开发环境，并编写一个简单的Hello World。</p>
+<p><a href="http://flutter.io/">Flutter</a>是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架，虽然还处于初级阶段（版本号还处于0.0.X），但已经可以拿来写点简单的东西了。本文的内容就是让你了解如何配置flutter的开发环境，并编写一个简单的Hello World。</p>
 
 <h4>注意:</h4>
 
 <ul>
-<li>笔者当前使用的Sky的版本为0.0.47，但因为Sky的API变化很快，所以不能保证本文的指令跟代码能够适用于后续更新的版本。</li>
-<li>Sky目前对ios开发的支持还不完善，所以本文将只会以android开发来进行讲解。</li>
-<li>Sky的应用打包功能也还没有完善，所以本文将不会对此进行讲解（Sky应用目前是在SkyShell中运行的）。</li>
-<li>Sky目前要求Android 5.0或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（不确定）。</li>
-<li>虽然本文的操作都是在Mac下进行的，但大致的流程应该也适用于Linux、Windows。</li>
+<li>Flutter目前对ios开发的支持还不完善，所以本文将只以android开发来进行讲解。</li>
+<li>Flutter的应用打包功能也还没有完善，所以本文暂时不会对此进行讲解。</li>
+<li>Flutter目前要求Android 5.0或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（未确定）。</li>
+<li>本文的操作都是在Mac下进行的，大致的流程应该也应该适用于Linux（flutter对Windows的支持将在不久后推出）。</li>
 </ul>
 
 
@@ -75,11 +74,12 @@
 
 <pre><code>name: hello_world
 dependencies:
-  sky: any
+  flutter: "&gt;=0.0.6 &lt;0.1.0"
+dev_dependencies:
   sky_tools: any
 </code></pre>
 
-<p>在项目根目录下创建一个lib文件夹，然后在终端中运行pub get，并等待pub下载sky、sky_tools等依赖，完成之后，你的项目结构应该是类似于这样的：</p>
+<p>在项目文件夹下创建一个lib文件夹，然后在终端中进入项目根目录，执行pub get指令下载依赖，完成之后，项目的文件夹结构应该是类似于这样的：</p>
 
 <pre><code>hello_world
   .pub
@@ -90,7 +90,7 @@ dependencies:
   pubspec.yaml
 </code></pre>
 
-<p>Sky默认将lib/main.dart作为应用的入口文件，所以我们在lib文件夹下新建一个main.dart，并敲入以下代码：</p>
+<p>Flutter默认将lib/main.dart作为应用的入口文件，所以我们在lib文件夹下新建一个main.dart，并敲入以下代码：</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -106,14 +106,14 @@ dependencies:
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='dart'><span class='line'><span class="k">import</span> <span class="s1">&#39;package:sky/widgets.dart&#39;</span><span class="p">;</span>
+</pre></td><td class='code'><pre><code class='dart'><span class='line'><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'><span class="kd">class</span> <span class="nc">HelloWorldApp</span> <span class="kd">extends</span> <span class="n">App</span> <span class="p">{</span>
-</span><span class='line'>  <span class="n">Widget</span> <span class="n">build</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'><span class="kd">class</span> <span class="nc">HelloWorldApp</span> <span class="kd">extends</span> <span class="n">StatelessComponent</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">build</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="n">Center</span><span class="p">(</span>
 </span><span class='line'>        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="nl">style:</span> <span class="k">new</span> <span class="n">TextStyle</span><span class="p">(</span>
-</span><span class='line'>                <span class="nl">color:</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mh">0xFF01FFFF</span><span class="p">),</span> <span class="nl">fontSize:</span> <span class="m">25.0</span><span class="p">)));</span>
+</span><span class='line'>            <span class="nl">style:</span>
+</span><span class='line'>                <span class="k">new</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">color:</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mh">0xFF01FFFF</span><span class="p">),</span> <span class="nl">fontSize:</span> <span class="m">25.0</span><span class="p">)));</span>
 </span><span class='line'>  <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
@@ -123,37 +123,44 @@ dependencies:
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp被实例化并被运行。HelloWorldApp本身很简单，它构建了一个在屏幕中央显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的<a href="https://flutter.github.io/tutorial/">widget tutorial</a>。</p>
+<p>应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp组件被实例化并被runApp执行。HelloWorldApp代码很简单，它构建了一个在屏幕居中显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的<a href="https://flutter.io/tutorial/">widget tutorial</a>。</p>
 
 <h2>运行</h2>
 
-<p>因为目前应用打包功能还不完善，sky提供了一个容器应用SkyShell.apk来运行我们编写的代码，而sky的package里附带了一个sky_tool脚本，它可以帮助我们来执行这项操作。</p>
+<p>要运行调试我们编写的代码，必须先通过pub激活flutter。</p>
 
-<p>在命令行下进入项目根目录，执行以下指令：</p>
+<p>进入命令行，执行以下指令：</p>
 
-<pre><code>./packages/sky/sky_tool start
+<pre><code>pub global activate flutter
 </code></pre>
 
-<p>这个指令执行的操作是：启动dev server，并自动在设备上安装SkyShell.apk，然后把代码上传到SkyShell中运行。</p>
+<p>此指令将指示pub下载flutter并将其置为全局可见。</p>
 
-<p>如果你想让dart代码运行在checked模式，你也可以这样：</p>
+<p>进入项目目录，执行：</p>
 
-<pre><code>./packages/sky/sky_tool start --checked
+<pre><code>flutter start
+</code></pre>
+
+<p>此指令将在设备上安装一个专门用于调试运行flutter应用的工具-SkyShell.apk，并把当前文件夹下的代码上传到SkyShell中运行。</p>
+
+<p>如果你想让dart代码运行在checked模式，你可以这样：</p>
+
+<pre><code>flutter start --checked
 </code></pre>
 
 <p>如果你想查看错误日志以及print函数所打印的信息，你可以另开一个终端执行：</p>
 
-<pre><code>./packages/sky/sky_tool logs
+<pre><code>flutter logs
 </code></pre>
 
 <p>当然，也可以把指令合并起来执行：</p>
 
-<pre><code>./packages/sky/sky_tool start --checked &amp;&amp; ./packages/sky/sky_tool logs
+<pre><code>flutter start --checked &amp;&amp; flutter logs
 </code></pre>
 
 <p>另外，如果不想一次次手动执行start指令，你可以这样（类似于web前端开发里面的livereload，只要文件一被修改，应用自动重新加载）：</p>
 
-<pre><code>./packages/sky/sky_tool listen
+<pre><code>flutter listen
 </code></pre>
 
 <h2>效果</h2>
@@ -167,7 +174,7 @@ dependencies:
 
 <h2>结语</h2>
 
-<p>虽然很多方面都还有待完善，但从整个Hello World的开发体验来讲，我个人认为，Sky比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉，希望sky能够快速的成长起来，成为未来移动开发的中坚力量。</p>
+<p>虽然很多方面都还有待完善，但从整个Hello World的开发体验来讲，我个人认为，flutter比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉，希望flutter能够快速的成长起来，成为未来移动开发的中坚力量。</p>
 
 <p>以上。</p>
 
@@ -178,6 +185,7 @@ dependencies:
 <ol>
 <li>2015.09.14 更改部分文字，更新官方的widget tutorial</li>
 <li>2015.09.24 注明Sky的版本</li>
+<li>2015.10.19 Sky => Flutter</li>
 </ol>
 
 ]]></content>
