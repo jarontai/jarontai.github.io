@@ -79,7 +79,7 @@ void main() {
 }
 {% endcodeblock %}
 
-应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp组件被实例化并被runApp执行。HelloWorldApp代码很简单，它构建了一个在屏幕居中显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的[widget tutorial](https://flutter.io/tutorial/)。
+在我们的main方法中，一个HelloWorldApp组件被实例化，然后传入runApp方法中运行。HelloWorldApp的代码很简单，它构建了一个在屏幕居中显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的[widget tutorial](https://flutter.io/tutorial/)。
 
 ## 运行
 要运行调试我们编写的代码，必须先通过pub激活flutter。
