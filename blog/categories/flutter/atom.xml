@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flutter | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/flutter/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-10-19T12:18:02+08:00</updated>
+  <updated>2015-10-19T17:24:15+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -122,7 +122,7 @@ dev_dependencies:
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p>应用从main.dart的main方法启动，在我们的main方法中，一个HelloWorldApp组件被实例化并被runApp执行。HelloWorldApp代码很简单，它构建了一个在屏幕居中显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的<a href="https://flutter.io/tutorial/">widget tutorial</a>。</p>
+<p>在我们的main方法中，一个HelloWorldApp组件被实例化，然后传入runApp方法中运行。HelloWorldApp的代码很简单，它构建了一个在屏幕居中显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的<a href="https://flutter.io/tutorial/">widget tutorial</a>。</p>
 
 <h2>运行</h2>
 
