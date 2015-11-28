@@ -34,6 +34,15 @@ Kathy Walrath是一位阅历丰富的技术写手，她曾就职于Sun、NeXT、
 <img src="{{ root_url }}/images/custom/dart/people/Bob.jpg" /><br/>
 Bob曾是EA（艺电）公司的一名游戏开发工程师，而且写过一本关于游戏编程模式的畅销书 [Game Programming Patterns][3]。在加入Dart项目组后，他主导开发了Dart的包管理器 [pub][4]，而且也写了很多关于Dart的文章，其中包括深受开发者欢迎的[Dart编程风格指南][5]。而在最近，Bob开始帮助Dart建立DEP项目 - [Dart Enhancement Proposals][6]（Dart增强建议书），这将使Dart项目组能更好的接收、吸纳来自社区与开发者的建议。
 
+###John McCutchan
+<img src="{{ root_url }}/images/custom/dart/people/john.png" /><br/>
+
+当John还没有本科毕业时，他就编写了[inotify][13]（Linux内核从2.6.13开始引入的系统事件监控框架），现在几乎所有主流的linux系统以及android都在使用它。在进入google前，他曾为索尼的游戏机部门工作多年，在那里他主要负责把[Bullet物理引擎][14]移植到PS3（索尼PlayStation游戏机的第三代）。在加入Dart项目组后，他主要负责开发调试与监控Dart应用的重要工具 - [Observatory][15]。
+
+###Natalie Weizenbaum
+<img src="{{ root_url }}/images/custom/dart/people/natalie.png" /><br/>
+
+Natalie是Dart项目组中为数不多的女程序员，她是在前端开发中非常流行的CSS扩展语言[Sass][16]的主要贡献者。在Dart项目组中，她负责维护与开发众多基础性library，其中就包括 [pub][17], [test][18], [path][19]等。
 
 *Dart项目组还有很多优秀的工程师，希望后面可以再补充。<br>
 **以上信息大都收集整理自互联网，准确性有待商榷，如有错误之处，欢迎指正。
@@ -49,3 +58,11 @@ Bob曾是EA（艺电）公司的一名游戏开发工程师，而且写过一本
   [8]: https://docs.oracle.com/javase/tutorial/
   [9]: https://www.dartlang.org/docs/dart-up-and-running/
   [10]: http://www.amazon.com/Dart-Programming-Language-Gilad-Bracha/dp/0321927702
+
+  [13]: https://zh.wikipedia.org/wiki/Inotify
+  [14]: http://bulletphysics.org/wordpress/
+  [15]: https://dart-lang.github.io/observatory/
+  [16]: http://sass-lang.com/
+  [17]: https://github.com/dart-lang/pub
+  [18]: https://github.com/dart-lang/test
+  [19]: https://github.com/dart-lang/path
