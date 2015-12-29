@@ -11,16 +11,15 @@ categories: dart flutter
 [Flutter](http://flutter.io/)是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架，虽然还处于初级阶段（版本号还处于0.0.X），但已经可以拿来写点简单的东西了。本文的内容就是让你了解如何配置flutter的开发环境，并编写一个简单的Hello World。
 
 #### 注意:
-* Flutter的引擎跟框架都还在不停迭代，本文的示例跟指令可能会不适用于后续更新的版本（笔者会不定期进行更新）。
 * Flutter目前对ios开发的支持还不完善，所以本文将只以android开发来进行讲解。
 * Flutter的应用打包功能也还没有完善，所以本文暂时不会对此进行讲解。
-* Flutter目前要求Android 5.0或以上的设备才能进行开发调试，打包的apk最低支持Android 4.1。
+* Flutter目前要求Android 5.0或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（未确定）。
 * 本文的操作都是在Mac下进行的，大致的流程应该也应该适用于Linux（flutter对Windows的支持将在不久后推出）。
 
 ## 开发环境配置
 
 ### 安装 Dart SDK
-在Mac下用[Homebrew](http://brew.sh/)，Linux（Debian和Ubuntu）下通过apt-get，都可以方便的安装、升级Dart SDK，具体可以参考我写的文章 - [Dartlang实践：Dart SDK安装指南](http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/)。安装完成后，必须确保在命令行下可以执行dart跟pub这两个指令，如果不行，请手动将sdk文件夹下的bin目录添加到PATH。
+在Mac下用[Homebrew](http://brew.sh/)，Linux（Debian和Ubuntu）下通过apt-get，都可以方便的安装、升级Dart SDK，具体可以参考我写的文章 - [Dartlang实践：Dart SDK安装指南](http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/)。安装完成后，先确保在命令行下可以执行dart跟pub这两个指令，然后新建一个环境变量$DART_SDK，并将其指向Dart SDK的安装路径（通过homebrew安装的路径应该是：/usr/local/opt/dart/libexec/）。
 
 ### 安装 android-platform-tools
 因为是进行android开发，自然需要安装adb（android debug bridge），你可以通过以下指令进行安装（只需要安装adb就可以，不需要完整的Android SDK）：
@@ -28,11 +27,11 @@ categories: dart flutter
 
 在Mac下使用homebrew安装：
 
-    $ brew install android-platform-tools
+    brew install android-platform-tools
 
 Linux下使用apt-get：
 
-    $ sudo apt-get install android-tools-adb
+    sudo apt-get install android-tools-adb
 
 安装完成后，必须确保在命令行下可以顺利的访问adb指令。
 
@@ -43,72 +42,56 @@ Linux下使用apt-get：
 * 开启调试：进入“设置” > “开发者选项”，开启“USB调试”
 * 连接电脑：用USB线将设备连接到电脑，手机弹出是否允许电脑调试对话框，选择允许
 
-### 获取Flutter
-通过git获取flutter代码仓库alpha分支的代码：
-
-    $ git clone https://github.com/flutter/flutter.git -b alpha
-
-克隆完成后，将flutter文件夹下的bin目录添加到PATH。  
-
 ## Hello World
-准备工作完成，执行以下指令，在当前文件夹下生成一个最小化的flutter项目：
+准备工作完成，现在正式开始编写代码。新建一个hello_world文件夹，并在其下创建一个文件pubspec.yaml，它的内容如下：
 
-    $ flutter init -o hello_world
+    name: hello_world
+    dependencies:
+      flutter: ">=0.0.6 <0.1.0"
+    dev_dependencies:
+      sky_tools: any
 
-指令执行完成，当前文件夹下将创建一个hello_world文件夹，其内的文件结构类似于以下列表：
+在项目文件夹下创建一个lib文件夹，然后在终端中进入项目根目录，执行pub get指令下载依赖，完成之后，项目的文件夹结构应该是类似于这样的：
 
     hello_world
       .pub
       .packages
-      .gitignore
-      lib/
-      packages/
-      flutter.yaml
-      README.md
+      packages
+      lib
       pubspec.lock
       pubspec.yaml
 
 
-Flutter默认将lib/main.dart作为应用的入口文件，我们打开lib文件夹下的main.dart，可以看到类似如下的代码：
+Flutter默认将lib/main.dart作为应用的入口文件，所以我们在lib文件夹下新建一个main.dart，并敲入以下代码：
 
 {% codeblock lang:dart %}
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    new MaterialApp(
-      title: "Flutter Demo",
-      routes: {
-        '/': (RouteArguments args) => new FlutterDemo()
-      }
-    )
-  );
+class HelloWorldApp extends StatelessComponent {
+  Widget build(BuildContext build) {
+    return new Center(
+        child: new Text('Hello, world!',
+            style:
+                new TextStyle(color: new Color(0xFF01FFFF), fontSize: 25.0)));
+  }
 }
 
-class FlutterDemo extends StatelessComponent {
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      toolBar: new ToolBar(
-        center: new Text("Flutter Demo")
-      ),
-      body: new Material(
-        child: new Center(
-          child: new Text("Hello world!")
-        )
-      ),
-      floatingActionButton: new FloatingActionButton(
-        child: new Icon(
-          icon: 'content/add'
-        )
-      )
-    );
-  }
+void main() {
+  runApp(new HelloWorldApp());
 }
 {% endcodeblock %}
 
-可以看到，main.dart的主要代码是定义一个名为FlutterDemo的无状态组件，再由它构建一个MaterialApp并传入runApp方法中运行。如果你想了解更多flutter组件与框架的知识，请查看官方的[tutorial](https://flutter.io/tutorial/)。
+在我们的main方法中，一个HelloWorldApp组件被实例化，然后传入runApp方法中运行。HelloWorldApp的代码很简单，它构建了一个在屏幕居中显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的[widget tutorial](https://flutter.io/tutorial/)。
 
 ## 运行
+要运行调试我们编写的代码，必须先通过pub激活flutter。
+
+进入命令行，执行以下指令：
+
+    pub global activate flutter
+
+此指令将指示pub下载flutter并将其置为全局可见。
+
 进入项目目录，执行：
 
     flutter start
@@ -134,12 +117,13 @@ class FlutterDemo extends StatelessComponent {
 ## 效果
 检验成果的时候到了，运行效果如下：
 
-  <img src="{{ root_url }}/images/custom/dart/flutter/flutter_starter_app_screenshot.png" />
+  <img src="{{ root_url }}/images/custom/dart/sky/hello_world.png" />
+  <img src="{{ root_url }}/images/custom/dart/sky/hello_world_landscape.png" />
 
 运行效果没有什么惊喜，毕竟只是一个HelloWorld，等以后再写点更复杂的应用吧。
 
 ## 结语
-虽然很多方面都还有待完善，但我个人认为，flutter比传统的移动应用开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉，希望flutter能够快速的成长起来，成为未来移动开发的中坚力量。
+虽然很多方面都还有待完善，但从整个Hello World的开发体验来讲，我个人认为，flutter比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉，希望flutter能够快速的成长起来，成为未来移动开发的中坚力量。
 
 以上。
 
