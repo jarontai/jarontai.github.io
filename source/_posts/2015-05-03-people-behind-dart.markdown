@@ -44,6 +44,12 @@ Bob曾是EA（艺电）公司的一名游戏开发工程师，而且写过一本
 
 Natalie是Dart项目组中为数不多的女程序员，她是在前端开发中非常流行的CSS扩展语言[Sass][16]的主要贡献者。在Dart项目组中，她负责维护与开发众多基础性library，其中就包括 [pub][17], [test][18], [path][19]等。
 
+###Konstantin Scheglov
+<img src="{{ root_url }}/images/custom/dart/people/konstantin.jpg" width="200" height="200"/><br/>
+
+Konstantin同样是一个有丰富Java开发背景的工程师，如果你曾经接触过Java GUI编程或是使用过Google的GWT，那你很有可能使用过他编写的工具 - Eclipse的[Windows Builder][20]插件, GWT的[GWT Designer][21]都出自于他之手。在加入dart项目组后，Konstantin主要从事Dart的IDE开发（Dart Editor），而在不久前，Dart项目组宣布不再提供默认的IDE，Konstantin也相应的转为主攻DAS开发（Dart Analysis Server - 它提供了一个分析dart代码的接口服务，使得Dart不再捆绑于某种IDE）。
+
+
 *Dart项目组还有很多优秀的工程师，希望后面可以再补充。<br>
 **以上信息大都收集整理自互联网，准确性有待商榷，如有错误之处，欢迎指正。
 
@@ -66,3 +72,6 @@ Natalie是Dart项目组中为数不多的女程序员，她是在前端开发中
   [17]: https://github.com/dart-lang/pub
   [18]: https://github.com/dart-lang/test
   [19]: https://github.com/dart-lang/path
+
+  [20]: https://eclipse.org/windowbuilder/
+  [21]: https://developers.google.com/web-toolkit/tools/gwtdesigner/
