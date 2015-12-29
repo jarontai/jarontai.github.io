@@ -108,10 +108,9 @@
 <h4>注意:</h4>
 
 <ul>
-<li>Flutter的引擎跟框架都还在不停迭代，本文的示例跟指令可能会不适用于后续更新的版本（笔者会不定期进行更新）。</li>
 <li>Flutter目前对ios开发的支持还不完善，所以本文将只以android开发来进行讲解。</li>
 <li>Flutter的应用打包功能也还没有完善，所以本文暂时不会对此进行讲解。</li>
-<li>Flutter目前要求Android 5.0或以上的设备才能进行开发调试，打包的apk最低支持Android 4.1。</li>
+<li>Flutter目前要求Android 5.0或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（未确定）。</li>
 <li>本文的操作都是在Mac下进行的，大致的流程应该也应该适用于Linux（flutter对Windows的支持将在不久后推出）。</li>
 </ul>
 
@@ -120,7 +119,7 @@
 
 <h3>安装 Dart SDK</h3>
 
-<p>在Mac下用<a href="http://brew.sh/">Homebrew</a>，Linux（Debian和Ubuntu）下通过apt-get，都可以方便的安装、升级Dart SDK，具体可以参考我写的文章 - <a href="http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/">Dartlang实践：Dart SDK安装指南</a>。安装完成后，必须确保在命令行下可以执行dart跟pub这两个指令，如果不行，请手动将sdk文件夹下的bin目录添加到PATH。</p>
+<p>在Mac下用<a href="http://brew.sh/">Homebrew</a>，Linux（Debian和Ubuntu）下通过apt-get，都可以方便的安装、升级Dart SDK，具体可以参考我写的文章 - <a href="http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/">Dartlang实践：Dart SDK安装指南</a>。安装完成后，先确保在命令行下可以执行dart跟pub这两个指令，然后新建一个环境变量$DART_SDK，并将其指向Dart SDK的安装路径（通过homebrew安装的路径应该是：/usr/local/opt/dart/libexec/）。</p>
 
 <h3>安装 android-platform-tools</h3>
 
