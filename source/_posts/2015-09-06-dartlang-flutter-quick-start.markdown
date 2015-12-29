@@ -5,6 +5,8 @@ date: 2015-09-06 17:05:16 +0800
 comments: true
 categories: dart flutter
 ---
+注意：因为Flutter还处于发展初期，框架跟API在不停迭代，除了*开发环境配置*等部分，本文的大部分内容已经过时，你可以访问Flutter[官网](http://flutter.io)查看最新的教程。
+
 ### 引言
 [Flutter](http://flutter.io/)是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架，虽然还处于初级阶段（版本号还处于0.0.X），但已经可以拿来写点简单的东西了。本文的内容就是让你了解如何配置flutter的开发环境，并编写一个简单的Hello World。
 
