@@ -4,7 +4,7 @@
   <title><![CDATA[Dynamic Static]]></title>
   <link href="http://jarontai.github.io/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-11-28T08:18:16+08:00</updated>
+  <updated>2015-12-29T11:43:41+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -18,16 +18,19 @@
     <link href="http://jarontai.github.io/blog/2015/09/06/dartlang-flutter-quick-start/"/>
     <updated>2015-09-06T17:05:16+08:00</updated>
     <id>http://jarontai.github.io/blog/2015/09/06/dartlang-flutter-quick-start</id>
-    <content type="html"><![CDATA[<h3>引言</h3>
+    <content type="html"><![CDATA[<p>注意：因为Flutter还处于发展初期，框架跟API在不停迭代，除了<em>开发环境配置</em>等部分，本文的大部分内容已经过时，你可以访问Flutter<a href="http://flutter.io">官网</a>查看最新的教程。</p>
+
+<h3>引言</h3>
 
 <p><a href="http://flutter.io/">Flutter</a>是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架，虽然还处于初级阶段（版本号还处于0.0.X），但已经可以拿来写点简单的东西了。本文的内容就是让你了解如何配置flutter的开发环境，并编写一个简单的Hello World。</p>
 
 <h4>注意:</h4>
 
 <ul>
+<li>Flutter的引擎跟框架都还在不停迭代，本文的示例跟指令可能会不适用于后续更新的版本（笔者会不定期进行更新）。</li>
 <li>Flutter目前对ios开发的支持还不完善，所以本文将只以android开发来进行讲解。</li>
 <li>Flutter的应用打包功能也还没有完善，所以本文暂时不会对此进行讲解。</li>
-<li>Flutter目前要求Android 5.0或以上的设备才能进行开发调试，打包的apk最低支持Android 4.0（未确定）。</li>
+<li>Flutter目前要求Android 5.0或以上的设备才能进行开发调试，打包的apk最低支持Android 4.1。</li>
 <li>本文的操作都是在Mac下进行的，大致的流程应该也应该适用于Linux（flutter对Windows的支持将在不久后推出）。</li>
 </ul>
 
@@ -36,7 +39,7 @@
 
 <h3>安装 Dart SDK</h3>
 
-<p>在Mac下用<a href="http://brew.sh/">Homebrew</a>，Linux（Debian和Ubuntu）下通过apt-get，都可以方便的安装、升级Dart SDK，具体可以参考我写的文章 - <a href="http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/">Dartlang实践：Dart SDK安装指南</a>。安装完成后，先确保在命令行下可以执行dart跟pub这两个指令，然后新建一个环境变量$DART_SDK，并将其指向Dart SDK的安装路径（通过homebrew安装的路径应该是：/usr/local/opt/dart/libexec/）。</p>
+<p>在Mac下用<a href="http://brew.sh/">Homebrew</a>，Linux（Debian和Ubuntu）下通过apt-get，都可以方便的安装、升级Dart SDK，具体可以参考我写的文章 - <a href="http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/">Dartlang实践：Dart SDK安装指南</a>。安装完成后，必须确保在命令行下可以执行dart跟pub这两个指令，如果不行，请手动将sdk文件夹下的bin目录添加到PATH。</p>
 
 <h3>安装 android-platform-tools</h3>
 
@@ -47,12 +50,12 @@
 
 <p>在Mac下使用homebrew安装：</p>
 
-<pre><code>brew install android-platform-tools
+<pre><code>$ brew install android-platform-tools
 </code></pre>
 
 <p>Linux下使用apt-get：</p>
 
-<pre><code>sudo apt-get install android-tools-adb
+<pre><code>$ sudo apt-get install android-tools-adb
 </code></pre>
 
 <p>安装完成后，必须确保在命令行下可以顺利的访问adb指令。</p>
@@ -68,29 +71,37 @@
 </ul>
 
 
-<h2>Hello World</h2>
+<h3>获取Flutter</h3>
 
-<p>准备工作完成，现在正式开始编写代码。新建一个hello_world文件夹，并在其下创建一个文件pubspec.yaml，它的内容如下：</p>
+<p>通过git获取flutter代码仓库alpha分支的代码：</p>
 
-<pre><code>name: hello_world
-dependencies:
-  flutter: "&gt;=0.0.6 &lt;0.1.0"
-dev_dependencies:
-  sky_tools: any
+<pre><code>$ git clone https://github.com/flutter/flutter.git -b alpha
 </code></pre>
 
-<p>在项目文件夹下创建一个lib文件夹，然后在终端中进入项目根目录，执行pub get指令下载依赖，完成之后，项目的文件夹结构应该是类似于这样的：</p>
+<p>克隆完成后，将flutter文件夹下的bin目录添加到PATH。</p>
+
+<h2>Hello World</h2>
+
+<p>准备工作完成，执行以下指令，在当前文件夹下生成一个最小化的flutter项目：</p>
+
+<pre><code>$ flutter init -o hello_world
+</code></pre>
+
+<p>指令执行完成，当前文件夹下将创建一个hello_world文件夹，其内的文件结构类似于以下列表：</p>
 
 <pre><code>hello_world
   .pub
   .packages
-  packages
-  lib
+  .gitignore
+  lib/
+  packages/
+  flutter.yaml
+  README.md
   pubspec.lock
   pubspec.yaml
 </code></pre>
 
-<p>Flutter默认将lib/main.dart作为应用的入口文件，所以我们在lib文件夹下新建一个main.dart，并敲入以下代码：</p>
+<p>Flutter默认将lib/main.dart作为应用的入口文件，我们打开lib文件夹下的main.dart，可以看到类似如下的代码：</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -106,35 +117,62 @@ dev_dependencies:
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
 </pre></td><td class='code'><pre><code class='dart'><span class='line'><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'><span class="kd">class</span> <span class="nc">HelloWorldApp</span> <span class="kd">extends</span> <span class="n">StatelessComponent</span> <span class="p">{</span>
-</span><span class='line'>  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">build</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="n">Center</span><span class="p">(</span>
-</span><span class='line'>        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="nl">style:</span>
-</span><span class='line'>                <span class="k">new</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">color:</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mh">0xFF01FFFF</span><span class="p">),</span> <span class="nl">fontSize:</span> <span class="m">25.0</span><span class="p">)));</span>
-</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">runApp</span><span class="p">(</span>
+</span><span class='line'>    <span class="k">new</span> <span class="n">MaterialApp</span><span class="p">(</span>
+</span><span class='line'>      <span class="nl">title:</span> <span class="s2">&quot;Flutter Demo&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nl">routes:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s1">&#39;/&#39;</span><span class="o">:</span> <span class="p">(</span><span class="n">RouteArguments</span> <span class="n">args</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">FlutterDemo</span><span class="p">()</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">)</span>
+</span><span class='line'>  <span class="p">);</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="n">runApp</span><span class="p">(</span><span class="k">new</span> <span class="n">HelloWorldApp</span><span class="p">());</span>
+</span><span class='line'><span class="kd">class</span> <span class="nc">FlutterDemo</span> <span class="kd">extends</span> <span class="n">StatelessComponent</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="p">(</span>
+</span><span class='line'>      <span class="nl">toolBar:</span> <span class="k">new</span> <span class="n">ToolBar</span><span class="p">(</span>
+</span><span class='line'>        <span class="nl">center:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Flutter Demo&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">),</span>
+</span><span class='line'>      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Material</span><span class="p">(</span>
+</span><span class='line'>        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Center</span><span class="p">(</span>
+</span><span class='line'>          <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">)</span>
+</span><span class='line'>      <span class="p">),</span>
+</span><span class='line'>      <span class="nl">floatingActionButton:</span> <span class="k">new</span> <span class="n">FloatingActionButton</span><span class="p">(</span>
+</span><span class='line'>        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Icon</span><span class="p">(</span>
+</span><span class='line'>          <span class="nl">icon:</span> <span class="s1">&#39;content/add&#39;</span>
+</span><span class='line'>        <span class="p">)</span>
+</span><span class='line'>      <span class="p">)</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>在我们的main方法中，一个HelloWorldApp组件被实例化，然后传入runApp方法中运行。HelloWorldApp的代码很简单，它构建了一个在屏幕居中显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的<a href="https://flutter.io/tutorial/">widget tutorial</a>。</p>
+<p>可以看到，main.dart的主要代码是定义一个名为FlutterDemo的无状态组件，再由它构建一个MaterialApp并传入runApp方法中运行。如果你想了解更多flutter组件与框架的知识，请查看官方的<a href="https://flutter.io/tutorial/">tutorial</a>。</p>
 
 <h2>运行</h2>
-
-<p>要运行调试我们编写的代码，必须先通过pub激活flutter。</p>
-
-<p>进入命令行，执行以下指令：</p>
-
-<pre><code>pub global activate flutter
-</code></pre>
-
-<p>此指令将指示pub下载flutter并将其置为全局可见。</p>
 
 <p>进入项目目录，执行：</p>
 
@@ -167,14 +205,13 @@ dev_dependencies:
 
 <p>检验成果的时候到了，运行效果如下：</p>
 
-<p>  <img src="http://jarontai.github.io/images/custom/dart/sky/hello_world.png" />
-  <img src="http://jarontai.github.io/images/custom/dart/sky/hello_world_landscape.png" /></p>
+<p>  <img src="http://jarontai.github.io/images/custom/dart/flutter/flutter_starter_app_screenshot.png" /></p>
 
 <p>运行效果没有什么惊喜，毕竟只是一个HelloWorld，等以后再写点更复杂的应用吧。</p>
 
 <h2>结语</h2>
 
-<p>虽然很多方面都还有待完善，但从整个Hello World的开发体验来讲，我个人认为，flutter比传统的android开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉，希望flutter能够快速的成长起来，成为未来移动开发的中坚力量。</p>
+<p>虽然很多方面都还有待完善，但我个人认为，flutter比传统的移动应用开发有了很大进步，它将很多web开发的“先进”理念带到了原生应用开发中，让人有“耳目一新”的感觉，希望flutter能够快速的成长起来，成为未来移动开发的中坚力量。</p>
 
 <p>以上。</p>
 
