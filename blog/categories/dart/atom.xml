@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dart | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dart/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2015-12-29T11:49:26+08:00</updated>
+  <updated>2015-12-29T11:57:17+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -487,6 +487,12 @@ Bob曾是EA（艺电）公司的一名游戏开发工程师，而且写过一本
 <p><img src="/images/custom/dart/people/natalie.png" /><br/></p>
 
 <p>Natalie是Dart项目组中为数不多的女程序员，她是在前端开发中非常流行的CSS扩展语言<a href="http://sass-lang.com/">Sass</a>的主要贡献者。在Dart项目组中，她负责维护与开发众多基础性library，其中就包括 <a href="https://github.com/dart-lang/pub">pub</a>, <a href="https://github.com/dart-lang/test">test</a>, <a href="https://github.com/dart-lang/path">path</a>等。</p>
+
+<h3>Konstantin Scheglov</h3>
+
+<p><img src="/images/custom/dart/people/konstantin.jpg" width="200" height="200"/><br/></p>
+
+<p>Konstantin同样是一个有丰富Java开发背景的工程师，如果你曾经接触过Java GUI编程或是使用过Google的GWT，那你很有可能使用过他编写的工具 - Eclipse的<a href="https://eclipse.org/windowbuilder/">Windows Builder</a>插件, GWT的<a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/">GWT Designer</a>都出自于他之手。在加入dart项目组后，Konstantin主要从事Dart的IDE开发（Dart Editor），而在不久前，Dart项目组宣布不再提供默认的IDE，Konstantin也相应的转为主攻DAS开发（Dart Analysis Server - 它提供了一个分析dart代码的接口服务，使得Dart不再捆绑于某种IDE）。</p>
 
 <p>*Dart项目组还有很多优秀的工程师，希望后面可以再补充。<br>
 **以上信息大都收集整理自互联网，准确性有待商榷，如有错误之处，欢迎指正。</p>
