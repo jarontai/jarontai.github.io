@@ -5,7 +5,7 @@ date: 2016-05-08 09:27:47 +0800
 comments: true
 categories: 翻译 dart angular2
 ---
-注：本文翻译的是Angular2快速上手指南的Dart版本，转载请添加本文链接并标明出处。水平有限，仅供参考，更新更全的内容可以查看原文：https://angular.io/docs/dart/latest/quickstart.html。
+注：本文翻译的是Angular2快速上手指南的Dart版本，转载请添加本文链接并标明出处。水平有限，仅供参考，更新更全的内容请查看原文：[https://angular.io/docs/dart/latest/quickstart.html](https://angular.io/docs/dart/latest/quickstart.html)。
 
 ___
 <br/>
