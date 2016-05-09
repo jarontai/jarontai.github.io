@@ -12,7 +12,7 @@ ___
 让我们从零开始用Dart来编写一个超级简单的Angular2应用。
 （译注：Angular2支持TypeScript，JavaScript与Dart三种语言）
 
-本篇教程假设你已经设置好[Dart SDK](https://www.dartlang.org/downloads/)及相关的开发工具。如果你还没有一个合适的编辑器，可以尝试一下拥有Dart插件的[WebStorm](https://confluence.jetbrains.com/display/WI/Getting+started+with+Dart)。当然，你也可以去官网的[工具页面](https://www.dartlang.org/tools/)下载各种IDE与编辑器的Dart插件。在配置好Dart SDK及你想要的开发工具后，再回到这里来。
+本篇教程假设你已经设置好[Dart SDK](https://www.dartlang.org/downloads/)及相关的开发工具。如果你还没有一个合适的编辑器，可以尝试一下拥有Dart插件的[WebStorm](https://confluence.jetbrains.com/display/WI/Getting+started+with+Dart)。当然，你也可以去官网的[工具页面](https://www.dartlang.org/tools/)下载各种IDE与编辑器的Dart插件。在配置好Dart SDK及你喜欢的开发工具后，再回到这里来。
 
 ## 准备新应用的目录
 
@@ -22,7 +22,7 @@ ___
     > cd angular2_getting_started
     > vim pubspec.yaml  # 这里使用vim，你可以使用任意其他你喜欢的编辑器！
 
-在**pubspec.yaml**中，指定angular2跟browser作为项目依赖，当然也需要配置angular2 transformer。Angular2仍在变化中，所以我们使用一个指定的版本：2.0.0-beta.17。
+在**pubspec.yaml**中，指定angular2跟browser作为项目依赖，当然也需要配置angular2 transformer。Angular2的API仍在变化中，所以我们指定了它的版本：2.0.0-beta.17。
 
 {% codeblock lang:yaml %}
 name: angular2_getting_started
@@ -77,7 +77,7 @@ main() {
 
 **main()**方法调用了Angular的**bootstrap()**函数，它告诉Angular以**AppComponent**为根元素启动应用。日后，这个应用的根元素上会添加更多的组件，以树状形式不断成长。
 
-最开始的两行代码引人了两个Angular的库，所有使用Angular API的Dart文件都需要引人**core.dart**，而只有调用**bootstrap()**方法的Dart文件才需要引入**platform/browser.dart**。
+最开始的两行代码引入了两个Angular的库，所有使用Angular API的Dart文件都需要引入**core.dart**，而只有调用**bootstrap()**方法的Dart文件才需要引入**platform/browser.dart**。
 
 ## 创建一个HTML文件
 创建一个名为**web/index.html**的文件并输入以下代码：
@@ -99,4 +99,62 @@ main() {
 
 在**<body\>**中的**my-app**标签就是前面Dart文件中**selector**参数指定的自定义HTML元素。
 
-## 运行 app
+## 运行应用
+你有多种方式来运行你的应用，其中之一是在本地运行一个HTTP服务器并在[Dartium](https://www.dartlang.org/tools/dartium/)查看应用。你可以使用任意你喜欢的服务器，比如WebStorm内置的服务器或者Python的SimpleHttpServer。
+
+另外一种方式是通过执行**pub serve**来构建并启动应用，然后你就可以在任意现代浏览器中，通过 http:\/\/localhost:8080 来访问你的应用。**Pub serve**指令会实时的将Dart转换为JavaScript，当然，这会对页面的初次访问造成一定的延迟。
+
+一旦应用运行起来，你就会浏览器窗口中看到 **My First Angular 2 App**。
+
+如果你没有看到，请确保你正确输入了所有的代码并执行过**pub get**。
+
+## 生成JavaScript
+在部署你的应用之前，你还需要生成JavaScript文件，**pub build**指令使这项工作得以简单化。为了改善应用的性能，也需要使HTML文件直接引用生成的JavaScript，而这可以由**dart_to_js_script_rewriter**来完成。
+
+将**dart_to_js_script_rewriter**添加到你的**pubsepc.yaml**中，注意**dependencies**跟**transformers**都需要设置。
+
+{% codeblock lang:yaml %}
+name: angular2_getting_started
+description: QuickStart
+version: 0.0.1
+environment:
+  sdk: '>=1.13.0 <2.0.0'
+dependencies:
+  angular2: 2.0.0-beta.17
+  browser: ^0.10.0
+  dart_to_js_script_rewriter: ^1.0.1
+transformers:
+- angular2:
+    entry_points: web/main.dart
+- dart_to_js_script_rewriter
+{% endcodeblock %}
+
+然后执行**pub build**，将你的Dart代码编译为JavaScript。
+
+    > pub build
+    Loading source assets...
+
+生成的JavaScript以及其他支持文件都会出现在**build**文件夹下。
+
+当你为Angular应用生成JavaScript时，请确保使用Angular transformer。它会分析你的代码，将其中使用了反射的代码转换为静态代码，使Dart的构建工具输出更快速、体积更小的JavaScript。**pubspec.yaml**中的高亮部分是对Angular transformer进行配置的，如下所示：(译注：这里高亮的是10、11、12行，笔者暂时没有找到codeblock内部分高亮的方法-_-)
+
+{% codeblock lang:yaml mark:1,5-8 %}
+name: angular2_getting_started
+description: QuickStart
+version: 0.0.1
+environment:
+  sdk: '>=1.13.0 <2.0.0'
+dependencies:
+  angular2: 2.0.0-beta.17
+  browser: ^0.10.0
+  dart_to_js_script_rewriter: ^1.0.1
+transformers:
+- angular2:
+    entry_points: web/main.dart
+- dart_to_js_script_rewriter
+{% endcodeblock %}
+
+**entry_points**指定了调用**main()**函数的Dart文件，如果需要查看更多相关信息，请查看[Angular transformer维基页面](https://github.com/angular/angular/wiki/Angular-2-Dart-Transformer)。
+
+> #### 性能，transformer，以及Angular 2库
+  当你引入**bootstrap.dart**，你就引入了**dart:mirrors**，这是一个反射库，它会对生成的JavaScript性能造成影响。但是别担心，Angular transformer会对你的入口（**pubspec.yaml**中的**entry_points**）执行转换操作，所以它们将不会使用**dart:mirrors**。
