@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 翻译 | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/fan-yi/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2016-05-09T11:34:45+08:00</updated>
+  <updated>2016-05-09T16:08:22+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[JaronTai]]></name>
@@ -37,7 +37,7 @@
 &gt; vim pubspec.yaml  # 这里使用vim，你可以使用任意其他你喜欢的编辑器！
 </code></pre>
 
-<p>在<strong>pubspec.yaml</strong>中，指定angular2跟browser作为项目依赖，当然也需要配置angular2 transformer。Angular2的API仍在变化中，所以我们指定了它的版本：2.0.0-beta.17。</p>
+<p>在<strong>pubspec.yaml</strong>中，指定angular2跟browser作为项目依赖，当然也需要配置angular2 transformer。因为Angular2的API还在变化，所以这里指定了一个版本：2.0.0-beta.17。(译注：指定使用某个版本可以避免多版本间的api冲突)</p>
 
 <p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
