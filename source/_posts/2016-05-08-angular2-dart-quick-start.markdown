@@ -100,9 +100,9 @@ main() {
 在 **<body\>** 中的 **my-app** 标签就是前面Dart文件中 **selector** 参数指定的自定义HTML元素。
 
 ## 运行应用
-你有多种方式来运行你的应用，其中之一是在本地运行一个HTTP服务器并在[Dartium](https://www.dartlang.org/tools/dartium/)查看应用。你可以使用任意你喜欢的服务器，比如WebStorm内置的服务器或者Python的SimpleHttpServer。
+你有多种方式来运行你的应用，其中之一是在本地运行一个HTTP服务器并在[Dartium](https://www.dartlang.org/tools/dartium/)中查看应用。你可以使用任意你喜欢的服务器，比如WebStorm内置的服务器或者Python的SimpleHttpServer。
 
-另外一种方式是通过执行 **pub serve** 来构建并启动应用，然后你就可以在任意现代浏览器中，通过 http:\/\/localhost:8080 来访问你的应用。**Pub serve** 指令会实时的将Dart转换为JavaScript，当然，这会对页面的初次访问造成一定的延迟。
+另外一种方式是通过执行 **pub serve** 来构建并启动应用，然后你就可以在任意现代浏览器中访问 http:\/\/localhost:8080 来查看你的应用。**Pub serve** 指令会实时的将Dart转换为JavaScript，当然，这会对页面的初次访问造成一定的延迟。
 
 一旦应用运行起来，你就会浏览器窗口中看到 **My First Angular 2 App**。
 
@@ -157,4 +157,4 @@ transformers:
 **entry_points** 指定了调用 **main()** 函数的Dart文件，如果需要查看更多相关信息，请查看[Angular transformer维基页面](https://github.com/angular/angular/wiki/Angular-2-Dart-Transformer)。
 
 > #### 性能，transformer，以及Angular 2库
-  当你引入 **bootstrap.dart**，你就引入了 **dart:mirrors**，这是一个反射库，它会对生成的JavaScript性能造成影响。但是别担心，Angular transformer会对你的入口（**pubspec.yaml** 中的 **entry_points**）执行转换操作，所以它们将不会使用 **dart:mirrors**。
+  当你引入 **bootstrap.dart**，你就引入了 **dart:mirrors**，这是一个反射库，它会影响生成的JavaScript的性能。但是别担心，Angular transformer会对你的入口（**pubspec.yaml** 中的 **entry_points**）执行转换操作，所以它们将不会使用 **dart:mirrors**。
