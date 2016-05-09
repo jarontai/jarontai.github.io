@@ -22,7 +22,7 @@ ___
     > cd angular2_getting_started
     > vim pubspec.yaml  # 这里使用vim，你可以使用任意其他你喜欢的编辑器！
 
-在**pubspec.yaml**中，指定angular2跟browser作为项目依赖，当然也需要配置angular2 transformer。Angular2的API仍在变化中，所以我们指定了它的版本：2.0.0-beta.17。
+在**pubspec.yaml**中，指定angular2跟browser作为项目依赖，并对transformer也进行了配置。因为Angular2的API还在变化，所以这里指定了一个版本：2.0.0-beta.17。(译注：指定使用某个版本可以避免多版本间的api冲突)
 
 {% codeblock lang:yaml %}
 name: angular2_getting_started
