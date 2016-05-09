@@ -9,7 +9,7 @@
   <meta name="author" content="戴虬">
 
   
-  <meta name="description" content="注意：因为Flutter还处于发展初期，框架跟API在不停迭代，除了开发环境配置等部分，本文的大部分内容已经过时，你可以访问Flutter官网查看最新的教程。 引言 Flutter是Chromium项目组与Dart项目组合作开发的一个新的移动应用开发框架，虽然还处于初级阶段（版本号还处于0.0.X &hellip;">
+  <meta name="description" content="注：本文翻译的是Angular2快速上手指南的Dart版本，转载请添加本文链接并标明出处。水平有限，仅供参考，更新更全的内容请查看原文：https://angular.io/docs/dart/latest/quickstart.html。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,86 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/05/08/angular2-dart-quick-start/">Angular2 Dart快速上手指南</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-05-08T09:27:47+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:27 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>注：本文翻译的是Angular2快速上手指南的Dart版本，转载请添加本文链接并标明出处。水平有限，仅供参考，更新更全的内容请查看原文：<a href="https://angular.io/docs/dart/latest/quickstart.html">https://angular.io/docs/dart/latest/quickstart.html</a>。</p>
+
+<hr />
+
+<p><br/>
+让我们从零开始用Dart来编写一个超级简单的Angular2应用。
+（译注：Angular2支持TypeScript，JavaScript与Dart三种语言）</p>
+
+<p>本篇教程假设你已经设置好<a href="https://www.dartlang.org/downloads/">Dart SDK</a>及相关的开发工具。如果你还没有一个合适的编辑器，可以尝试一下拥有Dart插件的<a href="https://confluence.jetbrains.com/display/WI/Getting+started+with+Dart">WebStorm</a>。当然，你也可以去官网的<a href="https://www.dartlang.org/tools/">工具页面</a>下载各种IDE与编辑器的Dart插件。在配置好Dart SDK及你喜欢的开发工具后，再回到这里来。</p>
+
+<h2>准备新应用的目录</h2>
+
+<p>创建一个新文件夹，并在其中新建一个<strong>pubspec.yaml</strong>。(译注：在命令行下执行以下指令)</p>
+
+<pre><code>&gt; mkdir angular2_getting_started
+&gt; cd angular2_getting_started
+&gt; vim pubspec.yaml  # 这里使用vim，你可以使用任意其他你喜欢的编辑器！
+</code></pre>
+
+<p>在<strong>pubspec.yaml</strong>中，指定angular2跟browser作为项目依赖，当然也需要配置angular2 transformer。Angular2的API仍在变化中，所以我们指定了它的版本：2.0.0-beta.17。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">angular2_getting_started</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">QuickStart</span>
+</span><span class='line'><span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.0.1</span>
+</span><span class='line'><span class="l-Scalar-Plain">environment</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">sdk</span><span class="p-Indicator">:</span> <span class="s">&#39;&gt;=1.13.0</span><span class="nv"> </span><span class="s">&lt;2.0.0&#39;</span>
+</span><span class='line'><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2.0.0-beta.17</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^0.10.0</span>
+</span><span class='line'><span class="l-Scalar-Plain">transformers</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">entry_points</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">web/main.dart</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/05/08/angular2-dart-quick-start/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -479,48 +559,6 @@ Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/10/02/half-year-job-review/">近半年工作小结</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-10-02T21:58:36+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>9:58 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>进入新公司有近半年时间了，期间作为开发主力参与了几个项目，真的学到不少东西，现在做个小小回顾。</p>
-
-<hr />
-
-<p><br/></p>
-
-<h3>Linux/Mac OS</h3>
-
-<p>时间回退到三四年前，我可以说是一个Windows的忠实使用者与拥护者。但随着逐步接触Web开发及各类开源软件，特别是看到近两年前端工具、JavaScript框架的发展壮大以及Nodejs的流行，我越来越觉得基于linux/unix的开发机才是最适合我的。我的理由：1.各种开源软件首选开发平台大都是linux；2.各种新兴前端工具如bower, grunt等都是基于Nodejs的，而Nodejs在linux下开发相对更方便（注：Nodejs早期其实也只有linux版本）。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/10/02/half-year-job-review/">继续阅读 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; 旧的文章</a>
@@ -536,6 +574,10 @@ Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2016/05/08/angular2-dart-quick-start/">Angular2 Dart快速上手指南</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/09/06/dartlang-flutter-quick-start/">Dart移动开发框架Flutter快速上手指南</a>
       </li>
     
@@ -549,10 +591,6 @@ Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家�
     
       <li class="post">
         <a href="/blog/2015/06/06/dart-notes-1/">Dartlang学习笔记：Dartlang的重要概念</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/05/12/people-behind-dart/">Dartlang背后的那些大牛们</a>
       </li>
     
   </ul>

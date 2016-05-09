@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dart | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dart/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2016-05-08T20:40:24+08:00</updated>
+  <updated>2016-05-09T10:57:22+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[戴虬]]></name>
@@ -12,6 +12,232 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Angular2 Dart快速上手指南]]></title>
+    <link href="http://jarontai.github.io/blog/2016/05/08/angular2-dart-quick-start/"/>
+    <updated>2016-05-08T09:27:47+08:00</updated>
+    <id>http://jarontai.github.io/blog/2016/05/08/angular2-dart-quick-start</id>
+    <content type="html"><![CDATA[<p>注：本文翻译的是Angular2快速上手指南的Dart版本，转载请添加本文链接并标明出处。水平有限，仅供参考，更新更全的内容请查看原文：<a href="https://angular.io/docs/dart/latest/quickstart.html">https://angular.io/docs/dart/latest/quickstart.html</a>。</p>
+
+<hr />
+
+<p><br/>
+让我们从零开始用Dart来编写一个超级简单的Angular2应用。
+（译注：Angular2支持TypeScript，JavaScript与Dart三种语言）</p>
+
+<p>本篇教程假设你已经设置好<a href="https://www.dartlang.org/downloads/">Dart SDK</a>及相关的开发工具。如果你还没有一个合适的编辑器，可以尝试一下拥有Dart插件的<a href="https://confluence.jetbrains.com/display/WI/Getting+started+with+Dart">WebStorm</a>。当然，你也可以去官网的<a href="https://www.dartlang.org/tools/">工具页面</a>下载各种IDE与编辑器的Dart插件。在配置好Dart SDK及你喜欢的开发工具后，再回到这里来。</p>
+
+<h2>准备新应用的目录</h2>
+
+<p>创建一个新文件夹，并在其中新建一个<strong>pubspec.yaml</strong>。(译注：在命令行下执行以下指令)</p>
+
+<pre><code>&gt; mkdir angular2_getting_started
+&gt; cd angular2_getting_started
+&gt; vim pubspec.yaml  # 这里使用vim，你可以使用任意其他你喜欢的编辑器！
+</code></pre>
+
+<p>在<strong>pubspec.yaml</strong>中，指定angular2跟browser作为项目依赖，当然也需要配置angular2 transformer。Angular2的API仍在变化中，所以我们指定了它的版本：2.0.0-beta.17。</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">angular2_getting_started</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">QuickStart</span>
+</span><span class='line'><span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.0.1</span>
+</span><span class='line'><span class="l-Scalar-Plain">environment</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">sdk</span><span class="p-Indicator">:</span> <span class="nl">&amp;lsquo</span><span class="l-Scalar-Plain">;&gt;=1.13.0 &amp;lt;2.0.0&amp;rsquo;</span>
+</span><span class='line'><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2.0.0-beta.17</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^0.10.0</span>
+</span><span class='line'><span class="l-Scalar-Plain">transformers</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">entry_points</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">web/main.dart</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<!-- more -->
+
+
+<p>在相同目录下，创建名为web的文件夹，并执行<strong>pub get</strong>安装angular2与browser（以及它们自身的依赖）。</p>
+
+<pre><code>&gt; mkdir web
+&gt; pub get
+Resolving dependencies...
+</code></pre>
+
+<h2>创建一个Dart文件</h2>
+
+<p>在<strong>web</strong>文件夹下创建一个<strong>main.dart</strong>。</p>
+
+<pre><code>&gt; vim web/main.dart  # 这里使用vim，你可以使用任意其他你喜欢的编辑器！
+</code></pre>
+
+<p>把以下内容粘贴到<strong>web/main.dart</strong>中：</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kr">import</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="kr">package</span><span class="o">:</span><span class="nx">angular2</span><span class="o">/</span><span class="nx">core</span><span class="p">.</span><span class="nx">dart</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;;</span>
+</span><span class='line'><span class="kr">import</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="kr">package</span><span class="o">:</span><span class="nx">angular2</span><span class="o">/</span><span class="nx">platform</span><span class="o">/</span><span class="nx">browser</span><span class="p">.</span><span class="nx">dart</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;;</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="err">@</span><span class="nx">Component</span><span class="p">(</span><span class="nx">selector</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">my</span><span class="o">-</span><span class="nx">app</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="nx">template</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">My</span> <span class="nx">First</span> <span class="nx">Angular</span> <span class="mi">2</span> <span class="nx">App</span><span class="o">&lt;</span><span class="err">/h1&gt;&amp;rsquo;)</span>
+</span><span class='line'><span class="kr">class</span> <span class="nx">AppComponent</span> <span class="p">{}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">bootstrap</span><span class="p">(</span><span class="nx">AppComponent</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>在以上代码中，你定义了一个Angular2 <strong>component</strong>（译注：组件），它是Angular2最重要的特性之一。组件是创建应用视图的主要方式，当然，它们需要应用逻辑的支持才能工作。</p>
+
+<p>这个组件是个空的，没有做任何事且名称为<strong>AppComponent</strong>的类。在你准备编写一个有实质内容的应用时，你可以为这个组件添加各种属性与相应的应用逻辑。</p>
+
+<p>在这个类上面的是<strong>@Component</strong>注解，它告诉Angular这是一个组件。这里调用了<strong>@Component</strong>的构造函数，此函数有<strong>selector</strong>跟<strong>template</strong>两个命名参数。</p>
+
+<p><strong>selector</strong>参数指定了一个CSS选择器，它标明此组件依附一个名为<strong>my-app</strong>的自定义HTML元素。当Angular遇到一个<strong>my-app</strong>元素时，它就会创建并展示一个<strong>AppComponent</strong>类的实例。</p>
+
+<p><strong>template</strong>参数指定这个组件对应的模板，它告诉Angular如何去渲染视图。在我们的例子中，模板只是一行HTML文本：&#8221;My First Angular 2 App&#8221;。</p>
+
+<p><strong>main()</strong>方法调用了Angular的<strong>bootstrap()</strong>函数，它告诉Angular以<strong>AppComponent</strong>为根元素启动应用。日后，这个应用的根元素上会添加更多的组件，以树状形式不断成长。</p>
+
+<p>最开始的两行代码引入了两个Angular的库，所有使用Angular API的Dart文件都需要引入<strong>core.dart</strong>，而只有调用<strong>bootstrap()</strong>方法的Dart文件才需要引入<strong>platform/browser.dart</strong>。</p>
+
+<h2>创建一个HTML文件</h2>
+
+<p>创建一个名为<strong>web/index.html</strong>的文件并输入以下代码：</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="ni">&amp;lt;</span>!DOCTYPE html&gt;
+</span><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;title&gt;</span>Getting Started<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;styles.css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">async</span> <span class="na">src=</span><span class="s">&quot;main.dart&quot;</span> <span class="na">type=</span><span class="s">&quot;application/dart&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">async</span> <span class="na">src=</span><span class="s">&quot;packages/browser/dart.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;my-app&gt;</span>Loading<span class="ni">&amp;hellip;</span><span class="nt">&lt;/my-app&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>在<strong>&lt;body></strong>中的<strong>my-app</strong>标签就是前面Dart文件中<strong>selector</strong>参数指定的自定义HTML元素。</p>
+
+<h2>运行应用</h2>
+
+<p>你有多种方式来运行你的应用，其中之一是在本地运行一个HTTP服务器并在<a href="https://www.dartlang.org/tools/dartium/">Dartium</a>查看应用。你可以使用任意你喜欢的服务器，比如WebStorm内置的服务器或者Python的SimpleHttpServer。</p>
+
+<p>另外一种方式是通过执行<strong>pub serve</strong>来构建并启动应用，然后你就可以在任意现代浏览器中，通过 <a href="http://localhost:8080">http://localhost:8080</a> 来访问你的应用。<strong>Pub serve</strong>指令会实时的将Dart转换为JavaScript，当然，这会对页面的初次访问造成一定的延迟。</p>
+
+<p>一旦应用运行起来，你就会浏览器窗口中看到 <strong>My First Angular 2 App</strong>。</p>
+
+<p>如果你没有看到，请确保你正确输入了所有的代码并执行过<strong>pub get</strong>。</p>
+
+<h2>生成JavaScript</h2>
+
+<p>在部署你的应用之前，你还需要生成JavaScript文件，<strong>pub build</strong>指令使这项工作得以简单化。为了改善应用的性能，也需要使HTML文件直接引用生成的JavaScript，而这可以由<strong>dart_to_js_script_rewriter</strong>来完成。</p>
+
+<p>将<strong>dart_to_js_script_rewriter</strong>添加到你的<strong>pubsepc.yaml</strong>中，注意<strong>dependencies</strong>跟<strong>transformers</strong>都需要设置。</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">angular2_getting_started</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">QuickStart</span>
+</span><span class='line'><span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.0.1</span>
+</span><span class='line'><span class="l-Scalar-Plain">environment</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">sdk</span><span class="p-Indicator">:</span> <span class="nl">&amp;lsquo</span><span class="l-Scalar-Plain">;&gt;=1.13.0 &amp;lt;2.0.0&amp;rsquo;</span>
+</span><span class='line'><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2.0.0-beta.17</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^0.10.0</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">dart_to_js_script_rewriter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^1.0.1</span>
+</span><span class='line'><span class="l-Scalar-Plain">transformers</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">entry_points</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">web/main.dart</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">dart_to_js_script_rewriter</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>然后执行<strong>pub build</strong>，将你的Dart代码编译为JavaScript。</p>
+
+<pre><code>&gt; pub build
+Loading source assets...
+</code></pre>
+
+<p>生成的JavaScript以及其他支持文件都会出现在<strong>build</strong>文件夹下。</p>
+
+<p>当你为Angular应用生成JavaScript时，请确保使用Angular transformer。它会分析你的代码，将其中使用了反射的代码转换为静态代码，使Dart的构建工具输出更快速、体积更小的JavaScript。<strong>pubspec.yaml</strong>中的高亮部分是对Angular transformer进行配置的，如下所示：(译注：这里高亮的是10、11、12行，笔者暂时没有找到codeblock内部分高亮的方法-_-)</p>
+
+<p><figure class='code'><figcaption><span>mark:1,5-8 </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">angular2_getting_started</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">QuickStart</span>
+</span><span class='line'><span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.0.1</span>
+</span><span class='line'><span class="l-Scalar-Plain">environment</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">sdk</span><span class="p-Indicator">:</span> <span class="nl">&amp;lsquo</span><span class="l-Scalar-Plain">;&gt;=1.13.0 &amp;lt;2.0.0&amp;rsquo;</span>
+</span><span class='line'><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2.0.0-beta.17</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^0.10.0</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">dart_to_js_script_rewriter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^1.0.1</span>
+</span><span class='line'><span class="l-Scalar-Plain">transformers</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">entry_points</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">web/main.dart</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">dart_to_js_script_rewriter</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><strong>entry_points</strong>指定了调用<strong>main()</strong>函数的Dart文件，如果需要查看更多相关信息，请查看<a href="https://github.com/angular/angular/wiki/Angular-2-Dart-Transformer">Angular transformer维基页面</a>。</p>
+
+<blockquote><h4>性能，transformer，以及Angular 2库</h4>
+
+<p>  当你引入<strong>bootstrap.dart</strong>，你就引入了<strong>dart:mirrors</strong>，这是一个反射库，它会对生成的JavaScript性能造成影响。但是别担心，Angular transformer会对你的入口（<strong>pubspec.yaml</strong>中的<strong>entry_points</strong>）执行转换操作，所以它们将不会使用<strong>dart:mirrors</strong>。</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Dart移动开发框架Flutter快速上手指南]]></title>
@@ -431,71 +657,6 @@ $ sudo apt-get install dart=1.7.0-dev.0.1.*
 <p>  Dart运行时（runtime）有两种运行模式：production与checked。Production是默认模式，它对运行速度进行了优化，但是也关闭了类型检查以及断言（assert）。Checked模式则相反，它打开了断言与类型检查，但运行速度就比不过production。具体来说，如果你把数字赋给了一个String类型的变量，在checked模式下运行会抛出异常，但是在production模式下则不会。所以，开发时建议使用checked模式，在生产环境下才使用production模式。</p>
 
 <p>以上。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Dartlang背后的那些大牛们]]></title>
-    <link href="http://jarontai.github.io/blog/2015/05/12/people-behind-dart/"/>
-    <updated>2015-05-12T11:23:39+08:00</updated>
-    <id>http://jarontai.github.io/blog/2015/05/12/people-behind-dart</id>
-    <content type="html"><![CDATA[<p>最开始接触Dart，是想尝试一下除JavaScript外的浏览器编程语言（确切的说是以JavaScript为编译目标的语言，除Dart外，还有CoffeScript、TypeScript等）。在学习一段时间后，发现dart确实有很多优秀的语言特性，对它也越发喜欢了。最近，在好奇心驱使下，我开始搜索Dart项目组成员的相关资料。不查不知道，一查吓一跳，Dart项目组真算的上是藏龙卧虎。下面，我们就来介绍几位Dart项目组的主要成员：</p>
-
-<p>你可能需要注意（也算是比较有趣）的一点：以下多位成员都有Java/JVM研发背景。</p>
-
-<h3>Gilad Bracha</h3>
-
-<p><img src="/images/custom/dart/people/Gilad.jpg" /><br/>
-Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家。他曾经就职于<a href="http://zh.wikipedia.org/wiki/%E6%98%87%E9%99%BD%E9%9B%BB%E8%85%A6">Sun</a>，专门从事Java/JVM规范的定制与实现工作。他不仅是Java语言规范第二、三版的合著者（co-author），也是JVM规范第二版的主要贡献者。在进入Google后，他加入了Dart项目组，他的主要工作就是Dart语言规范的编写。目前，Gilad正在编写一本全面介绍dart的书 - <a href="http://www.amazon.com/Dart-Programming-Language-Gilad-Bracha/dp/0321927702">The Dart Programming Language</a>。</p>
-
-<!-- more -->
-
-
-<h3>Lars Bak</h3>
-
-<p><img src="/images/custom/dart/people/Lars.jpg" /><br/>
-Lars Bak是Dart的联合创始人之一，他是一个来自丹麦的计算机天才，是一个虚拟机专家。他在近年主导开发的一个项目对互联网产生了深远影响，这就是Chrome的JavaScript虚拟机 - V8。而在更早以前，他从事Smalltalk与Java的虚拟机开发，他曾在<a href="http://zh.wikipedia.org/wiki/%E6%98%87%E9%99%BD%E9%9B%BB%E8%85%A6">Sun</a>的HotSpot项目担任工程与技术主管，专职开发高性能的Java虚拟机。Lars Bak在虚拟机开发领域获得过惊人的成就，现在，他不仅要主导开发一个新的虚拟机，而且还有一门新的编程语言 - Dart。</p>
-
-<h3>Kasper Lund</h3>
-
-<p><img src="/images/custom/dart/people/Kasper.jpg" /><br/>
-Kasper Lund也是Dart的联合创始人之一，他也来自丹麦。他早年跟Lars Bak都就职于Sun，一起从事JVM的开发。后来他跟Lars Bak一起加入Google，从事V8引擎开发。他主导开发V8引擎的Crankshaft项目，极大的提升了Chrome的JavaScript运行效率。最近，Kasper Lund开始主导开发<a href="https://github.com/dart-lang/fletch">Fletch</a>，该项目可能是Dart在移动端发展的重要基础项目。</p>
-
-<h3>Peter von der Ahé</h3>
-
-<p><img src="/images/custom/dart/people/Peter.jpg" /><br/>
-Peter是一个编译器专家，跟Lars Bak、Kasper Lund一样，早年也就职于Sun，他担任的职位是javac（Java的编译器）的技术主管。现在，他正专注于Dart增量编译的研发工作，同时他也在从事<a href="https://github.com/dart-lang/fletch">Fletch</a>的开发。</p>
-
-<h3>Kathy Walrath</h3>
-
-<p><img src="/images/custom/dart/people/Kathy.jpg" /><br/>
-Kathy Walrath是一位阅历丰富的技术写手，她曾就职于Sun、NeXT、HP等公司，她专注于Java文档编写长达11年。在加入Google后，她开始从事Chrome相关技术文档的编写。在web刚刚起步的那些年，她编写过Java applets的开发文档，而且她还是<a href="https://docs.oracle.com/javase/tutorial/">The Java Tutorial</a>的合著者，并对其进行了多年的维护。如今，Kathy在Dart项目组从事各种技术文档的编写工作，她还和Seth Ladd合著了一本书：<a href="https://www.dartlang.org/docs/dart-up-and-running/">Dart: Up and Running</a>。</p>
-
-<h3>Bob Nystrom</h3>
-
-<p><img src="/images/custom/dart/people/Bob.jpg" /><br/>
-Bob曾是EA（艺电）公司的一名游戏开发工程师，而且写过一本关于游戏编程模式的畅销书 <a href="http://gameprogrammingpatterns.com/">Game Programming Patterns</a>。在加入Dart项目组后，他主导开发了Dart的包管理器 <a href="https://pub.dartlang.org/">pub</a>，而且也写了很多关于Dart的文章，其中包括深受开发者欢迎的<a href="https://www.dartlang.org/articles/style-guide/">Dart编程风格指南</a>。而在最近，Bob开始帮助Dart建立DEP项目 - <a href="https://github.com/dart-lang/dart_enhancement_proposals">Dart Enhancement Proposals</a>（Dart增强建议书），这将使Dart项目组能更好的接收、吸纳来自社区与开发者的建议。</p>
-
-<h3>John McCutchan</h3>
-
-<p><img src="/images/custom/dart/people/john.png" /><br/></p>
-
-<p>当John还没有本科毕业时，他就编写了<a href="https://zh.wikipedia.org/wiki/Inotify">inotify</a>（Linux内核从2.6.13开始引入的系统事件监控框架），现在几乎所有主流的linux系统以及android都在使用它。在进入google前，他曾为索尼的游戏机部门工作多年，在那里他主要负责把<a href="http://bulletphysics.org/wordpress/">Bullet物理引擎</a>移植到PS3（索尼PlayStation游戏机的第三代）。在加入Dart项目组后，他主要负责开发调试与监控Dart应用的重要工具 - <a href="https://dart-lang.github.io/observatory/">Observatory</a>。</p>
-
-<h3>Natalie Weizenbaum</h3>
-
-<p><img src="/images/custom/dart/people/natalie.png" /><br/></p>
-
-<p>Natalie是Dart项目组中为数不多的女程序员，她是在前端开发中非常流行的CSS扩展语言<a href="http://sass-lang.com/">Sass</a>的主要贡献者。在Dart项目组中，她负责维护与开发众多基础性library，其中就包括 <a href="https://github.com/dart-lang/pub">pub</a>, <a href="https://github.com/dart-lang/test">test</a>, <a href="https://github.com/dart-lang/path">path</a>等。</p>
-
-<h3>Konstantin Scheglov</h3>
-
-<p><img src="/images/custom/dart/people/konstantin.jpg" width="200" height="200"/><br/></p>
-
-<p>Konstantin同样是一个有丰富Java开发背景的工程师，如果你曾经接触过Java GUI编程或是使用过Google的GWT，那你很有可能使用过他编写的工具 - Eclipse的<a href="https://eclipse.org/windowbuilder/">Windows Builder</a>插件, GWT的<a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/">GWT Designer</a>都出自于他之手。在加入dart项目组后，Konstantin主要从事Dart的IDE开发（Dart Editor），而在不久前，Dart项目组宣布不再提供默认的IDE，Konstantin也相应的转为主攻DAS开发（Dart Analysis Server - 它提供了一个分析dart代码的接口服务，使得Dart不再捆绑于某种IDE）。</p>
-
-<p>*Dart项目组还有很多优秀的工程师，希望后面可以再补充。<br>
-**以上信息大都收集整理自互联网，准确性有待商榷，如有错误之处，欢迎指正。</p>
 ]]></content>
   </entry>
   

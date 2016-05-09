@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Angular2 Dart快速上手指南 - Dynamic Static</title>
+  <meta name="author" content="戴虬">
+
+  
+  <meta name="description" content="注：本文翻译的是Angular2快速上手指南的Dart版本，转载请添加本文链接并标明出处。水平有限，仅供参考，更新更全的内容请查看原文：https://angular.io/docs/dart/latest/quickstart.html。 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jarontai.github.io/blog/2016/05/08/angular2-dart-quick-start">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Dynamic Static" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.lug.ustc.edu.cn/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.lug.ustc.edu.cn/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dynamic Static</a></h1>
+  
+    <h2>戴虬的博客 - 关于代码及其他</h2>
+  
+</hgroup>
+<!--[if IE]><p style="color: red;">你的浏览器过时了，请升级到最新版本或使用Chrome、FireFox等，以获得最佳阅读体验.</p><![endif]-->
+<a href="https://github.com/jarontai"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form id="search-form" action="https://xie.lu/" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jarontai.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<script type="text/javascript">
+  var siteStr = $('#search-form input').first().val();
+  jQuery(function($) {
+    var searchAction = $('#search-form').attr('action');
+    if (searchAction && (searchAction.indexOf('xie.lu') >= 0)) {
+      $('#search-form').submit(function(event) {
+        var form = $(this)[0];
+        window.location.href = 'https://xie.lu/' + '?#q=' + siteStr + ' ' + form.q[1].value;
+        event.preventDefault();
+      });
+    }
+  });
+</script>
+  
+<ul class="main-navigation">
+  <li><a href="/">文章</a></li>
+  <li><a href="/blog/archives">存档</a></li>
+</ul>
+<p style="display: inline-block; margin: 0; padding: 0; float: right;"><a style="float: right;" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=25126f523bb03ebf58046e7665bbfbc13d4cb6162aecb93e494f13187b5694b4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Dart语言学习交流群" title="Dart语言学习交流群"></a>&nbsp;&nbsp;&nbsp;Dart语言学习交流群：</p>
+<p style="display: inline-block; margin: 0; padding: 0; float: right;"><a style="float: right;" target="_blank" href="http://www.dartlang-china.org"><img border="0" src="/images/custom/dart/dart_china.png" alt="Dartlang中文社区" title="Dartlang中文社区"></a>Dartlang中文社区：</p>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Angular2 Dart快速上手指南</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-05-08T09:27:47+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:27 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>注：本文翻译的是Angular2快速上手指南的Dart版本，转载请添加本文链接并标明出处。水平有限，仅供参考，更新更全的内容请查看原文：<a href="https://angular.io/docs/dart/latest/quickstart.html">https://angular.io/docs/dart/latest/quickstart.html</a>。</p>
+
+<hr />
+
+<p><br/>
+让我们从零开始用Dart来编写一个超级简单的Angular2应用。
+（译注：Angular2支持TypeScript，JavaScript与Dart三种语言）</p>
+
+<p>本篇教程假设你已经设置好<a href="https://www.dartlang.org/downloads/">Dart SDK</a>及相关的开发工具。如果你还没有一个合适的编辑器，可以尝试一下拥有Dart插件的<a href="https://confluence.jetbrains.com/display/WI/Getting+started+with+Dart">WebStorm</a>。当然，你也可以去官网的<a href="https://www.dartlang.org/tools/">工具页面</a>下载各种IDE与编辑器的Dart插件。在配置好Dart SDK及你喜欢的开发工具后，再回到这里来。</p>
+
+<h2>准备新应用的目录</h2>
+
+<p>创建一个新文件夹，并在其中新建一个<strong>pubspec.yaml</strong>。(译注：在命令行下执行以下指令)</p>
+
+<pre><code>&gt; mkdir angular2_getting_started
+&gt; cd angular2_getting_started
+&gt; vim pubspec.yaml  # 这里使用vim，你可以使用任意其他你喜欢的编辑器！
+</code></pre>
+
+<p>在<strong>pubspec.yaml</strong>中，指定angular2跟browser作为项目依赖，当然也需要配置angular2 transformer。Angular2的API仍在变化中，所以我们指定了它的版本：2.0.0-beta.17。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">angular2_getting_started</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">QuickStart</span>
+</span><span class='line'><span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.0.1</span>
+</span><span class='line'><span class="l-Scalar-Plain">environment</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">sdk</span><span class="p-Indicator">:</span> <span class="s">&#39;&gt;=1.13.0</span><span class="nv"> </span><span class="s">&lt;2.0.0&#39;</span>
+</span><span class='line'><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2.0.0-beta.17</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^0.10.0</span>
+</span><span class='line'><span class="l-Scalar-Plain">transformers</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">entry_points</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">web/main.dart</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
+
+
+<p>在相同目录下，创建名为web的文件夹，并执行<strong>pub get</strong>安装angular2与browser（以及它们自身的依赖）。</p>
+
+<pre><code>&gt; mkdir web
+&gt; pub get
+Resolving dependencies...
+</code></pre>
+
+<h2>创建一个Dart文件</h2>
+
+<p>在<strong>web</strong>文件夹下创建一个<strong>main.dart</strong>。</p>
+
+<pre><code>&gt; vim web/main.dart  # 这里使用vim，你可以使用任意其他你喜欢的编辑器！
+</code></pre>
+
+<p>把以下内容粘贴到<strong>web/main.dart</strong>中：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kr">import</span> <span class="s1">&#39;package:angular2/core.dart&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="kr">import</span> <span class="s1">&#39;package:angular2/platform/browser.dart&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">@</span><span class="nx">Component</span><span class="p">(</span><span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;my-app&#39;</span><span class="p">,</span> <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;h1&gt;My First Angular 2 App&lt;/h1&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="kr">class</span> <span class="nx">AppComponent</span> <span class="p">{}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">bootstrap</span><span class="p">(</span><span class="nx">AppComponent</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在以上代码中，你定义了一个Angular2 <strong>component</strong>（译注：组件），它是Angular2最重要的特性之一。组件是创建应用视图的主要方式，当然，它们需要应用逻辑的支持才能工作。</p>
+
+<p>这个组件是个空的，没有做任何事且名称为<strong>AppComponent</strong>的类。在你准备编写一个有实质内容的应用时，你可以为这个组件添加各种属性与相应的应用逻辑。</p>
+
+<p>在这个类上面的是<strong>@Component</strong>注解，它告诉Angular这是一个组件。这里调用了<strong>@Component</strong>的构造函数，此函数有<strong>selector</strong>跟<strong>template</strong>两个命名参数。</p>
+
+<p><strong>selector</strong>参数指定了一个CSS选择器，它标明此组件依附一个名为<strong>my-app</strong>的自定义HTML元素。当Angular遇到一个<strong>my-app</strong>元素时，它就会创建并展示一个<strong>AppComponent</strong>类的实例。</p>
+
+<p><strong>template</strong>参数指定这个组件对应的模板，它告诉Angular如何去渲染视图。在我们的例子中，模板只是一行HTML文本：&#8221;My First Angular 2 App&#8221;。</p>
+
+<p><strong>main()</strong>方法调用了Angular的<strong>bootstrap()</strong>函数，它告诉Angular以<strong>AppComponent</strong>为根元素启动应用。日后，这个应用的根元素上会添加更多的组件，以树状形式不断成长。</p>
+
+<p>最开始的两行代码引入了两个Angular的库，所有使用Angular API的Dart文件都需要引入<strong>core.dart</strong>，而只有调用<strong>bootstrap()</strong>方法的Dart文件才需要引入<strong>platform/browser.dart</strong>。</p>
+
+<h2>创建一个HTML文件</h2>
+
+<p>创建一个名为<strong>web/index.html</strong>的文件并输入以下代码：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;title&gt;</span>Getting Started<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;styles.css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">async</span> <span class="na">src=</span><span class="s">&quot;main.dart&quot;</span> <span class="na">type=</span><span class="s">&quot;application/dart&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;script </span><span class="na">async</span> <span class="na">src=</span><span class="s">&quot;packages/browser/dart.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;my-app&gt;</span>Loading...<span class="nt">&lt;/my-app&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在<strong>&lt;body></strong>中的<strong>my-app</strong>标签就是前面Dart文件中<strong>selector</strong>参数指定的自定义HTML元素。</p>
+
+<h2>运行应用</h2>
+
+<p>你有多种方式来运行你的应用，其中之一是在本地运行一个HTTP服务器并在<a href="https://www.dartlang.org/tools/dartium/">Dartium</a>查看应用。你可以使用任意你喜欢的服务器，比如WebStorm内置的服务器或者Python的SimpleHttpServer。</p>
+
+<p>另外一种方式是通过执行<strong>pub serve</strong>来构建并启动应用，然后你就可以在任意现代浏览器中，通过 <a href="http://localhost:8080">http://localhost:8080</a> 来访问你的应用。<strong>Pub serve</strong>指令会实时的将Dart转换为JavaScript，当然，这会对页面的初次访问造成一定的延迟。</p>
+
+<p>一旦应用运行起来，你就会浏览器窗口中看到 <strong>My First Angular 2 App</strong>。</p>
+
+<p>如果你没有看到，请确保你正确输入了所有的代码并执行过<strong>pub get</strong>。</p>
+
+<h2>生成JavaScript</h2>
+
+<p>在部署你的应用之前，你还需要生成JavaScript文件，<strong>pub build</strong>指令使这项工作得以简单化。为了改善应用的性能，也需要使HTML文件直接引用生成的JavaScript，而这可以由<strong>dart_to_js_script_rewriter</strong>来完成。</p>
+
+<p>将<strong>dart_to_js_script_rewriter</strong>添加到你的<strong>pubsepc.yaml</strong>中，注意<strong>dependencies</strong>跟<strong>transformers</strong>都需要设置。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">angular2_getting_started</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">QuickStart</span>
+</span><span class='line'><span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.0.1</span>
+</span><span class='line'><span class="l-Scalar-Plain">environment</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">sdk</span><span class="p-Indicator">:</span> <span class="s">&#39;&gt;=1.13.0</span><span class="nv"> </span><span class="s">&lt;2.0.0&#39;</span>
+</span><span class='line'><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2.0.0-beta.17</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^0.10.0</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">dart_to_js_script_rewriter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^1.0.1</span>
+</span><span class='line'><span class="l-Scalar-Plain">transformers</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">entry_points</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">web/main.dart</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">dart_to_js_script_rewriter</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后执行<strong>pub build</strong>，将你的Dart代码编译为JavaScript。</p>
+
+<pre><code>&gt; pub build
+Loading source assets...
+</code></pre>
+
+<p>生成的JavaScript以及其他支持文件都会出现在<strong>build</strong>文件夹下。</p>
+
+<p>当你为Angular应用生成JavaScript时，请确保使用Angular transformer。它会分析你的代码，将其中使用了反射的代码转换为静态代码，使Dart的构建工具输出更快速、体积更小的JavaScript。<strong>pubspec.yaml</strong>中的高亮部分是对Angular transformer进行配置的，如下所示：(译注：这里高亮的是10、11、12行，笔者暂时没有找到codeblock内部分高亮的方法-_-)</p>
+
+<figure class='code'><figcaption><span>mark:1,5-8 </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">angular2_getting_started</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">QuickStart</span>
+</span><span class='line'><span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.0.1</span>
+</span><span class='line'><span class="l-Scalar-Plain">environment</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">sdk</span><span class="p-Indicator">:</span> <span class="s">&#39;&gt;=1.13.0</span><span class="nv"> </span><span class="s">&lt;2.0.0&#39;</span>
+</span><span class='line'><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2.0.0-beta.17</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">browser</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^0.10.0</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">dart_to_js_script_rewriter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^1.0.1</span>
+</span><span class='line'><span class="l-Scalar-Plain">transformers</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">angular2</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">entry_points</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">web/main.dart</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">dart_to_js_script_rewriter</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>entry_points</strong>指定了调用<strong>main()</strong>函数的Dart文件，如果需要查看更多相关信息，请查看<a href="https://github.com/angular/angular/wiki/Angular-2-Dart-Transformer">Angular transformer维基页面</a>。</p>
+
+<blockquote><h4>性能，transformer，以及Angular 2库</h4>
+
+<p>  当你引入<strong>bootstrap.dart</strong>，你就引入了<strong>dart:mirrors</strong>，这是一个反射库，它会对生成的JavaScript性能造成影响。但是别担心，Angular transformer会对你的入口（<strong>pubspec.yaml</strong>中的<strong>entry_points</strong>）执行转换操作，所以它们将不会使用<strong>dart:mirrors</strong>。</p></blockquote>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">戴虬</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-05-08T09:27:47+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:27 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/angular2/'>angular2</a>, <a class='category' href='/blog/categories/dart/'>dart</a>, <a class='category' href='/blog/categories/fan-yi/'>翻译</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/09/06/dartlang-flutter-quick-start/" title="Previous Post: Dart移动开发框架Flutter快速上手指南">&laquo; Dart移动开发框架Flutter快速上手指南</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>评论</h1>
+    <div id="disqus_thread" aria-live="polite"><div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'dynamicstatic';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>最近的文章</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/05/08/angular2-dart-quick-start/">Angular2 Dart快速上手指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/06/dartlang-flutter-quick-start/">Dart移动开发框架Flutter快速上手指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/21/dart-sdk-auto-installtion/">Dartlang实践：Dart SDK安装指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/20/dart-notes-2/">Dartlang学习笔记：变量、内置类型、函数和操作符</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/06/dart-notes-1/">Dartlang学习笔记：Dartlang的重要概念</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub 开源代码</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/jarontai">@jarontai</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jarontai',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - 戴虬 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'dynamicstatic';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jarontai.github.io/blog/2016/05/08/angular2-dart-quick-start/';
+        var disqus_url = 'http://jarontai.github.io/blog/2016/05/08/angular2-dart-quick-start/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
