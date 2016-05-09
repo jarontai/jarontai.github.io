@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Angular2 | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/angular2/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2016-05-09T16:09:49+08:00</updated>
+  <updated>2016-05-09T16:26:42+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[JaronTai]]></name>
@@ -30,14 +30,14 @@
 
 <h2>准备新应用的目录</h2>
 
-<p>创建一个新文件夹，并在其中新建一个<strong>pubspec.yaml</strong>。(译注：在命令行下执行以下指令)</p>
+<p>创建一个新文件夹，并在其中新建一个 <strong>pubspec.yaml</strong>。(译注：在命令行下执行以下指令)</p>
 
 <pre><code>&gt; mkdir angular2_getting_started
 &gt; cd angular2_getting_started
 &gt; vim pubspec.yaml  # 这里使用vim，你可以使用任意其他你喜欢的编辑器！
 </code></pre>
 
-<p>在<strong>pubspec.yaml</strong>中，指定angular2跟browser作为项目依赖，并对transformer也进行了配置。因为Angular2的API还在变化，所以这里指定了一个版本：2.0.0-beta.17。(译注：指定使用某个版本可以避免多版本间的api冲突)</p>
+<p>在 <strong>pubspec.yaml</strong> 中，指定angular2跟browser作为项目依赖，并对transformer也进行配置。因为Angular2的API还在变化，所以这里指定了一个版本：2.0.0-beta.17。(译注：指定使用某个版本可以避免多版本间的api冲突)</p>
 
 <p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -66,7 +66,7 @@
 <!-- more -->
 
 
-<p>在相同目录下，创建名为web的文件夹，并执行<strong>pub get</strong>安装angular2与browser（以及它们自身的依赖）。</p>
+<p>在相同目录下，创建名为web的文件夹，并执行 <strong>pub get</strong> 安装angular2与browser（以及它们自身的依赖）。</p>
 
 <pre><code>&gt; mkdir web
 &gt; pub get
@@ -75,12 +75,12 @@ Resolving dependencies...
 
 <h2>创建一个Dart文件</h2>
 
-<p>在<strong>web</strong>文件夹下创建一个<strong>main.dart</strong>。</p>
+<p>在 <strong>web</strong> 文件夹下创建一个 <strong>main.dart</strong>。</p>
 
 <pre><code>&gt; vim web/main.dart  # 这里使用vim，你可以使用任意其他你喜欢的编辑器！
 </code></pre>
 
-<p>把以下内容粘贴到<strong>web/main.dart</strong>中：</p>
+<p>把以下内容粘贴到 <strong>web/main.dart</strong> 中：</p>
 
 <p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -104,21 +104,21 @@ Resolving dependencies...
 
 <p>在以上代码中，你定义了一个Angular2 <strong>component</strong>（译注：组件），它是Angular2最重要的特性之一。组件是创建应用视图的主要方式，当然，它们需要应用逻辑的支持才能工作。</p>
 
-<p>这个组件是个空的，没有做任何事且名称为<strong>AppComponent</strong>的类。在你准备编写一个有实质内容的应用时，你可以为这个组件添加各种属性与相应的应用逻辑。</p>
+<p>这个组件是个空的，没有做任何事且名称为 <strong>AppComponent</strong> 的类。在你准备编写一个有实质内容的应用时，你可以为这个组件添加各种属性与相应的应用逻辑。</p>
 
-<p>在这个类上面的是<strong>@Component</strong>注解，它告诉Angular这是一个组件。这里调用了<strong>@Component</strong>的构造函数，此函数有<strong>selector</strong>跟<strong>template</strong>两个命名参数。</p>
+<p>在这个类上面的是 <strong>@Component</strong> 注解，它告诉Angular这是一个组件。这里调用了 <strong>@Component</strong> 的构造函数，此函数有 <strong>selector</strong> 跟 <strong>template</strong> 两个命名参数。</p>
 
-<p><strong>selector</strong>参数指定了一个CSS选择器，它标明此组件依附一个名为<strong>my-app</strong>的自定义HTML元素。当Angular遇到一个<strong>my-app</strong>元素时，它就会创建并展示一个<strong>AppComponent</strong>类的实例。</p>
+<p><strong>selector</strong> 参数指定了一个CSS选择器，它标明此组件依附一个名为 <strong>my-app</strong> 的自定义HTML元素。当Angular遇到一个 <strong>my-app</strong> 元素时，它就会创建并展示一个 <strong>AppComponent</strong> 类的实例。</p>
 
-<p><strong>template</strong>参数指定这个组件对应的模板，它告诉Angular如何去渲染视图。在我们的例子中，模板只是一行HTML文本：&#8221;My First Angular 2 App&#8221;。</p>
+<p><strong>template</strong> 参数指定这个组件对应的模板，它告诉Angular如何去渲染视图。在我们的例子中，模板只是一行HTML文本：&#8221;My First Angular 2 App&#8221;。</p>
 
-<p><strong>main()</strong>方法调用了Angular的<strong>bootstrap()</strong>函数，它告诉Angular以<strong>AppComponent</strong>为根元素启动应用。日后，这个应用的根元素上会添加更多的组件，以树状形式不断成长。</p>
+<p><strong>main()</strong> 方法调用了Angular的 <strong>bootstrap()</strong> 函数，它告诉Angular以 <strong>AppComponent</strong> 为根元素启动应用。日后，这个应用的根元素上会添加更多的组件，以树状形式不断成长。</p>
 
-<p>最开始的两行代码引入了两个Angular的库，所有使用Angular API的Dart文件都需要引入<strong>core.dart</strong>，而只有调用<strong>bootstrap()</strong>方法的Dart文件才需要引入<strong>platform/browser.dart</strong>。</p>
+<p>最开始的两行代码引入了两个Angular的库，所有使用Angular API的Dart文件都需要引入 <strong>core.dart</strong>，而只有调用 <strong>bootstrap()</strong> 方法的Dart文件才需要引入 <strong>platform/browser.dart</strong>。</p>
 
 <h2>创建一个HTML文件</h2>
 
-<p>创建一个名为<strong>web/index.html</strong>的文件并输入以下代码：</p>
+<p>创建一个名为 <strong>web/index.html</strong> 的文件并输入以下代码：</p>
 
 <p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -146,23 +146,23 @@ Resolving dependencies...
 </span><span class='line'><span class="nt">&lt;/html&gt;</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p>在<strong>&lt;body></strong>中的<strong>my-app</strong>标签就是前面Dart文件中<strong>selector</strong>参数指定的自定义HTML元素。</p>
+<p>在 <strong>&lt;body></strong> 中的 <strong>my-app</strong> 标签就是前面Dart文件中 <strong>selector</strong> 参数指定的自定义HTML元素。</p>
 
 <h2>运行应用</h2>
 
 <p>你有多种方式来运行你的应用，其中之一是在本地运行一个HTTP服务器并在<a href="https://www.dartlang.org/tools/dartium/">Dartium</a>查看应用。你可以使用任意你喜欢的服务器，比如WebStorm内置的服务器或者Python的SimpleHttpServer。</p>
 
-<p>另外一种方式是通过执行<strong>pub serve</strong>来构建并启动应用，然后你就可以在任意现代浏览器中，通过 <a href="http://localhost:8080">http://localhost:8080</a> 来访问你的应用。<strong>Pub serve</strong>指令会实时的将Dart转换为JavaScript，当然，这会对页面的初次访问造成一定的延迟。</p>
+<p>另外一种方式是通过执行 <strong>pub serve</strong> 来构建并启动应用，然后你就可以在任意现代浏览器中，通过 <a href="http://localhost:8080">http://localhost:8080</a> 来访问你的应用。<strong>Pub serve</strong> 指令会实时的将Dart转换为JavaScript，当然，这会对页面的初次访问造成一定的延迟。</p>
 
 <p>一旦应用运行起来，你就会浏览器窗口中看到 <strong>My First Angular 2 App</strong>。</p>
 
-<p>如果你没有看到，请确保你正确输入了所有的代码并执行过<strong>pub get</strong>。</p>
+<p>如果你没有看到，请确保你正确输入了所有的代码并执行过 <strong>pub get</strong>。</p>
 
 <h2>生成JavaScript</h2>
 
-<p>在部署你的应用之前，你还需要生成JavaScript文件，<strong>pub build</strong>指令使这项工作得以简单化。为了改善应用的性能，也需要使HTML文件直接引用生成的JavaScript，而这可以由<strong>dart_to_js_script_rewriter</strong>来完成。</p>
+<p>在部署你的应用之前，你还需要生成JavaScript文件，<strong>pub build</strong> 指令使这项工作得以简单化。为了改善应用的性能，也需要使HTML文件直接引用生成的JavaScript，而这可以由 <strong>dart_to_js_script_rewriter</strong> 来完成。</p>
 
-<p>将<strong>dart_to_js_script_rewriter</strong>添加到你的<strong>pubsepc.yaml</strong>中，注意<strong>dependencies</strong>跟<strong>transformers</strong>都需要设置。</p>
+<p>将 <strong>dart_to_js_script_rewriter</strong> 添加到你的 <strong>pubsepc.yaml</strong> 中，注意 <strong>dependencies</strong> 跟 <strong>transformers</strong> 都需要设置。</p>
 
 <p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -192,15 +192,15 @@ Resolving dependencies...
 </span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">dart_to_js_script_rewriter</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p>然后执行<strong>pub build</strong>，将你的Dart代码编译为JavaScript。</p>
+<p>然后执行 <strong>pub build</strong>，将你的Dart代码编译为JavaScript。</p>
 
 <pre><code>&gt; pub build
 Loading source assets...
 </code></pre>
 
-<p>生成的JavaScript以及其他支持文件都会出现在<strong>build</strong>文件夹下。</p>
+<p>生成的JavaScript以及其他支持文件都会出现在 <strong>build</strong> 文件夹下。</p>
 
-<p>当你为Angular应用生成JavaScript时，请确保使用Angular transformer。它会分析你的代码，将其中使用了反射的代码转换为静态代码，使Dart的构建工具输出更快速、体积更小的JavaScript。<strong>pubspec.yaml</strong>中的高亮部分是对Angular transformer进行配置的，如下所示：(译注：这里高亮的是10、11、12行，笔者暂时没有找到codeblock内部分高亮的方法-_-)</p>
+<p>当你为Angular应用生成JavaScript时，请确保使用Angular transformer。它会分析你的代码，将其中使用了反射的代码转换为静态代码，使Dart的构建工具输出更快速、体积更小的JavaScript。<strong>pubspec.yaml</strong> 中的高亮部分是对Angular transformer进行配置的，如下所示：(译注：这里高亮的是10、11、12行，笔者暂时没有找到使codeblock部分内容高亮的方法)</p>
 
 <p><figure class='code'><figcaption><span>mark:1,5-8 </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -231,11 +231,11 @@ Loading source assets...
 </span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">dart_to_js_script_rewriter</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p><strong>entry_points</strong>指定了调用<strong>main()</strong>函数的Dart文件，如果需要查看更多相关信息，请查看<a href="https://github.com/angular/angular/wiki/Angular-2-Dart-Transformer">Angular transformer维基页面</a>。</p>
+<p><strong>entry_points</strong> 指定了调用 <strong>main()</strong> 函数的Dart文件，如果需要查看更多相关信息，请查看<a href="https://github.com/angular/angular/wiki/Angular-2-Dart-Transformer">Angular transformer维基页面</a>。</p>
 
 <blockquote><h4>性能，transformer，以及Angular 2库</h4>
 
-<p>  当你引入<strong>bootstrap.dart</strong>，你就引入了<strong>dart:mirrors</strong>，这是一个反射库，它会对生成的JavaScript性能造成影响。但是别担心，Angular transformer会对你的入口（<strong>pubspec.yaml</strong>中的<strong>entry_points</strong>）执行转换操作，所以它们将不会使用<strong>dart:mirrors</strong>。</p></blockquote>
+<p>  当你引入 <strong>bootstrap.dart</strong>，你就引入了 <strong>dart:mirrors</strong>，这是一个反射库，它会对生成的JavaScript性能造成影响。但是别担心，Angular transformer会对你的入口（<strong>pubspec.yaml</strong> 中的 <strong>entry_points</strong>）执行转换操作，所以它们将不会使用 <strong>dart:mirrors</strong>。</p></blockquote>
 ]]></content>
   </entry>
   
