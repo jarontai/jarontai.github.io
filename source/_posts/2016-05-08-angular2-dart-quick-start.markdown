@@ -10,7 +10,7 @@ categories: 翻译 dart angular2
 ___
 <br/>
 让我们从零开始用Dart来编写一个超级简单的Angular2应用。
-（译注：Angular2支持TypeScript，JavaScript与Dart三种语言）
+（译注：Angular2支持TypeScript，JavaScript与Dart三种语言，而据Dart项目组透露，Google内部几个大项目都在使用Dart版本的Angular2）
 
 本篇教程假设你已经设置好[Dart SDK](https://www.dartlang.org/downloads/)及相关的开发工具。如果你还没有一个合适的编辑器，可以尝试一下拥有Dart插件的[WebStorm](https://confluence.jetbrains.com/display/WI/Getting+started+with+Dart)。当然，你也可以去官网的[工具页面](https://www.dartlang.org/tools/)下载各种IDE与编辑器的Dart插件。在配置好Dart SDK及你喜欢的开发工具后，再回到这里来。
 
