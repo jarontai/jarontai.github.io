@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 翻译 | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/fan-yi/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2016-05-09T16:40:59+08:00</updated>
+  <updated>2016-05-10T09:12:12+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[JaronTai]]></name>
@@ -24,7 +24,7 @@
 
 <p><br/>
 让我们从零开始用Dart来编写一个超级简单的Angular2应用。
-（译注：Angular2支持TypeScript，JavaScript与Dart三种语言）</p>
+（译注：Angular2支持TypeScript，JavaScript与Dart三种语言，而据Dart项目组透露，Google内部几个大项目都在使用Dart版本的Angular2）</p>
 
 <p>本篇教程假设你已经设置好<a href="https://www.dartlang.org/downloads/">Dart SDK</a>及相关的开发工具。如果你还没有一个合适的编辑器，可以尝试一下拥有Dart插件的<a href="https://confluence.jetbrains.com/display/WI/Getting+started+with+Dart">WebStorm</a>。当然，你也可以去官网的<a href="https://www.dartlang.org/tools/">工具页面</a>下载各种IDE与编辑器的Dart插件。在配置好Dart SDK及你喜欢的开发工具后，再回到这里来。</p>
 
