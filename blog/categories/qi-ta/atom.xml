@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 其他 | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/qi-ta/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2016-05-10T09:15:30+08:00</updated>
+  <updated>2016-08-13T08:12:10+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[JaronTai]]></name>
@@ -24,7 +24,7 @@
 
 <h3>Gilad Bracha</h3>
 
-<p><img src="/images/custom/dart/people/Gilad.jpg" /><br/>
+<p><img src="{{ root_url }}/images/custom/dart/people/Gilad.jpg" /><br/>
 Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家。他曾经就职于<a href="http://zh.wikipedia.org/wiki/%E6%98%87%E9%99%BD%E9%9B%BB%E8%85%A6">Sun</a>，专门从事Java/JVM规范的定制与实现工作。他不仅是Java语言规范第二、三版的合著者（co-author），也是JVM规范第二版的主要贡献者。在进入Google后，他加入了Dart项目组，他的主要工作就是Dart语言规范的编写。目前，Gilad正在编写一本全面介绍dart的书 - <a href="http://www.amazon.com/Dart-Programming-Language-Gilad-Bracha/dp/0321927702">The Dart Programming Language</a>。</p>
 
 <!-- more -->
@@ -32,44 +32,44 @@ Gilad Bracha是一位经验丰富，专注于面向对象语言研究的专家�
 
 <h3>Lars Bak</h3>
 
-<p><img src="/images/custom/dart/people/Lars.jpg" /><br/>
+<p><img src="{{ root_url }}/images/custom/dart/people/Lars.jpg" /><br/>
 Lars Bak是Dart的联合创始人之一，他是一个来自丹麦的计算机天才，是一个虚拟机专家。他在近年主导开发的一个项目对互联网产生了深远影响，这就是Chrome的JavaScript虚拟机 - V8。而在更早以前，他从事Smalltalk与Java的虚拟机开发，他曾在<a href="http://zh.wikipedia.org/wiki/%E6%98%87%E9%99%BD%E9%9B%BB%E8%85%A6">Sun</a>的HotSpot项目担任工程与技术主管，专职开发高性能的Java虚拟机。Lars Bak在虚拟机开发领域获得过惊人的成就，现在，他不仅要主导开发一个新的虚拟机，而且还有一门新的编程语言 - Dart。</p>
 
 <h3>Kasper Lund</h3>
 
-<p><img src="/images/custom/dart/people/Kasper.jpg" /><br/>
+<p><img src="{{ root_url }}/images/custom/dart/people/Kasper.jpg" /><br/>
 Kasper Lund也是Dart的联合创始人之一，他也来自丹麦。他早年跟Lars Bak都就职于Sun，一起从事JVM的开发。后来他跟Lars Bak一起加入Google，从事V8引擎开发。他主导开发V8引擎的Crankshaft项目，极大的提升了Chrome的JavaScript运行效率。最近，Kasper Lund开始主导开发<a href="https://github.com/dart-lang/fletch">Fletch</a>，该项目可能是Dart在移动端发展的重要基础项目。</p>
 
 <h3>Peter von der Ahé</h3>
 
-<p><img src="/images/custom/dart/people/Peter.jpg" /><br/>
+<p><img src="{{ root_url }}/images/custom/dart/people/Peter.jpg" /><br/>
 Peter是一个编译器专家，跟Lars Bak、Kasper Lund一样，早年也就职于Sun，他担任的职位是javac（Java的编译器）的技术主管。现在，他正专注于Dart增量编译的研发工作，同时他也在从事<a href="https://github.com/dart-lang/fletch">Fletch</a>的开发。</p>
 
 <h3>Kathy Walrath</h3>
 
-<p><img src="/images/custom/dart/people/Kathy.jpg" /><br/>
+<p><img src="{{ root_url }}/images/custom/dart/people/Kathy.jpg" /><br/>
 Kathy Walrath是一位阅历丰富的技术写手，她曾就职于Sun、NeXT、HP等公司，她专注于Java文档编写长达11年。在加入Google后，她开始从事Chrome相关技术文档的编写。在web刚刚起步的那些年，她编写过Java applets的开发文档，而且她还是<a href="https://docs.oracle.com/javase/tutorial/">The Java Tutorial</a>的合著者，并对其进行了多年的维护。如今，Kathy在Dart项目组从事各种技术文档的编写工作，她还和Seth Ladd合著了一本书：<a href="https://www.dartlang.org/docs/dart-up-and-running/">Dart: Up and Running</a>。</p>
 
 <h3>Bob Nystrom</h3>
 
-<p><img src="/images/custom/dart/people/Bob.jpg" /><br/>
+<p><img src="{{ root_url }}/images/custom/dart/people/Bob.jpg" /><br/>
 Bob曾是EA（艺电）公司的一名游戏开发工程师，而且写过一本关于游戏编程模式的畅销书 <a href="http://gameprogrammingpatterns.com/">Game Programming Patterns</a>。在加入Dart项目组后，他主导开发了Dart的包管理器 <a href="https://pub.dartlang.org/">pub</a>，而且也写了很多关于Dart的文章，其中包括深受开发者欢迎的<a href="https://www.dartlang.org/articles/style-guide/">Dart编程风格指南</a>。而在最近，Bob开始帮助Dart建立DEP项目 - <a href="https://github.com/dart-lang/dart_enhancement_proposals">Dart Enhancement Proposals</a>（Dart增强建议书），这将使Dart项目组能更好的接收、吸纳来自社区与开发者的建议。</p>
 
 <h3>John McCutchan</h3>
 
-<p><img src="/images/custom/dart/people/john.png" /><br/></p>
+<p><img src="{{ root_url }}/images/custom/dart/people/john.png" /><br/></p>
 
 <p>当John还没有本科毕业时，他就编写了<a href="https://zh.wikipedia.org/wiki/Inotify">inotify</a>（Linux内核从2.6.13开始引入的系统事件监控框架），现在几乎所有主流的linux系统以及android都在使用它。在进入google前，他曾为索尼的游戏机部门工作多年，在那里他主要负责把<a href="http://bulletphysics.org/wordpress/">Bullet物理引擎</a>移植到PS3（索尼PlayStation游戏机的第三代）。在加入Dart项目组后，他主要负责开发调试与监控Dart应用的重要工具 - <a href="https://dart-lang.github.io/observatory/">Observatory</a>。</p>
 
 <h3>Natalie Weizenbaum</h3>
 
-<p><img src="/images/custom/dart/people/natalie.png" /><br/></p>
+<p><img src="{{ root_url }}/images/custom/dart/people/natalie.png" /><br/></p>
 
 <p>Natalie是Dart项目组中为数不多的女程序员，她是在前端开发中非常流行的CSS扩展语言<a href="http://sass-lang.com/">Sass</a>的主要贡献者。在Dart项目组中，她负责维护与开发众多基础性library，其中就包括 <a href="https://github.com/dart-lang/pub">pub</a>, <a href="https://github.com/dart-lang/test">test</a>, <a href="https://github.com/dart-lang/path">path</a>等。</p>
 
 <h3>Konstantin Scheglov</h3>
 
-<p><img src="/images/custom/dart/people/konstantin.jpg" width="200" height="200"/><br/></p>
+<p><img src="{{ root_url }}/images/custom/dart/people/konstantin.jpg" width="200" height="200"/><br/></p>
 
 <p>Konstantin同样是一个有丰富Java开发背景的工程师，如果你曾经接触过Java GUI编程或是使用过Google的GWT，那你很有可能使用过他编写的工具 - Eclipse的<a href="https://eclipse.org/windowbuilder/">Windows Builder</a>插件, GWT的<a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/">GWT Designer</a>都出自于他之手。在加入dart项目组后，Konstantin主要从事Dart的IDE开发（Dart Editor），而在不久前，Dart项目组宣布不再提供默认的IDE，Konstantin也相应的转为主攻DAS开发（Dart Analysis Server - 它提供了一个分析dart代码的接口服务，使得Dart不再捆绑于某种IDE）。</p>
 
@@ -144,29 +144,19 @@ Bob曾是EA（艺电）公司的一名游戏开发工程师，而且写过一本
 
 <p>Octopress 常用指令：</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake new_post<span class="o">[</span><span class="p">&amp;</span>ldquo<span class="p">;</span>title<span class="p">&amp;</span>rdquo<span class="p">;</span><span class="o">]</span>  <span class="c"># Generate a new post&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;rake generate   <span class="c"># Generates posts and pages into the public directory&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;rake watch      <span class="c"># Watches source/ and sass/ for changes and regenerates&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;rake preview    <span class="c"># Watches, and mounts a webserver at &lt;a href=&quot;http://localhost:4000&quot;&gt;http://localhost:4000&lt;/a&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;rake deploy     <span class="c"># Deploy to github&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;git add .  <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span>   git commit -m <span class="p">&amp;</span>lsquo<span class="p">;</span>your message<span class="p">&amp;</span>rsquo<span class="p">;</span>  <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span>  git push origin <span class="nb">source</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:sh %}
+rake new_post[&ldquo;title&rdquo;]  # Generate a new post</p>
+
+<p>rake generate   # Generates posts and pages into the public directory</p>
+
+<p>rake watch      # Watches source/ and sass/ for changes and regenerates</p>
+
+<p>rake preview    # Watches, and mounts a webserver at <a href="http://localhost:4000">http://localhost:4000</a></p>
+
+<p>rake deploy     # Deploy to github</p>
+
+<p>git add .  &amp;&amp;   git commit -m &lsquo;your message&rsquo;  &amp;&amp;  git push origin source
+{% endcodeblock %}</p>
 ]]></content>
   </entry>
   

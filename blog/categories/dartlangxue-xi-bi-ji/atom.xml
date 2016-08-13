@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dartlang学习笔记 | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/dartlangxue-xi-bi-ji/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2016-05-10T09:15:30+08:00</updated>
+  <updated>2016-08-13T08:12:10+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[JaronTai]]></name>
@@ -27,7 +27,7 @@
 <p>  如果某个变量的值不会被更改，请用final或者const来修饰它。Final与const的区别：被final修饰的变量只能被初始化一次，但其所指对象还可以被修改；而const表示当前变量是“编译时常量”，它所指的对象在创建后不能再修改。</p>
 
 <p>  示例如下：
-  <img src="/images/custom/dart_notes/note2/variables.png" /><!-- more --></p>
+  <img src="{{ root_url }}/images/custom/dart_notes/note2/variables.png" /><!-- more --></p>
 
 <h2>内置类型</h2>
 
@@ -46,7 +46,7 @@
 <p>  Symbol类型比较特殊，日常编码很少用到它。它是一种标识符，它在Dart代码被最小化（minification）时不会被修改，它的表示方式就是在普通标识符前面加上一个#。</p>
 
 <p>  示例如下：
-  <img src="/images/custom/dart_notes/note2/types.png" /></p>
+  <img src="{{ root_url }}/images/custom/dart_notes/note2/types.png" /></p>
 
 <h2>函数</h2>
 
@@ -57,7 +57,7 @@
 <p>  Dart的函数是一等公民，它可以作为变量在代码间到处传递，也可以像JavaScript样通过嵌套来实现闭包。每一个函数都有返回值，如果没有显式的返回语句，则默认在函数body结束前添加 ‘return null;’。</p>
 
 <p>  示例如下：
-  <img src="/images/custom/dart_notes/note2/function.png" /></p>
+  <img src="{{ root_url }}/images/custom/dart_notes/note2/function.png" /></p>
 
 <h2>操作符</h2>
 
@@ -66,7 +66,7 @@
 <p>  Dart也提供了一类特殊的操作符-类型检测操作符，它们是：as，is，is!。其中，as用来进行类型转换，is与is!用来判断对象的类型。</p>
 
 <p>  示例如下：
-  <img src="/images/custom/dart_notes/note2/operators.png" /></p>
+  <img src="{{ root_url }}/images/custom/dart_notes/note2/operators.png" /></p>
 
 <p>以上。</p>
 ]]></content>
@@ -87,19 +87,19 @@
 
 <p>  在谈到面向对象的编程语言时，Java经常被人提起，但其实Java并非“真正的面向对象”，因为它的基本数据类型都不是对象。而在Dart中，“一切皆对象”。Dart的类都继承自Object类，所有的变量都指向一个对象，数字、函数甚至null本身也是一个对象，所有未被初始化的变量也都被赋予null，可以说Dart才是一门“真正面向对象”的编程语言。示例如下：<!-- more --></p>
 
-<p>  <img src="/images/custom/dart_notes/note1/everything_is_object.png" /></p>
+<p>  <img src="{{ root_url }}/images/custom/dart_notes/note1/everything_is_object.png" /></p>
 
 <h3>类型是可选的</h3>
 
 <p>  Dart的类型，似乎是Java跟JavaScript类型系统的结合。你不想使用类型时，可以用var声明变量，这样你就可以像写JavaScript一样自由的书写代码。反过来，你也可以像Java一样，为每个变量都指定类型，这就使得编辑器能对代码进行静态检查，如果你把数字赋给了一个String类型的变量，编辑器就会有警告信息提示你。示例如下：</p>
 
-<p>  <img src="/images/custom/dart_notes/note1/optional_types.png" /></p>
+<p>  <img src="{{ root_url }}/images/custom/dart_notes/note1/optional_types.png" /></p>
 
 <h3>函数是一等公民</h3>
 
 <p>  跟JavaScript类似，Dart的函数是对象，你可以定义顶层函数，或是把函数存放到变量里面，又或是通过函数嵌套来实现闭包。示例如下：</p>
 
-<p>  <img src="/images/custom/dart_notes/note1/function_is_good.png" /></p>
+<p>  <img src="{{ root_url }}/images/custom/dart_notes/note1/function_is_good.png" /></p>
 
 <h3>库与可见性</h3>
 

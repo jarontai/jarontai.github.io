@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flutter | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/flutter/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2016-05-10T09:15:30+08:00</updated>
+  <updated>2016-08-13T08:12:10+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[JaronTai]]></name>
@@ -94,35 +94,22 @@ dev_dependencies:
 
 <p>Flutter默认将lib/main.dart作为应用的入口文件，所以我们在lib文件夹下新建一个main.dart，并敲入以下代码：</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='dart'><span class='line'><span class="k">import</span> <span class="err">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="nl">package:</span><span class="n">flutter</span><span class="o">/</span><span class="n">material</span><span class="p">.</span><span class="n">dart</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kd">class</span> <span class="nc">HelloWorldApp</span> <span class="kd">extends</span> <span class="n">StatelessComponent</span> <span class="p">{</span>
-</span><span class='line'>  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">build</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="n">Center</span><span class="p">(</span>
-</span><span class='line'>        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">Hello</span><span class="p">,</span> <span class="n">world</span><span class="o">!&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
-</span><span class='line'>            <span class="nl">style:</span>
-</span><span class='line'>                <span class="k">new</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">color:</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mh">0xFF01FFFF</span><span class="p">),</span> <span class="nl">fontSize:</span> <span class="m">25.0</span><span class="p">)));</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="n">runApp</span><span class="p">(</span><span class="k">new</span> <span class="n">HelloWorldApp</span><span class="p">());</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:dart %}
+import &lsquo;package:flutter/material.dart&rsquo;;</p>
+
+<p>class HelloWorldApp extends StatelessComponent {
+  Widget build(BuildContext build) {
+    return new Center(
+        child: new Text(&lsquo;Hello, world!&rsquo;,
+            style:
+                new TextStyle(color: new Color(0xFF01FFFF), fontSize: 25.0)));
+  }
+}</p>
+
+<p>void main() {
+  runApp(new HelloWorldApp());
+}
+{% endcodeblock %}</p>
 
 <p>在我们的main方法中，一个HelloWorldApp组件被实例化，然后传入runApp方法中运行。HelloWorldApp的代码很简单，它构建了一个在屏幕居中显示的，指定了色彩跟文字大小的HelloWorld文本。如果你想学习更多有关widget的知识，请查看官方的<a href="https://flutter.io/tutorial/">widget tutorial</a>。</p>
 
@@ -168,8 +155,8 @@ dev_dependencies:
 
 <p>检验成果的时候到了，运行效果如下：</p>
 
-<p>  <img src="/images/custom/dart/sky/hello_world.png" />
-  <img src="/images/custom/dart/sky/hello_world_landscape.png" /></p>
+<p>  <img src="{{ root_url }}/images/custom/dart/sky/hello_world.png" />
+  <img src="{{ root_url }}/images/custom/dart/sky/hello_world_landscape.png" /></p>
 
 <p>运行效果没有什么惊喜，毕竟只是一个HelloWorld，等以后再写点更复杂的应用吧。</p>
 

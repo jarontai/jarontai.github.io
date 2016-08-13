@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Js | Dynamic Static]]></title>
   <link href="http://jarontai.github.io/blog/categories/js/atom.xml" rel="self"/>
   <link href="http://jarontai.github.io/"/>
-  <updated>2016-05-10T09:15:30+08:00</updated>
+  <updated>2016-08-13T08:12:10+08:00</updated>
   <id>http://jarontai.github.io/</id>
   <author>
     <name><![CDATA[JaronTai]]></name>
@@ -22,31 +22,20 @@
 
 <p>  以下是常见的jqeury jsonp请求的代码:</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">url</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;https://api.github.com/users/jarontai/repos&quot;</span><span class="o">&gt;</span><span class="nx">https</span><span class="o">:</span><span class="c1">//api.github.com/users/jarontai/repos&lt;/a&gt;&amp;rsquo;,</span>
-</span><span class='line'>    <span class="nx">type</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">GET</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span>
-</span><span class='line'>    <span class="nx">dataType</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">jsonp</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="c1">// dataType为jsonp</span>
-</span><span class='line'>    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;.</span><span class="nx">result</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">text</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>    <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">jqXHR</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;.</span><span class="nx">result</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">text</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">error</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">JSONP</span> <span class="nx">error</span><span class="o">!&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:js %}
+$.ajax({
+    url: &lsquo;<a href="https://api.github.com/users/jarontai/repos">https://api.github.com/users/jarontai/repos</a>&rsquo;,
+    type: &lsquo;GET&rsquo;,
+    dataType: &lsquo;jsonp&rsquo;, // dataType为jsonp
+    success: function(data) {
+        $(&lsquo;.result&rsquo;).text(JSON.stringify(data));
+    },
+    error: function(jqXHR, textStatus) {
+        $(&lsquo;.result&rsquo;).text(&lsquo;error&rsquo;);
+        alert(&lsquo;JSONP error!&rsquo;);
+    }
+});
+{% endcodeblock %}</p>
 
 <p>以上方法看似安全可行，但如果你把url参数改成某个不存在的地址，你会惊奇的发现：虽然浏览器终端报出错误(404或其他网络错误)，但你的error回调却没有被执行!?<br/><!-- more --></p>
 
@@ -55,9 +44,9 @@
 <p><br/></p>
 
 <p>这是为什么呢？我们仔细看看<a href="http://api.jquery.com/jquery.ajax/">ajax</a>方法的文档，在它error回调说明的最后有一句话：
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>Note: This handler is not called for cross-domain script and cross-domain JSONP requests. This is an Ajax Event.
-</span></code></pre></td></tr></table></div></figure></p>
+{% codeblock lang:html %}
+Note: This handler is not called for cross-domain script and cross-domain JSONP requests. This is an Ajax Event.
+{% endcodeblock %}</p>
 
 <p>这句话的意思是在调用跨域的脚本及JSONP请求时，这个错误回调将不会被执行，并强调指出这个error是一个 Ajax Event.</p>
 
@@ -73,33 +62,21 @@
 
 <p>有两个方法，方法一：添加timeout参数。</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">url</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;https://api.github.com/users/jarontai/repos&quot;</span><span class="o">&gt;</span><span class="nx">https</span><span class="o">:</span><span class="c1">//api.github.com/users/jarontai/repos&lt;/a&gt;&amp;rsquo;,</span>
-</span><span class='line'>    <span class="nx">type</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">GET</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span>
-</span><span class='line'>    <span class="nx">dataType</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">jsonp</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="c1">// dataType为jsonp</span>
-</span><span class='line'>    <span class="nx">timeout</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="c1">// 添加timeout参数     &lt;br/&gt;</span>
-</span><span class='line'>    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;.</span><span class="nx">result</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">text</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>    <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">jqXHR</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 此时textStatus为‘timeout’</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;.</span><span class="nx">result</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">text</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">error</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">JSONP</span> <span class="nx">error</span><span class="o">!&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:js %}
+$.ajax({
+    url: &lsquo;<a href="https://api.github.com/users/jarontai/repos">https://api.github.com/users/jarontai/repos</a>&rsquo;,
+    type: &lsquo;GET&rsquo;,
+    dataType: &lsquo;jsonp&rsquo;, // dataType为jsonp
+    timeout: 5000, // 添加timeout参数     <br/>
+    success: function(data) {
+        $(&lsquo;.result&rsquo;).text(JSON.stringify(data));
+    },
+    error: function(jqXHR, textStatus) { // 此时textStatus为‘timeout’
+        $(&lsquo;.result&rsquo;).text(&lsquo;error&rsquo;);
+        alert(&lsquo;JSONP error!&rsquo;);
+    }
+});
+{% endcodeblock %}</p>
 
 <p>添加timeout参数后，虽然JSONP请求本身的错误没有被捕获，但是最终会因为超时而执行error回调。</p>
 
@@ -113,31 +90,20 @@
 
 <p>以下为常见的jqeury jsonp插件调用代码:</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">jsonp</span><span class="p">({</span>
-</span><span class='line'>    <span class="nx">url</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;https://api.github.com/users/jarontai/repos&quot;</span><span class="o">&gt;</span><span class="nx">https</span><span class="o">:</span><span class="c1">//api.github.com/users/jarontai/repos&lt;/a&gt;&amp;rsquo;,</span>
-</span><span class='line'>    <span class="nx">callbackParameter</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">callback</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;,</span>
-</span><span class='line'>    <span class="nx">timeout</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">xOptions</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 错误发生时，立即执行</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;.</span><span class="nx">result</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">text</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">error</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">JSONP</span> <span class="nx">error</span><span class="o">!&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;.</span><span class="nx">result</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">text</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:js %}
+$.jsonp({
+    url: &lsquo;<a href="https://api.github.com/users/jarontai/repos">https://api.github.com/users/jarontai/repos</a>&rsquo;,
+    callbackParameter: &ldquo;callback&rdquo;,
+    timeout: 5000,
+    error: function(xOptions, textStatus) { // 错误发生时，立即执行
+        $(&lsquo;.result&rsquo;).text(&lsquo;error&rsquo;);
+        alert(&lsquo;JSONP error!&rsquo;);
+    },
+    success: function(data) {
+        $(&lsquo;.result&rsquo;).text(JSON.stringify(data));
+    }
+});
+{% endcodeblock %}</p>
 
 <p>使用jsonp插件，能够在错误发生时立即执行error回调，并且还附带如&#8217;数据过滤&#8217;等功能，更多详细介绍请查看它的主页。</p>
 
@@ -154,49 +120,29 @@
 
 <p>  以下应该是最常见的写法:</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// Get html</span>
-</span><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">/test&amp;rsquo;, function(html) {&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="c1">// Get json data</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">/api/test.json&amp;rsquo;, function(json) {&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="c1">// Get the JS</span>
-</span><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s1">&#39;/assets/test.js&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>
-</span><span class='line'>   <span class="c1">// display result</span>
-</span><span class='line'>   <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.result&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>   <span class="c1">// Add html to page</span>
-</span><span class='line'>   <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="p">});</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:js %}
+// Get html
+$.get(&lsquo;/test&rsquo;, function(html) {</p>
+
+<p>  // Get json data
+  $.getJSON(&lsquo;/api/test.json&rsquo;, function(json) {</p>
+
+<pre><code>// Get the JS
+$.getScript('/assets/test.js', function() {
+
+   // display result
+   $('.result').text(json.result);
+
+   // Add html to page
+   $('body').append(html);
+
+});
+</code></pre>
+
+<p>  });</p>
+
+<p>});
+{% endcodeblock %}</p>
 
 <p>以上方法虽然可行，但是如果请求很多，就会产生不易维护的多层嵌套代码，而且请求是一个完了才执行下一个，效率不高。<br/><!-- more --></p>
 
@@ -206,57 +152,32 @@
 
 <p>jQuery的ajax方法返回的对象都是<a href="http://api.jquery.com/category/deferred-object/">Deferred Object</a>, 可以使用<a href="http://api.jquery.com/jQuery.when/">when</a>方法来处理它们。在when方法中，多个异步请求是并行处理的，且它返回的是promise对象，可以使用then或者done/fail方法来处理返回结果。</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span>
-</span><span class='line'>  <span class="c1">// Get html</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">/test&amp;rsquo;),&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="c1">// Get json data</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">/api/test.json&amp;rsquo;),&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="c1">// Get JS</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">/assets/test.js&amp;rsquo;)&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data1</span><span class="p">,</span> <span class="nx">data2</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 成功回调，所有请求正确返回时被调用&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="c1">// All done</span>
-</span><span class='line'>  <span class="c1">// display result</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;.</span><span class="nx">result</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">result</span><span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="c1">// Add html to page</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">body</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">append</span><span class="p">(</span><span class="nx">data1</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">},</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// 错误回调，任意一个请求失败后将被立即执行&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">alert</span><span class="p">(</span> <span class="s1">&#39;$.when failed!&#39;</span> <span class="p">);</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:js %}
+$.when(
+  // Get html
+  $.get(&lsquo;/test&rsquo;),</p>
+
+<p>  // Get json data
+  $.get(&lsquo;/api/test.json&rsquo;),</p>
+
+<p>  // Get JS
+  $.getScript(&lsquo;/assets/test.js&rsquo;)</p>
+
+<p>).then(function(data1, data2) { // 成功回调，所有请求正确返回时被调用</p>
+
+<p>  // All done
+  // display result
+  $(&lsquo;.result&rsquo;).text(data2[0].result);</p>
+
+<p>  // Add html to page
+  $(&lsquo;body&rsquo;).append(data1[0]);</p>
+
+<p>}, function() { // 错误回调，任意一个请求失败后将被立即执行</p>
+
+<pre><code>alert( '$.when failed!' );
+</code></pre>
+
+<p>});{% endcodeblock %}</p>
 
 <p>如果所有请求正确返回，then方法的第一个回调将执行，如果有任意一个请求出错，第二个回调将被立即执行。需要注意的是每个请求的返回结果（如上所示的data1,data2），它们的类型是数组，里面的数据依次是: [ data, statusText, jqXHR ]。</p>
 
@@ -265,51 +186,29 @@
 <p><br/>
 还有一种情况，如果请求个数是不确定的，那前面的做法就不太好处理了。而解决方法也很简单：利用js function的apply方法，将请求放在数组里面处理即可。</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">reqs</span> <span class="o">=</span> <span class="p">[];</span>
-</span><span class='line'><span class="nx">reqs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="err">/test&amp;rsquo;));</span>
-</span><span class='line'><span class="nx">reqs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">api</span><span class="o">/</span><span class="nx">test</span><span class="p">.</span><span class="nx">json</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;));</span>
-</span><span class='line'><span class="c1">// 继续添加多个请求</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">hellip</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">hellip</span><span class="p">;</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">$</span><span class="p">,</span> <span class="nx">reqs</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data1</span><span class="p">,</span> <span class="nx">data2</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 成功回调，所有请求正确返回时被调用&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="c1">// All done</span>
-</span><span class='line'>  <span class="c1">// display result</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;.</span><span class="nx">result</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data2</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">result</span><span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="c1">// Add html to page</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">body</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">append</span><span class="p">(</span><span class="nx">data1</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">},</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// 错误回调，任意一个请求失败后将被立即执行&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">alert</span><span class="p">(</span> <span class="s1">&#39;$.when failed!&#39;</span> <span class="p">);</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:js %}
+var reqs = [];
+reqs.push($.get(&lsquo;/test&rsquo;));
+reqs.push($.get(&lsquo;api/test.json&rsquo;));
+// 继续添加多个请求
+&hellip;
+&hellip;</p>
+
+<p>$.when.apply($, reqs).then(function(data1, data2) { // 成功回调，所有请求正确返回时被调用</p>
+
+<p>  // All done
+  // display result
+  $(&lsquo;.result&rsquo;).text(data2[0].result);</p>
+
+<p>  // Add html to page
+  $(&lsquo;body&rsquo;).append(data1[0]);</p>
+
+<p>}, function() { // 错误回调，任意一个请求失败后将被立即执行</p>
+
+<pre><code>alert( '$.when failed!' );
+</code></pre>
+
+<p>});{% endcodeblock %}</p>
 ]]></content>
   </entry>
   
@@ -329,9 +228,9 @@
 <p>  在iframe resizer压缩包的js文件夹中，有两个文件：
   第一个js是：iframeResizer.min.js。这个js是要放在需要嵌入iframe的页面（parent）中，其调用方式如下（一般情况下你不需要传递任何参数即可实现高度自适应，详细参数请参考<a href="http://davidjbradshaw.github.io/iframe-resizer/#options">官网</a>）：</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">iframe</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;).</span><span class="nx">iFrameResize</span><span class="p">([{</span><span class="nx">log</span><span class="o">:</span> <span class="kc">true</span><span class="p">}]);</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:js %}
+$(&lsquo;iframe&rsquo;).iFrameResize([{log: true}]);
+{% endcodeblock %}</p>
 
 <p>  第二个js是：iframeResizer.contentWindow.min.js，它需要放到你的iframe页面(child)中去，注意只要引人，不需要代码配置。</p>
 
@@ -339,32 +238,21 @@
 
 <p>  接下来是设置iframe，需要注意的是width必须是百分比，scrolling设置为no（为了兼容性）。</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">&quot;http://yourserver.com/index.html&quot;</span> <span class="na">width=</span><span class="s">&quot;100%&quot;</span> <span class="na">scrolling=</span><span class="s">&quot;no&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock lang:html %}</p>
+
+<iframe src="http://yourserver.com/index.html" width="100%" scrolling="no"></iframe>
+
+
+<p>{% endcodeblock %}</p>
 
 <p>  当然，你也可以使用document.createElement来动态创建它。
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">iframe</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">iframe</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">src</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;http://yourserver.com/index.html&quot;</span><span class="o">&gt;</span><span class="nx">http</span><span class="o">:</span><span class="c1">//yourserver.com/index.html&lt;/a&gt;&amp;rsquo;);</span>
-</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">width</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="mi">100</span><span class="o">%&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">scrolling</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">no</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span>
-</span><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">iframe</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure></p>
+{% codeblock lang:js %}
+var iframe = document.createElement(&lsquo;iframe&rsquo;);
+iframe.setAttribute(&lsquo;src&rsquo;, &lsquo;<a href="http://yourserver.com/index.html">http://yourserver.com/index.html</a>&rsquo;);
+iframe.setAttribute(&lsquo;width&rsquo;, &lsquo;100%&rsquo;);
+iframe.setAttribute(&lsquo;scrolling&rsquo;, &lsquo;no&rsquo;);
+document.body.appendChild(iframe);
+{% endcodeblock %}</p>
 
 <hr />
 
@@ -386,38 +274,26 @@
 <p>  使用cnpm的镜像服务主要有两种方式，第一种是指定npm的registry参数，使npm去镜像地址下载依赖；第二种方式是使用cnpm提供的客户端来代替npm，即直接使用cnpm指令来安装/更新依赖。我个人更喜欢第二种方式，因为它不需要每次都写registry参数，也不用修改npm本身的配置，非常方便。</p>
 
 <p>  第一种方式
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>// 添加registry参数指向镜像地址
-</span><span class='line'>npm install -g cordova <span class="p">&amp;</span>ndash<span class="p">;</span><span class="nv">registry</span><span class="o">=</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://r.cnpmjs.org&quot;</span>&gt;http://r.cnpmjs.org&lt;/a&gt;&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;// 或者直接修改registry配置，默认的地址是&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://registry.npmjs.org/%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%BA%86npm%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%89&quot;</span>&gt;https://registry.npmjs.org/%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%BA%86npm%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%89&lt;/a&gt;
-</span><span class='line'>npm config <span class="nb">set </span>registry &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://r.cnpmjs.org&quot;</span>&gt;http://r.cnpmjs.org&lt;/a&gt;
-</span></code></pre></td></tr></table></div></figure></p>
+{% codeblock lang:sh %}
+// 添加registry参数指向镜像地址
+npm install -g cordova &ndash;registry=<a href="http://r.cnpmjs.org">http://r.cnpmjs.org</a></p>
+
+<p>// 或者直接修改registry配置，默认的地址是<a href="https://registry.npmjs.org/%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%BA%86npm%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%89">https://registry.npmjs.org/%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%BA%86npm%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%89</a>
+npm config set registry <a href="http://r.cnpmjs.org">http://r.cnpmjs.org</a>
+{% endcodeblock %}</p>
 
 <p>  第二种方式
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>// 安装cnpm客户端
-</span><span class='line'>npm install -g cnpm <span class="p">&amp;</span>ndash<span class="p">;</span><span class="nv">registry</span><span class="o">=</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://r.cnpmjs.org&quot;</span>&gt;http://r.cnpmjs.org&lt;/a&gt;&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;// 使用cnpm代替npm（npm依然可用）
-</span><span class='line'>cnpm install -g lodash &lt;br/&gt;
-</span><span class='line'>cnpm update -g lodash
-</span><span class='line'>cnpm uninstall -g lodash
-</span><span class='line'>cnpm cache clean
-</span><span class='line'><span class="p">&amp;</span>hellip<span class="p">;&amp;</span>hellip<span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></p>
+{% codeblock lang:sh %}
+// 安装cnpm客户端
+npm install -g cnpm &ndash;registry=<a href="http://r.cnpmjs.org">http://r.cnpmjs.org</a></p>
+
+<p>// 使用cnpm代替npm（npm依然可用）
+cnpm install -g lodash <br/>
+cnpm update -g lodash
+cnpm uninstall -g lodash
+cnpm cache clean
+&hellip;&hellip;
+{% endcodeblock %}</p>
 
 <p> 使用cnpm安装依赖包，安装速度及成功率比以前使用npm时要高很多了，这可真要感谢cnpm的维护者们。</p>
 ]]></content>

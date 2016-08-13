@@ -1,112 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>http://jarontai.github.io/blog/2016/05/08/angular2-dart-quick-start/</loc>
-<lastmod>2016-05-08T09:27:47+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2015/09/06/dartlang-flutter-quick-start/</loc>
-<lastmod>2015-09-06T17:05:16+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/</loc>
-<lastmod>2015-08-21T14:24:01+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2015/06/20/dart-notes-2/</loc>
-<lastmod>2015-06-20T10:53:00+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2015/06/06/dart-notes-1/</loc>
-<lastmod>2015-06-06T20:50:39+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2015/05/12/people-behind-dart/</loc>
-<lastmod>2015-05-12T11:23:39+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2015/01/13/nodejs-xlsx-and-mysql/</loc>
-<lastmod>2015-01-13T09:10:55+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start/</loc>
-<lastmod>2014-12-18T12:07:36+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2014/11/28/sublime-jshint/</loc>
-<lastmod>2014-11-28T09:46:58+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2014/11/16/sublime-editorconfig/</loc>
-<lastmod>2014-11-16T21:28:19+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2014/10/02/half-year-job-review/</loc>
-<lastmod>2014-10-02T21:58:36+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2014/08/28/jquery-jsonp-error-process/</loc>
-<lastmod>2014-08-28T16:03:18+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2014/08/22/manage-multiple-ajax/</loc>
-<lastmod>2014-08-22T21:30:18+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2014/07/25/use-iframe-resizer/</loc>
-<lastmod>2014-07-25T20:45:39+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2014/05/19/use-cnpm/</loc>
-<lastmod>2014-05-19T12:38:39+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/2014/05/05/hello-world/</loc>
-<lastmod>2014-05-05T14:47:04+08:00</lastmod>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/archives/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/qi-ta/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/nodejs/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/js/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/html5/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/jquery/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/gong-ju/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/sublime/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/fan-yi/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/dart/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/dart-up-and-running/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/dartlangxue-xi-bi-ji/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/flutter/</loc>
-</url>
-<url>
-<loc>http://jarontai.github.io/blog/categories/angular2/</loc>
-</url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2016/05/08/angular2-dart-quick-start/</loc>
+    <lastmod>2016-05-08T09:27:47+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2015/09/06/dartlang-flutter-quick-start/</loc>
+    <lastmod>2015-09-06T17:05:16+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2015/08/21/dart-sdk-auto-installtion/</loc>
+    <lastmod>2015-08-21T14:24:01+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2015/06/20/dart-notes-2/</loc>
+    <lastmod>2015-06-20T10:53:00+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2015/06/06/dart-notes-1/</loc>
+    <lastmod>2015-06-06T20:50:39+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2015/05/12/people-behind-dart/</loc>
+    <lastmod>2015-05-12T11:23:39+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2015/01/13/nodejs-xlsx-and-mysql/</loc>
+    <lastmod>2015-01-13T09:10:55+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2014/12/18/translation-dart-quick-start/</loc>
+    <lastmod>2014-12-18T12:07:36+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2014/11/28/sublime-jshint/</loc>
+    <lastmod>2014-11-28T09:46:58+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2014/11/16/sublime-editorconfig/</loc>
+    <lastmod>2014-11-16T21:28:19+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2014/10/02/half-year-job-review/</loc>
+    <lastmod>2014-10-02T21:58:36+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2014/08/28/jquery-jsonp-error-process/</loc>
+    <lastmod>2014-08-28T16:03:18+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2014/08/22/manage-multiple-ajax/</loc>
+    <lastmod>2014-08-22T21:30:18+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2014/07/25/use-iframe-resizer/</loc>
+    <lastmod>2014-07-25T20:45:39+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2014/05/19/use-cnpm/</loc>
+    <lastmod>2014-05-19T12:38:39+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/2014/05/05/hello-world/</loc>
+    <lastmod>2014-05-05T14:47:04+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/blog/archives/</loc>
+    <lastmod>2016-08-13T08:12:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://jarontai.github.io/</loc>
+    <lastmod>2016-08-13T08:12:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 </urlset>
